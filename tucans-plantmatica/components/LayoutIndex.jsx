@@ -23,7 +23,7 @@ export default function LayoutIndex({ children }) {
                                     <a><h2>{`© 2021 Tucan's Software`}</h2></a>
                                 </td>
                                 <td className={styles.footy_t_2}>
-                                    <Link href="https://github.com/addRian0-0/5IV9-PA-Tucanes-del-Software" passHref>
+                                    <Link href="https://github.com/ThinKreations/PlantMatica" passHref>
                                         <a target="_blank">
                                         <Image src={git_logo} className={styles.git_logo} width={'50%'} height={'50%'}/>
                                         </a>
