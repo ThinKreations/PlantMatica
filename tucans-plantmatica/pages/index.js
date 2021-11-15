@@ -17,8 +17,8 @@ export default function Index() {
             </font>
             <center>
               <div className={styles.container_3}>
-                <h3>{`Bienvenido a PlantMatica, un sitio ideal para conocer más sobre herbolaria en México.<br /><br />
-                  Haznos saber qué buscas y la información llegará volando.`}</h3>
+                <h3>{`Bienvenido a PlantMatica, un sitio ideal para conocer más sobre herbolaria en México.`}<br /><br />
+                  {`Haznos saber qué buscas y la información llegará volando.`}</h3>
                 <center>
                   <br />
                   <div className={styles.container_4}>
@@ -46,7 +46,7 @@ export default function Index() {
                 <br />
                 <h1>{`Nuestro equipo`}</h1>
                 <h3>{`Tucan's Software está conformado por 5 integrantes:`}</h3>
-                <h4><Link href="https://github.com/Kiramasu2003" className={styles.nombres} passHref><a target="_blank">{`Arce Roldán Sergio Elías`}</a></Link>, <Link href="https://github.com/Rafael260401" className={styles.nombres} passHref><a target="_blank">{`Castañeda Rodriguez Rafael Gil`}</a></Link>, <Link href="https://github.com/addRian0-0" className={styles.nombres} passHref><a target="_blank">{`Flores Zamora Ithan Adrián`}</a></Link>, <Link href="https://github.com/AlfredoGV77" className={styles.nombres} passHref><a target="_blank">{`Gutiérrez Villalobos José Alfredo`}</a></Link> y <Link href="https://github.com/ThinKreations" className={styles.nombres} passHref><a target="_blank">{`Nápoles Munguía José de Jesús`}</a></Link>; siendo todos unos desarrolladores con experiencia.</h4>
+                <h4><Link href="https://github.com/Kiramasu2003"passHref><a target="_blank" className={styles.nombres} >{`Arce Roldán Sergio Elías`}</a></Link>, <Link href="https://github.com/Rafael260401" passHref><a target="_blank" className={styles.nombres} >{`Castañeda Rodriguez Rafael Gil`}</a></Link>, <Link href="https://github.com/addRian0-0" passHref><a target="_blank" className={styles.nombres} >{`Flores Zamora Ithan Adrián`}</a></Link>, <Link href="https://github.com/AlfredoGV77" passHref><a target="_blank" className={styles.nombres} >{`Gutiérrez Villalobos José Alfredo`}</a></Link> y <Link href="https://github.com/ThinKreations" passHref><a target="_blank" className={styles.nombres} >{`Nápoles Munguía José de Jesús`}</a></Link>; siendo todos unos desarrolladores con experiencia.</h4>
                 <br />
 
                 <br />
