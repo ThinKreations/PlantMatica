@@ -20,7 +20,7 @@ export default function LayoutIndex({ children }) {
                         <table className={styles.footy_t}>
                             <tbody><tr>
                                 <td className={styles.footy_t_1}>
-                                    <a><h2>© 2021 Tucan's Software</h2></a>
+                                    <a><h2>{`© 2021 Tucan's Software`}</h2></a>
                                 </td>
                                 <td className={styles.footy_t_2}>
                                     <Link href="https://github.com/addRian0-0/5IV9-PA-Tucanes-del-Software" passHref>

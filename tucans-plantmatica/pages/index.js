@@ -13,17 +13,17 @@ export default function Index() {
         <font size={4} face="Work Sans">
           <div className={styles.container_1}>
             <font size={6} face="Work Sans" color="007200">
-              <center><h1>Tucan's PlantMatica</h1></center>
+              <center><h1>{`Tucan's PlantMatica`}</h1></center>
             </font>
             <center>
               <div className={styles.container_3}>
-                <h3>Bienvenido a PlantMatica, un sitio ideal para conocer más sobre herbolaria en México.<br /><br />
-                  Haznos saber qué buscas y la información llegará volando.</h3>
+                <h3>{`Bienvenido a PlantMatica, un sitio ideal para conocer más sobre herbolaria en México.<br /><br />
+                  Haznos saber qué buscas y la información llegará volando.`}</h3>
                 <center>
                   <br />
                   <div className={styles.container_4}>
-                    <Link href="./session/CrearCuenta"><button className={styles.btnSubmit} type="submit"><h3>Crear Cuenta</h3></button></Link>
-                    <Link href="./session/IniciarSesion"><button className={styles.btnSubmit} type="submit"><h3>Iniciar Sesión</h3></button></Link>
+                    <Link href="./session/CrearCuenta"><button className={styles.btnSubmit} type="submit"><h3>{`Crear Cuenta`}</h3></button></Link>
+                    <Link href="./session/IniciarSesion"><button className={styles.btnSubmit} type="submit"><h3>{`Iniciar Sesión`}</h3></button></Link>
                   </div>
                   <br />
                 </center><br />
