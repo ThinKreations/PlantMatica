@@ -141,7 +141,7 @@ export default function CrearCuenta() {
                     <div>
                         <center><TerminosYCondiciones /></center>
                     </div><br />
-                    <button type="submit" className={styles.btnSubmit} type="submit">Crear Cuenta</button>
+                    <button type="submit" className={styles.btnSubmit} >Crear Cuenta</button>
                 </form>
             </LayoutIndex>
         </div>
