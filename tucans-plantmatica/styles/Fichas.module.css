@@ -37,12 +37,14 @@
     border-radius: 4px;
     transition: 0.3s;
     color: white;
-    background-color: var(--hover-color);
+    background: linear-gradient(to right, var(--hover-color), var(--rightColor));
+    background-attachment: fixed;
 }
 
 .etiquetas:hover{
     transform: scale(1.05, 1.05);
     background-color: var(--hover-color);
+
     color: white;
 }
 

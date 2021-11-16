@@ -54,7 +54,7 @@ export default function Menusup({ children }) {
                             <Link href="/">
                                 <a>
                                     <button className={styles.menuButton} onClick={handleToggle}>
-                                        <font face="Work Sans" color="white"><h3>Cerrar Sesión</h3></font>
+                                        <font face="Work Sans" color="white"><h3>{`Cerrar Sesión`}</h3></font>
                                     </button>
                                 </a>
                             </Link>
@@ -78,7 +78,7 @@ export default function Menusup({ children }) {
                         <table className={styles2.footy_t}>
                             <tbody><tr>
                                 <td className={styles2.footy_t_1}>
-                                    <a><h2>© 2021 Tucan's Software</h2></a>
+                                    <a><h2>{`© 2021 Tucan's Software`}</h2></a>
                                 </td>
                                 <td className={styles2.footy_t_2}>
                                     <Link href="https://github.com/addRian0-0/5IV9-PA-Tucanes-del-Software" passHref>

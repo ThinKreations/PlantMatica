@@ -16,6 +16,11 @@ html, body {
   --save-color: rgb(98, 98, 236);
   --purple-color: rgb(145, 25, 161);
 
+  /* Variables para degradados de etiquetas */
+
+  --leftColor:var(--main-color);
+  --rightColor:rgb(201, 170, 87);
+
   /* Variables globales (Formulario) - adrian */
   /* --text-color: rgb(14, 123, 67);
   --main-color: #0E7B43;

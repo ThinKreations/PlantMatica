@@ -72,6 +72,8 @@ export default function MostrarFicha() {
                                     <p className={styles.etiquetas} > {`malestar estomacal`} </p>
                                     <p className={styles.etiquetas} > {`enfermedades respiratorias`} </p>
                                     <p className={styles.etiquetas} > {`diarrea`} </p>
+                                    
+                                    
                                 </div>
                             </CardContent>
                             <CardActions>
