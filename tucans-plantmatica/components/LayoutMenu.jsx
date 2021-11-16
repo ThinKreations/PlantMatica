@@ -9,7 +9,7 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import styles2 from "../styles/Home.module.css";
 
-export default function menusup({ children }) {
+export default function Menusup({ children }) {
 
     const [open, setOpen] = React.useState(false);
     const handleClose = () => {

@@ -36,6 +36,8 @@
     margin: 5px;
     border-radius: 4px;
     transition: 0.3s;
+    color: white;
+    background-color: var(--hover-color);
 }
 
 .etiquetas:hover{
