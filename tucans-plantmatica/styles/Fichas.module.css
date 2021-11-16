@@ -1,0 +1,336 @@
+.fondo{
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.85) 100%), url(../src/head_bg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.tableFichas{
+    overflow-y: auto;
+}
+
+.titleficha{
+    color: var(--hover-color);
+    font-size: 26px;
+}
+
+.nombreC{
+    color: var(--main-color);
+    font-size: 22px;
+}
+
+.textFich{
+    font-size: 18px;
+}
+
+.etiquetas{
+    display: inline-block;
+    color: var(--main-color);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.etiquetas:hover{
+    transform: scale(1.05, 1.05);
+    background-color: var(--hover-color);
+    color: white;
+}
+
+.btnLinkFicha{
+    color: var(--main-color);
+    transition: 0.3s;
+    border: 1px solid var(--main-color);
+    border-radius: 4px;
+    background-color: white;
+    padding: 12px;
+    font-size: 18px;
+}
+
+.btnLinkFicha:hover{
+    background-color: var(--hover-color);
+    color: white;
+    transform: scale(1.05, 1.05);
+}
+
+
+/* Ficha unica, mostrar una unica ficha pues  */
+
+.containerFicha{
+    margin: 32px;
+    background-color: var(--bg-color-lg);
+}
+
+.btnguardar{
+    padding: 12px;
+    margin: 8px;
+    font-size: 18px;
+    color: var(--save-color);
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid var(--save-color);
+    transition: 0.3s;
+}
+
+.btnguardar:hover{
+  transform: scale(1.05, 1.05);
+  background-color: var(--save-color);
+  color: white;
+}
+
+.btnReporte{
+    padding: 12px;
+    margin: 8px;
+    font-size: 18px;
+    color: var(--danger-color);
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid var(--danger-color);
+    transition: 0.3s;
+}
+
+.btnReporte:hover{
+    transform: scale(1.05, 1.05);
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.btnSolicitud{
+    padding: 12px;
+    margin: 8px;
+    font-size: 18px;
+    color: var(--main-color);
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid var(--main-color);
+    transition: 0.3s;
+}
+
+.btnSolicitud:hover{
+    transform: scale(1.05, 1.05);
+    background-color: var(--hover-color);
+    color: white;
+}
+
+.btnCalificar{
+    padding: 12px;
+    margin: 8px;
+    font-size: 18px;
+    color: var(--purple-color);
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid var(--purple-color);
+    transition: 0.3s;
+}
+
+.btnCalificar:hover{
+    transform: scale(1.05, 1.05);
+    background-color: var(--purple-color);
+    color: white;
+}
+
+.division{
+    color: var(--hover-secondary-color);
+}
+
+.titlefichaU{
+    color: rgb(12, 82, 12);
+    font-size: 24px;
+    display: inline-block;
+    margin: 5px;
+}
+
+.textU{
+    font-size: 24px;
+    display: inline-block;
+    margin: 5px;
+}
+
+.titlefichaU2{
+    color: rgb(12, 82, 12);
+    font-size: 20px;
+    display: inline-block;
+    margin: 5px;
+}
+
+.textU2{
+    font-size: 20px;
+    display: inline-block;
+    line-height: 24px;
+    margin: 5px;
+}
+
+.textD{
+    color: rgb(12, 82, 12);
+    font-size: 20px;
+    margin: 5px;
+}
+
+.lista{
+    padding-left: 35px;
+    font-size: 20px;
+}
+
+.fuentes{
+    border-radius: 4px;
+    padding: 16px;
+    color: rgb(76, 76, 233);
+    font-size: 18px;
+}
+
+.links{
+    list-style: none;
+    list-style-type: none;
+}
+
+/* Campos de texto */
+
+.txtEtiquetas{
+    margin-top: 5px;
+    background-color: #f0f0f0;
+    border: none;
+    width: 50%;
+    height: 26px;
+    resize: none;
+    padding: 5px;
+    transition:0.2s;
+}
+
+    .txtEtiquetas:hover{
+        background-color: #dfdfdf;
+    }
+
+    .txtEtiquetas:focus{
+        outline: none;
+        border-radius: 10px;
+        border:1px rgb(0, 0, 0)
+    }
+
+    .txtEtiquetas:active {
+        outline: none;
+        border-radius: 10px;
+        border:1px rgb(0, 0, 0)
+    }
+
+.txtNombres{
+    margin-top: 5px;
+    background-color: #f0f0f0;
+    border: none;
+    width: 30%;
+    min-width: max-content;
+    height: 25px;
+    resize: none;
+    padding: 5px;
+    transition:0.2s;
+}
+
+    .txtNombres:hover{
+        background-color: #dfdfdf;
+    }
+
+    .txtNombres:focus{
+        outline: none;
+        border-radius: 10px;
+        border:1px rgb(0, 0, 0)
+    }
+
+    .txtNombres:active {
+        outline: none;
+        border-radius: 10px;
+        border:1px rgb(0, 0, 0)
+    }
+
+.txtBody{
+    margin-top: 5px;
+    background-color: #f0f0f0;
+    border: none;
+    width: 100%;
+    height: 150px;
+    resize: none;
+    padding: 5px;
+    transition:0.2s;    
+}
+
+    .txtBody:hover{
+        background-color: #dfdfdf;
+    }
+
+    .txtBody:focus{
+        outline: none;
+        border-radius: 10px;
+        border:1px rgb(0, 0, 0)
+    }
+
+    .txtBody:active {
+        outline: none;
+        border-radius: 10px;
+        border:1px rgb(0, 0, 0)
+    }
+
+.txtRef{
+    margin-top: 5px;
+    background-color: #f0f0f0;
+    border: none;
+    width: 75%;
+    height: 60px;
+    resize: none;
+    padding: 5px;
+    transition:0.2s;    
+}
+
+    .txtRef:hover{
+        background-color: #dfdfdf;
+    }
+
+    .txtRef:focus{
+        outline: none;
+        border-radius: 10px;
+        border:1px rgb(0, 0, 0)
+    }
+
+    .txtRef:active {
+        outline: none;
+        border-radius: 10px;
+        border:1px rgb(0, 0, 0)
+    }
+    
+.inputImg{
+    margin-top: 5px;
+    background-color: #f0f0f0;
+    border: none;
+    width: 133px;
+    
+    resize: none;
+    
+    transition:0.2s;    
+}
+
+    
+
+    .inputImg:hover{
+        background-color: #dfdfdf;
+        padding: 5px;
+        width: 143px;
+    }
+
+    .inputImg:hover{
+        outline: none;
+        
+        border:1px rgb(0, 0, 0)
+    }
+
+    .inputImg:active {
+        outline: none;
+        background-color: #ffffff;
+        border-radius: 2.5px;
+        border:1px solid  black;
+        border:1px rgb(0, 0, 0)
+    }
+    

@@ -1,13 +1,30 @@
 html, body {
+  /* Variables globales, primera paleta */
+  --rojo-color: #F3533A;
+  --naranja-color: #FA9F42;
+  --verde-color: #8AD879;
+  --azul-color: #5ACFC9;
+
+  /* Variables segunda paleta */
+  --text-color: #5A9539;
+  --main-color: #63A43F;
+  --hover-color: #77BE5C;
+
+  --hover-secondary-color: rgba(53, 114, 102, 0.2);
+  --danger-color: rgb(216, 24, 24);
+  --bg-color-lg: #e6fada;
+  --save-color: rgb(98, 98, 236);
+  --purple-color: rgb(145, 25, 161);
+
   /* Variables globales (Formulario) - adrian */
-  --text-color: rgb(14, 123, 67);
+  /* --text-color: rgb(14, 123, 67);
   --main-color: #0E7B43;
   --hover-color: rgb(34, 119, 85);
   --hover-secondary-color: rgba(53, 114, 102, 0.2);
   --danger-color: rgb(216, 24, 24);
   --bg-color-lg: #e6fada;
   --save-color: rgb(98, 98, 236);
-  --purple-color: rgb(145, 25, 161);
+  --purple-color: rgb(145, 25, 161); */
   background-image: linear-gradient(to top, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.85) 100%), url(../src/head_bg.jpg);
   background-size: cover;
   background-attachment: fixed;

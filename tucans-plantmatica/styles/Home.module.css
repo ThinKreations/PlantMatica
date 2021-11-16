@@ -67,7 +67,7 @@
 /* .HEAD_0 es el Header del INDEX, mientras que el .HEAD será el general */
 
 .head_0 {
-  background-image: linear-gradient(to top, rgba(65, 180, 65, 0.9) 0%, rgba(25, 110, 25, 0.85) 100%), url(../src/head_bg.jpg);
+  background-image: linear-gradient(to top, rgba(99, 164, 63, 0.9) 0%, rgba(90, 149, 57, 0.85) 100%), url(../src/head_bg.jpg);
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -383,7 +383,7 @@
 /*Footer*/
 
 .footy {
-  background-image: linear-gradient(to top, rgba(46, 33, 23, 0.8) 0%, rgba(48, 31, 18, 0.8) 100%), url(../src/head_bg.jpg);
+  background-image: linear-gradient(to top, rgba(56, 93, 35, 0.8) 0%, rgba(51, 85, 32, 0.8) 100%), url(../src/head_bg.jpg);
   background-size: cover;
   background-attachment: fixed;
   background-position: center;

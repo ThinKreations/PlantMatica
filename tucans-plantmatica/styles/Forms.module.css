@@ -1,0 +1,83 @@
+.root{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    display: grid;
+}
+
+.title{
+    color: var(--text-color);
+    font-size: 32px;
+}
+
+.text{
+    color: var(--main-color);
+    font-size: 22px;
+}
+
+.cont_input{
+    margin: 16px;
+}
+
+.input{
+    width: 100%;
+    height: 35px;
+    margin-top: 5px;
+    transition: 0.3s;
+    border: 0;
+    font-size: 18px;
+    outline: none;
+    border-bottom: 3px solid var(--main-color);
+    border-radius: 4px 4px 0 0;
+}
+
+.input:focus{
+    /* background-color: var(--hover-secondary-color); */
+    transform: scale(1.05, 1.05);
+    border-bottom: 3px solid var(--main-color);
+}
+
+.btnSubmit{
+    margin: 16px;
+    border-radius: 4px;
+    height: 37px;
+    font-size: 18px;
+    color: white;
+    align-items: center;
+    background-color: var(--main-color);
+    border: 0;
+    transition: 0.3s;
+}
+
+.btnGoogle{
+    margin: 16px;
+    border-radius: 4px;
+    height: 35px;
+    font-size: 18px;
+    color: white;
+    display: flex;
+    align-items: center;
+    background-color: var(--main-color);
+    border: 0;
+    transition: 0.3s;
+}
+
+.btnSubmit:hover, .btnGoogle:hover{
+    cursor: pointer;
+    background-color: var(--hover-color);
+    transform: scale(1.05, 1.05);
+}
+
+.errors{
+    color: red;
+}
+
+.link{
+    color: black;
+    transition: 0.3s;
+}
+
+.link:hover{
+    color: var(--text-color);
+    transform: scale(1.05, 1.05);
+}

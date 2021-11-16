@@ -1,0 +1,17 @@
+.form_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    border: rgb(230, 230, 230) 2px solid;
+    border-radius: 4px;
+    padding: 16px;
+    margin: 10px;
+    box-shadow: 2px 2px 2px 2px rgb(179, 179, 179);
+}
+
+.h2{
+    color: rgb(14, 105, 14);
+}
