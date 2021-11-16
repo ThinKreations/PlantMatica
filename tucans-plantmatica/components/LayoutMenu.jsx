@@ -27,7 +27,7 @@ export default function Menusup({ children }) {
                 <font face="Work Sans" color="white">
                     <div className={styles.head}>
                         <div>
-                            <br/><Link href="menu"><Image src={logo_1_w} width={'188%'} height={'70%'} /></Link>
+                            <br/><Link href="#"><Image src={logo_1_w} width={'188%'} height={'70%'} /></Link>
                         </div>
                         <div className={styles.botonera}>
                             <Link href="/fichas">
