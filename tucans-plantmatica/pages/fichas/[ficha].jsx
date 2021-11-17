@@ -23,21 +23,7 @@ export default function Ficha({ ficha }) {
             <div className={styles.containerFicha}>
                 <Card variant="outlined" className={styles.base}>
                     <CardContent>
-                        <p className={styles.titleficha}>{`Etiquetas: `}</p>
-
-                        {
-                            ficha.etiquetas.map(e => {
-                                return <p key={e} className={styles.etiquetas} > {e} </p>
-                            })
-                        }
-
-                        <hr className={styles.division} />
-                        <p className={styles.textU}>{`Nombre común: `}</p>
-                        <p className={styles.titlefichaU}>{ficha.nombre_comun}</p>
-                        <hr className={styles.division} />
-                        <p className={styles.textU}>{`Nombre cientifico: `}</p>
-                        <p className={styles.titlefichaU}>{ficha.nombre_cientifico}</p>
-                        <hr className={styles.division} />
+                        
 
                         <p className={styles.textU2}>{`Origen y distribución: `}</p>
                         {
@@ -103,6 +89,22 @@ export default function Ficha({ ficha }) {
                                 }
                             </ul>
                         </div>
+                        <hr className={styles.division} />
+
+                        <p className={styles.titleficha}>{`Etiquetas: `}</p>
+
+                        {
+                            ficha.etiquetas.map(e => {
+                                return <p key={e} className={styles.etiquetas} > {e} </p>
+                            })
+                        }
+
+                        <hr className={styles.division} />
+                        <p className={styles.textU}>{`Nombre común: `}</p>
+                        <p className={styles.titlefichaU}>{ficha.nombre_comun}</p>
+                        <hr className={styles.division} />
+                        <p className={styles.textU}>{`Nombre cientifico: `}</p>
+                        <p className={styles.titlefichaU}>{ficha.nombre_cientifico}</p>
                         <hr className={styles.division} />
 
                         <Box sx={{ width: 300 }}>
