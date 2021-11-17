@@ -41,7 +41,7 @@ export default function Menusup({ children }) {
                                 <div className={styles.dropdownContent}>
                                     <Link href="">{`Editadas`}</Link>
                                     <Link href="">{`Guardadas`}</Link>
-                                    <Link href="/">{`Agregar`}</Link>
+                                    <Link href="/fichas/agregar">{`+ Agregar Ficha`}</Link>
                                 </div>
                             </div>
 
@@ -50,17 +50,10 @@ export default function Menusup({ children }) {
                                 <div className={styles.dropdownContent}>
                                     <Link href="">{`Mi Cuenta`}</Link>
                                     <Link href="">{`Configuración`}</Link>
-                                    <Link href="/">{`Cerrar Sesión`}</Link>
+                                    <Link href="/" >{`Cerrar Sesión`}</Link>
                                 </div>
                             </div>
                             
-                            <Backdrop
-                                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-                                open={open}
-                                onClick={handleClose}
-                            >
-                                <CircularProgress color="inherit" />
-                            </Backdrop>
                         </div>
                         </font>
                     </div>
