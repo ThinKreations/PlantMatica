@@ -68,9 +68,10 @@
 }
 */
 
-/*Dropdown*/
+/* Dropdown */
 
 /* Dropdown (Botón) */
+
 .dropbtn {
 
     background-image: linear-gradient(to top, rgba(102, 168, 66, 0.9) 0%, rgba(102, 165, 65, 0.85) 100%), url(../src/head_bg.jpg);
@@ -86,15 +87,17 @@
     height: 50px;
     border: none;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 1s;
 }
   
     /* Mostrar el contenido del dropdown */
+
     .dropdown:hover .dropdownContent {
         display: block;
     }
 
     /* Cambiar el color del botón principal */
+    
     .dropdown:hover .dropbtn {
         background-image: linear-gradient(to top, rgba(137, 206, 100, 0.9) 0%, rgba(137, 206, 100, 0.9) 100%), url(../src/head_bg.jpg);
         background-size: cover;
@@ -106,13 +109,15 @@
     }
 
   /* Posicionar el <div> */
+
 .dropdown {
     position: relative;
     display: inline-block;
-    transition: 0.3s;
+    transition: 1s;
 }
 
 /* Dropdown (Contenido) */
+
 .dropdownContent {
     display: none;
     position: absolute;
@@ -125,6 +130,7 @@
 }
 
 /* Links del dropdown */
+
 .dropdownContent a {
     color: black;
     padding: 12px 16px;
@@ -134,6 +140,7 @@
 }
 
 /* Cambiar el color de los links dropdown con hover */
+
 .dropdownContent a:hover {
     background-color: #f1f1f1;
     
@@ -146,5 +153,10 @@
 .logo1{
 
     margin-top: 18px;
+    transition: 0.3s;
 
 }
+
+    .logo1:hover{
+        transform: translate(10px, 0px);
+    }
