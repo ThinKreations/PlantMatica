@@ -32,7 +32,7 @@ export default function Menusup({ children }) {
                         <font face="Work Sans" color="white">
                         <div className={styles.botonera}>
                             <div className={styles.dropdown}>
-                            <button className={styles.dropbtn}><font face="Work Sans" color="white"><b>{`Inicio`}</b></font></button>
+                            <Link href="/fichas"><button className={styles.dropbtn}><font face="Work Sans" color="white"><b>{`Inicio`}</b></font></button></Link>
                             
                             </div>
                             <div className={styles.dropdown}>
