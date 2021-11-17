@@ -88,17 +88,21 @@
     border: none;
     cursor: pointer;
     transition: 1s;
+    
 }
   
     /* Mostrar el contenido del dropdown */
 
     .dropdown:hover .dropdownContent {
+
         display: block;
+
     }
 
     /* Cambiar el color del botón principal */
     
     .dropdown:hover .dropbtn {
+
         background-image: linear-gradient(to top, rgba(137, 206, 100, 0.9) 0%, rgba(137, 206, 100, 0.9) 100%), url(../src/head_bg.jpg);
         background-size: cover;
         background-attachment: fixed;
@@ -111,14 +115,17 @@
   /* Posicionar el <div> */
 
 .dropdown {
+
     position: relative;
     display: inline-block;
     transition: 1s;
+
 }
 
 /* Dropdown (Contenido) */
 
 .dropdownContent {
+
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -127,11 +134,13 @@
     z-index: 1;
     transform: translate(-18px,0);
     transition: 0.3s;
+
 }
 
 /* Links del dropdown */
 
 .dropdownContent a {
+
     color: black;
     padding: 12px 16px;
     text-decoration: none;
