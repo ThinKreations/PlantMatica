@@ -9,9 +9,9 @@ export default function Index() {
     return (
         <div>
             <MainHead tituloPestana="Inicio" />
-            <LayoutIndex>
+            <LayoutMenu/>
                 <MostrarFicha/>
-            </LayoutIndex>
+            
         </div>
     )
 }
