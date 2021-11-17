@@ -22,7 +22,7 @@ function valuetext(value) {
 export default function FichaUnica() {
     return (
         <div className={styles.containerFicha}>
-            <Card variant="outlined">
+            <Card variant="outlined" className={styles.base}>
                 <CardContent>
                     <p className={styles.titleficha}>{`Etiquetas: `}</p>
                     <p className={styles.etiquetas} > {`apio`} </p>

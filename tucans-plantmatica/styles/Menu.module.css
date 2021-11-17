@@ -29,7 +29,9 @@
 }
 
 .botonera {
+    
     margin-top: 15px;
+    width: fit-content;
     display: inline-flexbox;
     justify-content: space-between;
 }

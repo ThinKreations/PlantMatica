@@ -65,11 +65,18 @@
 }
 
 
+
 /* Ficha unica, mostrar una unica ficha pues  */
 
 .containerFicha{
     margin: 32px;
-    background-color: var(--bg-color-lg);
+    
+}
+
+.base{
+    background: linear-gradient(135deg, rgb(250, 230, 164, 0.6), rgb(175, 215, 248, 0.6) );
+    background-attachment: fixed;
+    
 }
 
 .btnguardar{
