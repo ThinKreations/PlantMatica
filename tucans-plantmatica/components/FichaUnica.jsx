@@ -1,3 +1,4 @@
+//Sera inservible
 import React from 'react';
 import styles from "../styles/Fichas.module.css";
 import Box from '@mui/material/Box';

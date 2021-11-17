@@ -1,5 +1,6 @@
+//Esto va a quedar inservible 
 import React from 'react'
-import styles from "../styles/Fichas.module.css";
+import styles2 from "../styles/Fichas.module.css";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
@@ -16,9 +17,9 @@ import Autocomplete from '@mui/material/Autocomplete';
 
 export default function MostrarFicha() {
     return (
-        <div className={styles.tableFichas}>
+        <div className={styles2.tableFichas}>
 
-            <TableContainer component={Paper} className={styles.fondo}>
+            <TableContainer component={Paper} className={styles2.fondo}>
                 <Table sx={{ minWidth: 650, margin: '20px', maxWidth: '95%' }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
@@ -42,36 +43,36 @@ export default function MostrarFicha() {
                             </Stack>
                         </TableRow>
                         <TableRow>
-                            <h2 sx={{ padding: '15px' }} className={styles.titleficha} >Termino de busqueda: {`(AQUI)`}</h2>
+                            <h2 sx={{ padding: '15px' }} className={styles2.titleficha} >Termino de busqueda: {`(AQUI)`}</h2>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        <Card sx={{ padding: '15px' }} className={styles.card}>
+                        <Card sx={{ padding: '15px' }} className={styles2.card}>
                             <CardContent>
-                                <p className={styles.titleficha} >{`Nombre comun`}</p>
-                                <p className={styles.nombreC} >{`Nombre cientifico`}</p>
-                                <p className={styles.textFich} >{`Descripcion`}</p>
+                                <p className={styles2.titleficha} >{`Nombre comun`}</p>
+                                <p className={styles2.nombreC} >{`Nombre cientifico`}</p>
+                                <p className={styles2.textFich} >{`Descripcion`}</p>
                                 <div>
-                                    <p className={styles.textFich} >Etiquetas: </p>
-                                    <p className={styles.etiquetas} > {`Aqui vienen las etiquetas`} </p>
+                                    <p className={styles2.textFich} >Etiquetas: </p>
+                                    <p className={styles2.etiquetas} > {`Aqui vienen las etiquetas`} </p>
                                 </div>
                             </CardContent>
                             <CardActions>
-                                <button className={styles.btnLinkFicha} >Mas informacion</button>
+                                <button className={styles2.btnLinkFicha} >Mas informacion</button>
                             </CardActions>
                         </Card>
-                        <Card sx={{ padding: '15px' }} className={styles.card}>
+                        <Card sx={{ padding: '15px' }} className={styles2.card}>
                             <CardContent>
-                                <p className={styles.titleficha} >{`Apio.`}</p>
-                                <p className={styles.nombreC} >{`Apium graveolens.`}</p>
-                                <p className={styles.textFich} >{`Hierba bienal o perenne, esparcidamente ramificada, sin pelos.Mide de 30 cm a 1 m de alto.Tiene un tallo estriado longitudinalmente,  sus hojas son, de 3 a 25 cm de largo, compuestas con pocos foliolos (pinnadas), peciolos de base envainante, los foliolos son ovados u obovados, cuneados en la base, de 2 a 6 cm de largo por 1 a 5 cm de ancho, margen profundamente lobado o dentado; las hojas superiores más pequeñas que las inferiores y cortamente pecioladas o subsésiles...`}</p>
+                                <p className={styles2.titleficha} >{`Apio.`}</p>
+                                <p className={styles2.nombreC} >{`Apium graveolens.`}</p>
+                                <p className={styles2.textFich} >{`Hierba bienal o perenne, esparcidamente ramificada, sin pelos.Mide de 30 cm a 1 m de alto.Tiene un tallo estriado longitudinalmente,  sus hojas son, de 3 a 25 cm de largo, compuestas con pocos foliolos (pinnadas), peciolos de base envainante, los foliolos son ovados u obovados, cuneados en la base, de 2 a 6 cm de largo por 1 a 5 cm de ancho, margen profundamente lobado o dentado; las hojas superiores más pequeñas que las inferiores y cortamente pecioladas o subsésiles...`}</p>
                                 <div>
-                                    <p className={styles.textFich} >Etiquetas: </p>
-                                    <p className={styles.etiquetas} > {`apio`} </p>
-                                    <p className={styles.etiquetas} > {`comestible`} </p>
-                                    <p className={styles.etiquetas} > {`malestar estomacal`} </p>
-                                    <p className={styles.etiquetas} > {`enfermedades respiratorias`} </p>
-                                    <p className={styles.etiquetas} > {`diarrea`} </p>
+                                    <p className={styles2.textFich} >Etiquetas: </p>
+                                    <p className={styles2.etiquetas} > {`apio`} </p>
+                                    <p className={styles2.etiquetas} > {`comestible`} </p>
+                                    <p className={styles2.etiquetas} > {`malestar estomacal`} </p>
+                                    <p className={styles2.etiquetas} > {`enfermedades respiratorias`} </p>
+                                    <p className={styles2.etiquetas} > {`diarrea`} </p>
                                     
                                     
                                 </div>
@@ -79,7 +80,7 @@ export default function MostrarFicha() {
                             <CardActions>
                                 <Link href="/fichas/ficha">
                                     <a>
-                                        <button className={styles.btnLinkFicha} >Mas informacion</button>
+                                        <button className={styles2.btnLinkFicha} >Mas informacion</button>
                                     </a>
                                 </Link>
                             </CardActions>
