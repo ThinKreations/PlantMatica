@@ -17,7 +17,7 @@ export default function IniciarSesion() {
 
     const onSubmit = async (data) => {
 
-        const res = await fetch(`http://localhost:8080/login`, {
+        const res = await fetch(`https://tucansplantmaticabackend.vercel.app/login`, {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -29,36 +29,22 @@ export default function IniciarSesion() {
             })
         })
         const resJSON = await res.json();
-        if (resJSON.errors) {
-            let arrayErrors = resJSON.errors;
-            arrayErrors.forEach(e => {
-                swal({
-                    title: 'Error al iniciar sesion',
-                    text: e.msg,
-                    icon: 'error',
-                    button: 'Ok',
-                })
-            });
+        if (res.status !== 200) {
+            swal({
+                title: 'Error al iniciar sesion.',
+                text: resJSON.msg,
+                icon: 'error',
+                button: 'Ok',
+            })
         } else {
-            if (resJSON.msgError) {
-                swal({
-                    title: 'Error al iniciar sesion',
-                    text: resJSON.msgError,
-                    icon: 'error',
-                    button: 'Ok',
-                    timer: '3500'
-                })
-            } else {
-                swal({
-                    title: 'Finalizado',
-                    text: resJSON.msg,
-                    icon: 'success',
-                    button: 'Ok',
-                    timer: '3000'
-                });
-                sessionStorage.setItem('userID', resJSON.id);
-                /* Router.push('/session/IniciarSesion'); */
-            }
+            swal({
+                title: 'Finalizado.',
+                text: resJSON.msg,
+                icon: 'success',
+                button: 'Ok',
+                timer: '3000'
+            });
+            //sessionStorage.setItem('userID', resJSON.id);
         }
 
     }
@@ -69,7 +55,7 @@ export default function IniciarSesion() {
             <MainHead tituloPestana="Iniciar Sesion" />
             <LayoutIndex>
 
-                <form /* onSubmit={handleSubmit(onSubmit)} */ className={styles.root} >
+                <form onSubmit={handleSubmit(onSubmit)} className={styles.root} >
                     <center><h2 className={styles.title} >Iniciar Sesion</h2></center>
                     <br /><br />
                     <div className={styles.cont_input}>

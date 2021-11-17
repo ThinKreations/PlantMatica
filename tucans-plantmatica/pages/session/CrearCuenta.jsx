@@ -16,7 +16,7 @@ export default function CrearCuenta() {
         resolver: yupResolver(schemaCrearCuenta)
     });
     const onSubmit = async (data) => {
-        const res = await fetch(`http://localhost:8080/user`, {
+        const res = await fetch(`https://tucansplantmaticabackend.vercel.app/user`, {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -32,7 +32,7 @@ export default function CrearCuenta() {
             })
         });
         const resJSON = await res.json();
-        if (resJSON.errors) {
+        if(res.status !== 200){
             let arrayErrors = resJSON.errors;
             arrayErrors.forEach(e => {
                 swal({
@@ -42,7 +42,7 @@ export default function CrearCuenta() {
                     button: 'Ok',
                 })
             });
-        } else {
+        }else{
             swal({
                 title: 'Finalizado',
                 text: resJSON.msg,
@@ -50,7 +50,6 @@ export default function CrearCuenta() {
                 button: 'Ok',
                 timer: '3000'
             });
-            Router.push('/session/IniciarSesion');
         }
     }
 
@@ -60,9 +59,9 @@ export default function CrearCuenta() {
             <MainHead tituloPestana="Crear Cuenta" />
             <LayoutIndex>
 
-                <form /* onSubmit={handleSubmit(onSubmit)} */ className={styles.root} >
+                <form onSubmit={handleSubmit(onSubmit)} className={styles.root} >
 
-                    <h2 className={styles.title} >Crear cuenta</h2>
+                    <h2 className={styles.title} >Crear cuenta </h2>
 
                     <div className={styles.cont_input}>
                         <label className={styles.text} >Nombre de usuario</label>
@@ -87,7 +86,7 @@ export default function CrearCuenta() {
                     <div className={styles.cont_input}>
                         <label className={styles.text} >Estado de la republica</label>
                         <select {...register('estadoMx')} className={styles.input} name="estado">
-                            <option value="no">Seleccione uno...</option>
+                            <option value="Prefiero no decirlo">Prefiero no decirlo...</option>
                             <option value="Resido fuera del pais">Resido fuera del pais</option>
                             <option value="Aguascalientes">Aguascalientes</option>
                             <option value="Baja California">Baja California</option>
