@@ -86,7 +86,7 @@
     height: 50px;
     border: none;
     cursor: pointer;
-    
+    transition: 0.3s;
 }
   
     /* Mostrar el contenido del dropdown */
@@ -109,6 +109,7 @@
 .dropdown {
     position: relative;
     display: inline-block;
+    transition: 0.3s;
 }
 
 /* Dropdown (Contenido) */
@@ -120,6 +121,7 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     transform: translate(-18px,0);
+    transition: 0.3s;
 }
 
 /* Links del dropdown */
@@ -128,6 +130,7 @@
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    
 }
 
 /* Cambiar el color de los links dropdown con hover */
