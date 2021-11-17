@@ -22,7 +22,7 @@ function valuetext(value) {
     return `${value}°C`;
 }
 
-export default function FichaUnica() {
+export default function agregarFicha() {
     const [open, setOpen] = React.useState(false);
     const handleClose = () => {
         setOpen(false);
@@ -56,15 +56,15 @@ export default function FichaUnica() {
                         
                     </textarea>
                     <hr className={styles.division} />
-                    <p className={styles.textU2}>Caracteristicas especiales: </p>
+                    <p className={styles.textU2}>{`Caracteristicas especiales: `}</p>
                     <textarea className={styles.txtNombres} placeholder={'Ingresa las características aquí.'}></textarea>
                     <hr className={styles.division} />
-                    <p className={styles.titlefichaU}>Alternativa y complementos a: </p>
+                    <p className={styles.titlefichaU}>{`Alternativa y complementos a: `}</p>
                     <textarea className={styles.txtBody}>
                         
                     </textarea>
                     <hr className={styles.division} />
-                    <p className={styles.titlefichaU}>Usos:</p>
+                    <p className={styles.titlefichaU}>{`Usos:`}</p>
                     <br />
                         
                         <textarea className={styles.txtBody} placeholder={'Para agregar un uso, escribelo entre comillas simples y separalas con una coma.'}></textarea>
@@ -72,7 +72,7 @@ export default function FichaUnica() {
                     <hr className={styles.division} />
 
                     <div className={styles.fuentes}>
-                        <p>Fuentes: </p>
+                        <p>{`Fuentes: `}</p>
                         <textarea className={styles.txtRef} placeholder={'Escribelas entre comillas, separalas por una diagonal y entre los paréntesis agrega un enlace.'}>
                             
                         </textarea>
@@ -85,7 +85,7 @@ export default function FichaUnica() {
                             <button className={styles.btnLinkFicha} onClick={handleToggle}>Enviar</button>
                     </Link>
                     <Link href="/fichas">
-                            <button className={styles.btnReporte} >Cancelar</button>
+                            <button className={styles.btnReporte}>Cancelar</button>
                     </Link>
                     <Backdrop
                     sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}

@@ -1,6 +1,6 @@
 import React from 'react'
-import AgregarPlanta from '../../components/AgregarPlanta';
-
+import AgregarFicha from '../../components/AgregarFicha';
+import Footy from "../../components/footy"
 import LayoutMenu from "../../components/LayoutMenu";
 
 export default function Ficha() {
@@ -11,8 +11,8 @@ export default function Ficha() {
             <font face="Work Sans" color="green" size="5">
             <center><h1>Solicitud de Adición</h1></center>
             </font>
-                <AgregarPlanta/>
-            
+            <AgregarFicha/>
+            <Footy/>
         </div>
     )
 }
