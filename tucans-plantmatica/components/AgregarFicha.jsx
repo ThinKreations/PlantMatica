@@ -23,14 +23,7 @@ function valuetext(value) {
 }
 
 export default function agregarFicha() {
-    const [open, setOpen] = React.useState(false);
-    const handleClose = () => {
-        setOpen(false);
-    };
-    const handleToggle = () => {
-        setOpen(!open);
-    };
-
+    
     return (
         <div>
             <MainHead tituloPestana="Agregar" />
@@ -82,18 +75,12 @@ export default function agregarFicha() {
                 </CardContent>
                 <CardActions>
                     <Link href="/fichas">
-                            <button className={styles.btnLinkFicha} onClick={handleToggle}>Enviar</button>
+                            <button className={styles.btnLinkFicha}>Enviar</button>
                     </Link>
                     <Link href="/fichas">
                             <button className={styles.btnReporte}>Cancelar</button>
                     </Link>
-                    <Backdrop
-                    sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-                    open={open}
-                    onClick={handleClose}
-                    >
-                        <CircularProgress color="inherit" />
-                    </Backdrop>
+                    
                 </CardActions>
             </Card>
         </div >
