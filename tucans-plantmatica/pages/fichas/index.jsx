@@ -1,8 +1,8 @@
 import React from 'react';
 import MainHead from '../../components/MainHead';
-import LayoutIndex from '../../components/LayoutIndex';
 import LayoutMenu from "../../components/LayoutMenu"
-import styles from "../../styles/Home.module.css";
+import Footy from "../../components/footy"
+
 import MostrarFicha from '../../components/MostrarFicha';
 
 export default function Index() {
@@ -11,7 +11,7 @@ export default function Index() {
             <MainHead tituloPestana="Inicio" />
             <LayoutMenu/>
                 <MostrarFicha/>
-            
+            <Footy/>
         </div>
     )
 }

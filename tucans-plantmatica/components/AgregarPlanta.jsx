@@ -33,7 +33,7 @@ export default function FichaUnica() {
 
     return (
         <div>
-            <MainHead tituloPestana="Editar" />
+            <MainHead tituloPestana="Agregar" />
             
             <div className={styles.containerFicha}>
             <Card variant="outlined">
@@ -81,10 +81,10 @@ export default function FichaUnica() {
 
                 </CardContent>
                 <CardActions>
-                    <a href="/fichas/ficha">
+                    <a href="/fichas">
                             <button className={styles.btnLinkFicha} onClick={handleToggle}>Enviar</button>
                     </a>
-                    <Link href="/fichas/ficha">
+                    <Link href="/fichas">
                             <button className={styles.btnReporte} >Cancelar</button>
                     </Link>
                     <Backdrop

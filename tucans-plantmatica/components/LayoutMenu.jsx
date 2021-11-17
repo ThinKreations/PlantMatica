@@ -5,20 +5,9 @@ import styles from "../styles/Menu.module.css";
 import MainHead from './MainHead';
 import logo_1_w from "../src/logo_1_w.png";
 import git_logo from "../src/git_icon.png";
-import Backdrop from '@mui/material/Backdrop';
-import CircularProgress from '@mui/material/CircularProgress';
 import styles2 from "../styles/Home.module.css";
 
 export default function Menusup({ children }) {
-
-    const [open, setOpen] = React.useState(false);
-    const handleClose = () => {
-        setOpen(false);
-    };
-    const handleToggle = () => {
-        setOpen(!open);
-    };
-
 
     return (
 
