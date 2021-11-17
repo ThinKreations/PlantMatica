@@ -132,6 +132,6 @@
 
 }
 
-    .logo1:hover{
+    .head:hover .logo1{
         transform: translate(10px, 0px);
     }
