@@ -46,6 +46,15 @@ export default function Menusup({ children }) {
                             </div>
 
                             <div className={styles.dropdown}>
+                            <button className={styles.dropbtn}><font face="Work Sans" color="white"><b>{`Administrador`}</b></font></button>
+                                <div className={styles.dropdownContent}>
+                                    <Link href="">{`Q andas viendo we`}</Link>
+                                    <Link href="">{`Solicitudes`}</Link>
+                                    <Link href="">{`Gestión de Usuarios`}</Link>
+                                </div>
+                            </div>
+
+                            <div className={styles.dropdown}>
                             <button className={styles.dropbtn}><font face="Work Sans" color="white"><b>{`Cuenta`}</b></font></button>
                                 <div className={styles.dropdownContent}>
                                     <Link href="">{`Mi Cuenta`}</Link>
