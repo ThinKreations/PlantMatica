@@ -81,9 +81,9 @@ export default function FichaUnica() {
 
                 </CardContent>
                 <CardActions>
-                    <a href="/fichas">
+                    <Link href="/fichas">
                             <button className={styles.btnLinkFicha} onClick={handleToggle}>Enviar</button>
-                    </a>
+                    </Link>
                     <Link href="/fichas">
                             <button className={styles.btnReporte} >Cancelar</button>
                     </Link>
