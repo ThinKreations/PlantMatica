@@ -57,7 +57,7 @@ export default function AgregarFicha() {
                                 freeSolo
                                 renderTags={(value, getTagProps) =>
                                     value.map((option, index) => (
-                                        <Chip variant="outlined" label={option} {...getTagProps({ index })} />
+                                        <Chip key={`${option}${index}`} variant="outlined" label={option} {...getTagProps({ index })} />
                                     ))
                                 }
                                 renderInput={(params) => (
@@ -98,7 +98,7 @@ export default function AgregarFicha() {
                                 freeSolo
                                 renderTags={(value, getTagProps) =>
                                     value.map((option, index) => (
-                                        <Chip variant="outlined" label={option} {...getTagProps({ index })} />
+                                        <Chip key={`${option}${index}`} variant="outlined" label={option} {...getTagProps({ index })} />
                                     ))
                                 }
                                 renderInput={(params) => (
@@ -129,7 +129,7 @@ export default function AgregarFicha() {
                                 freeSolo
                                 renderTags={(value, getTagProps) =>
                                     value.map((option, index) => (
-                                        <Chip variant="outlined" label={option} {...getTagProps({ index })} />
+                                        <Chip key={`${option}${index}`} variant="outlined" label={option} {...getTagProps({ index })} />
                                     ))
                                 }
                                 renderInput={(params) => (
@@ -155,7 +155,7 @@ export default function AgregarFicha() {
                                     freeSolo
                                     renderTags={(value, getTagProps) =>
                                         value.map((option, index) => (
-                                            <Chip variant="outlined" label={option} {...getTagProps({ index })} />
+                                            <Chip key={`${option}${index}`} variant="outlined" label={option} {...getTagProps({ index })} />
                                         ))
                                     }
                                     renderInput={(params) => (

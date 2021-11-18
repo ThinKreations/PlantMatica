@@ -44,7 +44,8 @@ export default function IniciarSesion() {
                 button: 'Ok',
                 timer: '3000'
             });
-            //sessionStorage.setItem('userID', resJSON.id);
+            sessionStorage.setItem('userID', resJSON.token);
+            Router.push('/fichas');
         }
 
     }
