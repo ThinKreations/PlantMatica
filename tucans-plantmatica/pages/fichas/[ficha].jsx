@@ -1,5 +1,4 @@
 import React from 'react'
-import FichaUnica from '../../components/FichaUnica';
 import Footy from "../../components/footy"
 import LayoutMenu from "../../components/LayoutMenu";
 import MainHead from '../../components/MainHead';
@@ -34,8 +33,12 @@ export default function Ficha({ ficha }) {
                         {
                             ficha.origen_distribucion.map(o => {
                                 return <div key={o.nombre}>
-                                    <p className={styles.titlefichaU2}>Nombre: {o.nombre}</p>
-                                    <p className={styles.titlefichaU2}>Detalles: {o.detalles}</p>
+                                    <p className={styles.titlefichaU2}>Nombre:</p>
+                                    <p className={styles.textU2} >{o.nombre}</p>
+                                    <br/>
+                                    <p className={styles.titlefichaU2}>Detalles: </p>
+                                    <p className={styles.textU2} >{o.detalles}</p>
+                                    <br/>
                                 </div>
                             })
                         }
@@ -138,7 +141,7 @@ export default function Ficha({ ficha }) {
 export async function getServerSideProps({ params }) {
     const res = await fetch(`https://tucansplantmaticabackend.vercel.app/ficha/${params.ficha}`);
     const ficha = await res.json();
-    console.log(ficha.ficha)
+    
     return {
         props: { ficha: ficha.ficha, notFound: false }
     }

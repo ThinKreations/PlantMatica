@@ -1,9 +1,10 @@
 html, body {
   /* Variables globales, primera paleta */
-  --rojo-color: #F3533A;
+  /* --rojo-color: #F3533A; */
   --naranja-color: #FA9F42;
   --verde-color: #8AD879;
-  --azul-color: #5ACFC9;
+  --azul-color: #4bc6eb;
+  --danger-color: #f3533a;
 
   /* Variables segunda paleta */
   --text-color: #5A9539;
@@ -11,9 +12,8 @@ html, body {
   --hover-color: #77BE5C;
 
   --hover-secondary-color: rgba(53, 114, 102, 0.2);
-  --danger-color: rgb(216, 24, 24);
   --bg-color-lg: #e6fada;
-  --save-color: rgb(98, 98, 236);
+  --save-color: rgb(106, 124, 223);
   --purple-color: rgb(145, 25, 161);
 
   /* Variables para degradados de etiquetas */
