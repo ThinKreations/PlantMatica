@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from "../../styles/Fichas.module.css";
+
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
@@ -16,7 +17,7 @@ import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import LayoutMenu from "../../components/LayoutMenu";
 import MainHead from '../../components/MainHead';
-export default function FichasGuardadas() {
+export default function FichasGuardadas({ fichas }) {
     return (
         
         <div>
@@ -52,44 +53,35 @@ export default function FichasGuardadas() {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            <Card sx={{ padding: '15px' }} className={styles.card}>
-                                <CardContent>
-                                    <div>
-                                        <p className={styles.textFich} >Etiquetas: </p>
-                                        <p className={styles.etiquetas} > {`Aqui vienen las etiquetas`} </p>
+                            
+                        {
+                                fichas.fichas.map(f => {
+                                    return <div key={f._id} >
+                                        <Card sx={{ padding: '15px' }} className={styles.card}>
+                                            <CardContent>
+                                                <p className={styles.titleficha} >{f.nombre_comun}</p>
+                                                <p className={styles.nombreC} >{f.nombre_cientifico}</p>
+                                                <p className={styles.textFich} >{f.descripcion}</p>
+                                                <div>
+                                                    <p className={styles.textFich} >Etiquetas: </p>
+                                                    {
+                                                        f.etiquetas.map ( e => {
+                                                            return <p key={e} className={styles.etiquetas} > {e} </p>
+                                                        })
+                                                    }
+                                                </div>
+                                            </CardContent>
+                                            <CardActions>
+                                                <Link href={`/fichas/[ficha]`} as={`/fichas/${f._id}`} >
+                                                    <a>
+                                                        <button className={styles.btnLinkFicha} >Mas informacion</button>
+                                                    </a>
+                                                </Link>
+                                            </CardActions>
+                                        </Card>
                                     </div>
-                                    <p className={styles.titleficha} >{`Nombre comun`}</p>
-                                    <p className={styles.nombreC} >{`Nombre cientifico`}</p>
-                                    <p className={styles.textFich} >{`Descripcion`}</p>
-                                </CardContent>
-                                <CardActions>
-                                    <button className={styles.btnLinkFicha} >Mas informacion</button>
-                                    <button className={styles.btnReporte} >Eliminar de mis fichas guardadas</button>
-                                </CardActions>
-                            </Card>
-                            <Card sx={{ padding: '15px' }} className={styles.card}>
-                                <CardContent>
-                                    <div>
-                                        <p className={styles.textFich} >Etiquetas: </p>
-                                        <p className={styles.etiquetas} > {`apio`} </p>
-                                        <p className={styles.etiquetas} > {`comestible`} </p>
-                                        <p className={styles.etiquetas} > {`malestar estomacal`} </p>
-                                        <p className={styles.etiquetas} > {`enfermedades respiratorias`} </p>
-                                        <p className={styles.etiquetas} > {`diarrea`} </p>
-                                    </div>
-                                    <p className={styles.titleficha} >{`Apio.`}</p>
-                                    <p className={styles.nombreC} >{`Apium graveolens.`}</p>
-                                    <p className={styles.textFich} >{`Hierba bienal o perenne, esparcidamente ramificada, sin pelos.Mide de 30 cm a 1 m de alto.Tiene un tallo estriado longitudinalmente,  sus hojas son, de 3 a 25 cm de largo, compuestas con pocos foliolos (pinnadas), peciolos de base envainante, los foliolos son ovados u obovados, cuneados en la base, de 2 a 6 cm de largo por 1 a 5 cm de ancho, margen profundamente lobado o dentado; las hojas superiores más pequeñas que las inferiores y cortamente pecioladas o subsésiles...`}</p>
-                                </CardContent>
-                                <CardActions>
-                                    <Link href="/fichas/ficha">
-                                        <a>
-                                            <button className={styles.btnLinkFicha} >Mas informacion</button>
-                                            <button className={styles.btnReporte} >Eliminar de mis fichas</button>
-                                        </a>
-                                    </Link>
-                                </CardActions>
-                            </Card>
+                                })
+                            }
 
                         </TableBody>
                     </Table>
@@ -106,3 +98,12 @@ const top100Films = [
     { title: 'dolor estomacal' },
     { title: 'enfermedades respiratorias' }
 ];
+
+export async function getServerSideProps() {
+    const res = await fetch('https://tucansplantmaticabackend.vercel.app/ficha/');
+    const fichas = await res.json();
+    //console.log(fichas)
+    return {
+        props: { fichas, notFound: false }
+    }
+}

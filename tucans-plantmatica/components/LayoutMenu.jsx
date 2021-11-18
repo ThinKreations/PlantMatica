@@ -29,7 +29,7 @@ export default function Menusup({ children }) {
                             <button className={styles.dropbtn}><font face="Work Sans" color="white"><b>{`Fichas`}</b></font></button>
                                 <div className={styles.dropdownContent}>
                                     <Link href="">{`Editadas`}</Link>
-                                    <Link href="">{`Guardadas`}</Link>
+                                    <Link href="/fichas/fichasGuardadas">{`Guardadas`}</Link>
                                     <Link href="/fichas/agregar">{`+ Agregar Ficha`}</Link>
                                 </div>
                             </div>
