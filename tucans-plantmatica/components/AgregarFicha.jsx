@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from "../styles/Fichas.module.css";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -9,12 +9,15 @@ import Chip from '@mui/material/Chip';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
+import Checkbox from '@mui/material/Checkbox';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 function valuetext(value) {
     return `${value}°C`;
 }
 
-export default function agregarFicha() {
+export default function AgregarFicha() {
 
     const [etiquetas, setEtiquetas] = useState();
     const [caracteristica, setCaracteristicas] = useState();
@@ -36,6 +39,15 @@ export default function agregarFicha() {
                         <CardContent>
 
                             {/* <p>{`Imagen: `}<input type="file" name="imagen" className={styles.inputImg} id={styles.file}></input></p> */}
+                            <FormGroup>
+                                <FormControlLabel control={<Checkbox 
+                                    sx={{ '& .MuiSvgIcon-root': { fontSize: 28 } }} />} label={<p className={styles.text_danger}>Marca esta casilla si el consumo de esta planta puede llegar a ser nocivo o dañino para la salud. De igual manera si su consumo es ilicito en algunas regiones.</p>} />
+                            </FormGroup>
+                            {/* <FormGroup>
+                                <FormControlLabel disabled control={} label="" />
+                            />
+                            </FormGroup> */}
+
                             <p className={styles.textD} >{`Etiquetas: `}</p>
                             <Autocomplete
                                 multiple
@@ -68,7 +80,8 @@ export default function agregarFicha() {
                             <hr className={styles.division} />
 
                             <p className={styles.textD}>{`Origen y distribucion: `}</p>
-                            <textarea className={styles.txtEtiquetas}></textarea>
+                            <textarea className={styles.txtNombres} placeholder={'Ingresa el lugar.'}></textarea> <br />
+                            <textarea className={styles.txtNombres} placeholder={'Ingresa detalles del lugar.'}></textarea>
                             <hr className={styles.division} />
 
                             <p className={styles.textD} >{`Descripcion: `}</p>

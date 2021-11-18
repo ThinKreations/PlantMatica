@@ -9,6 +9,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Slider from '@mui/material/Slider';
 import Link from 'next/link';
+import Alert from '@mui/material/Alert';
 
 function valuetext(value) {
     return `${value}°C`;
@@ -20,6 +21,13 @@ export default function Ficha({ ficha }) {
             <MainHead tituloPestana="Ficha" />
             <LayoutMenu />
             <div className={styles.containerFicha}>
+                {
+                    !ficha.polemica ? "" : <Alert sx={{ margin: '10px' }} variant="outlined" severity="error">
+                        <p className={styles.text_danger}>
+                            {`Tucan's Software no es responsable de efectos negativos a la salud, asi como de aquellas acciones legales que se tomen contra la persona por consumo ilegal de esta planta. Para mas referencia consulte a su medico o su constitucion.`}
+                        </p>
+                    </Alert>
+                }
                 <Card variant="outlined" className={styles.base}>
                     <CardContent>
                         <p className={styles.textU}>{`Nombre común: `}</p>
@@ -35,10 +43,10 @@ export default function Ficha({ ficha }) {
                                 return <div key={o.nombre}>
                                     <p className={styles.titlefichaU2}>Nombre:</p>
                                     <p className={styles.textU2} >{o.nombre}</p>
-                                    <br/>
+                                    <br />
                                     <p className={styles.titlefichaU2}>Detalles: </p>
                                     <p className={styles.textU2} >{o.detalles}</p>
-                                    <br/>
+                                    <br />
                                 </div>
                             })
                         }
@@ -51,11 +59,11 @@ export default function Ficha({ ficha }) {
                         <hr className={styles.division} />
                         <p className={styles.titlefichaU}>{`Caracteristicas especiales: `}</p>
                         <ul>
-                        {
-                            ficha.caracteristicas_especiales.map(c => {
-                                return <li key={c} className={styles.lista} >{c}</li>
-                            })
-                        }
+                            {
+                                ficha.caracteristicas_especiales.map(c => {
+                                    return <li key={c} className={styles.lista} >{c}</li>
+                                })
+                            }
                         </ul>
                         <hr className={styles.division} />
                         <p className={styles.titlefichaU}>{`Alternativa y complementos a: `}</p>
@@ -79,7 +87,7 @@ export default function Ficha({ ficha }) {
                         <br />
                         <ul>
                             {
-                                ficha.usos_medicinales.map( u => {
+                                ficha.usos_medicinales.map(u => {
                                     return <li key={u} className={styles.lista}>{u}</li>
                                 })
                             }
@@ -91,7 +99,7 @@ export default function Ficha({ ficha }) {
                             <p>Fuentes:</p>
                             <ul>
                                 {
-                                    ficha.fuentes.map( ff => {
+                                    ficha.fuentes.map(ff => {
                                         return <li key={ff} >{ff}</li>
                                     })
                                 }
@@ -108,7 +116,7 @@ export default function Ficha({ ficha }) {
                         }
 
                         <hr className={styles.division} />
-                        
+
 
                         <Box sx={{ width: 300 }}>
                             <p className={styles.titlefichaU2}>{`Califica esta ficha.`}</p>
@@ -141,7 +149,7 @@ export default function Ficha({ ficha }) {
 export async function getServerSideProps({ params }) {
     const res = await fetch(`https://tucansplantmaticabackend.vercel.app/ficha/${params.ficha}`);
     const ficha = await res.json();
-    
+
     return {
         props: { ficha: ficha.ficha, notFound: false }
     }

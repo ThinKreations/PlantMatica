@@ -1,4 +1,4 @@
-.fondo{
+.fondo {
     background-image: linear-gradient(to top, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.85) 100%), url(../src/head_bg.jpg);
     background-size: cover;
     background-attachment: fixed;
@@ -6,30 +6,30 @@
     background-repeat: no-repeat;
 }
 
-.card{
-    margin-top:20px;
-    margin-bottom:20px;
+.card {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.tableFichas{
+.tableFichas {
     overflow-y: auto;
 }
 
-.titleficha{
+.titleficha {
     color: var(--hover-color);
     font-size: 26px;
 }
 
-.nombreC{
+.nombreC {
     color: var(--main-color);
     font-size: 22px;
 }
 
-.textFich{
+.textFich {
     font-size: 18px;
 }
 
-.etiquetas{
+.etiquetas {
     display: inline-block;
     color: var(--main-color);
     padding: 5px;
@@ -41,14 +41,14 @@
     background-attachment: fixed;
 }
 
-.etiquetas:hover{
+.etiquetas:hover {
     transform: scale(1.05, 1.05);
     background-color: var(--hover-color);
 
     color: white;
 }
 
-.btnLinkFicha{
+.btnLinkFicha {
     color: var(--main-color);
     transition: 0.3s;
     border: 1px solid var(--main-color);
@@ -58,7 +58,7 @@
     font-size: 18px;
 }
 
-.btnLinkFicha:hover{
+.btnLinkFicha:hover {
     background-color: var(--hover-color);
     color: white;
     transform: scale(1.05, 1.05);
@@ -68,18 +68,18 @@
 
 /* Ficha unica, mostrar una unica ficha pues  */
 
-.containerFicha{
+.containerFicha {
     margin: 32px;
-    
+
 }
 
-.base{
-    background: linear-gradient(135deg, rgb(250, 230, 164, 0.3), rgb(175, 215, 248, 0.3) );
+.base {
+    background: linear-gradient(135deg, rgb(250, 230, 164, 0.3), rgb(175, 215, 248, 0.3));
     background-attachment: fixed;
-    
+
 }
 
-.btnguardar{
+.btnguardar {
     padding: 12px;
     margin: 8px;
     font-size: 18px;
@@ -90,13 +90,13 @@
     transition: 0.3s;
 }
 
-.btnguardar:hover{
-  transform: scale(1.05, 1.05);
-  background-color: var(--save-color);
-  color: white;
+.btnguardar:hover {
+    transform: scale(1.05, 1.05);
+    background-color: var(--save-color);
+    color: white;
 }
 
-.btnReporte{
+.btnReporte {
     padding: 12px;
     margin: 8px;
     font-size: 18px;
@@ -107,13 +107,13 @@
     transition: 0.3s;
 }
 
-.btnReporte:hover{
+.btnReporte:hover {
     transform: scale(1.05, 1.05);
     background-color: var(--danger-color);
     color: white;
 }
 
-.btnSolicitud{
+.btnSolicitud {
     padding: 12px;
     margin: 8px;
     font-size: 18px;
@@ -124,13 +124,13 @@
     transition: 0.3s;
 }
 
-.btnSolicitud:hover{
+.btnSolicitud:hover {
     transform: scale(1.05, 1.05);
     background-color: var(--hover-color);
     color: white;
 }
 
-.btnCalificar{
+.btnCalificar {
     padding: 12px;
     margin: 8px;
     font-size: 18px;
@@ -141,69 +141,69 @@
     transition: 0.3s;
 }
 
-.btnCalificar:hover{
+.btnCalificar:hover {
     transform: scale(1.05, 1.05);
     background-color: var(--purple-color);
     color: white;
 }
 
-.division{
+.division {
     color: var(--hover-secondary-color);
 }
 
-.titlefichaU{
+.titlefichaU {
     color: rgb(12, 82, 12);
     font-size: 24px;
     display: inline-block;
     margin: 5px;
 }
 
-.textU{
+.textU {
     font-size: 24px;
     display: inline-block;
     margin: 5px;
 }
 
-.titlefichaU2{
+.titlefichaU2 {
     color: rgb(12, 82, 12);
     font-size: 20px;
     display: inline-block;
     margin: 5px;
 }
 
-.textU2{
+.textU2 {
     font-size: 20px;
     display: inline-block;
     line-height: 24px;
     margin: 5px;
 }
 
-.textD{
+.textD {
     color: rgb(12, 82, 12);
     font-size: 20px;
     margin: 5px;
 }
 
-.lista{
+.lista {
     padding-left: 35px;
     font-size: 20px;
 }
 
-.fuentes{
+.fuentes {
     border-radius: 4px;
     padding: 16px;
     color: rgb(76, 76, 233);
     font-size: 18px;
 }
 
-.links{
+.links {
     list-style: none;
     list-style-type: none;
 }
 
 /* Campos de texto */
 
-.txtEtiquetas{
+.txtEtiquetas {
     margin-top: 5px;
     background-color: #f0f0f0;
     border: none;
@@ -211,26 +211,26 @@
     height: 26px;
     resize: none;
     padding: 5px;
-    transition:0.2s;
+    transition: 0.2s;
 }
 
-    .txtEtiquetas:hover{
-        background-color: #dfdfdf;
-    }
+.txtEtiquetas:hover {
+    background-color: #dfdfdf;
+}
 
-    .txtEtiquetas:focus{
-        outline: none;
-        border-radius: 10px;
-        border:1px rgb(0, 0, 0)
-    }
+.txtEtiquetas:focus {
+    outline: none;
+    border-radius: 10px;
+    border: 1px rgb(0, 0, 0)
+}
 
-    .txtEtiquetas:active {
-        outline: none;
-        border-radius: 10px;
-        border:1px rgb(0, 0, 0)
-    }
+.txtEtiquetas:active {
+    outline: none;
+    border-radius: 10px;
+    border: 1px rgb(0, 0, 0)
+}
 
-.txtNombres{
+.txtNombres {
     margin-top: 5px;
     background-color: #f0f0f0;
     border: none;
@@ -239,26 +239,26 @@
     height: 25px;
     resize: none;
     padding: 5px;
-    transition:0.2s;
+    transition: 0.2s;
 }
 
-    .txtNombres:hover{
-        background-color: #dfdfdf;
-    }
+.txtNombres:hover {
+    background-color: #dfdfdf;
+}
 
-    .txtNombres:focus{
-        outline: none;
-        border-radius: 10px;
-        border:1px rgb(0, 0, 0)
-    }
+.txtNombres:focus {
+    outline: none;
+    border-radius: 10px;
+    border: 1px rgb(0, 0, 0)
+}
 
-    .txtNombres:active {
-        outline: none;
-        border-radius: 10px;
-        border:1px rgb(0, 0, 0)
-    }
+.txtNombres:active {
+    outline: none;
+    border-radius: 10px;
+    border: 1px rgb(0, 0, 0)
+}
 
-.txtBody{
+.txtBody {
     margin-top: 5px;
     background-color: #f0f0f0;
     border: none;
@@ -266,26 +266,26 @@
     height: 150px;
     resize: none;
     padding: 5px;
-    transition:0.2s;    
+    transition: 0.2s;
 }
 
-    .txtBody:hover{
-        background-color: #dfdfdf;
-    }
+.txtBody:hover {
+    background-color: #dfdfdf;
+}
 
-    .txtBody:focus{
-        outline: none;
-        border-radius: 10px;
-        border:1px rgb(0, 0, 0)
-    }
+.txtBody:focus {
+    outline: none;
+    border-radius: 10px;
+    border: 1px rgb(0, 0, 0)
+}
 
-    .txtBody:active {
-        outline: none;
-        border-radius: 10px;
-        border:1px rgb(0, 0, 0)
-    }
+.txtBody:active {
+    outline: none;
+    border-radius: 10px;
+    border: 1px rgb(0, 0, 0)
+}
 
-.txtRef{
+.txtRef {
     margin-top: 5px;
     background-color: #f0f0f0;
     border: none;
@@ -293,55 +293,59 @@
     height: 60px;
     resize: none;
     padding: 5px;
-    transition:0.2s;    
+    transition: 0.2s;
 }
 
-    .txtRef:hover{
-        background-color: #dfdfdf;
-    }
+.txtRef:hover {
+    background-color: #dfdfdf;
+}
 
-    .txtRef:focus{
-        outline: none;
-        border-radius: 10px;
-        border:1px rgb(0, 0, 0)
-    }
+.txtRef:focus {
+    outline: none;
+    border-radius: 10px;
+    border: 1px rgb(0, 0, 0)
+}
 
-    .txtRef:active {
-        outline: none;
-        border-radius: 10px;
-        border:1px rgb(0, 0, 0)
-    }
-    
-.inputImg{
+.txtRef:active {
+    outline: none;
+    border-radius: 10px;
+    border: 1px rgb(0, 0, 0)
+}
+
+.inputImg {
     margin-top: 5px;
     background-color: #f0f0f0;
     border: none;
     width: 133px;
-    
+
     resize: none;
-    
-    transition:0.2s;    
+
+    transition: 0.2s;
 }
 
-    
 
-    .inputImg:hover{
-        background-color: #dfdfdf;
-        padding: 5px;
-        width: 143px;
-    }
 
-    .inputImg:hover{
-        outline: none;
-        
-        border:1px rgb(0, 0, 0)
-    }
+.inputImg:hover {
+    background-color: #dfdfdf;
+    padding: 5px;
+    width: 143px;
+}
 
-    .inputImg:active {
-        outline: none;
-        background-color: #ffffff;
-        border-radius: 2.5px;
-        border:1px solid  black;
-        border:1px rgb(0, 0, 0)
-    }
-    
+.inputImg:hover {
+    outline: none;
+
+    border: 1px rgb(0, 0, 0)
+}
+
+.inputImg:active {
+    outline: none;
+    background-color: #ffffff;
+    border-radius: 2.5px;
+    border: 1px solid black;
+    border: 1px rgb(0, 0, 0)
+}
+
+.text_danger{
+    color: var(--danger-color);
+    font-size: 19px;
+}
