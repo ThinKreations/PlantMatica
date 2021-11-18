@@ -48,9 +48,6 @@ export default function Index({ fichas }) {
                                     />
                                 </Stack>
                             </TableRow>
-                            <TableRow>
-                                <h2 sx={{ padding: '15px' }} className={styles2.titleficha} >Termino de busqueda: {`(AQUI)`}</h2>
-                            </TableRow>
                         </TableHead>
                         <TableBody>
 
