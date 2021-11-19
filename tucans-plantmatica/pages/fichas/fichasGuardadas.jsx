@@ -1,6 +1,5 @@
-import React from 'react'
+import { useEffect } from "react";
 import styles from "../../styles/Fichas.module.css";
-
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
@@ -17,7 +16,28 @@ import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import LayoutMenu from "../../components/LayoutMenu";
 import MainHead from '../../components/MainHead';
+import { validarToken } from "../api/request";
+
 export default function FichasGuardadas({ fichas }) {
+
+    const sessionControl = async () => {
+        const valid = await validarToken();
+        if (valid === false) {
+            swal({
+                title: 'Inicia sesion.',
+                text: 'Tu sesion expiro, vuelve a iniciar sesion para realizar esta operacion.',
+                icon: 'info',
+                button: 'Ok',
+                timer: '3000'
+            });
+            Router.push('/session/IniciarSesion');
+        }
+    }
+
+    useEffect(() => {
+        sessionControl();
+    }, []);
+
     return (
         
         <div>
