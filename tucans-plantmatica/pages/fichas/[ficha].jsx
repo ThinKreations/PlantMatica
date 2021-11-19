@@ -10,6 +10,7 @@ import CardContent from '@mui/material/CardContent';
 import Slider from '@mui/material/Slider';
 import Link from 'next/link';
 import Alert from '@mui/material/Alert';
+import { guardarFichaHttp, validarToken } from '../api/request';
 
 function valuetext(value) {
     return `${value}°C`;
@@ -19,19 +20,9 @@ export default function Ficha({ ficha }) {
 
     const guardarFicha = async (id_ficha) => {
 
-        const token = localStorage.setItem('token', resJSON.token);
-
-        const res = await fetch(`https://plantmatica-back.vercel.app/ficha/guardar/${id_ficha}`, {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'application/json',
-                'x-token': token
-            },
-            body: JSON.stringify({
-                id_user: '123'
-            })
-        });
+        const token = localStorage.getItem('token');
+        const { id } = await validarToken();
+        await guardarFichaHttp(id_ficha, id, token);
 
     }
 
@@ -156,7 +147,7 @@ export default function Ficha({ ficha }) {
                         <button className={styles.btnCalificar} >{`Calificar ficha`}</button>
                         <Link href="editar"><button className={styles.btnSolicitud} >{`Solicitud de edicion`}</button></Link>
                         <button className={styles.btnReporte} >{`Reportar ficha`}</button>
-                        <button className={styles.btnguardar} >{`Guardar ficha`}</button>
+                        <button onClick={() => guardarFicha(ficha._id)} className={styles.btnguardar} >{`Guardar ficha`}</button>
                     </CardActions>
                 </Card>
             </div >

@@ -15,7 +15,7 @@ import Stack from '@mui/material/Stack';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import { traerEtiquetas } from '../../helpers/fichas-http';
+import { traerEtiquetas } from '../api/fichas-http';
 
 function valuetext(value) {
     return `${value}°C`;

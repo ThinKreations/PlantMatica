@@ -16,7 +16,7 @@ import Link from "next/link";
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
-import { traerEtiquetas } from '../../helpers/fichas-http';
+import { traerEtiquetas } from '../api/fichas-http';
 import { TableCell } from '@mui/material';
 
 export default function Index({ fichas, etiquetas }) {
@@ -94,7 +94,7 @@ export default function Index({ fichas, etiquetas }) {
     )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps({  }) {
     const res = await fetch(`https://plantmatica-back.vercel.app/ficha`);
     const fichas = await res.json();
     const etiquetas = await traerEtiquetas();
