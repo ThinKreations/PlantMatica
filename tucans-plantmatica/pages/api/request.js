@@ -70,3 +70,20 @@ const atraparErrores = async (res, resJSON) => {
         });
     }
 }
+
+export const buscarCoincidencia = async (termino) => {
+
+    const res = await fetch(`https://plantmatica-back.vercel.app/ficha/encontrar/coincidencia/`, {
+        method: 'PUT',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            termino
+        })
+    });
+    /* Respuesta procesada en formato json */
+    const resJSON = await res.json();
+
+}
