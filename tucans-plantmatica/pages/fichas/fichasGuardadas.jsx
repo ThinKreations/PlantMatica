@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import styles from "../../styles/Fichas.module.css";
+import Router from "next/router";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
