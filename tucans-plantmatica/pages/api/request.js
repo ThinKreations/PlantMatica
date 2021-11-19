@@ -12,8 +12,9 @@ export const validarToken = async () => {
         }
     });
     const resJSON = await res.json();
-    if(res.status !== 200){
+    if (res.status !== 200) {
         await atraparErrores(res, resJSON);
+        return false;
     }
     return resJSON;
 
@@ -40,7 +41,16 @@ export const guardarFichaHttp = async (id_ficha, id_user, token) => {
 
 const atraparErrores = async (res, resJSON) => {
     if (res.status !== 200) {
-        let arrayErrors = resJSON.errors;
+        if (!resJSON.errors) {
+            swal({
+                title: 'Finalizado.',
+                text: resJSON.msg,
+                icon: 'success',
+                button: 'Ok',
+                timer: '3000'
+            });
+        } else {
+            let arrayErrors = await resJSON.errors;
             arrayErrors.forEach(e => {
                 swal({
                     title: 'Error',
@@ -49,6 +59,7 @@ const atraparErrores = async (res, resJSON) => {
                     button: 'Ok',
                 })
             });
+        }
     } else {
         swal({
             title: 'Finalizado.',

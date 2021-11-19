@@ -22,12 +22,12 @@ export default function Menusup({ children }) {
                         <font face="Work Sans" color="white">
                         <div className={styles.botonera}>
                             <div className={styles.dropdown}>
-                            <Link href="/fichas"><button onClick={validarToken} className={styles.dropbtn}><font face="Work Sans" color="white"><b>{`Inicio`}</b></font></button></Link>
+                            <Link href="/fichas"><button className={styles.dropbtn}><font face="Work Sans" color="white"><b>{`Inicio`}</b></font></button></Link>
                             
                             </div>
 
                             <div className={styles.dropdown}>
-                            <button onClick={validarToken} className={styles.dropbtn}><font face="Work Sans" color="white"><b>{`Fichas`}</b></font></button>
+                            <button className={styles.dropbtn}><font face="Work Sans" color="white"><b>{`Fichas`}</b></font></button>
                                 <div className={styles.dropdownContent}>
                                     <Link href="">{`Editadas`}</Link>
                                     <Link href="/fichas/fichasGuardadas">{`Guardadas`}</Link>
@@ -36,7 +36,7 @@ export default function Menusup({ children }) {
                             </div>
 
                             <div className={styles.dropdown}>
-                            <button onClick={validarToken} className={styles.dropbtn}><font face="Work Sans" color="white"><b>{`Administrador`}</b></font></button>
+                            <button className={styles.dropbtn}><font face="Work Sans" color="white"><b>{`Administrador`}</b></font></button>
                                 <div className={styles.dropdownContent}>
                                     
                                     <Link href="">{`Solicitudes`}</Link>
@@ -45,7 +45,7 @@ export default function Menusup({ children }) {
                             </div>
 
                             <div className={styles.dropdown}>
-                            <button onClick={validarToken} className={styles.dropbtn}><font face="Work Sans" color="white"><b>{`Cuenta`}</b></font></button>
+                            <button className={styles.dropbtn}><font face="Work Sans" color="white"><b>{`Cuenta`}</b></font></button>
                                 <div className={styles.dropdownContent}>
                                     <Link href="">{`Mi Cuenta`}</Link>
                                     <Link href="">{`Configuración`}</Link>
