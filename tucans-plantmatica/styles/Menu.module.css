@@ -101,7 +101,7 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     transform: translate(-18px,0);
-    transition: 0.3s;
+    
 
 }
 
@@ -123,12 +123,25 @@
     
 }
 
+.btnCerrar{
+    background-color: #f9f9f9;
+    min-width: 150px;
+    padding: 12px 16px;
+    border: none;
+
+}
+
+    .btnCerrar:hover {
+        background-color: #f1f1f1;
+    
+    }
 
 
 /* Logo */
 
 .logo1{
 
+    
     margin-top: 18px;
     transition: 0.3s;
 

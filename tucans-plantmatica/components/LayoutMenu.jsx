@@ -77,7 +77,7 @@ export default function Menusup({ children }) {
                                         <div className={styles.dropdownContent}>
                                             <Link href="">{`Mi Cuenta`}</Link>
                                             <Link href="">{`Configuración`}</Link>
-                                            <button onClick={cerrarSesion} >{`Cerrar Sesión`}</button>
+                                            <button className={styles.btnCerrar} onClick={cerrarSesion} ><font face="Work Sans" color="black" size="3"><text>{`Cerrar Sesión`}</text></font></button>
                                         </div>
                                     </div>
                                 }
