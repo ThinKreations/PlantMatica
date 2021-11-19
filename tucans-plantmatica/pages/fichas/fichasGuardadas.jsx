@@ -100,7 +100,7 @@ const top100Films = [
 ];
 
 export async function getServerSideProps() {
-    const res = await fetch('https://tucansplantmaticabackend.vercel.app/ficha/');
+    const res = await fetch('https://plantmatica-back.vercel.app/ficha');
     const fichas = await res.json();
     //console.log(fichas)
     return {

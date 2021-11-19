@@ -15,8 +15,9 @@ export default function CrearCuenta() {
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schemaCrearCuenta)
     });
+
     const onSubmit = async (data) => {
-        const res = await fetch(`https://tucansplantmaticabackend.vercel.app/user`, {
+        const res = await fetch(`https://plantmatica-back.vercel.app/user`, {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -50,6 +51,7 @@ export default function CrearCuenta() {
                 button: 'Ok',
                 timer: '3000'
             });
+            Router.push('/session/IniciarSesion')
         }
     }
 

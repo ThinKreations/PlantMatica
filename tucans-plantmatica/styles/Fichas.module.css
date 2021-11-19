@@ -349,3 +349,19 @@
     color: var(--danger-color);
     font-size: 19px;
 }
+
+.buscar_btn{
+    color: var(--naranja-color);
+    transition: 0.3s;
+    border: 1px solid var(--naranja-color);
+    border-radius: 4px;
+    background-color: white;
+    padding: 12px;
+    font-size: 18px;
+}
+
+.buscar_btn:hover{
+    background-color: var(--naranja-color);
+    transform: scale(1.05, 1.05);
+    color: white;
+}

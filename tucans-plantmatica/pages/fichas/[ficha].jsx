@@ -16,6 +16,25 @@ function valuetext(value) {
 }
 
 export default function Ficha({ ficha }) {
+
+    const guardarFicha = async (id_ficha) => {
+
+        const token = localStorage.setItem('token', resJSON.token);
+
+        const res = await fetch(`https://plantmatica-back.vercel.app/ficha/guardar/${id_ficha}`, {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-token': token
+            },
+            body: JSON.stringify({
+                id_user: '123'
+            })
+        });
+
+    }
+
     return (
         <div>
             <MainHead tituloPestana="Ficha" />
@@ -137,7 +156,7 @@ export default function Ficha({ ficha }) {
                         <button className={styles.btnCalificar} >{`Calificar ficha`}</button>
                         <Link href="editar"><button className={styles.btnSolicitud} >{`Solicitud de edicion`}</button></Link>
                         <button className={styles.btnReporte} >{`Reportar ficha`}</button>
-                        <Link href="../user/fichasGuardadas"><button className={styles.btnguardar} >{`Guardar ficha`}</button></Link>
+                        <button className={styles.btnguardar} >{`Guardar ficha`}</button>
                     </CardActions>
                 </Card>
             </div >
@@ -147,7 +166,7 @@ export default function Ficha({ ficha }) {
 }
 
 export async function getServerSideProps({ params }) {
-    const res = await fetch(`https://tucansplantmaticabackend.vercel.app/ficha/${params.ficha}`);
+    const res = await fetch(`https://plantmatica-back.vercel.app/ficha/${params.ficha}`);
     const ficha = await res.json();
 
     return {

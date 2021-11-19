@@ -17,7 +17,7 @@ export default function IniciarSesion() {
 
     const onSubmit = async (data) => {
 
-        const res = await fetch(`https://tucansplantmaticabackend.vercel.app/login`, {
+        const res = await fetch(`https://plantmatica-back.vercel.app/login`, {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -44,7 +44,7 @@ export default function IniciarSesion() {
                 button: 'Ok',
                 timer: '3000'
             });
-            sessionStorage.setItem('userID', resJSON.token);
+            localStorage.setItem('token', resJSON.token);
             Router.push('/fichas');
         }
 

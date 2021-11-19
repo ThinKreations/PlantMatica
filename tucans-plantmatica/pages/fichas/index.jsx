@@ -16,8 +16,10 @@ import Link from "next/link";
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
+import { traerEtiquetas } from '../../helpers/fichas-http';
+import { TableCell } from '@mui/material';
 
-export default function Index({ fichas }) {
+export default function Index({ fichas, etiquetas }) {
     return (
         <div>
             <MainHead tituloPestana="Inicio" />
@@ -28,24 +30,28 @@ export default function Index({ fichas }) {
                     <Table sx={{ minWidth: 650, margin: '20px', maxWidth: '95%' }} aria-label="simple table">
                         <TableHead>
                             <TableRow>
-                                <Stack spacing={2} >
-                                    <Autocomplete
-                                        freeSolo
-                                        id="free-solo-2-demo"
-                                        disableClearable
-                                        options={top100Films.map((option) => option.title)}
-                                        renderInput={(params) => (
-                                            <TextField color="success"
-                                                {...params}
-                                                label="Buscar plantas"
-                                                InputProps={{
-                                                    ...params.InputProps,
-                                                    type: 'search',
-                                                }}
-                                            />
-                                        )}
-                                    />
-                                </Stack>
+                                <TableCell>
+
+                                    <Stack spacing={2} >
+                                        <Autocomplete
+                                            freeSolo
+                                            id="free-solo-2-demo"
+                                            disableClearable
+                                            options={etiquetas.arrayEtiquetas.map((option) => option.etiqueta)}
+                                            renderInput={(params) => (
+                                                <TextField color="success"
+                                                    {...params}
+                                                    label="Buscar plantas"
+                                                    InputProps={{
+                                                        ...params.InputProps,
+                                                        type: 'search',
+                                                    }}
+                                                />
+                                            )}
+                                        />
+                                    </Stack>
+                                </TableCell>
+                                <TableCell><button className={styles2.buscar_btn} >Buscar</button></TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -61,7 +67,7 @@ export default function Index({ fichas }) {
                                                 <div>
                                                     <p className={styles2.textFich} >Etiquetas: </p>
                                                     {
-                                                        f.etiquetas.map ( e => {
+                                                        f.etiquetas.map(e => {
                                                             return <p key={e} className={styles2.etiquetas} > {e} </p>
                                                         })
                                                     }
@@ -88,17 +94,12 @@ export default function Index({ fichas }) {
     )
 }
 
-const top100Films = [
-    { title: 'apio' },
-    { title: 'dolor estomacal' },
-    { title: 'enfermedades respiratorias' }
-];
-
 export async function getServerSideProps() {
-    const res = await fetch('https://tucansplantmaticabackend.vercel.app/ficha/');
+    const res = await fetch(`https://plantmatica-back.vercel.app/ficha`);
     const fichas = await res.json();
-    //console.log(fichas)
+    const etiquetas = await traerEtiquetas();
+
     return {
-        props: { fichas, notFound: false }
+        props: { fichas, etiquetas, notFound: false }
     }
 }
