@@ -22,10 +22,12 @@ export default function Index() {
                 <center>
                   <br />
                   <div className={styles.container_4}>
-                    <Link href="./session/CrearCuenta"><button className={styles.btnSubmit} type="submit"><h3>{`Crear Cuenta`}</h3></button></Link>
-                    <Link href="./session/IniciarSesion"><button className={styles.btnSubmit} type="submit"><h3>{`Iniciar Sesión`}</h3></button></Link>
+                    <Link href="./session/CrearCuenta"><button className={styles.btnSubmit} type="submit"><h4>{`Crear Cuenta`}</h4></button></Link>
+                    <Link href="./session/IniciarSesion"><button className={styles.btnSubmit} type="submit"><h4>{`Iniciar Sesión`}</h4></button></Link>
                   </div>
                   <br />
+                  <h4>{`Si no tienes una cuenta pero no quieres crear una, ingresa aquí.`}</h4>
+                  <Link href="/fichas"><button className={styles.btnSubmit} type="submit"><h3>{`Entrar como invitado`}</h3></button></Link>
                 </center><br />
                 <h1>
                   {`Tucan's Software, ¿quiénes somos?`}
