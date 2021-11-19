@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import styles from "../../styles/Fichas.module.css";
+import { useEffect, useState } from "react";
+import styles from "../../../styles/Fichas.module.css";
 import Router from "next/router";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -11,15 +11,18 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Link from "next/link";
-import Footy from "../../components/footy"
+import Footy from "../../../components/footy"
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
-import LayoutMenu from "../../components/LayoutMenu";
-import MainHead from '../../components/MainHead';
-import { validarToken } from "../api/request";
+import LayoutMenu from "../../../components/LayoutMenu";
+import MainHead from '../../../components/MainHead';
+import { validarToken } from "../../api/request";
+import { misFichasGuardadas } from "../../api/fichas-http";
 
 export default function FichasGuardadas({ fichas }) {
+
+    const [num, setNum] = useState(0);
 
     const sessionControl = async () => {
         const valid = await validarToken();
@@ -35,15 +38,25 @@ export default function FichasGuardadas({ fichas }) {
         }
     }
 
+    const executa = async () => {
+        if (num > 2) {
+            const { id } = await validarToken();
+            const lel = await misFichasGuardadas(id);
+            console.log(lel)
+            setNum(num + 1);
+        }
+    }
+
     useEffect(() => {
         sessionControl();
-    }, []);
+        executa();
+    });
 
     return (
-        
+
         <div>
-            <MainHead tituloPestana={'Fichas Guardadas'}/>
-            <LayoutMenu/>
+            <MainHead tituloPestana={'Fichas Guardadas'} />
+            <LayoutMenu />
             <div className={styles.tableFichas}>
 
                 <TableContainer component={Paper} className={styles.fondo}>
@@ -74,8 +87,8 @@ export default function FichasGuardadas({ fichas }) {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            
-                        {
+
+                            {
                                 fichas.fichas.map(f => {
                                     return <div key={f._id} >
                                         <Card sx={{ padding: '15px' }} className={styles.card}>
@@ -86,7 +99,7 @@ export default function FichasGuardadas({ fichas }) {
                                                 <div>
                                                     <p className={styles.textFich} >Etiquetas: </p>
                                                     {
-                                                        f.etiquetas.map ( e => {
+                                                        f.etiquetas.map(e => {
                                                             return <p key={e} className={styles.etiquetas} > {e} </p>
                                                         })
                                                     }
@@ -108,9 +121,9 @@ export default function FichasGuardadas({ fichas }) {
                     </Table>
                 </TableContainer>
             </div>
-        <Footy/>
+            <Footy />
         </div>
-            
+
     )
 }
 
@@ -120,10 +133,10 @@ const top100Films = [
     { title: 'enfermedades respiratorias' }
 ];
 
-export async function getServerSideProps() {
-    const res = await fetch('https://plantmatica-back.vercel.app/ficha');
+export async function getServerSideProps({ }) {
+    const res = await fetch(`https://plantmatica-back.vercel.app/ficha`);
     const fichas = await res.json();
-    //console.log(fichas)
+
     return {
         props: { fichas, notFound: false }
     }

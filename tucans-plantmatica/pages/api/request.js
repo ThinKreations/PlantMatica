@@ -43,9 +43,9 @@ const atraparErrores = async (res, resJSON) => {
     if (res.status !== 200) {
         if (!resJSON.errors) {
             swal({
-                title: 'Finalizado.',
+                title: 'Inicie sesion.',
                 text: resJSON.msg,
-                icon: 'success',
+                icon: 'error',
                 button: 'Ok',
                 timer: '3000'
             });
