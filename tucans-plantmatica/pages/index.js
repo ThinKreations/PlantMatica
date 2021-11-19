@@ -27,7 +27,7 @@ export default function Index() {
                   </div>
                   <br />
                   <h4>{`Si no tienes una cuenta pero no quieres crear una, ingresa aquí.`}</h4>
-                  <Link href="/fichas"><button className={styles.btnSubmit} type="submit"><h3>{`Entrar como invitado`}</h3></button></Link>
+                 <button className={styles.btnSubmit} type="submit"><h3>{`Entrar como invitado`}</h3></button>
                 </center><br />
                 <h1>
                   {`Tucan's Software, ¿quiénes somos?`}
