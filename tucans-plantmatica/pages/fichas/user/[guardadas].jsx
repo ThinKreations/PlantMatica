@@ -11,7 +11,8 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Link from "next/link";
-import Footy from "../../../components/footy"
+import Footy from "../../../components/footy";
+import Alert from '@mui/material/Alert';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
@@ -20,9 +21,10 @@ import MainHead from '../../../components/MainHead';
 import { validarToken } from "../../api/request";
 import { misFichasGuardadas } from "../../api/fichas-http";
 
-export default function FichasGuardadas({ fichas }) {
+export default function FichasGuardadas() {
 
     const [num, setNum] = useState(0);
+    const [fichasG, setFichasG] = useState();
 
     const sessionControl = async () => {
         const valid = await validarToken();
@@ -38,19 +40,52 @@ export default function FichasGuardadas({ fichas }) {
         }
     }
 
-    const executa = async () => {
-        if (num > 2) {
-            const { id } = await validarToken();
-            const lel = await misFichasGuardadas(id);
-            console.log(lel)
-            setNum(num + 1);
+    const borrarFicha = async (id_ficha) => {
+        const token = localStorage.getItem('token');
+        const { id } = await validarToken();
+        const res = await fetch(`https://plantmatica-back.vercel.app/ficha/guardadas/delete/${id_ficha}`, {
+            method: 'DELETE',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-token': token
+            },
+            body: JSON.stringify({
+                id_user: id
+            })
+        })
+        const resJSON = await res.json();
+        if (res.status !== 200) {
+            let arrayErrors = resJSON.errors;
+            arrayErrors.forEach(e => {
+                swal({
+                    title: 'Error',
+                    text: e.msg,
+                    icon: 'error',
+                    button: 'Ok',
+                })
+            });
+        } else {
+            swal({
+                title: 'Finalizado',
+                text: resJSON.msg,
+                icon: 'success',
+                button: 'Ok',
+                timer: '3000'
+            });
         }
+    }
+
+    const traerFichas = async () => {
+        const { id } = await validarToken();
+        const { fichas_guardadas } = await misFichasGuardadas(id);
+        setFichasG(fichas_guardadas);
     }
 
     useEffect(() => {
         sessionControl();
-        executa();
-    });
+        traerFichas()
+    }, [fichasG]);
 
     return (
 
@@ -63,58 +98,43 @@ export default function FichasGuardadas({ fichas }) {
                     <Table sx={{ minWidth: 650, margin: '20px', maxWidth: '95%' }} aria-label="simple table">
                         <TableHead>
                             <TableRow>
-                                <Stack spacing={2} >
-                                    <Autocomplete
-                                        freeSolo
-                                        id="free-solo-2-demo"
-                                        disableClearable
-                                        options={top100Films.map((option) => option.title)}
-                                        renderInput={(params) => (
-                                            <TextField color="success"
-                                                {...params}
-                                                label="Buscar fichas guardadas"
-                                                InputProps={{
-                                                    ...params.InputProps,
-                                                    type: 'search',
-                                                }}
-                                            />
-                                        )}
-                                    />
-                                </Stack>
-                            </TableRow>
-                            <TableRow>
-                                <h2 sx={{ padding: '15px' }} className={styles.titleficha} >Termino de busqueda: {`(AQUI)`}</h2>
                             </TableRow>
                         </TableHead>
                         <TableBody>
 
                             {
-                                fichas.fichas.map(f => {
-                                    return <div key={f._id} >
-                                        <Card sx={{ padding: '15px' }} className={styles.card}>
-                                            <CardContent>
-                                                <p className={styles.titleficha} >{f.nombre_comun}</p>
-                                                <p className={styles.nombreC} >{f.nombre_cientifico}</p>
-                                                <p className={styles.textFich} >{f.descripcion}</p>
-                                                <div>
-                                                    <p className={styles.textFich} >Etiquetas: </p>
-                                                    {
-                                                        f.etiquetas.map(e => {
-                                                            return <p key={e} className={styles.etiquetas} > {e} </p>
-                                                        })
-                                                    }
-                                                </div>
-                                            </CardContent>
-                                            <CardActions>
-                                                <Link href={`/fichas/[ficha]`} as={`/fichas/${f._id}`} >
+                                !fichasG ? <Alert variant="outlined" severity="info">
+                                    No tiene fichas guardadas.
+                                </Alert> :
+                                    fichasG.fichas_guardadas.map(f => {
+                                        return <div key={f._id} >
+                                            <Card sx={{ padding: '15px' }} className={styles.card}>
+                                                <CardContent>
+                                                    <p className={styles.titleficha} >{f.nombre_comun}</p>
+                                                    <p className={styles.nombreC} >{f.nombre_cientifico}</p>
+                                                    <p className={styles.textFich} >{f.descripcion}</p>
+                                                    <div>
+                                                        <p className={styles.textFich} >Etiquetas: </p>
+                                                        {
+                                                            f.etiquetas.map(e => {
+                                                                return <p key={e} className={styles.etiquetas} > {e} </p>
+                                                            })
+                                                        }
+                                                    </div>
+                                                </CardContent>
+                                                <CardActions>
+                                                    <Link href={`/fichas/[ficha]`} as={`/fichas/${f._id}`} >
+                                                        <a>
+                                                            <button className={styles.btnLinkFicha} >Mas informacion</button>
+                                                        </a>
+                                                    </Link>
                                                     <a>
-                                                        <button className={styles.btnLinkFicha} >Mas informacion</button>
+                                                        <button onClick={() => borrarFicha(f._id)} className={styles.btnReporte} >Eliminar de mis guardados</button>
                                                     </a>
-                                                </Link>
-                                            </CardActions>
-                                        </Card>
-                                    </div>
-                                })
+                                                </CardActions>
+                                            </Card>
+                                        </div>
+                                    })
                             }
 
                         </TableBody>
@@ -133,11 +153,3 @@ const top100Films = [
     { title: 'enfermedades respiratorias' }
 ];
 
-export async function getServerSideProps({ }) {
-    const res = await fetch(`https://plantmatica-back.vercel.app/ficha`);
-    const fichas = await res.json();
-
-    return {
-        props: { fichas, notFound: false }
-    }
-}
