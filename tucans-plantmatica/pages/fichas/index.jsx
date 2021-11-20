@@ -1,4 +1,3 @@
-import React from 'react';
 import MainHead from '../../components/MainHead';
 import LayoutMenu from "../../components/LayoutMenu"
 import Footy from "../../components/footy";
@@ -18,8 +17,34 @@ import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import { traerEtiquetas } from '../api/fichas-http';
 import { TableCell } from '@mui/material';
+import { useEffect, useState } from 'react';
 
 export default function Index({ fichas, etiquetas }) {
+
+    const [fichasR, setFichasR] = useState(fichas);
+    const [terminoB, setTerminoB] = useState('');
+
+    const buscarCoincidencias = async () => {
+        if (terminoB === undefined || terminoB === "" || terminoB === " ") {
+            const res = await fetch(`https://plantmatica-back.vercel.app/ficha`);
+            const fichas = await res.json();
+            setFichasR(fichas);
+        } else {
+            const res = await fetch(`https://plantmatica-back.vercel.app/ficha/encontrar/coincidencia/`, {
+                method: 'PUT',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    termino: terminoB
+                })
+            });
+            const resJSON = await res.json();
+            setFichasR(resJSON);
+        }
+    }
+
     return (
         <div>
             <MainHead tituloPestana="Inicio" />
@@ -37,6 +62,8 @@ export default function Index({ fichas, etiquetas }) {
                                             freeSolo
                                             id="free-solo-2-demo"
                                             disableClearable
+                                            onChange={(event, terminoB) => setTerminoB(terminoB)}
+                                            onKeyPress={e => setTerminoB(e.target.value)}
                                             options={etiquetas.arrayEtiquetas.map((option) => option.etiqueta)}
                                             renderInput={(params) => (
                                                 <TextField color="success"
@@ -51,13 +78,16 @@ export default function Index({ fichas, etiquetas }) {
                                         />
                                     </Stack>
                                 </TableCell>
-                                <TableCell><button className={styles2.buscar_btn} >Buscar</button></TableCell>
+                                <TableCell><button onClick={buscarCoincidencias} className={styles2.buscar_btn} >Buscar</button></TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <h2 sx={{ padding: '15px' }} className={styles2.titleficha} >Termino de busqueda: {terminoB}</h2>
                             </TableRow>
                         </TableHead>
                         <TableBody>
 
                             {
-                                fichas.fichas.map(f => {
+                                fichasR.fichas.map(f => {
                                     return <div key={f._id} >
                                         <Card sx={{ padding: '15px' }} className={styles2.card}>
                                             <CardContent>
@@ -94,7 +124,7 @@ export default function Index({ fichas, etiquetas }) {
     )
 }
 
-export async function getServerSideProps({  }) {
+export async function getServerSideProps({ }) {
     const res = await fetch(`https://plantmatica-back.vercel.app/ficha`);
     const fichas = await res.json();
     const etiquetas = await traerEtiquetas();
