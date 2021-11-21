@@ -87,3 +87,18 @@ export const buscarCoincidencia = async (termino) => {
     const resJSON = await res.json();
 
 }
+
+export const subirComentario = async (comentario)=>{
+
+    const res = await fetch(`https://plantmatica-back.vercel.app/ficha/encontrar/coincidencia/`, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            comentario
+        })
+    });
+    const resJSON = await res.json();
+}

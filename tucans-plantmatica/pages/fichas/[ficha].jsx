@@ -142,6 +142,7 @@ export default function Ficha({ ficha }) {
                                 color="secondary"
                             />
                         </Box>
+                        <hr className={styles.division} />
                     </CardContent>
                     <CardActions>
                         <button className={styles.btnCalificar} >{`Calificar ficha`}</button>
@@ -149,6 +150,12 @@ export default function Ficha({ ficha }) {
                         <button className={styles.btnReporte} >{`Reportar ficha`}</button>
                         <button onClick={() => guardarFicha(ficha._id)} className={styles.btnguardar} >{`Guardar ficha`}</button>
                     </CardActions>
+                    
+                    <CardContent>
+                    <hr className={styles.division} />
+                    <p className={styles.textU}>{`Comentarios: `}</p>
+                    
+                    </CardContent>
                 </Card>
             </div >
             <Footy />
