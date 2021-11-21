@@ -1,5 +1,4 @@
 export const agregarFichaReq = async (ficha) => {
-    console.log(ficha)
     const token = localStorage.getItem("token");
     const res = await fetch(`https://plantmatica-back.vercel.app/ficha`, {
         method: 'POST',
@@ -29,7 +28,6 @@ export const agregarFichaReq = async (ficha) => {
             button: 'Ok',
             timer: '3000'
         });
-        Router.push('/session/IniciarSesion')
     }
 }
 
