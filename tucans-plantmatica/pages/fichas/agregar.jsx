@@ -16,7 +16,7 @@ import Stack from '@mui/material/Stack';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import { traerEtiquetas } from '../api/fichas-http';
+import { agregarFichaReq, traerEtiquetas } from '../api/fichas-http';
 import { validarToken } from '../api/request';
 
 function valuetext(value) {
@@ -29,10 +29,65 @@ export default function Ficha({ arrayEtiquetas }) {
     const [caracteristica, setCaracteristicas] = useState();
     const [usos, setUsos] = useState();
     const [fuentes, setFuentes] = useState();
+    const [polemica, setPolemica] = useState(false);
+    const [nombreCo, setNombreCo] = useState();
+    const [nombreCi, setNombreCi] = useState();
+    const [lugar, setlugar] = useState();
+    const [detalles, setdetalles] = useState();
+    const [complemento, setcomplemento] = useState();
+    const [descripcion, setdescripcion] = useState();
 
     const agregarFicha = async () => {
         event.preventDefault();
-        console.log(etiquetas, caracteristica, usos)
+        const { id } = await validarToken();
+        let object = new Object();
+        const token = localStorage.getItem("token");
+        const res = await fetch(`https://plantmatica-back.vercel.app/ficha`, {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                "x-token": token,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                etiquetas,
+                caracteristicas_especiales: caracteristica,
+                usos_medicinales: usos,
+                fuentes,
+                polemica,
+                nombre_comun: nombreCo,
+                nombre_cientifico: nombreCi,
+                origen_distribucion: [
+                    {
+                        nombre: lugar,
+                        detalles
+                    }
+                ],
+                complemento,
+                descripcion,
+                usuario_creo: id
+            })
+        })
+        const resJSON = await res.json();
+        if (res.status !== 200) {
+            let arrayErrors = resJSON.errors;
+            arrayErrors.forEach(e => {
+                swal({
+                    title: 'Error',
+                    text: e.msg,
+                    icon: 'error',
+                    button: 'Ok',
+                })
+            });
+        } else {
+            swal({
+                title: 'Finalizado',
+                text: resJSON.msg,
+                icon: 'success',
+                button: 'Ok',
+                timer: '3000'
+            });
+        }
     }
 
     const sessionControl = async () => {
@@ -47,6 +102,10 @@ export default function Ficha({ arrayEtiquetas }) {
             });
             Router.push('/session/IniciarSesion');
         }
+    }
+
+    const cambiarPolemica = () => {
+        !polemica ? setPolemica(true) : setPolemica(false)
     }
 
     useEffect(() => {
@@ -72,6 +131,7 @@ export default function Ficha({ arrayEtiquetas }) {
                                 {/* <p>{`Imagen: `}<input type="file" name="imagen" className={styles.inputImg} id={styles.file}></input></p> */}
                                 <FormGroup>
                                     <FormControlLabel control={<Checkbox
+                                        onChange={cambiarPolemica}
                                         sx={{ '& .MuiSvgIcon-root': { fontSize: 28 } }} />} label={<p className={styles.text_danger}>Marca esta casilla si el consumo de esta planta puede llegar a ser nocivo o dañino para la salud. De igual manera si su consumo es ilicito en algunas regiones.</p>} />
                                 </FormGroup>
 
@@ -100,28 +160,56 @@ export default function Ficha({ arrayEtiquetas }) {
 
                                 <hr className={styles.division} />
                                 <p className={styles.textD}>{`Nombre comun: `}</p>
-                                <textarea className={styles.txtNombres} placeholder={'Ingresa el nombre.'}></textarea>
+                                <TextField required
+                                    label="Nombre comun"
+                                    variant="filled"
+                                    onChange={e => setNombreCo(e.target.value)}
+                                    color="success" fullWidth
+                                    placeholder="Digite el nombre comun de la planta"
+                                />
+
                                 <hr className={styles.division} />
                                 <p className={styles.textD}>{`Nombre cientifico: `}</p>
-                                <textarea className={styles.txtNombres} placeholder={'Ingresa el nombre científico.'}></textarea>
+                                <TextField required
+                                    label="Nombre cientifico"
+                                    variant="filled"
+                                    color="success" fullWidth
+                                    onChange={e => setNombreCi(e.target.value)}
+                                    placeholder="Digite el nombre cientifico de la planta"
+                                />
                                 <hr className={styles.division} />
 
                                 <p className={styles.textD}>{`Origen y distribucion: `}</p>
-                                <textarea className={styles.txtNombres} placeholder={'Ingresa el lugar.'}></textarea> <br />
-                                <textarea className={styles.txtNombres} placeholder={'Ingresa detalles del lugar.'}></textarea>
+                                <TextField required
+                                    label="Lugar"
+                                    variant="filled"
+                                    color="success" fullWidth
+                                    onChange={e => setlugar(e.target.value)}
+                                    placeholder="Digite el lugar"
+                                />
+                                <TextField required
+                                    label="Detalles"
+                                    variant="filled"
+                                    color="success" fullWidth
+                                    onChange={e => setdetalles(e.target.value)}
+                                    placeholder="Digite detalles (Si es origen o distribucion)"
+                                />
                                 <hr className={styles.division} />
 
                                 <p className={styles.textD} >{`Descripcion: `}</p>
-                                <textarea className={styles.txtBody} placeholder={'Ingresa la descripción aquí.'}>
+                                <textarea
+                                    onChange={e => setdescripcion(e.target.value)}
+                                    required
+                                    className={styles.txtBody} placeholder={'Digite caracteristicas fisicas de la planta (tallos, hojas, semillas), medidas promedio de la planta, mas de lugares de origen y distribucion, habitat y clima de cuidado.'}>
 
                                 </textarea>
                                 <hr className={styles.division} />
-                                <p className={styles.textD}>{`Caracteristicas especiales: `}</p>
+                                <p className={styles.textD}>{`Caracteristicas especiales (Si es aromatica, etc.): `}</p>
                                 <Autocomplete
                                     multiple
                                     onChange={(event, caracteristica) => setCaracteristicas(caracteristica)}
                                     id="tags-filled"
-                                    options={defaultOptions.map((option) => option.etiqueta)}
+                                    options={defaultOptions.caracteristicas.map((option) => option.etiqueta)}
                                     freeSolo
                                     renderTags={(value, getTagProps) =>
                                         value.map((option, index) => (
@@ -141,18 +229,20 @@ export default function Ficha({ arrayEtiquetas }) {
                                 <hr className={styles.division} />
 
                                 <p className={styles.textD}>{`Alternativa y complementos a: `}</p>
-                                <textarea className={styles.txtBody}>
+                                <textarea
+                                    onChange={e => setcomplemento(e.target.value)}
+                                    required className={styles.txtBody} placeholder="Digite al farmaco que puede complementar (Paracetamol, etc). " >
 
                                 </textarea>
                                 <hr className={styles.division} />
-                                <p className={styles.textD}>{`Usos:`}</p>
+                                <p className={styles.textD}>{`Usos (Medicinales tiene, que malestares puede aliviar (dolores estomacales, enfermedades respiratorias):`}</p>
                                 <br />
 
                                 <Autocomplete
                                     multiple
                                     onChange={(event, usos) => setUsos(usos)}
                                     id="tags-filled"
-                                    options={defaultOptions.map((option) => option.etiqueta)}
+                                    options={defaultOptions.usos.map((option) => option.etiqueta)}
                                     freeSolo
                                     renderTags={(value, getTagProps) =>
                                         value.map((option, index) => (
@@ -178,13 +268,8 @@ export default function Ficha({ arrayEtiquetas }) {
                                         multiple
                                         onChange={(event, fuentes) => setFuentes(fuentes)}
                                         id="tags-filled"
-                                        options={defaultOptions.map((option) => option.etiqueta)}
+                                        options={fuentes2.map((option) => option.fuente)}
                                         freeSolo
-                                        renderTags={(value, getTagProps) =>
-                                            value.map((option, index) => (
-                                                <Chip key={`${option}${index}`} variant="outlined" label={option} {...getTagProps({ index })} />
-                                            ))
-                                        }
                                         renderInput={(params) => (
                                             <TextField
                                                 {...params}
@@ -213,17 +298,33 @@ export default function Ficha({ arrayEtiquetas }) {
     )
 }
 
-const defaultOptions = [{
-    "etiqueta": "enfermedades"
-},
-{
-    "etiqueta": "diarrea"
-},
-{
-    "etiqueta": "comestible"
-},
-{
-    "etiqueta": "malestar estomacal"
+const defaultOptions = {
+    "caracteristicas": [
+        { "etiqueta": "Planta aromatica" },
+        { "etiqueta": "Condimento" },
+        { "etiqueta": "Comestible" },
+        { "etiqueta": "Endulzante" }
+    ],
+    "consumo": [
+        { "etiqueta": "Cocida" },
+        { "etiqueta": "Cruda" },
+        { "etiqueta": "Comestible" },
+        { "etiqueta": "Aromatica" },
+        { "etiqueta": "Masticable" },
+        { "etiqueta": "Infusion" }
+    ],
+    "usos": [
+        { "etiqueta": "Enfermedades respiratorias" },
+        { "etiqueta": "Malestares estomacales" },
+        { "etiqueta": "Dolores de cabeza" },
+        { "etiqueta": "Analgesico" },
+        { "etiqueta": "Migraña" }
+    ]
+}
+
+
+const fuentes2 = [{
+    "fuente": ""
 }]
 
 export async function getServerSideProps() {
