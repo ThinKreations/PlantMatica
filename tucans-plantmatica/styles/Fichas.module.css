@@ -205,7 +205,7 @@
 
 .txtEtiquetas {
     margin-top: 5px;
-    background-color: #e4e4e4;
+    background-color: #e3e3e3;
     border: none;
     width: 50%;
     height: 26px;
@@ -366,12 +366,33 @@
     color: white;
 }
 
+/* Comentarios */
+
+.commentArea{
+    background-color: #e3e3e3;
+    width: 80%;
+    height: max-content;
+    padding: 5px;
+    padding-left: 20px;
+    
+}
+
+    .commentArea:hover{
+        background-color: #f7f7f7;  
+    }
+
 .btnEnviar{
-    transform: translate(15px, -7.5px);
+    transform: translate(15px, -8px);
     width: 64px;
-    height: 25.5px;
+    height: 26px;
     background: linear-gradient(to right, var(--hover-color), var(--rightColor));
     background-attachment: fixed;
     border: none;
-    border-radius: 5px;
+    
+    transition: 0.3s;
 }
+
+    .btnEnviar:hover{
+        border-radius: 10px;
+        text-shadow: 0px 0px 3px #f2f2f2;
+    }

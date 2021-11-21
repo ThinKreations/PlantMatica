@@ -23,6 +23,7 @@ export default function Ficha({ ficha }) {
 
         const token = localStorage.getItem('token');
         const { id } = await validarToken();
+
         await guardarFichaHttp(id_ficha, id, token);
 
     }
@@ -35,7 +36,7 @@ export default function Ficha({ ficha }) {
                 {
                     !ficha.polemica ? "" : <Alert sx={{ margin: '10px' }} variant="outlined" severity="error">
                         <p className={styles.text_danger}>
-                            {`Tucan's Software no es responsable de efectos negativos a la salud, asi como de aquellas acciones legales que se tomen contra la persona por consumo ilegal de esta planta. Para mas referencia consulte a su medico o su constitucion.`}
+                            {`Tucan's Software no es responsable de efectos negativos a la salud, asi como de aquellas acciones legales que se tomen contra la persona por consumo ilegal de esta planta. Para mas referencia consulte a su medico o su constitución.`}
                         </p>
                     </Alert>
                 }
@@ -152,12 +153,28 @@ export default function Ficha({ ficha }) {
                         <button onClick={() => guardarFicha(ficha._id)} className={styles.btnguardar} >{`Guardar ficha`}</button>
                     </CardActions>
                     
+                    
+
                     <CardContent>
+                        
                     <hr className={styles.division} />
                     <p className={styles.textU}>{`Comentarios: `}</p><br/>
                     <textarea className={styles.txtEtiquetas} placeholder={'Ingresa tu comentario aquí.'}></textarea>
                     <button type="submit" className={styles.btnEnviar}><font face="Work Sans" color="white" size="3"><b>{`Enviar`}</b></font></button>
-
+                    <br/>
+                    <div className={styles.commentArea}>
+                    <font face="Work Sans" color="black" size="3">    
+                    {
+                        
+                        ficha.comentarios.map(com=>{
+                            return <p key={com} className={styles.comentarios}> {com} </p>
+                        })
+                    }
+                    <p>Ola</p>
+                    <p>Ola</p>
+                    <p>Ola</p>
+                    </font>
+                    </div>
                     </CardContent>
                 </Card>
             </div >
