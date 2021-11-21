@@ -10,7 +10,8 @@ import CardContent from '@mui/material/CardContent';
 import Slider from '@mui/material/Slider';
 import Link from 'next/link';
 import Alert from '@mui/material/Alert';
-import { guardarFichaHttp, validarToken } from '../api/request';
+import { guardarFichaHttp, validarToken, obtenerComentario } from '../api/request';
+
 
 function valuetext(value) {
     return `${value}°C`;
@@ -28,7 +29,7 @@ export default function Ficha({ ficha }) {
 
     return (
         <div>
-            <MainHead tituloPestana="Ficha" />
+            <MainHead tituloPestana={ficha.nombre_comun} />
             <LayoutMenu />
             <div className={styles.containerFicha}>
                 {
@@ -153,8 +154,10 @@ export default function Ficha({ ficha }) {
                     
                     <CardContent>
                     <hr className={styles.division} />
-                    <p className={styles.textU}>{`Comentarios: `}</p>
-                    
+                    <p className={styles.textU}>{`Comentarios: `}</p><br/>
+                    <textarea className={styles.txtEtiquetas} placeholder={'Ingresa tu comentario aquí.'}></textarea>
+                    <button type="submit" className={styles.btnEnviar}><font face="Work Sans" color="white" size="3"><b>{`Enviar`}</b></font></button>
+
                     </CardContent>
                 </Card>
             </div >
@@ -166,7 +169,7 @@ export default function Ficha({ ficha }) {
 export async function getServerSideProps({ params }) {
     const res = await fetch(`https://plantmatica-back.vercel.app/ficha/${params.ficha}`);
     const ficha = await res.json();
-
+    console.log(ficha.ficha.comentarios)
     return {
         props: { ficha: ficha.ficha, notFound: false }
     }
