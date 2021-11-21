@@ -40,54 +40,25 @@ export default function Ficha({ arrayEtiquetas }) {
     const agregarFicha = async () => {
         event.preventDefault();
         const { id } = await validarToken();
-        let object = new Object();
-        const token = localStorage.getItem("token");
-        const res = await fetch(`https://plantmatica-back.vercel.app/ficha`, {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                "x-token": token,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                etiquetas,
-                caracteristicas_especiales: caracteristica,
-                usos_medicinales: usos,
-                fuentes,
-                polemica,
-                nombre_comun: nombreCo,
-                nombre_cientifico: nombreCi,
-                origen_distribucion: [
-                    {
-                        nombre: lugar,
-                        detalles
-                    }
-                ],
-                complemento,
-                descripcion,
-                usuario_creo: id
-            })
-        })
-        const resJSON = await res.json();
-        if (res.status !== 200) {
-            let arrayErrors = resJSON.errors;
-            arrayErrors.forEach(e => {
-                swal({
-                    title: 'Error',
-                    text: e.msg,
-                    icon: 'error',
-                    button: 'Ok',
-                })
-            });
-        } else {
-            swal({
-                title: 'Finalizado',
-                text: resJSON.msg,
-                icon: 'success',
-                button: 'Ok',
-                timer: '3000'
-            });
-        }
+        let object = new Object({
+            etiquetas, 
+            caracteristicas_especiales: caracteristica,
+            usos_medicinales: usos, 
+            fuentes, 
+            polemica, 
+            nombre_comun: nombreCo, 
+            nombre_cientifico: nombreCi, 
+            origen_distribucion:[
+                {
+                    nombre: lugar,
+                    detalles
+                }
+            ],  
+            complemento, 
+            descripcion,
+            usuario_creo: id
+        });
+        await agregarFichaReq(object);
     }
 
     const sessionControl = async () => {
@@ -148,7 +119,7 @@ export default function Ficha({ arrayEtiquetas }) {
                                         ))
                                     }
                                     renderInput={(params) => (
-                                        <TextField
+                                        <TextField 
                                             {...params}
                                             label="Presione la tecla enter para agregar un etiqueta"
                                             variant="filled"
@@ -217,7 +188,7 @@ export default function Ficha({ arrayEtiquetas }) {
                                         ))
                                     }
                                     renderInput={(params) => (
-                                        <TextField
+                                        <TextField 
                                             {...params}
                                             label="Presione la tecla enter para agregar una caracteristica"
                                             variant="filled"
@@ -250,7 +221,7 @@ export default function Ficha({ arrayEtiquetas }) {
                                         ))
                                     }
                                     renderInput={(params) => (
-                                        <TextField
+                                        <TextField 
                                             {...params}
                                             label="Presione la tecla enter para agregar un uso"
                                             variant="filled"
@@ -271,7 +242,7 @@ export default function Ficha({ arrayEtiquetas }) {
                                         options={fuentes2.map((option) => option.fuente)}
                                         freeSolo
                                         renderInput={(params) => (
-                                            <TextField
+                                            <TextField 
                                                 {...params}
                                                 label="Presione la tecla enter para agregar una fuente "
                                                 variant="filled"
