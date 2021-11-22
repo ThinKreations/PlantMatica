@@ -174,7 +174,7 @@ export default function Ficha({ ficha }) {
                     <hr className={styles.division} />
                     <p className={styles.textU}>{`Comentarios: `}</p><br/>
                     <textarea className={styles.txtEtiquetas} value={comentario} placeholder={'Ingresa tu comentario aquí.'} onChange={c=>setComentario(event.target.value)}></textarea>
-                    <button type="submit" className={styles.btnEnviar} onClick={()=>postComentario(ficha._id)}><font face="Work Sans" color="white" size="3"><b>{`Enviar`}</b></font></button>
+                    <button type="button" className={styles.btnEnviar} onClick={()=>postComentario(ficha._id)}><font face="Work Sans" color="white" size="3"><b>{`Enviar`}</b></font></button>
                     <br/>
                     <div className={styles.commentArea}>
                     <font face="Work Sans" color="black" size="3">    
@@ -185,7 +185,7 @@ export default function Ficha({ ficha }) {
                                 <div className={styles.comBox}>
                                 <p key={com._id} className={styles.com_Info}>Por: <b>{com.id_usuario.username}</b>, el {com.fecha.dia} de {com.fecha.mes} de {com.fecha.year} </p>
                                 <p key={com._id} className={styles.com_Body}> {com.comentario} </p>
-                                <button className={styles.com_Del}>{`Eliminar`}</button>
+                                <button className={styles.com_Del}><b>{`Eliminar`}</b></button>
                                 <button className={styles.com_Report}><span className={styles.materialIcons}>outlined_flag</span></button>
                                 
                                 </div>

@@ -438,7 +438,7 @@
     background: linear-gradient(135deg,  rgba(182, 224, 84, 0.4),rgba(255, 229, 146, 0.4));
     background-attachment: fixed;
     margin-bottom: 15px;
-    width: 60vw;
+    width: 123%;
     transition: 0.3s;
     padding-left: 20px;
     padding-top: 1px;
@@ -452,7 +452,7 @@
 }
 
 .com_Body{
-    font-size: 125%;
+    font-size: 115%;
 
 }
 
