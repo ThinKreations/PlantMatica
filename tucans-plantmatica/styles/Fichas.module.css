@@ -1,3 +1,38 @@
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),
+      local('MaterialIcons-Regular'),
+      url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+      url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+      url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons{
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    
+    
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    -webkit-font-smoothing: antialiased;
+    
+    text-rendering: optimizeLegibility;
+
+    -moz-osx-font-smoothing: grayscale;
+
+    font-feature-settings: 'liga';
+
+}
+
 .fondo {
     background-image: linear-gradient(to top, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.85) 100%), url(../src/head_bg.jpg);
     background-size: cover;
@@ -212,22 +247,26 @@
     resize: none;
     padding: 5px;
     transition: 0.2s;
+    border: 1px solid black;
 }
 
 .txtEtiquetas:hover {
-    background-color: #dfdfdf;
+    background-color: #dbdbdb;
+    
 }
 
 .txtEtiquetas:focus {
     outline: none;
-    border-radius: 10px;
-    border: 1px rgb(0, 0, 0)
+    
+    border: 1px rgb(0, 0, 0);
+    border: 1px solid black;
 }
 
 .txtEtiquetas:active {
     outline: none;
-    border-radius: 10px;
-    border: 1px rgb(0, 0, 0)
+    
+    border: 1px rgb(0, 0, 0);
+    border: 1px solid black;
 }
 
 .txtNombres {
@@ -369,17 +408,13 @@
 /* Comentarios */
 
 .commentArea{
-    background-color: #e3e3e3;
+    
     width: 80%;
     height: max-content;
     padding: 5px;
     padding-left: 20px;
     
 }
-
-    .commentArea:hover{
-        background-color: #f7f7f7;  
-    }
 
 .btnEnviar{
     transform: translate(15px, -8px);
@@ -396,3 +431,64 @@
         border-radius: 10px;
         text-shadow: 0px 0px 3px #f2f2f2;
     }
+
+/* Area de comentarios */
+
+.comBox{
+    background: linear-gradient(135deg,  rgba(182, 224, 84, 0.4),rgba(255, 229, 146, 0.4));
+    background-attachment: fixed;
+    margin-bottom: 15px;
+    width: 60vw;
+    transition: 0.3s;
+    padding-left: 20px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    box-shadow: 0px 0px 5px rgb(125, 125, 125);
+}
+
+.com_Info{
+    color:rgb(50,50,50);
+    font-size: 90%;
+}
+
+.com_Body{
+    font-size: 125%;
+
+}
+
+.com_Del{
+    background-color: white;
+    border: 1px solid var(--danger-color);
+    color: var(--danger-color);
+    padding: 12px;
+    margin-bottom: 19px;
+    transition: 0.3s;
+    border-radius: 4px;
+    font-size: 15px;
+    margin-right: 19px;
+}
+
+.com_Del:hover {
+    
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.com_Report{
+    background-color: white;
+    border: 1px solid var(--danger-color);
+    color: var(--danger-color);
+    padding: 5px;
+    margin-bottom: 19px;
+    height: 42.5px;
+    transition: 0.3s;
+    border-radius: 4px;
+    font-size: 15px;
+    transform: translate(0px, 4.5px);
+}
+
+.com_Report:hover {
+    
+    background-color: var(--danger-color);
+    color: white;
+}
