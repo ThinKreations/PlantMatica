@@ -34,7 +34,7 @@ export default function Ficha({ ficha }) {
     
     const postComentario=async(id_ficha)=>{
         
-        const { id} = await validarToken();
+        const {id} = await validarToken();
         const subeComentario=await subirComentario(id_ficha, id, comentario);
         console.log(subeComentario)
 
@@ -181,15 +181,16 @@ export default function Ficha({ ficha }) {
 
                     {
                         ficha.comentarios.map(com=>{
-                            return <div>
-                                <div className={styles.comBox}>
-                                <p key={com._id} className={styles.com_Info}>Por: <b>{com.id_usuario.username}</b>, el {com.fecha.dia} de {com.fecha.mes} de {com.fecha.year} </p>
-                                <p key={com._id} className={styles.com_Body}> {com.comentario} </p>
+                            return (
                                 
+                            <div className={styles.comBox}>
+                            <p key={com._id} className={styles.com_Info}>Por: <b>{com.id_usuario.username}</b>, el {com.fecha.dia} de {com.fecha.mes} de {com.fecha.year} </p>
+                            <p key={com._id} className={styles.com_Body}> {com.comentario} </p>
+                            <button className={styles.com_Del}><b>{`Eliminar`}</b></button>
+                            <button className={styles.com_Report}><span className={styles.materialIcons}>outlined_flag</span></button>
+                            </div>
                                 
-                                </div>
-                                
-                                </div>
+                            ) 
                                 
                         })
                     }
