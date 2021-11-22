@@ -182,7 +182,17 @@ export default function Ficha({ ficha }) {
                     {
                         ficha.comentarios.map(com=>{
                             
+                            return (
                                 
+                                <div key={null} className={styles.comBox}>
+                                <p key={com._id} className={styles.com_Info}>Por: <b>{com.id_usuario.username}</b>, el {com.fecha.dia} de {com.fecha.mes} de {com.fecha.year} </p>
+                                <p key={com._id} className={styles.com_Body}> {com.comentario} </p>
+                                <button key={null} className={styles.com_Del}><b>{`Eliminar`}</b></button>
+                                <button key={null} className={styles.com_Report}><span className={styles.materialIcons}>outlined_flag</span></button>
+                                </div>
+                                    
+                            ) 
+
                         })
                     }
                     
