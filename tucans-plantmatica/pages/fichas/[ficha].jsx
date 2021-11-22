@@ -157,6 +157,7 @@ export default function Ficha({ ficha }) {
 }
 
 export async function getServerSideProps({ params }) {
+
     const res = await fetch(`https://plantmatica-back.vercel.app/ficha/${params.ficha}`);
     const ficha = await res.json();
 

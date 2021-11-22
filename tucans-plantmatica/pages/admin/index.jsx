@@ -1,4 +1,6 @@
 import MainHead from '../../components/MainHead';
+import Alert from '@mui/material/Alert';
+import Router from "next/router";
 import LayoutMenu from "../../components/LayoutMenu"
 import Footy from "../../components/footy";
 import styles2 from "../../styles/Fichas.module.css";
@@ -22,6 +24,8 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import { traerUsuarios, traerFichasNoAceptadas } from '../api/admin-https';
+import { validarToken } from '../api/request';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -60,10 +64,46 @@ export default function Index({ fichas }) {
 
     const [value, setValue] = useState(0);
     const [fichasR, setFichasR] = useState(fichas);
+    const [usuariosR, setUsuarios] = useState();
+    const [fichasNoR, setFichasNoR] = useState(fichas);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
+    const actualizarDataUsuarios = async () => {
+        if (!usuariosR) {
+            const usuarios = await traerUsuarios();
+            setUsuarios(usuarios);
+        }
+    }
+
+    const sessionControl = async () => {
+        const valid = await validarToken();
+        if (valid === false) {
+            swal({
+                title: 'Inicia sesion.',
+                text: 'Tu sesion expiro, vuelve a iniciar sesion para realizar esta operacion.',
+                icon: 'info',
+                button: 'Ok',
+                timer: '3000'
+            });
+            Router.push('/session/IniciarSesion');
+        }
+    }
+
+    const actualizarDataFichasNoAceptadas = async () => {
+        if (fichasNoR === fichasR) {
+            const fichasNoRes = await traerFichasNoAceptadas();
+            setFichasNoR(fichasNoRes);
+        }
+    }
+
+    useEffect(() => {
+        actualizarDataUsuarios();
+        actualizarDataFichasNoAceptadas();
+        sessionControl();
+    }, [usuariosR, fichasNoR]);
 
     return (
         <div>
@@ -112,13 +152,64 @@ export default function Index({ fichas }) {
                         }
                     </TabPanel>
                     <TabPanel value={value} index={1}>
-                        Fichas no aceptadas
+                        <h2 sx={{ padding: '15px' }} className={styles2.titleficha}>Solicitudes de agregar fichas pendientes: { !fichasNoR ? "0" : fichasNoR.noAceptadas }.</h2>
+                        {
+
+                            !fichasNoR ? <Alert variant="outlined" severity="info">
+                                No hay solicitudes para agregar fichas pendientes.
+                            </Alert> :
+                                fichasNoR.fichas.map(fn => {
+                                    return <div key={fn._id} >
+                                        <Card sx={{ padding: '15px' }} className={styles2.card}>
+                                            <CardContent>
+                                                <p className={styles2.titleficha} >{fn.nombre_comun}</p>
+                                                <p className={styles2.nombreC} >{fn.nombre_cientifico}</p>
+                                                <p className={styles2.textFich} >{fn.descripcion}</p>
+                                                <div>
+                                                    <p className={styles2.textFich} >Etiquetas: </p>
+                                                    {
+                                                        fn.etiquetas.map(e => {
+                                                            return <p key={e} className={styles2.etiquetas} > {e} </p>
+                                                        })
+                                                    }
+                                                </div>
+                                            </CardContent>
+                                            <CardActions>
+                                                <Link href={`/fichas/[ficha]`} as={`/fichas/${fn._id}`} >
+                                                    <a>
+                                                        <button className={styles2.btnLinkFicha} >Mas informacion</button>
+                                                    </a>
+                                                </Link>
+                                            </CardActions>
+                                        </Card>
+                                    </div>
+                                })
+                        }
                     </TabPanel>
                     <TabPanel value={value} index={2}>
                         Solicitudes
                     </TabPanel>
                     <TabPanel value={value} index={3}>
-                        Usuarios
+                        <h2 sx={{ padding: '15px' }} className={styles2.titleficha}>Usuarios con la cuenta activa.</h2>
+                        {
+                            !usuariosR ? <Alert variant="outlined" severity="info">
+                                Cargando...
+                            </Alert> :
+                                usuariosR.usuarios.map(u => {
+                                    return <div key={u._id} >
+                                        <Card sx={{ padding: '15px' }} className={styles2.card}>
+                                            <CardContent>
+                                                <p className={styles2.nombreC} >Nombre de usuario: {u.username}</p>
+                                                <p className={styles2.textFich} >Correo: {u.correo}</p>
+                                                <p className={styles2.textFich} >Edad: {u.edad}</p>
+                                                <p className={styles2.textFich} >Rol: {u.rol}</p>
+                                                <p className={styles2.textFich} >Estado de la cuenta: {u.status}</p>
+                                                <p className={styles2.textFich} >Numero de reportes hacia este usuario: {u.reportes.length}</p>
+                                            </CardContent>
+                                        </Card>
+                                    </div>
+                                })
+                        }
                     </TabPanel>
                 </Box>
             </div>
