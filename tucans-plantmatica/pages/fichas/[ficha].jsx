@@ -186,7 +186,7 @@ export default function Ficha({ ficha }) {
                                 <p key={com._id} className={styles.com_Info}>Por: <b>{com.id_usuario.username}</b>, el {com.fecha.dia} de {com.fecha.mes} de {com.fecha.year} </p>
                                 <p key={com._id} className={styles.com_Body}> {com.comentario} </p>
                                 <button className={styles.com_Del}>{`Eliminar`}</button>
-                                <button className={styles.com_Report}><span className={styles.materialIcons}>outlined_flag</span></button>
+                                
                                 
                                 </div>
                                 
