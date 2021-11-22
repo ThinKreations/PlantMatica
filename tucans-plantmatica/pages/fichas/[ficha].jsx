@@ -178,10 +178,10 @@ export default function Ficha({ ficha }) {
                     <br/>
                     <div className={styles.commentArea}>
                     <font face="Work Sans" color="black" size="3">    
+
                     {
-                        
                         ficha.comentarios.map(com=>{
-                            return <p key={com} className={styles.comentarios}> {com} </p>
+                            return <p key={com._id} className={styles.comentarios}> {com.comentario} </p>
                         })
                     }
                     <p>Ola</p>
