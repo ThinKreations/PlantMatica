@@ -82,4 +82,9 @@
     transform: scale(1.05, 1.05);
 }
 
+.uploadphoto {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
 

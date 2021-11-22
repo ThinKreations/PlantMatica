@@ -139,6 +139,12 @@ export default function CrearCuenta() {
                         <input {...register('edad')} type="text" className={styles.input} />
                         <p className={styles.errors} >{errors.edad ? "Dato no valido" : ""}</p>
                     </div><br />
+
+                    <center><label for="upload-photo" className={styles.text}>Selecciona una foto de perfil, haz clic aquí.</label></center>
+                    <input type="file" name="photo" id="upload-photo" className={styles.uploadphoto}/>
+                    <br/>
+                    <br/>
+
                     <div>
                         <center><TerminosYCondiciones /></center>
                     </div><br />
