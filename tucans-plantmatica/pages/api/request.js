@@ -88,7 +88,7 @@ export const buscarCoincidencia = async (termino) => {
 
 }
 
-export const obtenerComentario = async (comentario)=>{
+export const obtenerComentario = async (id_ficha, id_user, comentario)=>{
 
     const res = await fetch(`https://plantmatica-back.vercel.app/comment/${id_ficha}`, {
         method: 'GET',
@@ -98,6 +98,7 @@ export const obtenerComentario = async (comentario)=>{
             'x-token': token
         },
         body: JSON.stringify({
+            
             id_user,
             comentario
         })
@@ -105,19 +106,23 @@ export const obtenerComentario = async (comentario)=>{
     const resJSON = await res.json();
 }
 
-export const subirComentario = async (comentario)=>{
+export const subirComentario = async (id_ficha, id_user, comentario)=>{
 
+    const token = localStorage.getItem("token");
     const res = await fetch(`https://plantmatica-back.vercel.app/comment/${id_ficha}`, {
-        method:'post',
+        method:'POST',
         mode: 'cors',
         headers: {
             'Content-Type': 'application/json',
             'x-token': token
         },
         body: JSON.stringify({
+            
+            id_user,
             comentario
         })
 
     });
-
+    const resJSON = await res.json();
+    return resJSON
 }
