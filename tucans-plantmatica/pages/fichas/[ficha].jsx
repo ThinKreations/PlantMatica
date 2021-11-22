@@ -10,7 +10,8 @@ import CardContent from '@mui/material/CardContent';
 import Slider from '@mui/material/Slider';
 import Link from 'next/link';
 import Alert from '@mui/material/Alert';
-import { guardarFichaHttp, validarToken } from '../api/request';
+import { guardarFichaHttp, validarToken, obtenerComentario } from '../api/request';
+
 
 function valuetext(value) {
     return `${value}°C`;
@@ -22,19 +23,20 @@ export default function Ficha({ ficha }) {
 
         const token = localStorage.getItem('token');
         const { id } = await validarToken();
+
         await guardarFichaHttp(id_ficha, id, token);
 
     }
 
     return (
         <div>
-            <MainHead tituloPestana="Ficha" />
+            <MainHead tituloPestana={ficha.nombre_comun} />
             <LayoutMenu />
             <div className={styles.containerFicha}>
                 {
                     !ficha.polemica ? "" : <Alert sx={{ margin: '10px' }} variant="outlined" severity="error">
                         <p className={styles.text_danger}>
-                            {`Tucan's Software no es responsable de efectos negativos a la salud, asi como de aquellas acciones legales que se tomen contra la persona por consumo ilegal de esta planta. Para mas referencia consulte a su medico o su constitucion.`}
+                            {`Tucan's Software no es responsable de efectos negativos a la salud, asi como de aquellas acciones legales que se tomen contra la persona por consumo ilegal de esta planta. Para mas referencia consulte a su medico o su constitución.`}
                         </p>
                     </Alert>
                 }
@@ -142,6 +144,7 @@ export default function Ficha({ ficha }) {
                                 color="secondary"
                             />
                         </Box>
+                        <hr className={styles.division} />
                     </CardContent>
                     <CardActions>
                         <button className={styles.btnCalificar} >{`Calificar ficha`}</button>
@@ -149,6 +152,30 @@ export default function Ficha({ ficha }) {
                         <button className={styles.btnReporte} >{`Reportar ficha`}</button>
                         <button onClick={() => guardarFicha(ficha._id)} className={styles.btnguardar} >{`Guardar ficha`}</button>
                     </CardActions>
+                    
+                    
+
+                    <CardContent>
+                        
+                    <hr className={styles.division} />
+                    <p className={styles.textU}>{`Comentarios: `}</p><br/>
+                    <textarea className={styles.txtEtiquetas} placeholder={'Ingresa tu comentario aquí.'}></textarea>
+                    <button type="submit" className={styles.btnEnviar}><font face="Work Sans" color="white" size="3"><b>{`Enviar`}</b></font></button>
+                    <br/>
+                    <div className={styles.commentArea}>
+                    <font face="Work Sans" color="black" size="3">    
+                    {
+                        
+                        ficha.comentarios.map(com=>{
+                            return <p key={com} className={styles.comentarios}> {com} </p>
+                        })
+                    }
+                    <p>Ola</p>
+                    <p>Ola</p>
+                    <p>Ola</p>
+                    </font>
+                    </div>
+                    </CardContent>
                 </Card>
             </div >
             <Footy />
@@ -160,7 +187,7 @@ export async function getServerSideProps({ params }) {
 
     const res = await fetch(`https://plantmatica-back.vercel.app/ficha/${params.ficha}`);
     const ficha = await res.json();
-
+    console.log(ficha.ficha.comentarios)
     return {
         props: { ficha: ficha.ficha, notFound: false }
     }

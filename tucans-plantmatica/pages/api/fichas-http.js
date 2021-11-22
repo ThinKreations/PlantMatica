@@ -50,3 +50,9 @@ export const misFichasGuardadas = async (id_user) => {
     const fichas = await res.json();
     return fichas;
 }
+
+export const subirComentario = async (ficha)=>{
+
+    
+
+}
