@@ -4,27 +4,17 @@ import Router from "next/router";
 import LayoutMenu from "../../components/LayoutMenu"
 import Footy from "../../components/footy";
 import styles2 from "../../styles/Fichas.module.css";
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Link from "next/link";
-import TextField from '@mui/material/TextField';
-import Stack from '@mui/material/Stack';
-import Autocomplete from '@mui/material/Autocomplete';
-import { TableCell } from '@mui/material';
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { traerUsuarios, traerFichasNoAceptadas } from '../api/admin-https';
+import { traerUsuarios, traerFichasNoAceptadas, declinarAceptarFicha } from '../api/admin-https';
 import { validarToken } from '../api/request';
 
 function TabPanel(props) {
@@ -76,6 +66,15 @@ export default function Index({ fichas }) {
             const usuarios = await traerUsuarios();
             setUsuarios(usuarios);
         }
+    }
+
+    const controlFicha = async (control, id_ficha) => {
+
+        const { id } = await validarToken();
+        await declinarAceptarFicha(control, id, id_ficha);
+        const fichasNoRes = await traerFichasNoAceptadas();
+        setFichasNoR(fichasNoRes);
+
     }
 
     const sessionControl = async () => {
@@ -152,37 +151,119 @@ export default function Index({ fichas }) {
                         }
                     </TabPanel>
                     <TabPanel value={value} index={1}>
-                        <h2 sx={{ padding: '15px' }} className={styles2.titleficha}>Solicitudes de agregar fichas pendientes: { !fichasNoR ? "0" : fichasNoR.noAceptadas }.</h2>
+                        <h2 sx={{ padding: '15px' }} className={styles2.titleficha}>Solicitudes de agregar fichas pendientes: {!fichasNoR ? "0" : fichasNoR.noAceptadas}.</h2>
                         {
 
                             !fichasNoR ? <Alert variant="outlined" severity="info">
                                 No hay solicitudes para agregar fichas pendientes.
                             </Alert> :
                                 fichasNoR.fichas.map(fn => {
-                                    return <div key={fn._id} >
-                                        <Card sx={{ padding: '15px' }} className={styles2.card}>
+
+                                    return <div className={styles2.containerFicha}>
+                                        {
+                                            !fn.polemica ? "" : <Alert sx={{ margin: '10px' }} variant="outlined" severity="error">
+                                                <p className={styles2.text_danger}>
+                                                    {`Esta ficha ha sido marcada como consumo ilicito o peligroso a la salud.`}
+                                                </p>
+                                            </Alert>
+                                        }
+                                        <Card variant="outlined" className={styles2.base}>
                                             <CardContent>
-                                                <p className={styles2.titleficha} >{fn.nombre_comun}</p>
-                                                <p className={styles2.nombreC} >{fn.nombre_cientifico}</p>
-                                                <p className={styles2.textFich} >{fn.descripcion}</p>
-                                                <div>
-                                                    <p className={styles2.textFich} >Etiquetas: </p>
+                                                <p className={styles2.textU}>{`Nombre común: `}</p>
+                                                <p className={styles2.titlefichaU}>{fn.nombre_comun}</p>
+                                                <hr className={styles2.division} />
+                                                <p className={styles2.textU}>{`Nombre cientifico: `}</p>
+                                                <p className={styles2.titlefichaU}>{fn.nombre_cientifico}</p>
+                                                <hr className={styles2.division} />
+
+                                                <p className={styles2.textU2}>{`Origen y distribución: `}</p>
+                                                {
+                                                    fn.origen_distribucion.map(o => {
+                                                        return <div key={o.nombre}>
+                                                            <p className={styles2.titlefichaU2}>Nombre:</p>
+                                                            <p className={styles2.textU2} >{o.nombre}</p>
+                                                            <br />
+                                                            <p className={styles2.titlefichaU2}>Detalles: </p>
+                                                            <p className={styles2.textU2} >{o.detalles}</p>
+                                                            <br />
+                                                        </div>
+                                                    })
+                                                }
+
+                                                <hr className={styles2.division} />
+                                                <p className={styles2.textD} >{`Descripcion: `}</p>
+                                                <p className={styles2.textU2} >
+                                                    {fn.descripcion}
+                                                </p>
+                                                <hr className={styles2.division} />
+                                                <p className={styles2.titlefichaU}>{`Caracteristicas especiales: `}</p>
+                                                <ul>
                                                     {
-                                                        fn.etiquetas.map(e => {
-                                                            return <p key={e} className={styles2.etiquetas} > {e} </p>
+                                                        fn.caracteristicas_especiales.map(c => {
+                                                            return <li key={c} className={styles2.lista} >{c}</li>
                                                         })
                                                     }
+                                                </ul>
+                                                <hr className={styles2.division} />
+                                                <p className={styles2.titlefichaU}>{`Alternativa y complementos a: `}</p>
+                                                <p className={styles2.textU2}>
+                                                    {fn.complemento}
+                                                </p>
+                                                <hr className={styles2.division} />
+                                                <p className={styles2.titlefichaU}>Consumo:</p>
+                                                <br />
+
+                                                <ul>
+                                                    {
+                                                        fn.consumo.map(fc => {
+                                                            return <li key={fc} className={styles2.lista}>{fc}</li>
+                                                        })
+                                                    }
+                                                </ul>
+
+                                                <hr className={styles2.division} />
+                                                <p className={styles2.titlefichaU}>Usos medicinales:</p>
+                                                <br />
+                                                <ul>
+                                                    {
+                                                        fn.usos_medicinales.map(u => {
+                                                            return <li key={u} className={styles2.lista}>{u}</li>
+                                                        })
+                                                    }
+                                                </ul>
+
+                                                <hr className={styles2.division} />
+
+                                                <div className={styles2.fuentes}>
+                                                    <p>Fuentes:</p>
+                                                    <ul>
+                                                        {
+                                                            fn.fuentes.map(ff => {
+                                                                return <li key={ff} >{ff}</li>
+                                                            })
+                                                        }
+                                                    </ul>
                                                 </div>
+                                                <hr className={styles2.division} />
+
+                                                <p className={styles2.titleficha}>{`Etiquetas: `}</p>
+
+                                                {
+                                                    fn.etiquetas.map(e => {
+                                                        return <p key={e} className={styles2.etiquetas} > {e} </p>
+                                                    })
+                                                }
+
+                                                <hr className={styles2.division} />
+
                                             </CardContent>
                                             <CardActions>
-                                                <Link href={`/fichas/[ficha]`} as={`/fichas/${fn._id}`} >
-                                                    <a>
-                                                        <button className={styles2.btnLinkFicha} >Mas informacion</button>
-                                                    </a>
-                                                </Link>
+                                                <button onClick={() => controlFicha(true, fn._id)} className={styles2.btnLinkFicha} >Aceptar ficha</button>
+                                                <button onClick={() => controlFicha(false, fn._id)} className={styles2.btnReporte} >Declinar peticion</button>
                                             </CardActions>
+
                                         </Card>
-                                    </div>
+                                    </div >
                                 })
                         }
                     </TabPanel>

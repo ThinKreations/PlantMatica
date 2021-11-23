@@ -36,11 +36,8 @@ export default function Ficha({ ficha }) {
         
         const {id} = await validarToken();
         const subeComentario=await subirComentario(id_ficha, id, comentario);
-        console.log(subeComentario)
 
     }
-
-    
 
     return (
         <div>
