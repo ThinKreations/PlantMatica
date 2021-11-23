@@ -278,7 +278,7 @@ export default function Index({ fichas }) {
                             </Alert> :
                                 usuariosR.usuarios.map(u => {
                                     return <div key={u._id} >
-                                        <Card sx={{ padding: '15px' }} className={styles2.card}>
+                                        <Card sx={{ padding: '15px' }} className={styles2.card} key={u._id}>
                                             <CardContent key={u._id}>
                                                 <p className={styles2.nombreC} >Nombre de usuario: {u.username}</p>
                                                 <p className={styles2.textFich} >Correo: {u.correo}</p>
