@@ -181,11 +181,11 @@ export default function Ficha({ ficha }) {
                             
                             return (
                                 
-                                <div key={null} className={styles.comBox}>
-                                <p key={com._id} className={styles.com_Info}><b>{com.id_usuario.username}</b>, {Date.parse(com.fecha.dia)}/{Date.parse(com.fecha.mes)}/{Date.parse(com.fecha.year)} </p>
-                                <p key={com._id} className={styles.com_Body}> {com.comentario} </p>
-                                <button key={null} className={styles.com_Del}><b>{`Eliminar`}</b></button>
-                                <button key={null} className={styles.com_Report}><span className={styles.materialIcons}>outlined_flag</span></button>
+                                <div key={com._id} className={styles.comBox}>
+                                <p className={styles.com_Info}><b>{com.id_usuario.username}</b>, {Date.parse(com.fecha.dia)}/{Date.parse(com.fecha.mes)}/{Date.parse(com.fecha.year)} </p>
+                                <p className={styles.com_Body}> {com.comentario} </p>
+                                <button className={styles.com_Del}><b>{`Eliminar`}</b></button>
+                                <button className={styles.com_Report}><span className={styles.materialIcons}>outlined_flag</span></button>
                                 </div>
                                     
                             ) 
