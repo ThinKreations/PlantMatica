@@ -3,7 +3,7 @@ import EditarUsuario from '../../components/EditarUsuario.test'
 import VisualizarUsuario from '../../components/VisualizarUsuario.test'
 import LayoutMenu from "../../components/LayoutMenu";
 import Footy from "../../components/footy";
-export default function index() {
+export default function Index() {
     
     //Hook para vista dependiendo xd
     const [verUsuario, setVer] = useState(true);
