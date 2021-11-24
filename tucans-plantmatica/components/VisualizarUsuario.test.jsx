@@ -17,7 +17,8 @@ export default function VisualizarUsuario(props) {
                   max-width: 600px;
                   margin: 10px auto;
                   padding: 10px 20px;
-                  background-color: rgb(255, 255, 255);
+                  background: linear-gradient(135deg, rgb(255, 255, 255, 0.5), rgb(255, 255, 255, 0.5));
+                  background-attachment: fixed;
                 }
                 
                 /* Aqui termina */
@@ -155,7 +156,7 @@ export default function VisualizarUsuario(props) {
                   border-radius: 50%;
                   border: 20px solid var(--hover-color);
                   display: block;
-                  width: var(--width);
+                  width:145px;
                   height: auto;
                 }
                 
