@@ -23,15 +23,18 @@ export default function VisualizarUsuario({user}) {
   }
 
     const getUsuario = async () => {
-      const { id } = await validarToken();
-      const { usuario } = await traerUsuario(id);
-      setUsuarioU(getUsuario);
+      if(!usuarioU){
+        const { id } = await validarToken();
+        const { usuario } = await getUsuario(id);
+        setUsuarioU(usuario);
+        console.log(usuarioU)
+      }
     }
 
     useEffect(() => {
       sessionControl();
-      traerUsuario()
-  }, console.log(usuario));
+      getUsuario()
+  }, [usuarioU]);
 
     return (
         <div>
