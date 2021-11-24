@@ -75,7 +75,7 @@ export default function Menusup({ children }) {
                                     </div> : <div className={styles.dropdown}>
                                         <button className={styles.dropbtn}><font face="Work Sans" color="white"><b>{`Cuenta`}</b></font></button>
                                         <div className={styles.dropdownContent}>
-                                            <Link href="">{`Mi Cuenta`}</Link>
+                                            <Link href="/user/cuenta">{`Mi Cuenta`}</Link>
                                             <Link href="">{`Configuración`}</Link>
                                             <button className={styles.btnCerrar} onClick={cerrarSesion} ><font face="Work Sans" color="black" size="3">{`Cerrar Sesión`}</font></button>
                                         </div>

@@ -30,12 +30,12 @@ export default function Ficha({ ficha }) {
 
     }
 
-    const [comentario, setComentario]=useState('')
-    
-    const postComentario=async(id_ficha)=>{
-        
-        const {id} = await validarToken();
-        const subeComentario=await subirComentario(id_ficha, id, comentario);
+    const [comentario, setComentario] = useState('')
+
+    const postComentario = async (id_ficha) => {
+
+        const { id } = await validarToken();
+        const subeComentario = await subirComentario(id_ficha, id, comentario);
 
     }
 
@@ -163,38 +163,38 @@ export default function Ficha({ ficha }) {
                         <button className={styles.btnReporte} >{`Reportar ficha`}</button>
                         <button onClick={() => guardarFicha(ficha._id)} className={styles.btnguardar} >{`Guardar ficha`}</button>
                     </CardActions>
-                    
-                    
+
+
 
                     <CardContent>
-                        
-                    <hr className={styles.division} />
-                    <p className={styles.textU}>{`Comentarios: `}</p><br/>
-                    <textarea className={styles.txtEtiquetas} value={comentario} placeholder={'Ingresa tu comentario aquí.'} onChange={c=>setComentario(event.target.value)}></textarea>
-                    <button type="button" className={styles.btnEnviar} onClick={()=>postComentario(ficha._id)}><font face="Work Sans" color="white" size="3"><b>{`Enviar`}</b></font></button>
-                    <br/>
-                    <div className={styles.commentArea}>
-                    <font face="Work Sans" color="black" size="3">    
 
-                    {
-                        ficha.comentarios.map(com=>{
-                            
-                            return (
-                                
-                                <div key={com._id} className={styles.comBox}>
-                                <p className={styles.com_Info}><b>{com.id_usuario.username}</b>, {Date.parse(com.fecha.dia)}/{Date.parse(com.fecha.mes)}/{Date.parse(com.fecha.year)} </p>
-                                <p  className={styles.com_Body}> {com.comentario} </p>
-                                <button className={styles.com_Del}><b>{`Eliminar`}</b></button>
-                                <button className={styles.com_Report}><span className={styles.materialIcons}>outlined_flag</span></button>
-                                </div>
-                                    
-                            ) 
+                        <hr className={styles.division} />
+                        <p className={styles.textU}>{`Comentarios: `}</p><br />
+                        <textarea className={styles.txtEtiquetas} value={comentario} placeholder={'Ingresa tu comentario aquí.'} onChange={c => setComentario(event.target.value)}></textarea>
+                        <button type="button" className={styles.btnEnviar} onClick={() => postComentario(ficha._id)}><font face="Work Sans" color="white" size="3"><b>{`Enviar`}</b></font></button>
+                        <br />
+                        <div className={styles.commentArea}>
+                            <font face="Work Sans" color="black" size="3">
 
-                        })
-                    }
-                    
-                    </font>
-                    </div>
+                                {
+                                    ficha.comentarios.map(com => {
+
+                                        return (
+
+                                            <div key={com._id} className={styles.comBox}>
+                                                <p className={styles.com_Info}><b>{com.id_usuario.username}</b>, {Date.parse(com.fecha.dia)}/{Date.parse(com.fecha.mes)}/{Date.parse(com.fecha.year)} </p>
+                                                <p className={styles.com_Body}> {com.comentario} </p>
+                                                <button className={styles.com_Del}><b>{`Eliminar`}</b></button>
+                                                <button className={styles.com_Report}><span className={styles.materialIcons}>outlined_flag</span></button>
+                                            </div>
+
+                                        )
+
+                                    })
+                                }
+
+                            </font>
+                        </div>
                     </CardContent>
                 </Card>
             </div >
