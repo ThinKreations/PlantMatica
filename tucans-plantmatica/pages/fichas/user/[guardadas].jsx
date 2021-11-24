@@ -105,6 +105,7 @@ export default function FichasGuardadas() {
                             {
                                 !fichasG ? <Alert variant="outlined" severity="info">
                                     No tiene fichas guardadas.
+                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                                 </Alert> :
                                     fichasG.fichas_guardadas.map(f => {
                                         return <div key={f._id} >
