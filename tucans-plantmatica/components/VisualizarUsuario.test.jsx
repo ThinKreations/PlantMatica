@@ -207,12 +207,7 @@ export default function VisualizarUsuario(props) {
                         </Button>
                     </fieldset>
                     {/* PARA LA FOTO REDONDA MAMALONA XD */}
-                    <div className="img-hover">
-                        <img src="../img/user.png" className="bio-photo text-center" />
-                        {/* <div className="overlay">
-                            <div className="hover-text">Bienvenido, Plantasaurio</div>
-                        </div> */}
-                    </div>
+                    
                     {/* LOS FIELDSET SON LOS NUMEROTES GRANDES QUE SE VEN XDDD */}
                     <fieldset>
                         <legend><span className="number">1</span>{`Informacion Personal`}</legend>
@@ -237,7 +232,7 @@ export default function VisualizarUsuario(props) {
                         <label htmlFor="correo">{`Contraseña:`}</label>
                         <input type="password" name="password" defaultValue="algosospechosoxd" readOnly="readonly" id="password" required />
                     </fieldset>
-                    <button type="submit">Editar Perfil</button>
+                    
                 </form>
             </div>
         </div>

@@ -45,6 +45,8 @@ export default function Index({ fichas, etiquetas }) {
         }
     }
 
+    
+
     return (
         <div>
             <MainHead tituloPestana="Inicio" />

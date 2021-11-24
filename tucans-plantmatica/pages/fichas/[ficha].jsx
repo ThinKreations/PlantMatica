@@ -10,7 +10,7 @@ import CardContent from '@mui/material/CardContent';
 import Slider from '@mui/material/Slider';
 import Link from 'next/link';
 import Alert from '@mui/material/Alert';
-import { guardarFichaHttp, validarToken, obtenerComentario, subirComentario } from '../api/request';
+import { guardarFichaHttp, validarToken, obtenerComentario, subirComentario, borrarComentario } from '../api/request';
 import { useState, useEffect } from 'react';
 
 function valuetext(value) {
@@ -38,6 +38,8 @@ export default function Ficha({ ficha }) {
         const subeComentario = await subirComentario(id_ficha, id, comentario);
 
     }
+
+    
 
     return (
         <div>
@@ -184,7 +186,7 @@ export default function Ficha({ ficha }) {
                                             <div key={com._id} className={styles.comBox}>
                                                 <p className={styles.com_Info}><b>{com.id_usuario.username}</b>, {Date.parse(com.fecha.dia)}/{Date.parse(com.fecha.mes)}/{Date.parse(com.fecha.year)} </p>
                                                 <p className={styles.com_Body}> {com.comentario} </p>
-                                                <button className={styles.com_Del}><b>{`Eliminar`}</b></button>
+                                                <button className={styles.com_Del} onClick={del=>borrarComentario(ficha._id)}><b>{`Eliminar`}</b></button>
                                                 <button className={styles.com_Report}><span className={styles.materialIcons}>outlined_flag</span></button>
                                             </div>
 

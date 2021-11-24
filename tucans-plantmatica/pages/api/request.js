@@ -156,3 +156,43 @@ export const subirComentario = async (id_ficha, id_user, comentario)=>{
         }
     return resJSON
 }
+
+const borrarComentario = async (id_ficha,comentario) => {
+    const token = localStorage.getItem('token');
+    const { id } = await validarToken();
+    const res = await fetch(`https://plantmatica-back.vercel.app/ficha/delete/${comentario}`, {
+        method: 'DELETE',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+            'x-token': token
+        },
+        body: JSON.stringify({
+            id_ficha,
+            comentario
+        })
+    })
+    const resJSON = await res.json();
+    if (res.status !== 200) {
+        let arrayErrors = resJSON.errors;
+        arrayErrors.forEach(e => {
+            swal({
+                title: 'Error',
+                text: e.msg,
+                icon: 'error',
+                button: 'Ok',
+            })
+        });
+    } else {
+        swal({
+            title: 'Finalizado',
+            text: resJSON.msg,
+            icon: 'success',
+            button: 'Ok',
+            timer: '3000'
+        });
+    }
+}
+
+/*Cuenta*/
+

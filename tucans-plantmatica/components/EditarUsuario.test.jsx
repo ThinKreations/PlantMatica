@@ -18,7 +18,8 @@ export default function EditarUsuario(props) {
                   max-width: 600px;
                   margin: 10px auto;
                   padding: 10px 20px;
-                  background-color: rgb(255, 255, 255);
+                  background: linear-gradient(135deg, rgb(255, 255, 255, 0.5), rgb(255, 255, 255, 0.5));
+                  background-attachment: fixed;
                 }
                 
                 /* Aqui termina */
@@ -207,12 +208,7 @@ export default function EditarUsuario(props) {
                         </Button>
                     </fieldset>
                     {/* PARA LA FOTO REDONDA MAMALONA XD */}
-                    <div className="img-hover">
-                        <img src="../img/user.png" className="bio-photo text-center" />
-                        {/* <div className="overlay">
-                            <div className="hover-text">Editar Perfil</div>
-                        </div> */}
-                    </div>
+                    
                     {/* LOS FIELDSET SON LOS NUMEROTES GRANDES QUE SE VEN XDDD */}
                     <fieldset>
                         <legend><span className="number">1</span>Informacion Personal</legend>
@@ -267,7 +263,7 @@ export default function EditarUsuario(props) {
                         <label htmlFor="correo">Contraseña:</label>
                         <input type="password" name="password" defaultValue="algosospechosoxd" readOnly="readonly" id="password" required />
                     </fieldset>
-                    <button type="submit">Editar Informacion</button>
+                    <a href="./cuenta"><button type="submit">Editar Informacion</button></a>
                 </form>
             </div>
         </div>
