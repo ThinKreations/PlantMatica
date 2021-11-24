@@ -159,7 +159,7 @@ export default function Index({ fichas }) {
                             </Alert> :
                                 fichasNoR.fichas.map(fn => {
 
-                                    return <div className={styles2.containerFicha}>
+                                    return <div key={fm._id} className={styles2.containerFicha}>
                                         {
                                             !fn.polemica ? "" : <Alert sx={{ margin: '10px' }} variant="outlined" severity="error">
                                                 <p className={styles2.text_danger}>
