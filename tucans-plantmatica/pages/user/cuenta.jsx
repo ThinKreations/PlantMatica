@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Router from "next/router";
-import EditarUsuario from '../../components/EditarUsuario.test'
-import VisualizarUsuario from '../../components/VisualizarUsuario.test'
 import LayoutMenu from "../../components/LayoutMenu";
 import Footy from "../../components/footy";
 import { validarToken } from '../api/request';
 import { getUsuario } from '../api/user-https';
 import EditIcon from '@mui/icons-material/Edit';
 import { Button } from '@mui/material';
-import React, { useState } from 'react'
-import EditarUsuario from '../../components/EditarUsuario.jsx'
-import VisualizarUsuario from '../../components/VisualizarUsuario.jsx'
-import LayoutMenu from "../../components/LayoutMenu";
-import Footy from "../../components/footy";
+import Alert from '@mui/material/Alert'
 
 export default function Index() {
 
@@ -247,47 +241,51 @@ export default function Index() {
                 }`
       }</style>
       <div className="form-container">
-        <form id="form-complete" action="index.html">
-          <h1>Tu Informacion </h1>
-          <fieldset>
-            <Button onClick={cambiarEstado} variant="outlined" color="success">
-              <EditIcon color="succes" />
-              {!verUsuario ? "Visualizar datos de la cuenta" : "Editar cuenta"}
-            </Button>
-          </fieldset>
-          {/* LOS FIELDSET SON LOS NUMEROTES GRANDES QUE SE VEN XDDD */}
-          <fieldset>
-            <legend><span className="number">1</span>{`Informacion Personal`}</legend>
-            <label htmlFor="genero">{`Sexo:`}</label>
-            <input type="text" name="sexo" defaultValue={datUsuario.sexo} id="sexo" readOnly={verUsuario} required />
-            {/* <select className="" name="sexo">
+        {
+          !datUsuario ? <Alert variant="outlined" severity="info">
+            Cargando...
+          </Alert> : <form id="form-complete" action="index.html">
+            <h1>{`Tu Informacion `}</h1>
+            <fieldset>
+              <Button onClick={cambiarEstado} variant="outlined" color="success">
+                <EditIcon color="succes" />
+                {!verUsuario ? "Visualizar datos de la cuenta" : "Editar cuenta"}
+              </Button>
+            </fieldset>
+            {/* LOS FIELDSET SON LOS NUMEROTES GRANDES QUE SE VEN XDDD */}
+            <fieldset>
+              <legend><span className="number">1</span>{`Informacion Personal`}</legend>
+              <label htmlFor="genero">{`Sexo:`}</label>
+              <input type="text" name="sexo" defaultValue={datUsuario.sexo} id="sexo" readOnly={verUsuario} required />
+              {/* <select className="" name="sexo">
               <option value="Masculino" >Masculino</option>
               <option value="Femenino" >Femenino</option>
               <option value="Prefiero no decirlo">Prefiero no decirlo</option>
             </select> */}
-            <label htmlFor="edad">{`Edad:`}</label>
-            <input type="number" name="edad" defaultValue={datUsuario.edad} id="edad" readOnly={verUsuario} required />
-          </fieldset>
-          {/* COMIENZA OTRO FIELDSET. AHORA ES EL DE LA LOCALIZACION  */}
-          <fieldset>
-            <legend><span className="number">2</span>{`Localizacion`}</legend>
-            <label htmlFor="state">{`Estado`}</label>
-            <input type="text" name="estado" defaultValue={datUsuario.estadoMx} id="estado" readOnly={verUsuario} required />
-          </fieldset>
-          {/* COMIENZA OTRO FIELDSET. AHORA ES EL DE LA CUENTA  */}
-          <fieldset>
-            <legend><span className="number">3</span>Cuenta</legend>
-            <label htmlFor="user">Usuario:</label>
-            <input type="text" id="user" name="user_name" defaultValue={12} readOnly={verUsuario} />
-            <label htmlFor="correo">Correo:</label>
-            <input type="email" name="correo" defaultValue={datUsuario.correo} readOnly={verUsuario} id="correo" required />
-            <label htmlFor="correo">{`Contraseña:`}</label>
-            <input type="password" name="password" readOnly={verUsuario} id="password" required />
-          </fieldset>
-          {
-            !verUsuario ? <button type="submit">Editar Perfil</button> : ""
-          }
-        </form>
+              <label htmlFor="edad">{`Edad:`}</label>
+              <input type="number" name="edad" defaultValue={datUsuario.edad} id="edad" readOnly={verUsuario} required />
+            </fieldset>
+            {/* COMIENZA OTRO FIELDSET. AHORA ES EL DE LA LOCALIZACION  */}
+            <fieldset>
+              <legend><span className="number">2</span>{`Localizacion`}</legend>
+              <label htmlFor="state">{`Estado`}</label>
+              <input type="text" name="estado" defaultValue={datUsuario.estadoMx} id="estado" readOnly={verUsuario} required />
+            </fieldset>
+            {/* COMIENZA OTRO FIELDSET. AHORA ES EL DE LA CUENTA  */}
+            <fieldset>
+              <legend><span className="number"></span>{`Cuenta`}</legend>
+              <label htmlFor="user">{`Usuario:`}</label>
+              <input type="text" id="user" name="user_name" defaultValue={datUsuario.username} readOnly={verUsuario} />
+              <label htmlFor="correo">{`Correo:`}</label>
+              <input type="email" name="correo" defaultValue={datUsuario.correo} readOnly={verUsuario} id="correo" required />
+              <label htmlFor="correo">{`Contraseña:`}</label>
+              <input type="password" name="password" readOnly={verUsuario} id="password" required />
+            </fieldset>
+            {
+              !verUsuario ? <button type="submit">{`Editar Perfil`}</button> : ""
+            }
+          </form>
+        }
       </div>
 
       <Footy />
