@@ -157,7 +157,7 @@ export const subirComentario = async (id_ficha, id_user, comentario)=>{
     return resJSON
 }
 
-const borrarComentario = async (id_ficha,comentario) => {
+/*export const borrarComentario = async (id_ficha,comentario) => {
     const token = localStorage.getItem('token');
     const { id } = await validarToken();
     const res = await fetch(`https://plantmatica-back.vercel.app/ficha/delete/${comentario}`, {
@@ -192,7 +192,6 @@ const borrarComentario = async (id_ficha,comentario) => {
             timer: '3000'
         });
     }
-}
+}*/
 
 /*Cuenta*/
-

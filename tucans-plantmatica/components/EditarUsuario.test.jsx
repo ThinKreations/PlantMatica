@@ -2,7 +2,7 @@ import React from 'react';
 import EditIcon from '@mui/icons-material/Edit';
 import { Button } from '@mui/material';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-
+import Link from 'next/link';
 export default function EditarUsuario(props) {
     return (
         <div>
@@ -263,7 +263,7 @@ export default function EditarUsuario(props) {
                         <label htmlFor="correo">Contraseña:</label>
                         <input type="password" name="password" defaultValue="algosospechosoxd" readOnly="readonly" id="password" required />
                     </fieldset>
-                    <a href="./cuenta"><button type="submit">Editar Informacion</button></a>
+                    <Link href="./cuenta"><button >Editar Informacion</button></Link>
                 </form>
             </div>
         </div>

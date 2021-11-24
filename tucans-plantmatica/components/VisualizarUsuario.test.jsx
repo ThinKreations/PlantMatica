@@ -1,8 +1,12 @@
 import React from 'react';
 import EditIcon from '@mui/icons-material/Edit';
 import { Button } from '@mui/material';
+import {} from '../pages/api/request';
 
-export default function VisualizarUsuario(props) {
+export default function VisualizarUsuario({usuario}) {
+
+  
+
     return (
         <div>
             <style jsx>{
@@ -237,4 +241,13 @@ export default function VisualizarUsuario(props) {
             </div>
         </div>
     )
+}
+
+export async function getServerSideProps({ params }) {
+
+  const res = await fetch(`https://plantmatica-back.vercel.app/ficha/${params.usuario}`);
+  
+  return {
+      props: { ficha: usuario, notFound: false }
+  }
 }
