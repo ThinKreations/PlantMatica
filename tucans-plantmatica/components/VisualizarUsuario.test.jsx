@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import EditIcon from '@mui/icons-material/Edit';
 import { Button } from '@mui/material';
-import {} from '../pages/api/request';
 
-export default function VisualizarUsuario({usuario}) {
+import { useState, useEffect } from 'react';
+
+export default function VisualizarUsuario({user}) {
 
   
 
@@ -205,10 +206,7 @@ export default function VisualizarUsuario({usuario}) {
                 <form id="form-complete" action="index.html">
                     <h1>Tu Informacion </h1>
                     <fieldset>
-                        <Button onClick={props.evtBtn} variant="outlined" color="success">
-                            <EditIcon color="succes" />
-                            Editar usuario
-                        </Button>
+                        
                     </fieldset>
                     {/* PARA LA FOTO REDONDA MAMALONA XD */}
                     
@@ -216,9 +214,10 @@ export default function VisualizarUsuario({usuario}) {
                     <fieldset>
                         <legend><span className="number">1</span>{`Informacion Personal`}</legend>
                         <label htmlFor="genero">{`Sexo:`}</label>
+                        
                         <input type="text" name="sexo" defaultValue="Otro" id="sexo" readOnly="readonly" required />
                         <label htmlFor="edad">{`Edad:`}</label>
-                        <input type="number" name="edad" defaultValue={22} id="edad" readOnly="readonly" required />
+                        <input type="number" name="edad" defaultValue={user.edad} id="edad" readOnly="readonly" required />
                     </fieldset>
                     {/* COMIENZA OTRO FIELDSET. AHORA ES EL DE LA LOCALIZACION  */}
                     <fieldset>
@@ -243,11 +242,11 @@ export default function VisualizarUsuario({usuario}) {
     )
 }
 
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps({  params }) {
 
-  const res = await fetch(`https://plantmatica-back.vercel.app/ficha/${params.usuario}`);
-  
+  const res = await fetch(`https://plantmatica-back.vercel.app/user/${params.id_user}`);
+  const user = await res.json();
   return {
-      props: { ficha: usuario, notFound: false }
+      props: { user: user.user, notFound: false }
   }
 }
