@@ -1,12 +1,37 @@
 import React, { useReducer } from 'react';
 import EditIcon from '@mui/icons-material/Edit';
 import { Button } from '@mui/material';
-
+import { validarToken, traerUsuario } from "../pages/api/request";
 import { useState, useEffect } from 'react';
 
 export default function VisualizarUsuario({user}) {
 
-  
+    const [usuarioU, setUsuarioU] = useState();
+
+    const sessionControl = async () => {
+      const valid = await validarToken();
+      if (valid === false) {
+          swal({
+              title: 'Inicia sesion.',
+              text: 'Tu sesion expiro, vuelve a iniciar sesion para realizar esta operacion.',
+              icon: 'info',
+              button: 'Ok',
+              timer: '3000'
+          });
+          Router.push('/session/IniciarSesion');
+      }
+  }
+
+    const getUsuario = async () => {
+      const { id } = await validarToken();
+      const { usuario } = await traerUsuario(id);
+      setUsuarioU(usuario);
+    }
+
+    useEffect(() => {
+      sessionControl();
+      traerUsuario()
+  }, console.log(usuarioU));
 
     return (
         <div>
@@ -217,7 +242,7 @@ export default function VisualizarUsuario({user}) {
                         
                         <input type="text" name="sexo" defaultValue="Otro" id="sexo" readOnly="readonly" required />
                         <label htmlFor="edad">{`Edad:`}</label>
-                        <input type="number" name="edad" defaultValue={user.edad} id="edad" readOnly="readonly" required />
+                        <input type="number" name="edad" defaultValue="22" id="edad" readOnly="readonly" required />
                     </fieldset>
                     {/* COMIENZA OTRO FIELDSET. AHORA ES EL DE LA LOCALIZACION  */}
                     <fieldset>
@@ -240,13 +265,4 @@ export default function VisualizarUsuario({user}) {
             </div>
         </div>
     )
-}
-
-export async function getServerSideProps({  params }) {
-
-  const res = await fetch(`https://plantmatica-back.vercel.app/user/${params.id_user}`);
-  const user = await res.json();
-  return {
-      props: { user: user.user, notFound: false }
-  }
 }

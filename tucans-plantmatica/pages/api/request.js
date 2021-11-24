@@ -195,3 +195,17 @@ export const subirComentario = async (id_ficha, id_user, comentario)=>{
 }*/
 
 /*Cuenta*/
+
+export const traerUsuario=async (id_user)=>{
+    const token = localStorage.getItem('token');
+    const res = await fetch(`https://plantmatica-back.vercel.app/user/${id_user}`, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+            'x-token': token
+        }
+    })
+    const usuario = await res.json();
+    return usuario;
+}
