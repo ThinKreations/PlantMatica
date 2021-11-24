@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import Router from "next/router";
 import LayoutMenu from "../../components/LayoutMenu";
 import Footy from "../../components/footy";
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import { validarToken } from '../api/request';
-import { getUsuario } from '../api/user-https';
+import { actualizarUsuario, getUsuario } from '../api/user-https';
 import EditIcon from '@mui/icons-material/Edit';
 import { Button } from '@mui/material';
 import Alert from '@mui/material/Alert'
@@ -13,6 +14,11 @@ export default function Index() {
   //Hook para vista dependiendo xd
   const [verUsuario, setVer] = useState(true);
   const [datUsuario, setDatUsuario] = useState();
+  const [pass, setPass] = useState();
+  const [user, setUser] = useState();
+  const [estado, setEstado] = useState();
+  const [sexo, setSexo] = useState();
+  const [edad, setEdad] = useState();
 
   const cambiarEstado = () => {
     verUsuario ? setVer(false) : setVer(true);
@@ -23,8 +29,25 @@ export default function Index() {
       const { id } = await validarToken();
       const usuario = await getUsuario(id);
       setDatUsuario(usuario.usuario);
-      console.log(datUsuario);
+    } else {
+      setEstado(datUsuario.estadoMx);
+      setSexo(datUsuario.sexo)
+      setUser(datUsuario.username);
+      setEdad(datUsuario.edad);
     }
+  }
+
+  const editarUsuario = async () => {
+    event.preventDefault();
+    const { id } = await validarToken();
+    await actualizarUsuario(id, {
+      estadoMx: estado,
+      sexo,
+      username: user,
+      password: pass,
+      edad
+    });
+
   }
 
   const sessionControl = async () => {
@@ -248,7 +271,7 @@ export default function Index() {
             <h1>{`Tu Informacion `}</h1>
             <fieldset>
               <Button onClick={cambiarEstado} variant="outlined" color="success">
-                <EditIcon color="succes" />
+                {!verUsuario ? <RemoveRedEyeIcon color="succes" /> : <EditIcon color="succes" />}
                 {!verUsuario ? "Visualizar datos de la cuenta" : "Editar cuenta"}
               </Button>
             </fieldset>
@@ -256,33 +279,77 @@ export default function Index() {
             <fieldset>
               <legend><span className="number">1</span>{`Informacion Personal`}</legend>
               <label htmlFor="genero">{`Sexo:`}</label>
-              <input type="text" name="sexo" defaultValue={datUsuario.sexo} id="sexo" readOnly={verUsuario} required />
-              {/* <select className="" name="sexo">
-              <option value="Masculino" >Masculino</option>
-              <option value="Femenino" >Femenino</option>
-              <option value="Prefiero no decirlo">Prefiero no decirlo</option>
-            </select> */}
+
+              {
+                !verUsuario ? <select onChange={e => setSexo(e.target.value)} className="sexo" name="sexo">
+                  <option value="Masculino" >Masculino</option>
+                  <option value="Femenino" >Femenino</option>
+                  <option value="Prefiero no decirlo">Prefiero no decirlo</option>
+                </select> : <input type="text" name="sexo" defaultValue={datUsuario.sexo} id="sexo" readOnly={verUsuario} required />
+              }
+
               <label htmlFor="edad">{`Edad:`}</label>
-              <input type="number" name="edad" defaultValue={datUsuario.edad} id="edad" readOnly={verUsuario} required />
+              <input onChange={e => setEdad(e.target.value)} type="number" name="edad" defaultValue={datUsuario.edad} id="edad" readOnly={verUsuario} required />
             </fieldset>
             {/* COMIENZA OTRO FIELDSET. AHORA ES EL DE LA LOCALIZACION  */}
+
             <fieldset>
               <legend><span className="number">2</span>{`Localizacion`}</legend>
               <label htmlFor="state">{`Estado`}</label>
-              <input type="text" name="estado" defaultValue={datUsuario.estadoMx} id="estado" readOnly={verUsuario} required />
+              {
+                !verUsuario ?
+                  <select onChange={e => setEstado(e.target.value)} className="sexo" name="estado">
+                    <option value="Prefiero no decirlo">Prefiero no decirlo...</option>
+                    <option value="Resido fuera del pais">Resido fuera del pais</option>
+                    <option value="Aguascalientes">Aguascalientes</option>
+                    <option value="Baja California">Baja California</option>
+                    <option value="Baja California Sur">Baja California Sur</option>
+                    <option value="Campeche">Campeche</option>
+                    <option value="Chiapas">Chiapas</option>
+                    <option value="Chihuahua">Chihuahua</option>
+                    <option value="CDMX">Ciudad de México</option>
+                    <option value="Coahuila">Coahuila</option>
+                    <option value="Colima">Colima</option>
+                    <option value="Durango">Durango</option>
+                    <option value="Estado de México">Estado de México</option>
+                    <option value="Guanajuato">Guanajuato</option>
+                    <option value="Guerrero">Guerrero</option>
+                    <option value="Hidalgo">Hidalgo</option>
+                    <option value="Jalisco">Jalisco</option>
+                    <option value="Michoacán">Michoacán</option>
+                    <option value="Morelos">Morelos</option>
+                    <option value="Nayarit">Nayarit</option>
+                    <option value="Nuevo León">Nuevo León</option>
+                    <option value="Oaxaca">Oaxaca</option>
+                    <option value="Puebla">Puebla</option>
+                    <option value="Querétaro">Querétaro</option>
+                    <option value="Quintana Roo">Quintana Roo</option>
+                    <option value="San Luis Potosí">San Luis Potosí</option>
+                    <option value="Sinaloa">Sinaloa</option>
+                    <option value="Sonora">Sonora</option>
+                    <option value="Tabasco">Tabasco</option>
+                    <option value="Tamaulipas">Tamaulipas</option>
+                    <option value="Tlaxcala">Tlaxcala</option>
+                    <option value="Veracruz">Veracruz</option>
+                    <option value="Yucatán">Yucatán</option>
+                    <option value="Zacatecas">Zacatecas</option>
+                  </select>
+                  : <input type="text" name="estado" defaultValue={datUsuario.estadoMx} id="estado" readOnly={verUsuario} required />
+              }
             </fieldset>
+
             {/* COMIENZA OTRO FIELDSET. AHORA ES EL DE LA CUENTA  */}
             <fieldset>
               <legend><span className="number"></span>{`Cuenta`}</legend>
               <label htmlFor="user">{`Usuario:`}</label>
-              <input type="text" id="user" name="user_name" defaultValue={datUsuario.username} readOnly={verUsuario} />
+              <input type="text" id="user" name="user_name" onChange={e => setUser(e.target.value)} defaultValue={datUsuario.username} readOnly={verUsuario} />
               <label htmlFor="correo">{`Correo:`}</label>
-              <input type="email" name="correo" defaultValue={datUsuario.correo} readOnly={verUsuario} id="correo" required />
+              <input type="email" name="correo" defaultValue={datUsuario.correo} readOnly={true} id="correo" required />
               <label htmlFor="correo">{`Contraseña:`}</label>
-              <input type="password" name="password" readOnly={verUsuario} id="password" required />
+              <input type="password" onChange={e => setPass(e.target.value)} name="password" readOnly={verUsuario} id="password" required={true} />
             </fieldset>
             {
-              !verUsuario ? <button type="submit">{`Editar Perfil`}</button> : ""
+              !verUsuario ? <button onClick={editarUsuario} type="submit">{`Editar Perfil`}</button> : ""
             }
           </form>
         }
