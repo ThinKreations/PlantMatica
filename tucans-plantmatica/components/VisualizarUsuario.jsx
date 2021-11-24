@@ -31,7 +31,7 @@ export default function VisualizarUsuario({user}) {
     useEffect(() => {
       sessionControl();
       traerUsuario()
-  }, console.log(suario));
+  }, console.log(usuario));
 
     return (
         <div>
