@@ -2,7 +2,7 @@ import React from 'react';
 import EditIcon from '@mui/icons-material/Edit';
 import { Button } from '@mui/material';
 
-export default function VisualizarUsuario(props) {
+export default function VisualizarUsuario(props, usuario) {
     return (
         <div>
             <style jsx>{
@@ -202,7 +202,7 @@ export default function VisualizarUsuario(props) {
                     <fieldset>
                         <Button onClick={props.evtBtn} variant="outlined" color="success">
                             <EditIcon color="succes" />
-                            Editar usuario
+                            Editar usuario {usuario.username}
                         </Button>
                     </fieldset>
                     {/* PARA LA FOTO REDONDA MAMALONA XD */}
