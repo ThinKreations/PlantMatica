@@ -31,7 +31,7 @@ export default function Destruction(){
       traerUsuarios();
       traerEtiquetas();
       traerFichas();
-      setNumPeticiones(numPeticiones + 3);
+      setNumPeticiones(numPeticiones + 4);
     });
   
   return(
