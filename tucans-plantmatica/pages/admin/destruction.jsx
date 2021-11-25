@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react';
+import { traerEtiquetas } from '../api/fichas-http';
+import { traerUsuarios, traerFichasNoAceptadas, declinarAceptarFicha } from '../api/admin-https';
+import { validarToken } from '../api/request';
 
 export default function Destruction(){
+  
+  const [numPeticiones, setNumPeticiones] = useState(0);
   
   const sessionControl = async () => {
         const valid = await validarToken();
@@ -16,13 +21,22 @@ export default function Destruction(){
         }
     }
   
+  const traerFichas = async () => {
+    const res = await fetch(`https://plantmatica-back.vercel.app/ficha`);
+    const fichas = await res.json();
+  }
+  
   useEffect(() => {
-        sessionControl();
+      sessionControl();
+      traerUsuarios();
+      traerEtiquetas();
+      traerFichas();
+      setNumPeticiones(numPeticiones + 3);
     });
   
   return(
     <>
-    <p>Numero de peticiones</p>
+    <p>Numero de peticiones: {numPeticiones}</p>
     </>
   )
   
