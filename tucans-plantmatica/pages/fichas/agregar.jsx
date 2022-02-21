@@ -174,6 +174,7 @@ export default function Ficha({ arrayEtiquetas }) {
                                     className={styles.txtBody} placeholder={'Digite caracteristicas fisicas de la planta (tallos, hojas, semillas), medidas promedio de la planta, mas de lugares de origen y distribucion, habitat y clima de cuidado.'}>
 
                                 </textarea>
+                                
                                 <hr className={styles.division} />
                                 <p className={styles.textD}>{`Caracteristicas especiales (Si es aromatica, etc.): `}</p>
                                 <Autocomplete

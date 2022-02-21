@@ -51,7 +51,6 @@ export default function Menusup({ children }) {
                                 <div className={styles.dropdown}>
                                     <button className={styles.dropbtn}><font face="Work Sans" color="white"><b>{`Fichas`}</b></font></button>
                                     <div className={styles.dropdownContent}>
-                                        <Link href="">{`Editadas`}</Link>
                                         <Link href={valueMenu ? `/fichas/user/[guardadas]` : "#"}
                                             as={valueMenu ? `/fichas/user/${uid}` : "#"} >{`Guardadas`}</Link>
                                         <Link href="/fichas/agregar">{`+ Agregar Ficha`}</Link>
@@ -59,12 +58,16 @@ export default function Menusup({ children }) {
                                 </div>
 
                                 <div className={styles.dropdown}>
-                                    <button className={styles.dropbtn}><font face="Work Sans" color="white"><b>{`Administrador`}</b></font></button>
+                                    <Link href="/admin"><button className={styles.dropbtn}><font face="Work Sans" color="white"><b>{`Administrador`}</b></font></button></Link>
+                                    {/*
+                                    
                                     <div className={styles.dropdownContent}>
                                         <Link href="/admin">{`Inicio`}</Link>
                                         <Link href="">{`Solicitudes`}</Link>
                                         <Link href="">{`Gestión de Usuarios`}</Link>
                                     </div>
+
+                                    */}
                                 </div>
 
                                 {
