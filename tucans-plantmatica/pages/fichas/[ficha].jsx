@@ -200,7 +200,7 @@ export default function Ficha({ ficha }) {
                     </CardContent>
                 </Card>
             </div >
-            <Footy />
+            
         </div>
     )
 }

@@ -142,7 +142,7 @@ export default function FichasGuardadas() {
                     </Table>
                 </TableContainer>
             </div>
-            <Footy />
+            
         </div>
 
     )

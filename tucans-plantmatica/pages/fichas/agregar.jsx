@@ -265,7 +265,7 @@ export default function Ficha({ arrayEtiquetas }) {
                 </div >
             </div>
 
-            <Footy />
+            
         </div>
     )
 }

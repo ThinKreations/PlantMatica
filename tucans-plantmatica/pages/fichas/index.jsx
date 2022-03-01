@@ -121,7 +121,7 @@ export default function Index({ fichas, etiquetas }) {
                     </Table>
                 </TableContainer>
             </div>
-            <Footy />
+            
         </div>
     )
 }

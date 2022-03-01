@@ -8,6 +8,7 @@ import { actualizarUsuario, getUsuario } from '../api/user-https';
 import EditIcon from '@mui/icons-material/Edit';
 import { Button } from '@mui/material';
 import Alert from '@mui/material/Alert'
+import MainHead from '../../components/MainHead';
 
 export default function Index() {
 
@@ -71,6 +72,7 @@ export default function Index() {
 
   return (
     <div>
+      <MainHead tituloPestana="Cuenta" />
       <LayoutMenu />
       <style jsx>{
         `/* CAMBIAR VALORES AL BODY Y AL FORMULARIO. LINEA 7-18 */
@@ -355,7 +357,7 @@ export default function Index() {
         }
       </div>
 
-      <Footy />
+      
     </div>
   )
 }

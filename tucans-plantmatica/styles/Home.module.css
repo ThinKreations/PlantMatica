@@ -78,7 +78,7 @@
   display: inline-block;
   text-align: center;
   align-items: center;
-  box-shadow: 0px 0px 7px rgb(50, 50, 50);
+  box-shadow: 0px 0px 5px rgb(50, 50, 50);
   text-shadow: 0px 0px 3px rgb(65, 65, 65);
 }
 
@@ -95,7 +95,7 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
-  box-shadow: 0px 0px 7px rgb(50, 50, 50);
+  box-shadow: 0px 0px 5px rgb(50, 50, 50);
   text-shadow: 0px 0px 3px rgb(65, 65, 65);
 }
 
@@ -392,7 +392,7 @@
   position:relative;
   bottom: 0;
   width: 100%;
-  box-shadow: 0px 0px 7px rgb(50, 50, 50);
+  box-shadow: 0px 0px 5px rgb(50, 50, 50);
   text-shadow: 0px 0px 3.5px rgb(65, 65, 65);
 }
 

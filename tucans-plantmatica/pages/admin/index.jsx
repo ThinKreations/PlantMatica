@@ -106,7 +106,7 @@ export default function Index({ fichas }) {
 
     return (
         <div>
-            <MainHead tituloPestana="Inicio" />
+            <MainHead tituloPestana="Administrador" />
             <LayoutMenu />
             <div className={styles2.tableFichas}>
 
@@ -294,7 +294,7 @@ export default function Index({ fichas }) {
                     </TabPanel>
                 </Box>
             </div>
-            <Footy />
+            
         </div>
     )
 }
