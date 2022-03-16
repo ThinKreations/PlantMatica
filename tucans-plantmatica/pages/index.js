@@ -4,6 +4,7 @@ import Link from 'next/link';
 import MainHead from '../components/MainHead';
 import LayoutIndex from '../components/LayoutIndex';
 import styles from "../styles/Home.module.css";
+import logo from "../src/plantmatica.png";
 
 export default function Index() {
   return (
@@ -13,7 +14,8 @@ export default function Index() {
         <font size={4} face="Work Sans">
           <div className={styles.container_1}>
             <font size={6} face="Work Sans" color="007200">
-              <center><h1>{`Tucan's PlantMatica`}</h1></center>
+            <br />
+              <center><Image src={logo}  /></center>
             </font>
             <center>
               <div className={styles.container_3}>
