@@ -255,6 +255,8 @@ export default function Ficha({ arrayEtiquetas }) {
                                 </div>
                                 <hr className={styles.division} />
 
+                                
+
                             </CardContent>
                             <CardActions>
                                 <button type="submit" className={styles.btnLinkFicha}>Enviar</button>

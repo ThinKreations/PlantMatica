@@ -256,6 +256,11 @@ export default function Index({ fichas }) {
 
                                                 <hr className={styles2.division} />
 
+                                                <p className={styles2.textU}>{`Creado por: `}</p>
+                                                <p className={styles2.titlefichaU}>{fn._id}</p>                                                
+
+                                                <hr className={styles2.division} />
+
                                             </CardContent>
                                             <CardActions>
                                                 <button onClick={() => controlFicha(true, fn._id)} className={styles2.btnLinkFicha} >Aceptar ficha</button>

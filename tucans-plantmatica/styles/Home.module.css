@@ -241,12 +241,10 @@
 }
 
   .nombres:hover{
-    color: white;
-    padding: 5px;
-    margin: 2px;
-    background-color: rgb(60, 60, 60);
+    padding: 1px;
+    margin: 1px;
     border-radius: 5px;
-    text-shadow: 0px 0px 2px rgb(250,250,250);
+    text-shadow: 0px 0px 3px rgb(10,10,10);
   }
 
 
