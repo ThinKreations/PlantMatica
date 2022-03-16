@@ -48,8 +48,8 @@ export default function Index() {
 
                 <br />
                 <h1>{`Nuestro equipo`}</h1>
-                <h3>{`Tucan's Software está conformado por 5 integrantes:`}</h3>
-                <h4><Link href="https://github.com/Kiramasu2003"passHref><a target="_blank" className={styles.nombres} >{`Arce Roldán Sergio Elías`}</a></Link>, <Link href="https://github.com/Rafael260401" passHref><a target="_blank" className={styles.nombres} >{`Castañeda Rodriguez Rafael Gil`}</a></Link>, <Link href="https://github.com/addRian0-0" passHref><a target="_blank" className={styles.nombres} >{`Flores Zamora Ithan Adrián`}</a></Link>, <Link href="https://github.com/AlfredoGV77" passHref><a target="_blank" className={styles.nombres} >{`Gutiérrez Villalobos José Alfredo`}</a></Link> y <Link href="https://github.com/ThinKreations" passHref><a target="_blank" className={styles.nombres} >{`Nápoles Munguía José de Jesús`}</a></Link>; siendo todos unos desarrolladores con experiencia.</h4>
+                <h3>{`Tucan's Software está conformado por 6 integrantes:`}</h3>
+                <h4><Link href="https://github.com/Kiramasu2003"passHref><a target="_blank" className={styles.nombres} >{`Arce Roldán Sergio Elías`}</a></Link>, <Link href="https://github.com/Rafael260401" passHref><a target="_blank" className={styles.nombres} >{`Castañeda Rodriguez Rafael Gil`}</a></Link>, <Link href="https://github.com/DonovanCeron"passHref><a target="_blank" className={styles.nombres} >{`Cerón Villanueva Donovan`}</a></Link>, <Link href="https://github.com/addRian0-0" passHref><a target="_blank" className={styles.nombres} >{`Flores Zamora Ithan Adrián`}</a></Link>, <Link href="https://github.com/AlfredoGV77" passHref><a target="_blank" className={styles.nombres} >{`Gutiérrez Villalobos José Alfredo`}</a></Link> y <Link href="https://github.com/ThinKreations" passHref><a target="_blank" className={styles.nombres} >{`Nápoles Munguía José de Jesús`}</a></Link>; siendo todos unos desarrolladores con experiencia.</h4>
                 <br />
 
                 <br />
