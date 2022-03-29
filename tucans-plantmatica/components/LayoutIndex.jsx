@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import logo_1_w from "../src/logo_1_w.png";
 import git_logo from "../src/git_icon.png";
+import tucans from "../pages/tucansoftware"
 
 export default function LayoutIndex({ children }) {
     return (
@@ -20,7 +21,7 @@ export default function LayoutIndex({ children }) {
                         <table className={styles.footy_t}>
                             <tbody><tr>
                                 <td className={styles.footy_t_1}>
-                                    <a><h2>{`© 2021 Tucan's Software`}</h2></a>
+                                    <Link href="tucansoftware"><a><h2>{`© 2021 Tucan's Software`}</h2></a></Link>
                                 </td>
                                 <td className={styles.footy_t_2}>
                                     <Link href="https://github.com/ThinKreations/PlantMatica" passHref>
