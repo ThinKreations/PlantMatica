@@ -66,7 +66,7 @@ export default function CrearCuenta() {
                     <h2 className={styles.title} >Crear cuenta </h2>
 
                     <div className={styles.cont_input}>
-                        <label className={styles.text} >Nombre  completo del titular de la cuenta.</label>
+                        <label className={styles.text} >Nombre de usuario</label>
                         <input {...register('username')} className={styles.input} />
                         <p className={styles.errors} >{errors.username?.message}</p>
                     </div>
