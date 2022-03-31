@@ -23,16 +23,15 @@ export default function Index() {
                   {`Haznos saber qué buscas y la información llegará volando.`}</h3>
                 <center>
                   <br />
-                  
-                    
-                    <Link href="./session/IniciarSesion"><button className={styles.btnSubmit} type="submit"><h4>{`Iniciar Sesión`}</h4></button></Link>
-                  
                   <br />
                   
-                </center><br />
+                  <br />
+                    <Link href="./session/IniciarSesion"><button className={styles.btnSubmit} type="submit"><h4>{`Iniciar Sesión`}</h4></button></Link>
+                  
+                </center>
                 
 
-                <br />
+                
               </div>
             </center>
           </div>

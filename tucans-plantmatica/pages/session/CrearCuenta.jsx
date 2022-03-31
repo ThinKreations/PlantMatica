@@ -66,7 +66,7 @@ export default function CrearCuenta() {
                     <h2 className={styles.title} >Crear cuenta </h2>
 
                     <div className={styles.cont_input}>
-                        <label className={styles.text} >Nombre de usuario</label>
+                        <label className={styles.text} >Nombre  completo del titular de la cuenta.</label>
                         <input {...register('username')} className={styles.input} />
                         <p className={styles.errors} >{errors.username?.message}</p>
                     </div>
@@ -146,6 +146,11 @@ export default function CrearCuenta() {
                         <center><TerminosYCondiciones /></center>
                     </div><br />
                     <button type="submit" className={styles.btnSubmit} >Crear Cuenta</button>
+                    
+                    <center>
+                    <Link href="SignPromotor"><a>{`Acceder como promotor`}</a></Link>
+                    </center>
+                    
                 </form>
             </LayoutIndex>
         </div>
