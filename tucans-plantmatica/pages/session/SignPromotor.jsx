@@ -64,7 +64,7 @@ export default function SignPromotor() {
                 <form onSubmit={handleSubmit(onSubmit)} className={styles.root} >
 
                     <h2 className={styles.title} >Acceder como promotor</h2>
-                    <center><p>Por favor, llena este formulario con los datos solicitados. <b/>En caso de necesitar aclaraciones, envíe un correo a soporte. (<a className={styles.link} href="mailto:software.tucans@gmail.com" target="_blank">software.tucans@gmail.com</a>)</p></center>
+                    <center><p>Por favor, llena este formulario con los datos solicitados. <b/>En caso de necesitar aclaraciones, envíe un correo a soporte. (<a className={styles.link} href="mailto:software.tucans@gmail.com">software.tucans@gmail.com</a>)</p></center>
                     <div className={styles.cont_input}>
                         <label className={styles.text} >Nombre  completo del titular de la cuenta</label>
                         <input {...register('username')} className={styles.input} />
