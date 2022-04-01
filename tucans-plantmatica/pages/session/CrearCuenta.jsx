@@ -148,7 +148,7 @@ export default function CrearCuenta() {
                     <button type="submit" className={styles.btnSubmit} >Crear Cuenta</button>
                     
                     <center>
-                    <Link href="SignPromotor"><a>{`Acceder como promotor`}</a></Link>
+                    <Link href="SignPromotor"><a>{`Registrarse como promotor`}</a></Link>
                     </center>
                     
                 </form>
