@@ -18,7 +18,7 @@ export default function SignPromotor() {
 
     const onSubmit = async () => {
 
-        Router.push('/session/IniciarSesion')
+        console.log('jaja ola')
   
     }
 
