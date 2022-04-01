@@ -19,7 +19,7 @@ export default function MenuPromo() {
             <Link href="/promo/productos/productos"><button><p>Productos</p></button></Link>
             <button><p>Sucursales</p></button>
             <button><p>Mi cuenta</p></button>
-            <button><a href="/"><p>Cerrar Sesión</p></a></button>
+            <button><Link href="/"><p>Cerrar Sesión</p></Link></button>
 
         </aside>
         </div>
