@@ -66,30 +66,37 @@ export default function SignPromotor() {
                     <h2 className={styles.title} >Acceder como promotor</h2>
                     <center><p>Por favor, llena este formulario con los datos solicitados. <b/>En caso de necesitar aclaraciones, envíe un correo a soporte. (<a className={styles.link} href="mailto:software.tucans@gmail.com">software.tucans@gmail.com</a>)</p></center>
                     <div className={styles.cont_input}>
-                        <label className={styles.text} >Nombre  completo del titular de la cuenta</label>
+                        <label className={styles.text} >Nombre  público</label>
                         <input {...register('username')} className={styles.input} />
                         <p className={styles.errors} >{errors.username?.message}</p>
-                    </div>
-                    <div className={styles.cont_input}>
-                        <label className={styles.text} >Dirección comercial (comprobable)</label>
-                        <input {...register('correo')} className={styles.input} />
-                        <p className={styles.errors} >{errors.correo?.message}</p>
-                    </div>
-                    <div className={styles.cont_input}>
-                        <label className={styles.text} >{`Nombre público`}</label>
-                        <input {...register('password')} type="text" className={styles.input} />
-                        <p className={styles.errors} >{errors.password?.message}</p>
-                    </div>
-                    <div className={styles.cont_input}>
-                        <label className={styles.text} >CLABE interbancaria</label>
-                        <input {...register('passwordV')} type="password" className={styles.input} />
-                        <p className={styles.errors} >{errors.passwordV?.message}</p>
                     </div>
                     <div className={styles.cont_input}>
                         <label className={styles.text} >Razón social</label>
                         <input type="text" className={styles.input} />
                         
                     </div>
+                    <div className={styles.cont_input}>
+                        <label className={styles.text} >Usuario de Referencia</label>
+                        <input {...register('correo')} className={styles.input} />
+                        <p className={styles.errors} >{errors.correo?.message}</p>
+                    </div>
+                    <div className={styles.cont_input}>
+                        <label className={styles.text} >{`Dirección comercial`}</label>
+                        <input {...register('password')} type="text" className={styles.input} />
+                        <p className={styles.errors} >{errors.password?.message}</p>
+                    </div>
+                    <div className={styles.cont_input}>
+                        <label className={styles.text} >Teléfono comercial</label>
+                        <input {...register('passwordV')} type="number" className={styles.input} />
+                        <p className={styles.errors} >{errors.passwordV?.message}</p>
+                    </div>
+                    <div className={styles.cont_input}>
+                        <label className={styles.text} >Correo comercial</label>
+                        <input {...register('passwordV')} type="text" className={styles.input} />
+                        <p className={styles.errors} >{errors.passwordV?.message}</p>
+                    </div>
+                    
+                    
                     <div className={styles.cont_input}>
                         <label className={styles.text} >CLABE interbancaria</label>
                         <input {...register('passwordV')} type="number" className={styles.input} />
@@ -101,12 +108,12 @@ export default function SignPromotor() {
                         <p className={styles.errors} >{errors.passwordV?.message}</p>
                     </div>
                     <div className={styles.cont_input}>
-                        <label className={styles.text} >RFC de la persona física</label>
+                        <label className={styles.text} >RFC</label>
                         <input type="text" className={styles.input} />
                         
                     </div>
                     
-                    <Link href="../promo/"><button type='button' className={styles.btnSubmit} >Crear Cuenta</button></Link>
+                    <Link href="../promo/"><button type='submit' className={styles.btnSubmit} >Crear Cuenta</button></Link>
                     
                     
                 </form>

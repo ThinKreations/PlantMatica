@@ -23,9 +23,9 @@ export default function CrearCuenta() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                username: data.username,
-                correo: data.correo,
+            body: JSON.striusername,
+                correo: data.cngify({
+                username: data.orreo,
                 password: data.password,
                 estadoMx: data.estadoMx,
                 sexo: data.sexo,

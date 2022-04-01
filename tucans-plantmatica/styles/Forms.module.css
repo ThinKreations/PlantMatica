@@ -32,9 +32,12 @@
 }
 
 .input:focus{
-    /* background-color: var(--hover-secondary-color); */
+    background-image: linear-gradient(to top, rgba(240, 240, 240, 0.95) 0%, rgba(240, 240, 240, 0.95) 100%), url(../src/head_bg.jpg); 
+    
     transform: scale(1.05, 1.05);
     border-bottom: 3px solid var(--main-color);
+
+
 }
 
 .btnSubmit{
