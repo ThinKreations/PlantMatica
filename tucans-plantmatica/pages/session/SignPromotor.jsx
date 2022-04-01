@@ -106,7 +106,7 @@ export default function SignPromotor() {
                         
                     </div>
                     
-                    <button type="submit" className={styles.btnSubmit} >Crear Cuenta</button>
+                    <Link href="../promo/"><button type='button' className={styles.btnSubmit} >Crear Cuenta</button></Link>
                     
                     
                 </form>

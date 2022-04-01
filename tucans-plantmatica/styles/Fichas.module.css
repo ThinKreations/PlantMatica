@@ -33,13 +33,7 @@
 
 }
 
-.fondo {
-    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.85) 100%), url(../src/head_bg.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+
 
 .card {
     margin-top: 20px;

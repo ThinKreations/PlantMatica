@@ -6,7 +6,7 @@ import styles from "../styles/Menu.module.css";
 import MainHead from './MainHead';
 import logo_1_w from "../src/logo_1_w.png";
 import git_logo from "../src/git_icon.png";
-import styles2 from "../styles/Home.module.css";
+
 import { validarToken } from "../pages/api/request";
 
 export default function Menusup({ children }) {
@@ -38,7 +38,7 @@ export default function Menusup({ children }) {
                 <font face="Work Sans" color="white">
                     <div className={styles.head}>
                         <div className={styles.logo1}>
-                            <Link href="#" ><Image src={logo_1_w} width={'148%'} height={'60%'} /></Link>
+                            <Image src={logo_1_w} width={'148px'} height={'60px'} />
                         </div>
                         <font face="Work Sans" color="white">
                             <div className={styles.botonera}>
