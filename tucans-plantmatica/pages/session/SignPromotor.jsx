@@ -16,43 +16,10 @@ export default function SignPromotor() {
         resolver: yupResolver(schemaSignPromotor)
     });
 
-    const onSubmit = async (data) => {
-        const res = await fetch(`https://plantmatica-back.vercel.app/user`, {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                username: data.username,
-                correo: data.correo,
-                password: data.password,
-                estadoMx: data.estadoMx,
-                sexo: data.sexo,
-                edad: data.edad
-            })
-        });
-        const resJSON = await res.json();
-        if(res.status !== 200){
-            let arrayErrors = resJSON.errors;
-            arrayErrors.forEach(e => {
-                swal({
-                    title: 'Error al crear cuenta',
-                    text: e.msg,
-                    icon: 'error',
-                    button: 'Ok',
-                })
-            });
-        }else{
-            swal({
-                title: 'Finalizado',
-                text: resJSON.msg,
-                icon: 'success',
-                button: 'Ok',
-                timer: '3000'
-            });
-            Router.push('/session/IniciarSesion')
-        }
+    const onSubmit = async () => {
+
+        Router.push('/session/IniciarSesion')
+  
     }
 
     return (
@@ -113,7 +80,7 @@ export default function SignPromotor() {
                         <p className={styles.errors} >{errors.rfc?.message}</p>
                     </div>
                     
-                    <button type='submit' className={styles.btnSubmit} >Crear Cuenta</button>
+                    <button type='submit' className={styles.btnSubmit} >Registrarse</button>
                     
                     
                 </form>
