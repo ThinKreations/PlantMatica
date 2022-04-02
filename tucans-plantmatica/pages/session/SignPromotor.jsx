@@ -19,7 +19,7 @@ export default function SignPromotor() {
     const onSubmit = async () => {
 
         console.log('jaja ola')
-  
+        
     }
 
     return (
@@ -37,11 +37,7 @@ export default function SignPromotor() {
                         <input {...register('nombre_publico')} className={styles.input} />
                         <p className={styles.errors} >{errors.nombre_publico?.message}</p>
                     </div>
-                    <div className={styles.cont_input}>
-                        <label className={styles.text} >Razón social</label>
-                        <input {...register('razon_social')} type="text" className={styles.input} />
-                        <p className={styles.errors} >{errors.razon_social?.message}</p>
-                    </div>
+                    
                     <div className={styles.cont_input}>
                         <label className={styles.text} >Usuario de Referencia</label>
                         <input {...register('usuario_referencia')} className={styles.input} />
@@ -81,6 +77,8 @@ export default function SignPromotor() {
                     </div>
                     
                     <button type='submit' className={styles.btnSubmit} >Registrarse</button>
+                    
+                    
                     
                     
                 </form>
