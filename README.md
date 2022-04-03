@@ -8,8 +8,8 @@
 
 ## Proceso de instalacion (DEV)
 
-    git clone https://github.com/addRian0-0/5IV9-PA-Tucanes-del-Software.git
-    cd 5IV9-PA-Tucanes-del-Software/
+    git clone https://github.com/ThinKreations/PlantMatica
+    cd PlantMatica
     cd tucans-plantmatica
     npm install
     npm run dev
