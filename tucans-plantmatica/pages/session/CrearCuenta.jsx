@@ -22,7 +22,7 @@ export default function CrearCuenta () {
   })
 
   const onSubmit = async data => {
-    const res = await fetch(`https://plantmatica-back.vercel.app/user`, {
+    const res = await fetch(`${process.env.API_URL}user`, {
       method: 'POST',
       mode: 'cors',
       headers: {

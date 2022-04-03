@@ -22,7 +22,7 @@ export default function Destruction(){
     }
   
   const traerFichas = async () => {
-    const res = await fetch(`https://plantmatica-back.vercel.app/ficha`);
+    const res = await fetch(`${process.env.API_URL}ficha`);
     const fichas = await res.json();
   }
   

@@ -43,7 +43,7 @@ export default function FichasGuardadas() {
     const borrarFicha = async (id_ficha) => {
         const token = localStorage.getItem('token');
         const { id } = await validarToken();
-        const res = await fetch(`https://plantmatica-back.vercel.app/ficha/guardadas/delete/${id_ficha}`, {
+        const res = await fetch(`${process.env.API_URL}ficha/guardadas/delete/${id_ficha}`, {
             method: 'DELETE',
             mode: 'cors',
             headers: {
