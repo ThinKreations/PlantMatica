@@ -17,7 +17,7 @@ export default function CambiarContrasenia () {
         <div style={{ margin: '10%' }}>
             <form /*onSubmit={handleSubmit(onSubmit)}*/ className={styles.root}>
               <center>
-                <h2 className={styles.title}>Iniciar sesión PlantMatica.</h2>
+                <h2 className={styles.title}>Cambiar Contraseña</h2>
                 <IconPlantMatica wd={128} hg={128}/>
               </center>
               <br />
