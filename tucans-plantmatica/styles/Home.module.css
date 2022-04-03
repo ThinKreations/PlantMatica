@@ -430,3 +430,24 @@
 .git_logo {
   width: 7%;
 }
+
+.tb_info{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-items: center;
+  align-items: center;
+}
+
+.p_info{
+  font-size: 24px;
+}
+
+.link{
+  color: black;
+  transition: 0.3s;
+}
+
+.link:hover{
+  color: var(--text-color);
+  transform: scale(1.05, 1.05);
+}

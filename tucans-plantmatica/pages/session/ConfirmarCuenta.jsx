@@ -11,6 +11,7 @@ import CircularProgress from '@mui/material/CircularProgress'
 import Router from 'next/router'
 
 import logo from '../../src/icon.png'
+import IconPlantMatica from '../../components/IconPlantMatica'
 
 export default function ConfirmarCuenta () {
   const [confirm, setConfirm] = useState(true)
@@ -31,7 +32,7 @@ export default function ConfirmarCuenta () {
           ) : (
             <center>
               {confirm ? (
-                <Paper variant='outlined' eleveation='4'>
+                <Paper eleveation='4'>
                   <div style={{ margin: '15px' }}>
                     <Alert variant='filled' severity='success'>
                       Se ha confirmado su cuenta, ya puede iniciar sesión.
@@ -39,12 +40,7 @@ export default function ConfirmarCuenta () {
                     <h2 className={styles.title}>
                       ¡Gracias por formar parte de PlantMatica!
                     </h2>
-                    <Image
-                      src={logo}
-                      alt='PlantMatica'
-                      width={128}
-                      height={128}
-                    />
+                    <IconPlantMatica wd={128} hg={128} />
                     <p
                       style={{
                         marginLeft: '5%',
@@ -57,9 +53,9 @@ export default function ConfirmarCuenta () {
                       tus experiencias de uso y mucho más.
                     </p>
                   </div>
-                  <Link href='./session/IniciarSesion'>
+                  <Link href='./IniciarSesion'>
                     <a>
-                      <button className={styles.btnSubmit} type='submit'>
+                      <button className={styles.btnSubmit} >
                         {`Iniciar Sesión`}
                       </button>
                     </a>
@@ -74,12 +70,7 @@ export default function ConfirmarCuenta () {
                   <h2 className={styles.title}>
                     Se ha rechazado la confirmación de su cuenta.
                   </h2>
-                  <Image
-                      src={logo}
-                      alt='PlantMatica'
-                      width={128}
-                      height={128}
-                    />
+                  <IconPlantMatica wd={128} hg={128} />
                   <p
                     style={{
                       marginLeft: '5%',
