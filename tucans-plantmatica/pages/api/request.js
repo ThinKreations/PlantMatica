@@ -3,7 +3,7 @@ import swal from 'sweetalert';
 export const validarToken = async () => {
 
     const token = localStorage.getItem('token');
-    const res = await fetch(`${process.env.API_URL}login/token/${token}`, {
+    const res = await fetch(`${process.env.API_URL}/login/token/${token}`, {
         method: 'PUT',
         mode: 'cors',
         headers: {
@@ -22,7 +22,7 @@ export const validarToken = async () => {
 
 export const guardarFichaHttp = async (id_ficha, id_user, token) => {
 
-    const res = await fetch(`${process.env.API_URL}ficha/guardar/${id_ficha}`, {
+    const res = await fetch(`${process.env.API_URL}/ficha/guardar/${id_ficha}`, {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -73,7 +73,7 @@ const atraparErrores = async (res, resJSON) => {
 
 export const buscarCoincidencia = async (termino) => {
 
-    const res = await fetch(`${process.env.API_URL}ficha/encontrar/coincidencia/`, {
+    const res = await fetch(`${process.env.API_URL}/ficha/encontrar/coincidencia/`, {
         method: 'PUT',
         mode: 'cors',
         headers: {
@@ -90,7 +90,7 @@ export const buscarCoincidencia = async (termino) => {
 
 export const obtenerComentario = async (id_ficha, id_user, comentario)=>{
 
-    const res = await fetch(`${process.env.API_URL}comment/${id_ficha}`, {
+    const res = await fetch(`${process.env.API_URL}/comment/${id_ficha}`, {
         method: 'GET',
         mode: 'cors',
         headers: {
@@ -109,7 +109,7 @@ export const obtenerComentario = async (id_ficha, id_user, comentario)=>{
 export const subirComentario = async (id_ficha, id_user, comentario)=>{
 
     const token = localStorage.getItem("token");
-    const res = await fetch(`${process.env.API_URL}comment/${id_ficha}`, {
+    const res = await fetch(`${process.env.API_URL}/comment/${id_ficha}`, {
         method:'POST',
         mode: 'cors',
         headers: {
@@ -198,7 +198,7 @@ export const subirComentario = async (id_ficha, id_user, comentario)=>{
 
 export const traerUsuario=async (id_user)=>{
     const token = localStorage.getItem('token');
-    const res = await fetch(`${process.env.API_URL}user/${id_user}`, {
+    const res = await fetch(`${process.env.API_URL}/user/${id_user}`, {
         method: 'GET',
         mode: 'cors',
         headers: {

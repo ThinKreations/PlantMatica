@@ -22,7 +22,7 @@ export default function CrearCuenta () {
   })
 
   const onSubmit = async data => {
-    const res = await fetch(`${process.env.API_URL}user`, {
+    const res = await fetch(`${process.env.API_URL}/user`, {
       method: 'POST',
       mode: 'cors',
       headers: {

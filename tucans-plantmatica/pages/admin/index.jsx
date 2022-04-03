@@ -305,7 +305,7 @@ export default function Index({ fichas }) {
 }
 
 export async function getServerSideProps({ }) {
-    const res = await fetch(`${process.env.API_URL}ficha`);
+    const res = await fetch(`${process.env.API_URL}/ficha`);
     const fichas = await res.json();
 
     return {

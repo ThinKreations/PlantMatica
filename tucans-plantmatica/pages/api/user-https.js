@@ -1,7 +1,7 @@
 export const getUsuario = async (id_user) => {
 
     const token = localStorage.getItem("token")
-    const res = await fetch(`${process.env.API_URL}user/${id_user}`, {
+    const res = await fetch(`${process.env.API_URL}/user/${id_user}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -44,7 +44,7 @@ export const getUsuario = async (id_user) => {
 export const actualizarUsuario = async (id, usuario) => {
 
     const token = localStorage.getItem("token");
-    const res = await fetch(`${process.env.API_URL}user/${id}`, {
+    const res = await fetch(`${process.env.API_URL}/user/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

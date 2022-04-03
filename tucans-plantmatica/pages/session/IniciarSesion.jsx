@@ -21,7 +21,7 @@ export default function IniciarSesion () {
   })
 
   const onSubmit = async data => {
-    const res = await fetch(`${process.env.API_URL}login`, {
+    const res = await fetch(`${process.env.API_URL}/login`, {
       method: 'POST',
       mode: 'cors',
       headers: {

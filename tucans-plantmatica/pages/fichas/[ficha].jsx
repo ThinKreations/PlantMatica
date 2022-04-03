@@ -207,7 +207,7 @@ export default function Ficha({ ficha }) {
 
 export async function getServerSideProps({ params }) {
 
-    const res = await fetch(`${process.env.API_URL}ficha/${params.ficha}`);
+    const res = await fetch(`${process.env.API_URL}/ficha/${params.ficha}`);
     const ficha = await res.json();
     console.log(ficha.ficha.comentarios)
     return {
