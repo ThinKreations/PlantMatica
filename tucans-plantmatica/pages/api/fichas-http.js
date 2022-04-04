@@ -1,6 +1,6 @@
 export const agregarFichaReq = async (ficha) => {
     const token = localStorage.getItem("token");
-    const res = await fetch(`${process.env.API_URL}/ficha`, {
+    const res = await fetch(`https://plantmatica-api.vercel.app/ficha`, {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -32,14 +32,14 @@ export const agregarFichaReq = async (ficha) => {
 }
 
 export const traerEtiquetas = async () => {
-    const res = await fetch(`${process.env.API_URL}/ficha/buscar/etiquetas`)
+    const res = await fetch(`https://plantmatica-api.vercel.app/ficha/buscar/etiquetas`)
     const etiquetas = await res.json();
     return etiquetas;
 }
 
 export const misFichasGuardadas = async (id_user) => {
     const token = localStorage.getItem('token');
-    const res = await fetch(`${process.env.API_URL}/ficha/guardadas/${id_user}`, {
+    const res = await fetch(`https://plantmatica-api.vercel.app/ficha/guardadas/${id_user}`, {
         method: 'GET',
         mode: 'cors',
         headers: {

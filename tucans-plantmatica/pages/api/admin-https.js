@@ -5,7 +5,7 @@ export const traerUsuarios = async (tipo_usuarios) => {
 
     const token = localStorage.getItem("token");
     /* Responde solo con un mensaje */
-    const res = await fetch(`${process.env.API_URL}/admin/`, {
+    const res = await fetch(`https://plantmatica-api.vercel.app/admin/`, {
         method: "GET",
         mode: 'cors',
         headers: {
@@ -30,7 +30,7 @@ export const traerUsuarios = async (tipo_usuarios) => {
 export const traerFichasNoAceptadas = async () => {
 
     const token = localStorage.getItem("token");
-    const res = await fetch(`${process.env.API_URL}/admin/fichas`, {
+    const res = await fetch(`https://plantmatica-api.vercel.app/admin/fichas`, {
         method: "GET",
         mode: 'cors',
         headers: {
@@ -55,7 +55,7 @@ export const traerFichasNoAceptadas = async () => {
 export const declinarAceptarFicha = async (control, idAdmin, id_ficha) => {
 
     const token = localStorage.getItem("token");
-    const res = await fetch(`${process.env.API_URL}/admin/fichaControl/${id_ficha}`, {
+    const res = await fetch(`https://plantmatica-api.vercel.app/admin/fichaControl/${id_ficha}`, {
         method: "PUT",
         mode: "cors",
         headers: {
