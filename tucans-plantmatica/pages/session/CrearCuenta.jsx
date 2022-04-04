@@ -12,16 +12,19 @@ import { schemaCrearCuenta } from '../../schemas/crearCuenta'
 import IconPlantMatica from '../../components/IconPlantMatica'
 import swal from 'sweetalert'
 
+
+
 export default function CrearCuenta () {
-  const {
-    register,
-    handleSubmit,
+  const {register,handleSubmit,
     formState: { errors }
   } = useForm({
     resolver: yupResolver(schemaCrearCuenta)
   })
 
   const onSubmit = async data => {
+
+    console.log(process.env.API_URL)
+
     const res = await fetch(`${process.env.API_URL}/user`, {
       method: 'POST',
       mode: 'cors',

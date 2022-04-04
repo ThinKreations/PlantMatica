@@ -10,6 +10,7 @@ import { yupResolver } from '@hookform/resolvers/yup/dist/yup'
 import { schemaIniciarSesion } from '../../schemas/iniciarSesion'
 import swal from 'sweetalert'
 import IconPlantMatica from '../../components/IconPlantMatica'
+import { getUsuario } from '../api/user-https'
 
 export default function IniciarSesion () {
   const {
@@ -48,6 +49,7 @@ export default function IniciarSesion () {
         button: 'Ok',
         timer: '3000'
       })
+      
       localStorage.setItem('token', resJSON.token)
       Router.push('/fichas')
     }
