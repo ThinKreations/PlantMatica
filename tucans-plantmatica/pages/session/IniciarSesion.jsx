@@ -22,7 +22,7 @@ export default function IniciarSesion () {
   })
 
   const onSubmit = async data => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
+    const res = await fetch(`https://plantmatica-api.vercel.app/user/login`, {
       method: 'POST',
       mode: 'cors',
       headers: {
