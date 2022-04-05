@@ -47,7 +47,7 @@ export default function ConfirmarCuenta () {
         icon: 'error',
         button: 'Ok'
       })
-      Router.push('/session/IniciarSesion')
+      Router.push('/pages/session/IniciarSesion')
     }
   }
 
