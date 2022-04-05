@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../../styles/Forms.module.css'
+import styles from "../../../styles/Forms.module.css"
 import TerminosYCondiciones from '../../../components/TerminosYCondiciones'
 import MainHead from '../../../components/MainHead'
 import LayoutIndex from '../../../components/LayoutIndex'
@@ -9,6 +9,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup'
 import { schemaSignPromotor } from '../../../schemas/signPromotor'
 import swal from 'sweetalert'
+import Steps from '../../../components/Steps'
 
 export default function SignPromotor () {
   const {
@@ -19,7 +20,7 @@ export default function SignPromotor () {
     resolver: yupResolver(schemaSignPromotor)
   })
 
-  const sessionControl = async () => {
+  /* const sessionControl = async () => {
     const valid = await validarToken()
     if (valid === false) {
       swal({
@@ -32,7 +33,7 @@ export default function SignPromotor () {
       })
       Router.push('/session/IniciarSesion')
     }
-  }
+  } */
 
   const onSubmit = async () => {
     console.log('jaja ola')
@@ -42,7 +43,11 @@ export default function SignPromotor () {
     <div>
       <MainHead tituloPestana='Promotor' />
       <LayoutIndex>
-        <form onSubmit={handleSubmit(onSubmit)} className={styles.root}>
+        <form
+          style={{ padding: '10%' }}
+          onSubmit={handleSubmit(onSubmit)}
+          className={styles.root}
+        >
           <h2 className={styles.title}>Acceder como promotor</h2>
           <center>
             <p>
@@ -61,17 +66,6 @@ export default function SignPromotor () {
             <label className={styles.text}>Nombre público</label>
             <input {...register('nombre_publico')} className={styles.input} />
             <p className={styles.errors}>{errors.nombre_publico?.message}</p>
-          </div>
-
-          <div className={styles.cont_input}>
-            <label className={styles.text}>Usuario de Referencia</label>
-            <input
-              {...register('usuario_referencia')}
-              className={styles.input}
-            />
-            <p className={styles.errors}>
-              {errors.usuario_referencia?.message}
-            </p>
           </div>
           <div className={styles.cont_input}>
             <label className={styles.text}>{`Dirección comercial`}</label>

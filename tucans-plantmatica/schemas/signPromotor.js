@@ -3,7 +3,7 @@ import * as yup from 'yup';
 export const schemaSignPromotor = yup.object().shape({
     nombre_publico: yup.string().required('El nombre público obligatorio'),
     razon_social: yup.string().required('La razón social es obligatoria'),
-    usuario_referencia: yup.string().required('Usuario obligatorio'),
+    //usuario_referencia: yup.string().required('Usuario obligatorio'),
     direccion_comercial: yup.string().required('La dirección es obligatoria'),
     telefono_comercial: yup.string().required('Número obligatorio').min(10, 'Debe ser minimo de 10 caracteres'),
     correo: yup.string().required('Correo obligatorio').email('Formato de correo no valido'),

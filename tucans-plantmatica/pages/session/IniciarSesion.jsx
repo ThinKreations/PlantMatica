@@ -81,6 +81,15 @@ export default function IniciarSesion () {
                 />
                 <p className={styles.errors}>{errors.password?.message}</p>
               </div>
+              <center className={styles.link}>
+                <Link href='./ReqCambiarContrasenia'>
+                  <a>
+                    ¿Olvidaste tu contraseña?, haz click aquí.
+                  </a>
+                </Link>
+              </center>
+              <br />
+              <br />
               <br />
               <br />
               <button className={styles.btnSubmit} type='submit'>
