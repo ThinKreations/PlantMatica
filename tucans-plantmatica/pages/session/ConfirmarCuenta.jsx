@@ -61,10 +61,10 @@ export default function ConfirmarCuenta () {
               <Paper eleveation='4'>
                 <div style={{ margin: '15px' }}>
                   <Alert variant='filled' severity='success'>
-                    Sobre la confirmación de su cuenta.
+                    {`Sobre la confirmación de su cuenta.`}
                   </Alert>
                   <h2 className={styles.title}>
-                    ¡Gracias por formar parte de PlantMatica!
+                    {`¡Gracias por formar parte de PlantMatica!`}
                   </h2>
                   <IconPlantMatica wd={128} hg={128} />
                   <p
@@ -74,14 +74,14 @@ export default function ConfirmarCuenta () {
                       fontSize: '20px'
                     }}
                   >
-                    Ahora formas parte de nuestra comunidad, y podrás consultar
+                    {`Ahora formas parte de nuestra comunidad, y podrás consultar
                     informacion acerca de la herbolaria, compartir tus
-                    experiencias de uso y mucho más.
+                    experiencias de uso y mucho más.`}
                     <br />
                     <br />
                     <b>
-                      Si no creaste una cuenta recientemente, por favor,
-                      selecciona el boton "No fui yo".
+                      {`Si no creaste una cuenta recientemente, por favor,
+                      selecciona el boton "No fui yo".`}
                     </b>
                   </p>
                 </div>
@@ -106,10 +106,10 @@ export default function ConfirmarCuenta () {
               <Paper eleveation='4'>
                 <div style={{ margin: '15px' }}>
                   <Alert variant='filled' severity='success'>
-                    Se ha confirmado su cuenta, ya puede iniciar sesión.
+                    {`Se ha confirmado su cuenta, ya puede iniciar sesión.`}
                   </Alert>
                   <h2 className={styles.title}>
-                    ¡Gracias por formar parte de PlantMatica!
+                    {`¡Gracias por formar parte de PlantMatica!`}
                   </h2>
                   <IconPlantMatica wd={128} hg={128} />
                   <p
@@ -139,10 +139,10 @@ export default function ConfirmarCuenta () {
               <Paper variant='outlined' eleveation='4'>
                 <div style={{ margin: '20px' }}>
                   <Alert variant='filled' severity='success'>
-                    Sobre la confirmación de su cuenta.
+                    {`Sobre la confirmación de su cuenta.`}
                   </Alert>
                   <h2 className={styles.title}>
-                    Se ha rechazado la confirmación de su cuenta.
+                    {`Se ha rechazado la confirmación de su cuenta.`}
                   </h2>
                   <IconPlantMatica wd={128} hg={128} />
                   <p
@@ -151,12 +151,12 @@ export default function ConfirmarCuenta () {
                       marginRight: '5%',
                       fontSize: '20px'
                     }}
-                  >
-                    Los datos registrados junto con su correo han sido
-                    eliminados de nuestros registros, esto para mantener la
-                    seguridad dentro de nuestra aplicación. <br />
-                    No se podrá ingresar a la aplicación con dichas
-                    credenciales.
+                  >{`Los datos registrados junto con su correo han sido
+                  eliminados de nuestros registros, esto para mantener la
+                  seguridad dentro de nuestra aplicación. <br />
+                  No se podrá ingresar a la aplicación con dichas
+                  credenciales.`}
+                    
                   </p>
                 </div>
               </Paper>
