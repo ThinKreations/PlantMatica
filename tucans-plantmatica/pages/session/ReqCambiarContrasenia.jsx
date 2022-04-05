@@ -18,8 +18,8 @@ export default function ReqCambiarContrasenia () {
       })
 
   const onSubmit = async data => {
-    const { password } = data;
-    reqCambiarContrasena(password);
+    const { correo } = data;
+    reqCambiarContrasena(correo);
   }
 
   return (
