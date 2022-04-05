@@ -132,8 +132,7 @@ export const reqCambiarContrasena = async (correo) => {
             title: 'Finalizado',
             text: resJSON.msg,
             icon: 'success',
-            button: 'Ok',
-            timer: '3000'
+            button: 'Ok'
         });
     }
 
