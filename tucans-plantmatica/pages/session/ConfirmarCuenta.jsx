@@ -1,11 +1,12 @@
-import React, { useState} from 'react'
-import { useRouter } from 'next/router'
+import React, { useState } from 'react'
+import Router, { useRouter } from 'next/router'
 import MainHead from '../../components/MainHead'
 import LayoutIndex from '../../components/LayoutIndex'
 import Link from 'next/link'
 import Paper from '@mui/material/Paper'
 import styles from '../../styles/Forms.module.css'
 import Alert from '@mui/material/Alert'
+import swal from 'sweetalert'
 import Backdrop from '@mui/material/Backdrop'
 import CircularProgress from '@mui/material/CircularProgress'
 import logo from '../../src/icon.png'
@@ -19,17 +20,35 @@ export default function ConfirmarCuenta () {
   const { query } = useRouter()
 
   const declineBtn = async () => {
-    setDecline(true)
-    setConfirm(false)
-    setLoading(!loading)
-    reqConfirmarCuenta(query.token, false);
+    if (query.token) {
+      setDecline(true)
+      setConfirm(false)
+      const lod = reqConfirmarCuenta(query.token, false)
+    } else {
+      swal({
+        title: 'Error',
+        text: 'Debe tener una cuenta para confirmarla',
+        icon: 'error',
+        button: 'Ok'
+      })
+      Router.push('/session/IniciarSesion')
+    }
   }
 
   const confirmBtn = async () => {
-    setLoading(!loading)
-    setConfirm(true)
-    setDecline(false)
-    reqConfirmarCuenta(query.token, true);
+    if (query.token) {
+      setConfirm(true)
+      setDecline(false)
+      const lod = reqConfirmarCuenta(query.token, true)
+    } else {
+      swal({
+        title: 'Error',
+        text: 'Debe tener una cuenta para confirmarla',
+        icon: 'error',
+        button: 'Ok'
+      })
+      Router.push('/session/IniciarSesion')
+    }
   }
 
   return (
@@ -105,7 +124,7 @@ export default function ConfirmarCuenta () {
                     experiencias de uso y mucho más.
                   </p>
                 </div>
-                <Link href='#'>
+                <Link href='./session/IniciarSesion'>
                   <a>
                     <button className={styles.btnSubmit}>
                       {`Iniciar Sesión`}

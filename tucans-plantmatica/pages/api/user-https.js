@@ -85,7 +85,6 @@ export const reqConfirmarCuenta = async(token, create) => {
     })
 
     const resJSON = await res.json();
-    console.log(resJSON);
     if(res.status === 401){
         swal({
             title: 'Finalizado',
