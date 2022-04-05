@@ -26,11 +26,11 @@ export default function Index({ fichas, etiquetas }) {
 
     const buscarCoincidencias = async () => {
         if (terminoB === undefined || terminoB === "" || terminoB === " ") {
-            const res = await fetch(`${process.env.API_URL}ficha`);
+            const res = await fetch(`https://plantmatica-api.vercel.app/ficha`);
             const fichas = await res.json();
             setFichasR(fichas);
         } else {
-            const res = await fetch(`${process.env.API_URL}/ficha/encontrar/coincidencia/`, {
+            const res = await fetch(`https://plantmatica-api.vercel.app/ficha/encontrar/coincidencia/`, {
                 method: 'PUT',
                 mode: 'cors',
                 headers: {
@@ -127,7 +127,7 @@ export default function Index({ fichas, etiquetas }) {
 }
 
 export async function getServerSideProps({ }) {
-    const res = await fetch(`${process.env.API_URL}/ficha`);
+    const res = await fetch(`https://plantmatica-api.vercel.app/ficha`);
     const fichas = await res.json();
     const etiquetas = await traerEtiquetas();
 

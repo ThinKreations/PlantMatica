@@ -39,7 +39,7 @@ export default function Ficha({ arrayEtiquetas }) {
 
     const agregarFicha = async () => {
         event.preventDefault();
-        const { id } = await validarToken();
+        const id = localStorage.getItem('id');
         let object = new Object({
             etiquetas, 
             caracteristicas_especiales: caracteristica,

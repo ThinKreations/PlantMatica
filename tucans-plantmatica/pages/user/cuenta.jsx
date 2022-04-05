@@ -27,7 +27,7 @@ export default function Index() {
 
   const traerUsuario = async () => {
     if (!datUsuario) {
-      const { id } = await validarToken();
+      const id = localStorage.getItem('id');
       const usuario = await getUsuario(id);
       setDatUsuario(usuario.usuario);
     } else {
@@ -40,7 +40,7 @@ export default function Index() {
 
   const editarUsuario = async () => {
     event.preventDefault();
-    const { id } = await validarToken();
+    const id = localStorage.getItem('id');
     await actualizarUsuario(id, {
       estadoMx: estado,
       sexo,

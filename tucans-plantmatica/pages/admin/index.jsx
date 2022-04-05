@@ -70,7 +70,7 @@ export default function Index({ fichas }) {
 
     const controlFicha = async (control, id_ficha) => {
 
-        const { id } = await validarToken();
+        let id = localStorage.getItem('id');
         await declinarAceptarFicha(control, id, id_ficha);
         const fichasNoRes = await traerFichasNoAceptadas();
         setFichasNoR(fichasNoRes);
@@ -305,7 +305,7 @@ export default function Index({ fichas }) {
 }
 
 export async function getServerSideProps({ }) {
-    const res = await fetch(`${process.env.API_URL}/ficha`);
+    const res = await fetch(`https://plantmatica-api.vercel.app/ficha`);
     const fichas = await res.json();
 
     return {

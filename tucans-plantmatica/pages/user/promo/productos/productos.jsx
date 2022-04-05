@@ -1,9 +1,9 @@
-import MainHead from '../../../components/MainHead';
+import MainHead from '../../../../components/MainHead';
 import styles from '../../../styles/Promotor.module.css'
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from "../../../src/plantmatica.png";
-import MenuPromo from '../../../components/promo/MenuPromo'
+import MenuPromo from '../../../../components/promo/MenuPromo'
 export default function Promotor(){
 
     return(

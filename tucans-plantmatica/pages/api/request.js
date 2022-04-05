@@ -198,7 +198,7 @@ export const subirComentario = async (id_ficha, id_user, comentario)=>{
 
 export const traerUsuario=async (id_user)=>{
     const token = localStorage.getItem('token');
-    const res = await fetch(`${process.env.API_URL}/user/${id_user}`, {
+    const res = await fetch(`https://plantmatica-api.vercel.app/user/${id_user}`, {
         method: 'GET',
         mode: 'cors',
         headers: {

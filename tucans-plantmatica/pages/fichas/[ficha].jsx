@@ -24,7 +24,7 @@ export default function Ficha({ ficha }) {
     const guardarFicha = async (id_ficha) => {
 
         const token = localStorage.getItem('token');
-        const { id } = await validarToken();
+        const id = localStorage.getItem('id');
 
         await guardarFichaHttp(id_ficha, id, token);
 
@@ -34,7 +34,7 @@ export default function Ficha({ ficha }) {
 
     const postComentario = async (id_ficha) => {
 
-        const { id } = await validarToken();
+        const id = localStotage.getItem('id');
         const subeComentario = await subirComentario(id_ficha, id, comentario);
 
     }
@@ -207,7 +207,7 @@ export default function Ficha({ ficha }) {
 
 export async function getServerSideProps({ params }) {
 
-    const res = await fetch(`${process.env.API_URL}/ficha/${params.ficha}`);
+    const res = await fetch(`https://plantmatica-api.vercel.app/ficha/${params.ficha}`);
     const ficha = await res.json();
     console.log(ficha.ficha.comentarios)
     return {
