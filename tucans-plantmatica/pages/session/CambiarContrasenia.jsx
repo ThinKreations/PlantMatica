@@ -11,7 +11,6 @@ import { schemaCambiarPass } from '../../schemas/cambiarPass'
 import { cambiarPass } from '../api/user-https'
 
 export default function CambiarContrasenia () {
-  
   const { query } = useRouter()
 
   const {
@@ -22,12 +21,10 @@ export default function CambiarContrasenia () {
     resolver: yupResolver(schemaCambiarPass)
   })
 
-  const onSubmit = async (data) => {
-    const { password } = data;
-    const status = cambiarPass(query.token, password);
-    if(status === true){
-      Router.push('/session/IniciarSesion');
-    }
+  const onSubmit = async data => {
+    const { password } = data
+    const status = cambiarPass(query.token, password)
+    Router.push('/session/IniciarSesion')
   }
 
   return (
@@ -44,12 +41,20 @@ export default function CambiarContrasenia () {
             <br />
             <div className={styles.cont_input}>
               <label className={styles.text}>Nueva Contraseña</label>
-              <input {...register('password')} type='password' className={styles.input} />
+              <input
+                {...register('password')}
+                type='password'
+                className={styles.input}
+              />
               <p className={styles.errors}>{errors.password?.message}</p>
             </div>
             <div className={styles.cont_input}>
               <label className={styles.text}>Verificar Contraseña</label>
-              <input {...register('passwordV')} type='password' className={styles.input} />
+              <input
+                {...register('passwordV')}
+                type='password'
+                className={styles.input}
+              />
               <p className={styles.errors}>{errors.passwordV?.message}</p>
             </div>
             <button className={styles.btnSubmit} type='submit'>
