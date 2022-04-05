@@ -65,7 +65,7 @@
     transition: 0.3s;
 }
 
-.btnSubmit:hover, .btnGoogle:hover{
+.btnSubmit:hover, .btnGoogle:hover, .btnNot:hover{
     cursor: pointer;
     background-color: var(--hover-color);
     transform: scale(1.05, 1.05);
@@ -89,5 +89,17 @@
     opacity: 0;
     position: absolute;
     z-index: -1;
+}
+
+.btnNot{
+    margin: 16px;
+    border-radius: 4px;
+    height: 37px;
+    font-size: 18px;
+    color: white;
+    align-items: center;
+    background-color: var(--danger-color);
+    border: 0;
+    transition: 0.3s;
 }
 

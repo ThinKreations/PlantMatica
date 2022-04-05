@@ -73,3 +73,28 @@ export const actualizarUsuario = async (id, usuario) => {
         });
     }
 }
+
+/* create es sobre si confirma o rechaza la creacion de la cuenta */
+export const reqConfirmarCuenta = async(token, create) => {
+
+    const res = await fetch(`https://plantmatica-api.vercel.app/user/confirmar/${create}/${token}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+    const resJSON = await res.json();
+    console.log(resJSON);
+    if(res.status === 401){
+        swal({
+            title: 'Finalizado',
+            text: resJSON.msg,
+            icon: 'error',
+            button: 'Ok',
+        });
+    }else{
+        return true;
+    }
+
+}
