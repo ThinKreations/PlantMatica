@@ -34,7 +34,7 @@ export default function Ficha({ ficha }) {
 
     const postComentario = async (id_ficha) => {
 
-        const id = localStotage.getItem('id');
+        const id = localStorage.getItem('id');
         const subeComentario = await subirComentario(id_ficha, id, comentario);
 
     }
