@@ -1,0 +1,7 @@
+.text{
+    font-size: 20px;
+}
+.title{
+    color: var(--text-color);
+    font-size: 32px;
+}

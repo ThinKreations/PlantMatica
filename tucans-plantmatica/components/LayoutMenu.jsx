@@ -73,15 +73,6 @@ export default function Menusup ({ children }) {
                       </font>
                     </button>
                   </Link>
-                  {/*
-                                    
-                                    <div className={styles.dropdownContent}>
-                                        <Link href="/admin">{`Inicio`}</Link>
-                                        <Link href="">{`Solicitudes`}</Link>
-                                        <Link href="">{`Gestión de Usuarios`}</Link>
-                                    </div>
-
-                                    */}
                 </div>
 
                 {!valueMenu ? (
@@ -105,7 +96,7 @@ export default function Menusup ({ children }) {
                     </button>
                     <div className={styles.dropdownContent}>
                       <Link href='/user/cuenta'>{`Mi Cuenta`}</Link>
-
+                      <Link href='/user/promo/'>{`Promotor`}</Link>
                       <button
                         className={styles.btnCerrar}
                         onClick={cerrarSesion}
