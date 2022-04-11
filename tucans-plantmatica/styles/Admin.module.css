@@ -99,5 +99,11 @@
 }
 
 .promo_title{
-    color: var(--purple-color);
+    color: var(--purple-lg);
+}
+
+.nombreCP {
+    color: var(--purple-lg);
+    font-size: 20px;
+    margin: 5px;
 }

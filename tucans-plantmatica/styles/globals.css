@@ -16,6 +16,7 @@ html, body {
   --bg-color-lg: #e6fada;
   --save-color: rgb(106, 124, 223);
   --purple-color: rgb(145, 25, 161);
+  --purple-lg: rgb(169, 44, 186);
   --purple-hover: rgb(247, 217, 251);
 
   /* Variables para degradados de etiquetas */

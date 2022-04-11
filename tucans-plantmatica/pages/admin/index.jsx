@@ -16,7 +16,7 @@ import FichasNoAceptadas from '../../components/admin/FichasNoAceptadas'
 import SolicitudesEdicion from '../../components/admin/SolicitudesEdicion'
 import SolicitudesPromotores from '../../components/admin/SolicitudesPromotores'
 
-export default function Index ({ fichas, total }) {
+export default function Index ({ fichas, solPromo }) {
   const [none, setNone] = useState(true)
 
   const [visual, setVisual] = useState('')
@@ -24,16 +24,6 @@ export default function Index ({ fichas, total }) {
   const changeDataUI = scope => {
     setVisual(scope)
     setNone(false)
-    if (visual === 'no-accepted' || scope === 'no-accepted') {
-      console.log('Cargando componente ... Fichas no aceptadas')
-    }
-  }
-
-  const controlFicha = async (control, id_ficha) => {
-    let id = localStorage.getItem('id')
-    await declinarAceptarFicha(control, id, id_ficha)
-    const fichasNoRes = await traerFichasNoAceptadas()
-    setFichasNoR(fichasNoRes)
   }
 
   const sessionControl = async () => {
@@ -131,8 +121,8 @@ export default function Index ({ fichas, total }) {
           ) : (
             ''
           )}
-          {visual === 'sol-edition' ? <SolicitudesEdicion /> : ''}
-          {visual === 'sol-promo' ? <SolicitudesPromotores /> : ''}
+          {visual === 'sol-edition' ? <SolicitudesEdicion  /> : ''}
+          {visual === 'sol-promo' ? <SolicitudesPromotores solicitudesPromotor={solPromo} /> : ''}
         </div>
       </div>
     </div>
@@ -143,7 +133,7 @@ export async function getServerSideProps ({ query }) {
   const res = await fetch(
     `https://plantmatica-api.vercel.app/admin/fichas/${query.token}`
   )
-  const { fichas } = await res.json()
-  //console.log(fichas)
-  return { props: { fichas, notFound: false } }
+  const { fichas, solPromo } = await res.json()
+  console.log(solPromo)
+  return { props: { fichas, solPromo, notFound: false } }
 }
