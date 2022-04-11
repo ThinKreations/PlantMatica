@@ -80,7 +80,7 @@ export default function SignPromotorComponent () {
               </div>
               <div className={styles.cont_input}>
                 <label className={styles.text}>Correo comercial</label>
-                <input {...register('correo_comercial')} type='text' className={styles.input} />
+                <input {...register('correo')} type='text' className={styles.input} />
                 <p className={styles.errors}>{errors.correo?.message}</p>
               </div>
       
