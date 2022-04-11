@@ -5,6 +5,7 @@ html, body {
   --verde-color: #8AD879;
   --azul-color: #4bc6eb;
   --danger-color: #f3533a;
+  --danger-color-hover: #ffe4df;
 
   /* Variables segunda paleta */
   --text-color: #5A9539;
@@ -15,6 +16,7 @@ html, body {
   --bg-color-lg: #e6fada;
   --save-color: rgb(106, 124, 223);
   --purple-color: rgb(145, 25, 161);
+  --purple-hover: rgb(247, 217, 251);
 
   /* Variables para degradados de etiquetas */
 

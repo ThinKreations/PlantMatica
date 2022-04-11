@@ -1,0 +1,62 @@
+.card{
+    margin: 10px;
+    border-bottom: 2px solid rgb(207, 202, 202);
+    border-right: 2px solid rgb(207, 202, 202);
+    border-top: 1px solid rgb(207, 202, 202);
+    border-left: 1px solid rgb(207, 202, 202);
+    border-radius: 4px;
+}
+
+.content{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+
+.text{
+    font-size: 16px;
+    color: black;
+    padding: 5px;
+    align-items: flex-start;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.rig{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+/* Tarjeta de fichas no aceptadas */
+.card_not{
+    color: var(--danger-color);
+}
+
+.card_not:hover{
+    transition: 0.3s;    
+    background-color: var(--danger-color-hover);
+    transform: scale(1.02, 1.02);
+}
+
+/* Tarjeta para solicitudes de edicion */
+.card_edit{
+    color: var(--text-color);
+}
+
+.card_edit:hover{
+    transition: 0.3s;    
+    background-color: var(--bg-color-lg);
+    transform: scale(1.02, 1.02);
+}
+
+/* Tarjeta promotores */
+.card_promo{
+    color: var(--purple-color);
+}
+
+.card_promo:hover{
+    transition: 0.3s;    
+    background-color: var(--purple-hover);
+    transform: scale(1.02, 1.02);
+}
