@@ -134,6 +134,6 @@ export async function getServerSideProps ({ query }) {
     `https://plantmatica-api.vercel.app/admin/fichas/${query.token}`
   )
   const { fichas, solPromo } = await res.json()
-  console.log(solPromo)
+  //console.log(solPromo)
   return { props: { fichas, solPromo, notFound: false } }
 }

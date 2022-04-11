@@ -107,3 +107,37 @@
     font-size: 20px;
     margin: 5px;
 }
+
+.btnDelete {
+    padding: 12px;
+    margin: 8px;
+    font-size: 18px;
+    color: var(--danger-color);
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid var(--danger-color);
+    transition: 0.3s;
+}
+
+.btnDelete:hover {
+    transform: scale(1.05, 1.05);
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.btnInfoSol {
+    padding: 12px;
+    margin: 8px;
+    font-size: 18px;
+    color: var(--naranja-color);
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid var(--naranja-color);
+    transition: 0.3s;
+}
+
+.btnInfoSol:hover {
+    transform: scale(1.05, 1.05);
+    background-color: var(--naranja-color);
+    color: white;
+}

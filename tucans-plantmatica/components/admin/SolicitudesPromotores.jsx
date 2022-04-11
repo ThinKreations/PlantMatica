@@ -26,44 +26,49 @@ export default function SolicitudesPromotores ({ solicitudesPromotor }) {
         </Alert>
       ) : (
         <>
-        {
-          solicitudesPromotor.map(sp => {
-            return <div key={uid()} >
-              <Card sx={{ padding: '15px' }} className={styles2.card}>
-                <CardContent>
-                  <p className={styles2.textFich} >{`Nombre público`}: </p>
-                  <p className={styles.nombreCP}>{sp.nombre_publico}</p>
-                  <p className={styles2.textFich} >{`Razón social`}: </p>
-                  <p className={styles.nombreCP}>{sp.razon_social}</p>
-                  <p className={styles2.textFich} >{`Correo de la empresa`}: </p>
-                  <p className={styles.nombreCP}>{sp.correo_empresa}</p>
-                  <p className={styles.textFich}>Dirección comercial: </p>
-                  <p className={styles.nombreCP} >{sp.direccion_comercial}</p>
-                  <p className={styles2.textFich} >{`Teléfono comercial`}: </p>
-                  <p className={styles.nombreCP}>{sp.telefono_comercial}</p>
-                  <p className={styles2.textFich} >{`RFC de empresa física o persona`}: </p>
-                  <p className={styles.nombreCP}>{sp.rfc_empresa_persona_fisica}</p>
-                  <p className={styles2.textFich} >{`CLABE interbancaria`}: </p>
-                  <p className={styles.nombreCP}>{sp.clabe_interbancaria}</p>
-                  <p className={styles2.textFich} >{`Tarjeta de crédito`}: </p>
-                  <p className={styles.nombreCP}>{sp.tarjeta_credito_titular_cuenta}</p>
-                </CardContent>
-                <CardActions>
-                <button
-                      className={styles2.btnCalificar}
-                    >
+          {solicitudesPromotor.map(sp => {
+            return (
+              <div key={uid()}>
+                <Card sx={{ padding: '15px' }} className={styles2.card}>
+                  <CardContent>
+                    <p className={styles2.textFich}>{`Nombre público`}: </p>
+                    <p className={styles.nombreCP}>{sp.nombre_publico}</p>
+                    <p className={styles2.textFich}>{`Razón social`}: </p>
+                    <p className={styles.nombreCP}>{sp.razon_social}</p>
+                    <p className={styles2.textFich}>
+                      {`Correo de la empresa`}:{' '}
+                    </p>
+                    <p className={styles.nombreCP}>{sp.correo_empresa}</p>
+                    <p className={styles.textFich}>Dirección comercial: </p>
+                    <p className={styles.nombreCP}>{sp.direccion_comercial}</p>
+                    <p className={styles2.textFich}>{`Teléfono comercial`}: </p>
+                    <p className={styles.nombreCP}>{sp.telefono_comercial}</p>
+                    <p className={styles2.textFich}>
+                      {`RFC de empresa física o persona`}:{' '}
+                    </p>
+                    <p className={styles.nombreCP}>
+                      {sp.rfc_empresa_persona_fisica}
+                    </p>
+                    <p className={styles2.textFich}>
+                      {`CLABE interbancaria`}:{' '}
+                    </p>
+                    <p className={styles.nombreCP}>{sp.clabe_interbancaria}</p>
+                    <p className={styles2.textFich}>{`Tarjeta de crédito`}: </p>
+                    <p className={styles.nombreCP}>
+                      {sp.tarjeta_credito_titular_cuenta}
+                    </p>
+                  </CardContent>
+                  <CardActions>
+                    <button className={styles2.btnCalificar}>
                       Aceptar promotor
                     </button>
-                    <button
-                      className={styles2.btnReporte}
-                    >
-                      Declinar
-                    </button>
-                </CardActions>
-              </Card>
-            </div>
-          })
-        }
+                    <button className={styles.btnInfoSol}>Declinar solicitud.</button>
+                    <button className={styles.btnDelete}>Eliminar definitivamente</button>
+                  </CardActions>
+                </Card>
+              </div>
+            )
+          })}
         </>
       )}
     </>
