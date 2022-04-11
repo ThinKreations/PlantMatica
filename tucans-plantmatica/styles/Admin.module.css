@@ -1,3 +1,14 @@
+.table{
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+
+.nombreC {
+    color: var(--text-color);
+    font-size: 20px;
+}
+
 .card{
     margin: 10px;
     border-bottom: 2px solid rgb(207, 202, 202);
@@ -7,6 +18,15 @@
     border-radius: 4px;
 }
 
+.card_med{
+    display: grid;
+    justify-content: left;
+}
+
+.card_content{
+    margin: 10px;
+}
+
 .content{
     padding: 10px;
     display: grid;
@@ -14,11 +34,8 @@
 }
 
 .text{
-    font-size: 16px;
     color: black;
     padding: 5px;
-    align-items: flex-start;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 .rig{
@@ -39,6 +56,10 @@
     transform: scale(1.02, 1.02);
 }
 
+.not_title{
+    color: var(--danger-color);
+}
+
 /* Tarjeta para solicitudes de edicion */
 .card_edit{
     color: var(--text-color);
@@ -50,6 +71,10 @@
     transform: scale(1.02, 1.02);
 }
 
+.edit_title{
+    color: var(--text-color);
+}
+
 /* Tarjeta promotores */
 .card_promo{
     color: var(--purple-color);
@@ -59,4 +84,20 @@
     transition: 0.3s;    
     background-color: var(--purple-hover);
     transform: scale(1.02, 1.02);
+}
+
+.card_ficha{
+    margin: 10px;
+    border-bottom: 2px solid rgb(207, 202, 202);
+    border-right: 2px solid rgb(207, 202, 202);
+    border-top: 1px solid rgb(207, 202, 202);
+    border-left: 1px solid rgb(207, 202, 202);
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    justify-content: left;
+}
+
+.promo_title{
+    color: var(--purple-color);
 }

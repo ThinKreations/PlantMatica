@@ -12,11 +12,14 @@ import { validarToken } from '../pages/api/request'
 export default function Menusup ({ children }) {
   const [uid, setUid] = useState()
   const [valueMenu, setValueMenu] = useState(false)
+  const [token, setToken] = useState()
 
   const definirRutas = async () => {
     if (!uid) {
       let id = localStorage.getItem('id')
+      let tokenR = localStorage.getItem('token')
       setUid(id)
+      setToken(tokenR)
       setValueMenu(true)
     }
   }
@@ -42,11 +45,13 @@ export default function Menusup ({ children }) {
               <div className={styles.botonera}>
                 <div className={styles.dropdown}>
                   <Link href='/fichas'>
-                    <button className={styles.dropbtn}>
-                      <font face='Work Sans' color='white'>
-                        <b>{`Inicio`}</b>
-                      </font>
-                    </button>
+                    <a>
+                      <button className={styles.dropbtn}>
+                        <font face='Work Sans' color='white'>
+                          <b>{`Inicio`}</b>
+                        </font>
+                      </button>
+                    </a>
                   </Link>
                 </div>
 
@@ -66,12 +71,14 @@ export default function Menusup ({ children }) {
                 </div>
 
                 <div className={styles.dropdown}>
-                  <Link href='/admin'>
-                    <button className={styles.dropbtn}>
-                      <font face='Work Sans' color='white'>
-                        <b>{`Administrador`}</b>
-                      </font>
-                    </button>
+                  <Link href={`/admin?token=${token}`}>
+                    <a>
+                      <button className={styles.dropbtn}>
+                        <font face='Work Sans' color='white'>
+                          <b>{`Administrador`}</b>
+                        </font>
+                      </button>
+                    </a>
                   </Link>
                 </div>
 

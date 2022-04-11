@@ -30,12 +30,11 @@ export const traerUsuarios = async (tipo_usuarios) => {
 export const traerFichasNoAceptadas = async () => {
 
     const token = localStorage.getItem("token");
-    const res = await fetch(`https://plantmatica-api.vercel.app/admin/fichas`, {
+    const res = await fetch(`https://plantmatica-api.vercel.app/admin/fichas/${token}`, {
         method: "GET",
         mode: 'cors',
         headers: {
             "Content-Type": "application/json",
-            "x-token": token
         }
     });
     const resJSON = await res.json();
