@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup'
 import { schemaSignPromotor } from '../../../schemas/signPromotor'
 import IconPlantMatica from '../../../components/IconPlantMatica'
-import { signPromotor } from '../../../pages/api/promotor-https'
+import { signPromotor } from '../../api/promotor-https'
 import Steps from '../../../components/Steps';
 import MainHead from '../../../components/MainHead'
 import LayoutIndex from '../../../components/LayoutIndex'
