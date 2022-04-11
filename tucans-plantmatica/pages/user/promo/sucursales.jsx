@@ -6,12 +6,16 @@ import { schemaSignPromotor } from '../../../schemas/signPromotor'
 import IconPlantMatica from '../../../components/IconPlantMatica'
 import { signPromotor } from '../../../pages/api/promotor-https'
 import Steps from '../../../components/Steps';
+import MainHead from '../../../components/MainHead'
+import LayoutIndex from '../../../components/LayoutIndex'
+import { Checkbox } from '@mui/material';
 
 export default function RegistrarSucursal () {
 
   return (
     <>
-        
+         <MainHead tituloPestana='Promotor' />
+      <LayoutIndex>
         <div>
             <form style={{ padding: '10%' }}  className={styles.root}>
               <h2 className={styles.title}>Registra una sucursal</h2>
@@ -29,64 +33,38 @@ export default function RegistrarSucursal () {
                 </p>
               </center>
               <div className={styles.cont_input}>
-                <label className={styles.text}>Nombre público</label>
+                <label className={styles.text}>Referencia</label>
                 <input  className={styles.input} />
                 <p className={styles.errors}></p>
               </div>
               <div className={styles.cont_input}>
-                <label className={styles.text}>Razón social</label>
+                <label className={styles.text}>Dirección</label>
                 <input  className={styles.input} />
                 <p className={styles.errors}></p>
               </div>
               <div className={styles.cont_input}>
-                <label className={styles.text}>{`Dirección comercial`}</label>
-                <input
-                  type='text'
-                  className={styles.input}
-                />
+                <label className={styles.text}>Horario de atención</label>
+                Aquí va el formulario de horario
+              </div>
+              <div className={styles.cont_input}>
+                <label className={styles.text}>Estado de aprobación</label>
+                <Checkbox/>
                 <p className={styles.errors}></p>
               </div>
               <div className={styles.cont_input}>
-                <label className={styles.text}>Teléfono comercial</label>
-                <input
-                  type='number'
-                  className={styles.input}
-                />
-                <p className={styles.errors}></p>
-              </div>
-              <div className={styles.cont_input}>
-                <label className={styles.text}>Correo comercial</label>
-                <input  type='text' className={styles.input} />
-                <p className={styles.errors}></p>
+                <label className={styles.text}>Aki va lo del mapa xd</label>
+                
               </div>
       
-              <div className={styles.cont_input}>
-                <label className={styles.text}>CLABE interbancaria</label>
-                <input
-                 
-                  type='number'
-                  className={styles.input}
-                />
-                <p className={styles.errors}></p>
-              </div>
-              <div className={styles.cont_input}>
-                <label className={styles.text}>Tarjeta de crédito del titular</label>
-                <input type='number'
-                  className={styles.input}
-                />
-                <p className={styles.errors}></p>
-              </div>
-              <div className={styles.cont_input}>
-                <label className={styles.text}>RFC</label>
-                <input type='text' className={styles.input} />
-                <p className={styles.errors}></p>
-              </div>
+              
       
               <button type='submit' className={styles.btnSubmit}>
                 Registrar Sucursal
               </button>
             </form>
           </div> 
+      </LayoutIndex>
+        
     </>
   )
 }
