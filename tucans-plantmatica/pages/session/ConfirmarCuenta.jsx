@@ -124,7 +124,7 @@ export default function ConfirmarCuenta () {
                     experiencias de uso y mucho más.
                   </p>
                 </div>
-                <Link href='./IniciarSesion'>
+                <Link href='./session/IniciarSesion'>
                   <a>
                     <button className={styles.btnSubmit}>
                       {`Iniciar Sesión`}
