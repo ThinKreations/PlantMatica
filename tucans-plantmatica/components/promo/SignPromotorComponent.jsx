@@ -21,6 +21,7 @@ export default function SignPromotorComponent () {
 
   const onSubmit = async data => {
     const res = await signPromotor(data);
+    console.log(data)
     if(res.status === 200){
         setRegistrado(true);
     }
