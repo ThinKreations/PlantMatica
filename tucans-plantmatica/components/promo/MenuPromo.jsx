@@ -15,9 +15,9 @@ export default function MenuPromo() {
         <aside><Image src={logo} width="360" height="66"/></aside>
         <aside>
 
-            <Link href="/promo"><button><p>Inicio</p></button></Link>
-            <Link href="/promo/productos/productos"><button><p>Productos</p></button></Link>
-            <button><p>Sucursales</p></button>
+            <Link href="/user/promo"><button><p>Inicio</p></button></Link>
+            <Link href=""><button><p>Productos</p></button></Link>
+            <Link href="/user/promo/sucursales"><button><p>Sucursales</p></button></Link>
             <button><p>Mi cuenta</p></button>
             <button><Link href="/"><p>Cerrar Sesión</p></Link></button>
 
