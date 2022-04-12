@@ -32,11 +32,7 @@ export default function RegistrarSucursal () {
                   )
                 </p>
               </center>
-              <div className={styles.cont_input}>
-                <label className={styles.text}>Referencia</label>
-                <input  className={styles.input} />
-                <p className={styles.errors}></p>
-              </div>
+              
               <div className={styles.cont_input}>
                 <label className={styles.text}>Dirección</label>
                 <input  className={styles.input} />
@@ -44,7 +40,7 @@ export default function RegistrarSucursal () {
               </div>
               <div className={styles.cont_input}>
                 <label className={styles.text}>Horario de atención</label>
-                Aquí va el formulario de horario
+                <select>Selecciona </select>
               </div>
               <div className={styles.cont_input}>
                 <label className={styles.text}>Estado de aprobación</label>

@@ -11,8 +11,8 @@
 
 .card{
     margin: 10px;
-    border-bottom: 2px solid rgb(207, 202, 202);
-    border-right: 2px solid rgb(207, 202, 202);
+    border-bottom: 1px solid rgb(207, 202, 202);
+    border-right: 1px solid rgb(207, 202, 202);
     border-top: 1px solid rgb(207, 202, 202);
     border-left: 1px solid rgb(207, 202, 202);
     border-radius: 4px;

@@ -1,9 +1,47 @@
 .header{
     width: 100%;
-    padding: 1vw;
+    
     align-items: center;
-    display: inline-flex;
+    text-align: center;
     justify-content: space-between;
     transition: 0.3s;
-    box-shadow: 0px 0px 5px rgb(25,25,25);
+    
+}
+
+.btnMenu{
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 2px solid white;
+    background-color: white;
+    width: 25%;
+    min-width: max-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: 0.2s ease-in-out;
+}
+
+    .btnMenu:hover{
+        background-color: rgba(117, 2, 211, 0.2);
+        color: rgb(117, 2, 211);
+        border-bottom: 2px solid rgba(117, 2, 211, 0.2);
+        text-shadow: 0px 0px 3px rgb(201, 201, 201);
+    }
+
+    .btnMenu:active{
+        background-color: rgba(140, 0, 255, 0.2);
+        
+        border-bottom: 2px solid rgba(140, 0, 255,0.2);
+        color: rgb(140, 0, 255);
+        
+        
+    }
+
+/* container principal */
+
+.container{
+    padding-top: 1vh;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    transition: 0.3s ease-in-out;
 }

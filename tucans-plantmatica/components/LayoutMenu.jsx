@@ -69,19 +69,6 @@ export default function Menusup ({ children }) {
                     <Link href='/fichas/agregar'>{`+ Agregar Ficha`}</Link>
                   </div>
                 </div>
-
-                <div className={styles.dropdown}>
-                  <Link href={`/admin?token=${token}`}>
-                    <a>
-                      <button className={styles.dropbtn}>
-                        <font face='Work Sans' color='white'>
-                          <b>{`Administrador`}</b>
-                        </font>
-                      </button>
-                    </a>
-                  </Link>
-                </div>
-
                 {!valueMenu ? (
                   <div className={styles.dropdown}>
                     <Link href='/session/IniciarSesion'>
@@ -117,6 +104,19 @@ export default function Menusup ({ children }) {
                     </div>
                   </div>
                 )}
+                <div className={styles.dropdown}>
+                  <Link href={`/admin?token=${token}`}>
+                    <a>
+                      <button className={styles.dropbtn}>
+                        <font face='Work Sans' color='white'>
+                          <b>{`Administrador`}</b>
+                        </font>
+                      </button>
+                    </a>
+                  </Link>
+                </div>
+
+                
               </div>
             </font>
           </div>
