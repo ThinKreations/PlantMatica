@@ -98,3 +98,74 @@ export const declinarAceptarFicha = async (control, idAdmin, id_ficha) => {
     }
 
 }
+
+export const getSolPromotor = async () => {
+
+    const token = localStorage.getItem('token');
+    const res = await fetch(`https://plantmatica-api.vercel.app/admin/fichas/${token}`, {
+        mode: 'cors',
+        headers: {
+            "Content-Type": "application/json",
+        }
+    });
+    const resJSON = await res.json();
+    if (res.status !== 200) {
+        swal({
+            title: 'Error',
+            text: resJSON.msg,
+            icon: 'info',
+            button: 'Ok',
+            timer: '3000'
+        });
+        return;
+    } else { return resJSON; }
+
+}
+
+export const controlSolPromotor = async (control, id_promo) => {
+
+    const token = localStorage.getItem('token');
+    const res = await fetch(`https://plantmatica-api.vercel.app/admin/control-promo/${control}`, {
+        method: "PUT",
+        mode: "cors",
+        headers: {
+            "Content-Type": "application/json",
+            "x-token": token
+        },
+        body: JSON.stringify({
+            id_promo
+        })
+    });
+    const resJSON = await res.json();
+    if (res.status !== 200) {
+        try {
+            //Array errors de backend
+            let arrayErrors = resJSON.errors
+            arrayErrors.forEach(e => {
+                swal({
+                    title: `${error}`,
+                    text: e.msg,
+                    icon: 'error',
+                    button: 'Ok'
+                })
+            })
+        } catch (error) {
+            //Algun mensaje de error no previsto proveniente d3el backend
+            swal({
+                title: 'Algo salio mal...',
+                text: resJSON.msg,
+                icon: 'error',
+                button: 'Ok'
+            })
+        }
+    } else {
+        swal({
+            title: 'Finalizado',
+            text: resJSON.msg,
+            icon: 'success',
+            button: 'Ok',
+            timer: '3000'
+        })
+    }
+
+}

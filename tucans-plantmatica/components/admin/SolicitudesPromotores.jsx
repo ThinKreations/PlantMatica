@@ -1,19 +1,23 @@
 import { useEffect, useState } from 'react'
 import uid from 'tiny-uid'
 import styles from '../../styles/Admin.module.css'
-import { traerFichasNoAceptadas } from '../../pages/api/admin-https'
 import Alert from '@mui/material/Alert'
 import styles2 from '../../styles/Fichas.module.css'
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
+import { controlSolPromotor, getSolPromotor } from '../../pages/api/admin-https'
 
 export default function SolicitudesPromotores ({ solicitudesPromotor }) {
   const [solR, setSolR] = useState(solicitudesPromotor)
 
-  useEffect(() => {
-    console.log(solR)
-  }, [])
+  const controlSolR = async (control, id_promo) => {
+    controlSolPromotor(control, id_promo)
+    const { solPromo } = await getSolPromotor()
+    setSolR(solPromo)
+  }
+
+  useEffect(() => {}, [solR])
 
   return (
     <>
@@ -26,7 +30,7 @@ export default function SolicitudesPromotores ({ solicitudesPromotor }) {
         </Alert>
       ) : (
         <>
-          {solicitudesPromotor.map(sp => {
+          {solR.map(sp => {
             return (
               <div key={uid()}>
                 <Card sx={{ padding: '15px' }} className={styles2.card}>
@@ -59,11 +63,24 @@ export default function SolicitudesPromotores ({ solicitudesPromotor }) {
                     </p>
                   </CardContent>
                   <CardActions>
-                    <button className={styles2.btnCalificar}>
+                    <button
+                      onClick={() => controlSolR(true, sp._id)}
+                      className={styles2.btnCalificar}
+                    >
                       Aceptar promotor
                     </button>
-                    <button className={styles.btnInfoSol}>Declinar solicitud.</button>
-                    <button className={styles.btnDelete}>Eliminar definitivamente</button>
+                    <button
+                      onClick={() => controlSolR(false, sp._id)}
+                      className={styles.btnInfoSol}
+                    >
+                      Declinar solicitud.
+                    </button>
+                    <button
+                      onClick={() => controlSolR('delete', sp._id)}
+                      className={styles.btnDelete}
+                    >
+                      Eliminar definitivamente
+                    </button>
                   </CardActions>
                 </Card>
               </div>
