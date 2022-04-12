@@ -12,11 +12,11 @@ export default function Promotor () {
       <LayoutMenu/>
         <MenuPromo />
         <div className={styles.container}>
-        <font size={6} face="Work Sans" color="007200"><h1>PlantMatica para promotores</h1></font>
-        <p>
+        <center><font size={6} face="Work Sans" color="007200"><h1>PlantMatica para promotores</h1></font></center>
+        <h2>
           A través de este medio, tendrás la posibilidad de promocionar tu
           negocio y tus productos a un precio justo.
-        </p>
+        </h2>
         <Link href="/user/promo/SignPromotor">No estas registrado como promotor, haz click aqui para registrarte</Link>
         </div>
       
