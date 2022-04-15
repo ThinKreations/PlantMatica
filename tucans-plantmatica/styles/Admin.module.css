@@ -3,6 +3,22 @@
     grid-template-columns: 30% 70%;
 }
 
+.minicard{
+    background-color: var(--save-color);
+    color: white;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.promo_icon{
+    font-size: 64px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
 
 .nombreC {
     color: var(--text-color);

@@ -1,4 +1,4 @@
-import 'animate.css';
+import 'animate.css'
 import MainHead from '../../components/MainHead'
 import Router from 'next/router'
 import LayoutMenu from '../../components/LayoutMenu'
@@ -116,14 +116,28 @@ export default function Index ({ fichas, solPromo, solFichas }) {
         </div>
 
         <div>
-          {none ? 'Elige una de las opciones...' : ''}
+          {none ? (
+            <>
+              <h2 style={{ fontSize: '32px' }} >Panel de control...</h2>
+            </>
+          ) : (
+            ''
+          )}
           {visual === 'no-accepted' ? (
             <FichasNoAceptadas fichasNoAceptadas={fichas} />
           ) : (
             ''
           )}
-          {visual === 'sol-edition' ? <SolicitudesEdicion solicitudesEdicion={solFichas} /> : ''}
-          {visual === 'sol-promo' ? <SolicitudesPromotores solicitudesPromotor={solPromo} /> : ''}
+          {visual === 'sol-edition' ? (
+            <SolicitudesEdicion solicitudesEdicion={solFichas} />
+          ) : (
+            ''
+          )}
+          {visual === 'sol-promo' ? (
+            <SolicitudesPromotores solicitudesPromotor={solPromo} />
+          ) : (
+            ''
+          )}
         </div>
       </div>
     </div>
@@ -135,5 +149,6 @@ export async function getServerSideProps ({ query }) {
     `https://plantmatica-api.vercel.app/admin/fichas/${query.token}`
   )
   const { fichas, solPromo, solFichas } = await res.json()
-  return { props: { fichas, solPromo, solFichas,  notFound: false } }
+  console.log(solPromo)
+  return { props: { fichas, solPromo, solFichas, notFound: false } }
 }

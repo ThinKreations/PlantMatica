@@ -6,6 +6,7 @@ import styles2 from '../../styles/Fichas.module.css'
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd'
 import { controlSolPromotor, getSolPromotor } from '../../pages/api/admin-https'
 
 export default function SolicitudesPromotores ({ solicitudesPromotor }) {
@@ -35,6 +36,15 @@ export default function SolicitudesPromotores ({ solicitudesPromotor }) {
               <div key={uid()}>
                 <Card sx={{ padding: '15px' }} className={styles2.card}>
                   <CardContent>
+                    <div className={styles.minicard}>
+                      <AssignmentIndIcon className={styles.promo_icon}  />
+                      <p>
+                        Usuario de referencia <br/>
+                        Nombre de usuario: {sp.usuario_referencia.username} <br/>
+                        Correo: {sp.usuario_referencia.correo} <br/>
+                        Estado de la cuenta: {sp.usuario_referencia.status} <br/>
+                      </p>
+                    </div>
                     <p className={styles2.textFich}>{`Nombre público`}: </p>
                     <p className={styles.nombreCP}>{sp.nombre_publico}</p>
                     <p className={styles2.textFich}>{`Razón social`}: </p>

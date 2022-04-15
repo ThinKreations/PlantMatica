@@ -1,17 +1,16 @@
-.header{
+.header {
     width: 100%;
-    
+
     align-items: center;
     text-align: center;
     justify-content: space-between;
     transition: 0.3s;
-    
-}
 
+}
 
 /* container principal */
 
-.container{
+.container {
     padding-top: 1vh;
     padding-left: 4vw;
     padding-right: 4vw;
@@ -20,7 +19,7 @@
 
 /* botonera */
 
-.btnMenu{
+.btnMenu {
     border-top: 0;
     border-left: 0;
     border-right: 0;
@@ -33,33 +32,58 @@
     transition: 0.2s ease-in-out;
 }
 
-    .btnMenu:hover{
-        background-color: rgba(117, 2, 211, 0.2);
-        color: rgb(117, 2, 211);
-        border-bottom: 2px solid rgba(117, 2, 211, 0.2);
-        text-shadow: 0px 0px 3px rgb(201, 201, 201);
-    }
+.btnMenu:hover {
+    background-color: rgba(117, 2, 211, 0.2);
+    color: rgb(117, 2, 211);
+    border-bottom: 2px solid rgba(117, 2, 211, 0.2);
+    text-shadow: 0px 0px 3px rgb(201, 201, 201);
+}
 
-    .btnMenu:active{
-        background-color: rgba(140, 0, 255, 0.2);
-        
-        border-bottom: 2px solid rgba(140, 0, 255,0.2);
-        color: rgb(140, 0, 255);
-        
-        
-    }
+.btnMenu:active {
+    background-color: rgba(140, 0, 255, 0.2);
 
-.btnSign{
-    border:2px solid var(--main-color);
-    color:var(--main-color);
+    border-bottom: 2px solid rgba(140, 0, 255, 0.2);
+    color: rgb(140, 0, 255);
+
+
+}
+
+.btnSign {
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
     background-color: white;
-    padding:10px;
+    padding: 10px;
     border-radius: 5px;
     transition: 0.2s;
 }
-    
-    .btnSign:hover{
-        transform: scale(1.05, 1.05);
-        background-color: var(--main-color);
-        color: white;
-    }
+
+.btnSign:hover {
+    transform: scale(1.05, 1.05);
+    background-color: var(--main-color);
+    color: white;
+}
+
+.box_index_divider {
+    /* display: grid;
+    grid-template-columns: 50% 50%; */
+}
+
+.cuestion {
+    color: var(--text-color);
+    font-size: 26px;
+}
+
+.link {
+    color: var(--text-color);
+    transition: 0.3s;
+    font-size: 18px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.link:hover {
+    color: white;
+    transform: scale(1.05, 1.05);
+    background-color: var(--text-color);
+}
