@@ -6,18 +6,15 @@ import VisibilityIcon from '@mui/icons-material/Visibility'
 import styles from '../../styles/Fichas.module.css'
 import Autocomplete from '@mui/material/Autocomplete'
 import TextField from '@mui/material/TextField'
-import RemoveIcon from '@mui/icons-material/Remove'
-import AddIcon from '@mui/icons-material/Add'
-import DeleteIcon from '@mui/icons-material/Delete'
 import Chip from '@mui/material/Chip'
 
 export default function EditArrays ({
   fichaParaEdicion,
   visualizarNombreDato,
-  editarVista
+  editarVista,
+  changeArray
 }) {
   const [visible, setVisible] = useState(editarVista)
-  console.log(fichaParaEdicion)
 
   return (
     <>
@@ -45,6 +42,7 @@ export default function EditArrays ({
           <Autocomplete
             multiple
             id='carac-esp'
+            onChange={changeArray}
             options={fichaParaEdicion.map(option => option)}
             defaultValue={fichaParaEdicion.map(option => option)}
             freeSolo

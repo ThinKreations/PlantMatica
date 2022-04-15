@@ -35,7 +35,7 @@ export default function EditVisualBtn ({ editarVista, fichaParaEdicion, changeVa
           </button>
           <input
             value={fichaParaEdicion}
-            onChange={changeValue }
+            onChange={changeValue}
             className={stylesE.input}
           />
         </>

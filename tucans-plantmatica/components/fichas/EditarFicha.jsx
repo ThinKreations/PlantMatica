@@ -1,4 +1,5 @@
 import styles from '../../styles/Fichas.module.css'
+import Router from "next/router"
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
@@ -7,11 +8,12 @@ import { useState } from 'react'
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import EditVisualBtn from './EditVisualBtn'
 import EditArrays from './EditArrays'
+import OrigenDisEdit from './OrigenDisEdit'
+import { agregarSolicitud } from '../../pages/api/solicitudes-https'
+
 
 export default function EditarFicha ({ fichaParaEdicion }) {
-  const [etiquetas, setEtiquetas] = useState()
-  const [lugar, setlugar] = useState()
-  const [detalles, setdetalles] = useState()
+  const [etiquetas, setEtiquetas] = useState(fichaParaEdicion.etiquetas)
   const [caracteristica, setCaracteristicas] = useState(
     fichaParaEdicion.caracteristicas_especiales
   )
@@ -23,9 +25,36 @@ export default function EditarFicha ({ fichaParaEdicion }) {
   const [nombreCi, setNombreCi] = useState(fichaParaEdicion.nombre_cientifico)
   const [complemento, setcomplemento] = useState(fichaParaEdicion.complemento)
   const [descripcion, setdescripcion] = useState(fichaParaEdicion.descripcion)
+  const [lugares, setLugares] = useState(fichaParaEdicion.origen_distribucion)
+  const [nombreL, setNombreL] = useState(
+    fichaParaEdicion.origen_distribucion[0].nombre
+  )
+  const [detallesL, setDetallesL] = useState(
+    fichaParaEdicion.origen_distribucion[0].detalles
+  )
 
   const enviarFormulario = async () => {
-    console.log(nombreCo, nombreCi, descripcion)
+    const usuario_edicion = localStorage.getItem('id');
+    const solFicha = {
+      etiquetas,
+      nombre_comun: nombreCo,
+      nombre_cientifico: nombreCi,
+      origen_distribucion: [
+        {
+          nombre: nombreL,
+          detalles: detallesL
+        }
+      ],
+      descripcion,
+      complemento,
+      usos_medicinales: usos,
+      consumo,
+      fuentes,
+      usuario_edicion,
+      caracteristicas_especiales: caracteristica
+    }
+    const res = await agregarSolicitud(solFicha, fichaParaEdicion._id);
+    Router.back();
   }
 
   return (
@@ -61,35 +90,13 @@ export default function EditarFicha ({ fichaParaEdicion }) {
             />
             <hr className={styles.division} />
 
-            {fichaParaEdicion.origen_distribucion.length > 0 ? (
-              <>
-                <p className={styles.textU2}>{`Origen y distribución: `}</p>
-
-                {fichaParaEdicion.origen_distribucion.map(o => {
-                  return (
-                    <div key={o.nombre}>
-                      <p className={styles.titlefichaU2}>Nombre:</p>
-                      <p className={styles.textU2}>{o.nombre}</p>
-                      <br />
-                      {o.detalles ? (
-                        <>
-                          <p className={styles.titlefichaU2}>Detalles: </p>
-                          <p className={styles.textU2}>{o.detalles}</p>
-                        </>
-                      ) : (
-                        ''
-                      )}
-
-                      <br />
-                    </div>
-                  )
-                })}
-              </>
-            ) : (
-              <p
-                className={styles.textU2}
-              >{`No se registraron lugares de origen o distribución`}</p>
-            )}
+            <OrigenDisEdit
+              fichaParaEdicionChafa={lugares}
+              changeValueNombre={e => setNombreL(e.target.value)}
+              edicionNombre={nombreL}
+              edicionDetalles={detallesL}
+              changeValueDetalles={e => setDetallesL(e.target.value)}
+            />
 
             <hr className={styles.division} />
             <EditVisualBtn
@@ -102,6 +109,9 @@ export default function EditarFicha ({ fichaParaEdicion }) {
             <EditArrays
               editarVista={false}
               visualizarNombreDato={`Características especiales`}
+              changeArray={(event, caracteristica) =>
+                setCaracteristicas(caracteristica)
+              }
               fichaParaEdicion={caracteristica}
             />
 
@@ -116,6 +126,7 @@ export default function EditarFicha ({ fichaParaEdicion }) {
             <EditArrays
               editarVista={false}
               visualizarNombreDato={`Consumo`}
+              changeArray={(event, consumo) => setConsumo(consumo)}
               fichaParaEdicion={consumo}
             />
 
@@ -123,6 +134,7 @@ export default function EditarFicha ({ fichaParaEdicion }) {
             <EditArrays
               editarVista={false}
               visualizarNombreDato={`Usos medicinales`}
+              changeArray={(event, usos) => setUsos(usos)}
               fichaParaEdicion={usos}
             />
 
@@ -131,6 +143,7 @@ export default function EditarFicha ({ fichaParaEdicion }) {
             <EditArrays
               editarVista={false}
               visualizarNombreDato={`Fuentes`}
+              changeArray={(event, fuentes) => setFuentes(fuentes)}
               fichaParaEdicion={fuentes}
             />
 
