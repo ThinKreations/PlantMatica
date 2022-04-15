@@ -1,3 +1,4 @@
+import 'animate.css';
 import MainHead from '../../components/MainHead'
 import Router from 'next/router'
 import LayoutMenu from '../../components/LayoutMenu'
@@ -16,7 +17,7 @@ import FichasNoAceptadas from '../../components/admin/FichasNoAceptadas'
 import SolicitudesEdicion from '../../components/admin/SolicitudesEdicion'
 import SolicitudesPromotores from '../../components/admin/SolicitudesPromotores'
 
-export default function Index ({ fichas, solPromo }) {
+export default function Index ({ fichas, solPromo, solFichas }) {
   const [none, setNone] = useState(true)
 
   const [visual, setVisual] = useState('')
@@ -121,7 +122,7 @@ export default function Index ({ fichas, solPromo }) {
           ) : (
             ''
           )}
-          {visual === 'sol-edition' ? <SolicitudesEdicion  /> : ''}
+          {visual === 'sol-edition' ? <SolicitudesEdicion solicitudesEdicion={solFichas} /> : ''}
           {visual === 'sol-promo' ? <SolicitudesPromotores solicitudesPromotor={solPromo} /> : ''}
         </div>
       </div>
@@ -133,7 +134,6 @@ export async function getServerSideProps ({ query }) {
   const res = await fetch(
     `https://plantmatica-api.vercel.app/admin/fichas/${query.token}`
   )
-  const { fichas, solPromo } = await res.json()
-  //console.log(solPromo)
-  return { props: { fichas, solPromo, notFound: false } }
+  const { fichas, solPromo, solFichas } = await res.json()
+  return { props: { fichas, solPromo, solFichas,  notFound: false } }
 }
