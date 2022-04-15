@@ -50,7 +50,7 @@ export default function EditArrays ({
             freeSolo
             renderTags={(value, getTagProps) =>
               value.map((option, index) => (
-                <Chip
+                <Chip key={uid()}
                   variant='outlined'
                   label={option}
                   {...getTagProps({ index })}
