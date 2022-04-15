@@ -1,0 +1,98 @@
+.input {
+    width: 100%;
+    height: 35px;
+    margin-top: 5px;
+    transition: 0.3s;
+    border: 0;
+    font-size: 18px;
+    outline: none;
+    border-bottom: 3px solid var(--main-color);
+    border-radius: 4px 4px 0 0;
+}
+
+.editBtn {
+    color: var(--text-color);
+    background-color: white;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    padding: 6px;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.editBtn:hover {
+    transition: 0.3s;
+    transform: scale(1.02, 1.02);
+    background-color: var(--text-color);
+    color: white;
+}
+
+.editIcon:hover {
+    color: white;
+    transform: scale(1.02, 1.02);
+}
+
+.editCuadro {
+    display: inline-flex;
+    padding: 6px;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    font-size: 18px;
+}
+
+.addBtn {
+    background-color: var(--save-color);
+    font-size: 18px;
+    color: white;
+    display: inline-flex;
+    padding: 6px;
+    border-radius: 4px;
+    border: 0;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.addBtn:hover {
+    transition: 0.3s;
+    transform: scale(1.03, 1.03);
+}
+
+.item {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    font-size: 22px;
+}
+
+.item:hover {
+    transform: scale(1.04, 1.04);
+    transition: 0.4s;
+}
+
+.icon_delete:hover,
+.icon_edit:hover {
+    transform: scale(1.04, 1.04);
+    transition: 0.4s;
+}
+
+.icon_delete{
+    background-color: var(--danger-color);
+    color: white;
+    border-radius: 4px;
+    padding: 3px;
+    margin: 5px;
+}
+
+.icon_edit{
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 4px;
+    padding: 3px;
+    margin: 5px;
+}

@@ -10,34 +10,17 @@ import CardContent from '@mui/material/CardContent'
 import Slider from '@mui/material/Slider'
 import Link from 'next/link'
 import Alert from '@mui/material/Alert'
-import {
-  guardarFichaHttp,
-  validarToken,
-  obtenerComentario,
-  subirComentario,
-  borrarComentario
-} from '../api/request'
+import { guardarFichaHttp } from '../api/request'
 import { useState, useEffect } from 'react'
-
-function valuetext (value) {
-  return `${value}°C`
-}
 
 export default function Ficha ({ ficha }) {
   const [idn, setIdn] = useState('')
+  const [comentario, setComentario] = useState('')
 
   const guardarFicha = async id_ficha => {
     const token = localStorage.getItem('token')
     const id = localStorage.getItem('id')
-
     await guardarFichaHttp(id_ficha, id, token)
-  }
-
-  const [comentario, setComentario] = useState('')
-
-  const postComentario = async id_ficha => {
-    const id = localStorage.getItem('id')
-    const subeComentario = await subirComentario(id_ficha, id, comentario)
   }
 
   useEffect(() => {
@@ -68,78 +51,128 @@ export default function Ficha ({ ficha }) {
             <p className={styles.titlefichaU}>{ficha.nombre_cientifico}</p>
             <hr className={styles.division} />
 
-            <p className={styles.textU2}>{`Origen y distribución: `}</p>
-            {ficha.origen_distribucion.map(o => {
-              return (
-                <div key={o.nombre}>
-                  <p className={styles.titlefichaU2}>Nombre:</p>
-                  <p className={styles.textU2}>{o.nombre}</p>
-                  <br />
-                  <p className={styles.titlefichaU2}>Detalles: </p>
-                  <p className={styles.textU2}>{o.detalles}</p>
-                  <br />
-                </div>
-              )
-            })}
+            {ficha.origen_distribucion.length > 0 ? (
+              <>
+                <p className={styles.textU2}>{`Origen y distribución: `}</p>
+
+                {ficha.origen_distribucion.map(o => {
+                  return (
+                    <div key={o.nombre}>
+                      <p className={styles.titlefichaU2}>Nombre:</p>
+                      <p className={styles.textU2}>{o.nombre}</p>
+                      <br />
+                      {o.detalles ? (
+                        <>
+                          <p className={styles.titlefichaU2}>Detalles: </p>
+                          <p className={styles.textU2}>{o.detalles}</p>
+                        </>
+                      ) : (
+                        ''
+                      )}
+
+                      <br />
+                    </div>
+                  )
+                })}
+              </>
+            ) : (
+              <p
+                className={styles.textU2}
+              >{`No se registraron lugares de origen o distribución`}</p>
+            )}
 
             <hr className={styles.division} />
             <p className={styles.textD}>{`Descripcion: `}</p>
             <p className={styles.textU2}>{ficha.descripcion}</p>
             <hr className={styles.division} />
-            <p
-              className={styles.titlefichaU}
-            >{`Caracteristicas especiales: `}</p>
-            <ul>
-              {ficha.caracteristicas_especiales.map(c => {
-                return (
-                  <li key={c} className={styles.lista}>
-                    {c}
-                  </li>
-                )
-              })}
-            </ul>
+            {ficha.caracteristicas_especiales.length > 0 ? (
+              <>
+                <p
+                  className={styles.titlefichaU}
+                >{`Caracteristicas especiales: `}</p>
+                <ul>
+                  {ficha.caracteristicas_especiales.map(c => {
+                    return (
+                      <li key={c} className={styles.lista}>
+                        {c}
+                      </li>
+                    )
+                  })}
+                </ul>
+              </>
+            ) : (
+              <p
+                className={styles.titlefichaU}
+              >{`No se registraron características especiales.`}</p>
+            )}
+
             <hr className={styles.division} />
             <p
               className={styles.titlefichaU}
             >{`Alternativa y complementos a: `}</p>
             <p className={styles.textU2}>{ficha.complemento}</p>
             <hr className={styles.division} />
-            <p className={styles.titlefichaU}>Consumo:</p>
-            <br />
+            {ficha.consumo.length > 0 ? (
+              <>
+                <p className={styles.titlefichaU}>Consumo:</p>
+                <br />
 
-            <ul>
-              {ficha.consumo.map(fc => {
-                return (
-                  <li key={fc} className={styles.lista}>
-                    {fc}
-                  </li>
-                )
-              })}
-            </ul>
-
-            <hr className={styles.division} />
-            <p className={styles.titlefichaU}>Usos medicinales:</p>
-            <br />
-            <ul>
-              {ficha.usos_medicinales.map(u => {
-                return (
-                  <li key={u} className={styles.lista}>
-                    {u}
-                  </li>
-                )
-              })}
-            </ul>
+                <ul>
+                  {ficha.consumo.map(fc => {
+                    return (
+                      <li key={fc} className={styles.lista}>
+                        {fc}
+                      </li>
+                    )
+                  })}
+                </ul>
+              </>
+            ) : (
+              <p className={styles.titlefichaU}>
+                No se registraron formas de consumo.
+              </p>
+            )}
 
             <hr className={styles.division} />
+            {ficha.usos_medicinales.length > 0 ? (
+              <>
+                <p className={styles.titlefichaU}>Usos medicinales:</p>
+                <br />
+                <ul>
+                  {ficha.usos_medicinales.map(u => {
+                    return (
+                      <li key={u} className={styles.lista}>
+                        {u}
+                      </li>
+                    )
+                  })}
+                </ul>
+              </>
+            ) : (
+              <p className={styles.titlefichaU}>
+                No se registraron usos medicinales.
+              </p>
+            )}
 
-            <div className={styles.fuentes}>
-              <p>Fuentes:</p>
-              <ul>
-                {ficha.fuentes.map(ff => {
-                  return <li key={ff}>{ff}</li>
-                })}
-              </ul>
-            </div>
+            <hr className={styles.division} />
+
+            {ficha.fuentes.length > 0 ? (
+              <>
+                <div className={styles.fuentes}>
+                  <p>Fuentes:</p>
+                  <ul>
+                    {ficha.fuentes.map(ff => {
+                      return <li key={ff}>{ff}</li>
+                    })}
+                  </ul>
+                </div>
+              </>
+            ) : (
+              <div className={styles.fuentes}>
+                <p>No se registraron fuentes.</p>
+              </div>
+            )}
+
             <hr className={styles.division} />
 
             <p className={styles.titleficha}>{`Etiquetas: `}</p>
@@ -155,28 +188,18 @@ export default function Ficha ({ ficha }) {
 
             <hr className={styles.division} />
 
-            <Box sx={{ width: 300 }}>
-              <p className={styles.titlefichaU2}>{`Califica esta ficha.`}</p>
-              <Slider
-                aria-label='Calificacion'
-                defaultValue={30}
-                getAriaValueText={valuetext}
-                valueLabelDisplay='auto'
-                step={1}
-                marks
-                min={0}
-                max={10}
-                color='secondary'
-              />
-            </Box>
             <hr className={styles.division} />
           </CardContent>
           <CardActions>
-            <button className={styles.btnCalificar}>{`Calificar ficha`}</button>
-            <Link href='editar'>
-              <button
-                className={styles.btnSolicitud}
-              >{`Solicitud de edicion`}</button>
+            <Link
+              href={`/fichas/editar/[edit]`}
+              as={`/fichas/editar/${ficha._id}`}
+            >
+              <a>
+                <button
+                  className={styles.btnSolicitud}
+                >{`Solicitud de edicion`}</button>
+              </a>
             </Link>
             <button className={styles.btnReporte}>{`Reportar ficha`}</button>
             <button
@@ -184,56 +207,6 @@ export default function Ficha ({ ficha }) {
               className={styles.btnguardar}
             >{`Guardar ficha`}</button>
           </CardActions>
-
-          <CardContent>
-            <hr className={styles.division} />
-            <p className={styles.textU}>{`Comentarios: `}</p>
-            <br />
-            <textarea
-              className={styles.txtEtiquetas}
-              value={comentario}
-              placeholder={'Ingresa tu comentario aquí.'}
-              onChange={c => setComentario(event.target.value)}
-            ></textarea>
-            <button
-              type='button'
-              className={styles.btnEnviar}
-              onClick={() => postComentario(ficha._id)}
-            >
-              <font face='Work Sans' color='white' size='3'>
-                <b>{`Enviar`}</b>
-              </font>
-            </button>
-            <br />
-            <div className={styles.commentArea}>
-              <font face='Work Sans' color='black' size='3'>
-                {ficha.comentarios.map(com => {
-                  return (
-                    <div key={com._id} className={styles.comBox}>
-                      <p className={styles.com_Info}>
-                        <b>{com.id_usuario.username}</b>,{' '}
-                        {Date.parse(com.fecha.dia)}/{Date.parse(com.fecha.mes)}/
-                        {Date.parse(com.fecha.year)}{' '}
-                      </p>
-                      <p className={styles.com_Body}> {com.comentario} </p>
-                      {/* <button className={styles.com_Del} onClick={del=>borrarComentario(ficha._id)}><b>{`Eliminar`}</b></button> */}
-                      
-                      {com.id_usuario._id === idn ? (
-                        <button
-                          className={styles.com_Del}
-                          onClick={() => console.log('olamudno')}
-                        >
-                          <b>{`Eliminar`}</b>
-                        </button>
-                      ) : (
-                        ''
-                      )}
-                    </div>
-                  )
-                })}
-              </font>
-            </div>
-          </CardContent>
         </Card>
       </div>
     </div>
@@ -244,9 +217,9 @@ export async function getServerSideProps ({ params }) {
   const res = await fetch(
     `https://plantmatica-api.vercel.app/ficha/${params.ficha}`
   )
-  
+
   const ficha = await res.json()
-  console.log(ficha.comentarios)
+  //console.log(ficha.comentarios)
   return {
     props: { ficha: ficha.ficha, notFound: false }
   }

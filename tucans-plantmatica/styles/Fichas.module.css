@@ -357,8 +357,6 @@
     transition: 0.2s;
 }
 
-
-
 .inputImg:hover {
     background-color: #dfdfdf;
     padding: 5px;
@@ -487,3 +485,5 @@
     background-color: var(--danger-color);
     color: white;
 }
+
+/* Ola esto es para editar la ficha */
