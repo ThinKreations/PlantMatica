@@ -20,7 +20,7 @@ export default function Promotor () {
         <p>
           Aki van las sucursales
         </p>
-        <Link href="/user/promo/SignPromotor">No estas registrado como promotor, haz click aqui para registrarte</Link>
+        
       
         </div>
     </>

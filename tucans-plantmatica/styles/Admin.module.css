@@ -63,6 +63,7 @@
 
 /* Tarjeta de fichas no aceptadas */
 .card_not{
+    
     color: var(--danger-color);
 }
 
@@ -115,6 +116,7 @@
 }
 
 .promo_title{
+    
     color: var(--purple-lg);
 }
 

@@ -10,6 +10,10 @@
       url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
 }
 
+.fondo{
+    background-color: rgb(250,250,250);
+}
+
 .materialIcons{
     font-family: 'Material Icons';
     font-weight: normal;
@@ -36,11 +40,13 @@
 
 
 .card {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    
 }
 
 .tableFichas {
+   
     overflow-y: auto;
 }
 
@@ -100,7 +106,7 @@
 
 .containerFicha {
     margin: 32px;
-
+    
 }
 
 .base {

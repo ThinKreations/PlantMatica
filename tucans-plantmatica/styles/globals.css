@@ -33,7 +33,7 @@ html, body {
   --bg-color-lg: #e6fada;
   --save-color: rgb(98, 98, 236);
   --purple-color: rgb(145, 25, 161); */
-  
+  background-color: rgb(250,250,250);
   padding: 0;
   margin: 0;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;

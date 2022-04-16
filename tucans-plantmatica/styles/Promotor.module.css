@@ -11,20 +11,22 @@
 /* container principal */
 
 .container {
+    background-color: rgb(250,250,250);
     padding-top: 1vh;
     padding-left: 4vw;
     padding-right: 4vw;
     transition: 0.3s ease-in-out;
+    margin-bottom: 100px;
 }
 
 /* botonera */
-
+/*
 .btnMenu {
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    border-bottom: 2px solid white;
-    background-color: white;
+    border-bottom: 2px solid rgb(250,250,250);
+    background-color: rgb(250,250,250);
     width: 25%;
     min-width: max-content;
     padding-top: 10px;
@@ -47,6 +49,29 @@
 
 
 }
+*/
+
+.btnMenu {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 2px solid rgb(250,250,250);
+    background-color: rgb(250,250,250);
+    width: 25%;
+    min-width: max-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: 0.2s ease-in-out;
+}
+
+    .btnMenu:hover {
+        background-color: rgba(150, 150, 150, 0.3);
+        color: var(--text-color);
+        border-bottom: 2px solid var(--main-color);
+        text-shadow: 0px 0px 3px rgb(201, 201, 201);
+    }
+
+    
 
 .btnSign {
     border: 2px solid var(--main-color);
@@ -63,10 +88,6 @@
     color: white;
 }
 
-.box_index_divider {
-    /* display: grid;
-    grid-template-columns: 50% 50%; */
-}
 
 .cuestion {
     color: var(--text-color);
