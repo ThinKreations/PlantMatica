@@ -68,7 +68,7 @@
         background-color: rgba(150, 150, 150, 0.3);
         color: var(--text-color);
         border-bottom: 2px solid var(--main-color);
-        text-shadow: 0px 0px 3px rgb(201, 201, 201);
+        text-shadow: 0px 0px 3px rgb(180, 180, 180);
     }
 
     
@@ -107,4 +107,9 @@
     color: white;
     transform: scale(1.05, 1.05);
     background-color: var(--text-color);
+}
+
+#map {
+	height: 500px;
+	width: 100%;
 }

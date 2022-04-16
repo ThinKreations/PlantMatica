@@ -10,7 +10,22 @@ import MainHead from '../../../components/MainHead'
 import LayoutIndex from '../../../components/LayoutIndex'
 import { Checkbox } from '@mui/material';
 
+
 export default function RegistrarSucursal () {
+
+  /* mapa */
+
+  const Mapa = () => {
+    let coord = {lat:23.1733291,lng: -102.0396521};
+    let map = new google.maps.Map(document.getElementById('map'),{
+      zoom: 6,
+      center: coord
+    });
+    let marker = new google.maps.Marker({
+      position: coord,
+      map: map
+    });
+  }
 
   return (
     <>
@@ -49,7 +64,8 @@ export default function RegistrarSucursal () {
               </div>
               <div className={styles.cont_input}>
                 <label className={styles.text}>Aki va lo del mapa xd</label>
-                
+                <div id="map"></div>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
               </div>
       
               
