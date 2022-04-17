@@ -57,10 +57,7 @@ export default function Promotor () {
               <li>RFC de la empresa o persona física.</li>
             </ul>
             <Link href='/user/promo/SignPromotor'>
-              <a className={styles.link}>
-                No estas registrado como promotor, haz click aqui para
-                registrarte
-              </a>
+            <button className={styles.btnSign}><font size="3" face="Work Sans"><b>✚ Registrarse como promotor</b></font></button>
             </Link>
           </div>
         </div>

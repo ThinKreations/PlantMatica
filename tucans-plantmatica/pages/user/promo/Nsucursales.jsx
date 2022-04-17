@@ -65,7 +65,7 @@ export default function RegistrarSucursal () {
               <div className={styles.cont_input}>
                 <label className={styles.text}>Aki va lo del mapa xd</label>
                 <div id="map"></div>
-                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
+               
               </div>
       
               
