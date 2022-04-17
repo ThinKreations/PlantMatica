@@ -60,16 +60,12 @@
     
     }
 
-.placeholder{
-    transform: translate(-18px,0);
-}
-
 @media screen and (max-width: 600px) {
     .input, .placeholder {
       width: 80%;
       margin-top: 25px;
     }
-  }
+}
 
 /* botonera */
 /*
