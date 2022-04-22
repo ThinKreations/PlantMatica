@@ -159,3 +159,16 @@
     background-color: var(--naranja-color);
     color: white;
 }
+
+@media screen and (max-width: 600px) {
+    .card_edit, .card_promo, .card_not{
+        height: 180px;
+    }
+    .text{
+        transform: translate(-200px, 0);
+    }
+    
+    .rig{
+        transform: translate(40px, -50px);
+    }
+}

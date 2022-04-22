@@ -15,9 +15,12 @@ export default function Sucursales () {
         <div className={styles.container}>
         <center><font size={6} face="Work Sans" color="007200"><h1>Sucursales</h1></font></center>
         <Registrar/>
-        <p>
-          Aki van las sucursales
-        </p>
+        <div className={styles.sucursales}>
+
+        <font size={5} face="Work Sans" color="007200">
+          <center><h1>Tus Sucursales</h1></center>
+        </font>
+        </div>
         
       
         </div>

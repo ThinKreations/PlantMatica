@@ -149,14 +149,3 @@
 
 /* Para cel jjj */
 
-@media screen and (max-width: 600px) {
-    .botonera{
-        transform: scale(0.5,0.5);
-        transform: translate(-75px, 0);
-        height:90px;
-        width: 600px;
-    }
-    .head{
-        height:75px;
-    }
-}
