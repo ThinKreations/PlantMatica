@@ -14,7 +14,7 @@ export default function RegistrarSucursales () {
         
         <font size={5} face="Work Sans" color="007200"><b>Registrar Sucursal</b></font>
         <br/>
-        
+        <input className={styles.input} placeholder="Nombre de la Sucursal"></input>
         <input className={styles.input} placeholder="Dirección de la Sucursal"></input>
         <br/>
         <font size={4} face="Work Sans" color="007200">
@@ -22,59 +22,423 @@ export default function RegistrarSucursales () {
         <br/>
         <div className={styles.checkContainer}>
 
-        <div><b>Lunes</b><Checkbox/><br/>
-        <b>Desde:</b><br/>
-        <input className={styles.mini_input} placeholder="Horario de"></input><br/>
-        <b>Hasta:</b><br/>
-        <input className={styles.mini_input} placeholder="24 Horas"></input>
+        <div><p className={styles.dia}>Lunes</p><br/>
+        <b>Desde:</b>
+        <select className={styles.mini_input}>
+          <option className={styles.option}>Sin</option>
+          <option className={styles.option}>0:00</option>
+          <option className={styles.option}>1:00</option>
+          <option className={styles.option}>2:00</option>
+          <option className={styles.option}>3:00</option>
+          <option className={styles.option}>4:00</option>
+          <option className={styles.option}>5:00</option>
+          <option className={styles.option}>6:00</option>
+          <option className={styles.option}>7:00</option>
+          <option className={styles.option}>8:00</option>
+          <option className={styles.option}>9:00</option>
+          <option className={styles.option}>10:00</option>
+          <option className={styles.option}>11:00</option>
+          <option className={styles.option}>12:00</option>
+          <option className={styles.option}>13:00</option>
+          <option className={styles.option}>14:00</option>
+          <option className={styles.option}>15:00</option>
+          <option className={styles.option}>16:00</option>
+          <option className={styles.option}>17:00</option>
+          <option className={styles.option}>18:00</option>
+          <option className={styles.option}>19:00</option>
+          <option className={styles.option}>20:00</option>
+          <option className={styles.option}>21:00</option>
+          <option className={styles.option}>22:00</option>
+          <option className={styles.option}>23:00</option>
+        </select><br/>
+        <b>Hasta:</b>
+        <select className={styles.mini_input}>
+          <option className={styles.option}>Sin</option>
+          <option className={styles.option}>0:00</option>
+          <option className={styles.option}>1:00</option>
+          <option className={styles.option}>2:00</option>
+          <option className={styles.option}>3:00</option>
+          <option className={styles.option}>4:00</option>
+          <option className={styles.option}>5:00</option>
+          <option className={styles.option}>6:00</option>
+          <option className={styles.option}>7:00</option>
+          <option className={styles.option}>8:00</option>
+          <option className={styles.option}>9:00</option>
+          <option className={styles.option}>10:00</option>
+          <option className={styles.option}>11:00</option>
+          <option className={styles.option}>12:00</option>
+          <option className={styles.option}>13:00</option>
+          <option className={styles.option}>14:00</option>
+          <option className={styles.option}>15:00</option>
+          <option className={styles.option}>16:00</option>
+          <option className={styles.option}>17:00</option>
+          <option className={styles.option}>18:00</option>
+          <option className={styles.option}>19:00</option>
+          <option className={styles.option}>20:00</option>
+          <option className={styles.option}>21:00</option>
+          <option className={styles.option}>22:00</option>
+          <option className={styles.option}>23:00</option>
+        </select><br/>
         </div>
 
-        <div><b>Martes</b><Checkbox/><br/>
-        <b>Desde:</b><br/>
-        <input className={styles.mini_input} placeholder="Horario de"></input><br/>
-        <b>Hasta:</b><br/>
-        <input className={styles.mini_input} placeholder="24 Horas"></input>
-        </div>
-
-        <div><b>Miércoles</b><Checkbox/><br/>
-        <b>Desde:</b><br/>
-        <input className={styles.mini_input} placeholder="Horario de"></input><br/>
-        <b>Hasta:</b><br/>
-        <input className={styles.mini_input} placeholder="24 Horas"></input>
-        </div>
-
-        <div><b>Jueves</b><Checkbox/><br/>
-        <b>Desde:</b><br/>
-        <input className={styles.mini_input} placeholder="Horario de"></input><br/>
-        <b>Hasta:</b><br/>
-        <input className={styles.mini_input} placeholder="24 Horas"></input>
-        </div>
-       
-        <div><b>Viernes</b><Checkbox/><br/>
-        <b>Desde:</b><br/>
-        <input className={styles.mini_input} placeholder="Horario de"></input><br/>
-        <b>Hasta:</b><br/>
-        <input className={styles.mini_input} placeholder="24 Horas"></input>
-        </div>
-
-        <div><b>Sábado</b><Checkbox/><br/>
-        <b>Desde:</b><br/>
-        <input className={styles.mini_input} placeholder="Horario de"></input><br/>
-        <b>Hasta:</b><br/>
-        <input className={styles.mini_input} placeholder="24 Horas"></input>
-        </div>
-
-        <div><b>Domingo</b><Checkbox/><br/>
-        <b>Desde:</b><br/>
-        <input className={styles.mini_input} placeholder="Horario de"></input><br/>
-        <b>Hasta:</b><br/>
-        <input className={styles.mini_input} placeholder="24 Horas"></input>
+        <div><p className={styles.dia}>Martes</p><br/>
+        <b>Desde:</b>
+        <select className={styles.mini_input}>
+        <option className={styles.option}>Sin</option>
+          <option className={styles.option}>0:00</option>
+          <option className={styles.option}>1:00</option>
+          <option className={styles.option}>2:00</option>
+          <option className={styles.option}>3:00</option>
+          <option className={styles.option}>4:00</option>
+          <option className={styles.option}>5:00</option>
+          <option className={styles.option}>6:00</option>
+          <option className={styles.option}>7:00</option>
+          <option className={styles.option}>8:00</option>
+          <option className={styles.option}>9:00</option>
+          <option className={styles.option}>10:00</option>
+          <option className={styles.option}>11:00</option>
+          <option className={styles.option}>12:00</option>
+          <option className={styles.option}>13:00</option>
+          <option className={styles.option}>14:00</option>
+          <option className={styles.option}>15:00</option>
+          <option className={styles.option}>16:00</option>
+          <option className={styles.option}>17:00</option>
+          <option className={styles.option}>18:00</option>
+          <option className={styles.option}>19:00</option>
+          <option className={styles.option}>20:00</option>
+          <option className={styles.option}>21:00</option>
+          <option className={styles.option}>22:00</option>
+          <option className={styles.option}>23:00</option>
+        </select><br/>
+        <b>Hasta:</b>
+        <select className={styles.mini_input}>
+        <option className={styles.option}>Sin</option>
+          <option className={styles.option}>0:00</option>
+          <option className={styles.option}>1:00</option>
+          <option className={styles.option}>2:00</option>
+          <option className={styles.option}>3:00</option>
+          <option className={styles.option}>4:00</option>
+          <option className={styles.option}>5:00</option>
+          <option className={styles.option}>6:00</option>
+          <option className={styles.option}>7:00</option>
+          <option className={styles.option}>8:00</option>
+          <option className={styles.option}>9:00</option>
+          <option className={styles.option}>10:00</option>
+          <option className={styles.option}>11:00</option>
+          <option className={styles.option}>12:00</option>
+          <option className={styles.option}>13:00</option>
+          <option className={styles.option}>14:00</option>
+          <option className={styles.option}>15:00</option>
+          <option className={styles.option}>16:00</option>
+          <option className={styles.option}>17:00</option>
+          <option className={styles.option}>18:00</option>
+          <option className={styles.option}>19:00</option>
+          <option className={styles.option}>20:00</option>
+          <option className={styles.option}>21:00</option>
+          <option className={styles.option}>22:00</option>
+          <option className={styles.option}>23:00</option>
+        </select><br/>
         </div>
         
+        <div><p className={styles.dia}>Miércoles</p><br/>
+        <b>Desde:</b>
+        <select className={styles.mini_input}>
+        <option className={styles.option}>Sin</option>
+          <option className={styles.option}>0:00</option>
+          <option className={styles.option}>1:00</option>
+          <option className={styles.option}>2:00</option>
+          <option className={styles.option}>3:00</option>
+          <option className={styles.option}>4:00</option>
+          <option className={styles.option}>5:00</option>
+          <option className={styles.option}>6:00</option>
+          <option className={styles.option}>7:00</option>
+          <option className={styles.option}>8:00</option>
+          <option className={styles.option}>9:00</option>
+          <option className={styles.option}>10:00</option>
+          <option className={styles.option}>11:00</option>
+          <option className={styles.option}>12:00</option>
+          <option className={styles.option}>13:00</option>
+          <option className={styles.option}>14:00</option>
+          <option className={styles.option}>15:00</option>
+          <option className={styles.option}>16:00</option>
+          <option className={styles.option}>17:00</option>
+          <option className={styles.option}>18:00</option>
+          <option className={styles.option}>19:00</option>
+          <option className={styles.option}>20:00</option>
+          <option className={styles.option}>21:00</option>
+          <option className={styles.option}>22:00</option>
+          <option className={styles.option}>23:00</option>
+        </select><br/>
+        <b>Hasta:</b>
+        <select className={styles.mini_input}>
+        <option className={styles.option}>Sin</option>
+          <option className={styles.option}>0:00</option>
+          <option className={styles.option}>1:00</option>
+          <option className={styles.option}>2:00</option>
+          <option className={styles.option}>3:00</option>
+          <option className={styles.option}>4:00</option>
+          <option className={styles.option}>5:00</option>
+          <option className={styles.option}>6:00</option>
+          <option className={styles.option}>7:00</option>
+          <option className={styles.option}>8:00</option>
+          <option className={styles.option}>9:00</option>
+          <option className={styles.option}>10:00</option>
+          <option className={styles.option}>11:00</option>
+          <option className={styles.option}>12:00</option>
+          <option className={styles.option}>13:00</option>
+          <option className={styles.option}>14:00</option>
+          <option className={styles.option}>15:00</option>
+          <option className={styles.option}>16:00</option>
+          <option className={styles.option}>17:00</option>
+          <option className={styles.option}>18:00</option>
+          <option className={styles.option}>19:00</option>
+          <option className={styles.option}>20:00</option>
+          <option className={styles.option}>21:00</option>
+          <option className={styles.option}>22:00</option>
+          <option className={styles.option}>23:00</option>
+        </select><br/>
+        </div>
+
+        <div><p className={styles.dia}>Jueves</p><br/>
+        <b>Desde:</b>
+        <select className={styles.mini_input}>
+        <option className={styles.option}>Sin</option>
+          <option className={styles.option}>0:00</option>
+          <option className={styles.option}>1:00</option>
+          <option className={styles.option}>2:00</option>
+          <option className={styles.option}>3:00</option>
+          <option className={styles.option}>4:00</option>
+          <option className={styles.option}>5:00</option>
+          <option className={styles.option}>6:00</option>
+          <option className={styles.option}>7:00</option>
+          <option className={styles.option}>8:00</option>
+          <option className={styles.option}>9:00</option>
+          <option className={styles.option}>10:00</option>
+          <option className={styles.option}>11:00</option>
+          <option className={styles.option}>12:00</option>
+          <option className={styles.option}>13:00</option>
+          <option className={styles.option}>14:00</option>
+          <option className={styles.option}>15:00</option>
+          <option className={styles.option}>16:00</option>
+          <option className={styles.option}>17:00</option>
+          <option className={styles.option}>18:00</option>
+          <option className={styles.option}>19:00</option>
+          <option className={styles.option}>20:00</option>
+          <option className={styles.option}>21:00</option>
+          <option className={styles.option}>22:00</option>
+          <option className={styles.option}>23:00</option>
+        </select><br/>
+        <b>Hasta:</b>
+        <select className={styles.mini_input}>
+        <option className={styles.option}>Sin</option>
+          <option className={styles.option}>0:00</option>
+          <option className={styles.option}>1:00</option>
+          <option className={styles.option}>2:00</option>
+          <option className={styles.option}>3:00</option>
+          <option className={styles.option}>4:00</option>
+          <option className={styles.option}>5:00</option>
+          <option className={styles.option}>6:00</option>
+          <option className={styles.option}>7:00</option>
+          <option className={styles.option}>8:00</option>
+          <option className={styles.option}>9:00</option>
+          <option className={styles.option}>10:00</option>
+          <option className={styles.option}>11:00</option>
+          <option className={styles.option}>12:00</option>
+          <option className={styles.option}>13:00</option>
+          <option className={styles.option}>14:00</option>
+          <option className={styles.option}>15:00</option>
+          <option className={styles.option}>16:00</option>
+          <option className={styles.option}>17:00</option>
+          <option className={styles.option}>18:00</option>
+          <option className={styles.option}>19:00</option>
+          <option className={styles.option}>20:00</option>
+          <option className={styles.option}>21:00</option>
+          <option className={styles.option}>22:00</option>
+          <option className={styles.option}>23:00</option>
+        </select><br/>
+        </div>
+
+        <div><p className={styles.dia}>Viernes</p><br/>
+        <b>Desde:</b>
+        <select className={styles.mini_input}>
+        <option className={styles.option}>Sin</option>
+          <option className={styles.option}>0:00</option>
+          <option className={styles.option}>1:00</option>
+          <option className={styles.option}>2:00</option>
+          <option className={styles.option}>3:00</option>
+          <option className={styles.option}>4:00</option>
+          <option className={styles.option}>5:00</option>
+          <option className={styles.option}>6:00</option>
+          <option className={styles.option}>7:00</option>
+          <option className={styles.option}>8:00</option>
+          <option className={styles.option}>9:00</option>
+          <option className={styles.option}>10:00</option>
+          <option className={styles.option}>11:00</option>
+          <option className={styles.option}>12:00</option>
+          <option className={styles.option}>13:00</option>
+          <option className={styles.option}>14:00</option>
+          <option className={styles.option}>15:00</option>
+          <option className={styles.option}>16:00</option>
+          <option className={styles.option}>17:00</option>
+          <option className={styles.option}>18:00</option>
+          <option className={styles.option}>19:00</option>
+          <option className={styles.option}>20:00</option>
+          <option className={styles.option}>21:00</option>
+          <option className={styles.option}>22:00</option>
+          <option className={styles.option}>23:00</option>
+        </select><br/>
+        <b>Hasta:</b>
+        <select className={styles.mini_input}>
+        <option className={styles.option}>Sin</option>
+          <option className={styles.option}>0:00</option>
+          <option className={styles.option}>1:00</option>
+          <option className={styles.option}>2:00</option>
+          <option className={styles.option}>3:00</option>
+          <option className={styles.option}>4:00</option>
+          <option className={styles.option}>5:00</option>
+          <option className={styles.option}>6:00</option>
+          <option className={styles.option}>7:00</option>
+          <option className={styles.option}>8:00</option>
+          <option className={styles.option}>9:00</option>
+          <option className={styles.option}>10:00</option>
+          <option className={styles.option}>11:00</option>
+          <option className={styles.option}>12:00</option>
+          <option className={styles.option}>13:00</option>
+          <option className={styles.option}>14:00</option>
+          <option className={styles.option}>15:00</option>
+          <option className={styles.option}>16:00</option>
+          <option className={styles.option}>17:00</option>
+          <option className={styles.option}>18:00</option>
+          <option className={styles.option}>19:00</option>
+          <option className={styles.option}>20:00</option>
+          <option className={styles.option}>21:00</option>
+          <option className={styles.option}>22:00</option>
+          <option className={styles.option}>23:00</option>
+        </select><br/>
+        </div>
+
+        <div><p className={styles.dia}>Sabado</p><br/>
+        <b>Desde:</b>
+        <select className={styles.mini_input}>
+        <option className={styles.option}>Sin</option>
+          <option className={styles.option}>0:00</option>
+          <option className={styles.option}>1:00</option>
+          <option className={styles.option}>2:00</option>
+          <option className={styles.option}>3:00</option>
+          <option className={styles.option}>4:00</option>
+          <option className={styles.option}>5:00</option>
+          <option className={styles.option}>6:00</option>
+          <option className={styles.option}>7:00</option>
+          <option className={styles.option}>8:00</option>
+          <option className={styles.option}>9:00</option>
+          <option className={styles.option}>10:00</option>
+          <option className={styles.option}>11:00</option>
+          <option className={styles.option}>12:00</option>
+          <option className={styles.option}>13:00</option>
+          <option className={styles.option}>14:00</option>
+          <option className={styles.option}>15:00</option>
+          <option className={styles.option}>16:00</option>
+          <option className={styles.option}>17:00</option>
+          <option className={styles.option}>18:00</option>
+          <option className={styles.option}>19:00</option>
+          <option className={styles.option}>20:00</option>
+          <option className={styles.option}>21:00</option>
+          <option className={styles.option}>22:00</option>
+          <option className={styles.option}>23:00</option>
+        </select><br/>
+        <b>Hasta:</b>
+        <select className={styles.mini_input}>
+        <option className={styles.option}>Sin</option>
+          <option className={styles.option}>0:00</option>
+          <option className={styles.option}>1:00</option>
+          <option className={styles.option}>2:00</option>
+          <option className={styles.option}>3:00</option>
+          <option className={styles.option}>4:00</option>
+          <option className={styles.option}>5:00</option>
+          <option className={styles.option}>6:00</option>
+          <option className={styles.option}>7:00</option>
+          <option className={styles.option}>8:00</option>
+          <option className={styles.option}>9:00</option>
+          <option className={styles.option}>10:00</option>
+          <option className={styles.option}>11:00</option>
+          <option className={styles.option}>12:00</option>
+          <option className={styles.option}>13:00</option>
+          <option className={styles.option}>14:00</option>
+          <option className={styles.option}>15:00</option>
+          <option className={styles.option}>16:00</option>
+          <option className={styles.option}>17:00</option>
+          <option className={styles.option}>18:00</option>
+          <option className={styles.option}>19:00</option>
+          <option className={styles.option}>20:00</option>
+          <option className={styles.option}>21:00</option>
+          <option className={styles.option}>22:00</option>
+          <option className={styles.option}>23:00</option>
+        </select><br/>
+        </div>
+
+        <div><p className={styles.dia}>Domingo</p><br/>
+        <b>Desde:</b>
+        <select className={styles.mini_input}>
+        <option className={styles.option}>Sin</option>
+          <option className={styles.option}>0:00</option>
+          <option className={styles.option}>1:00</option>
+          <option className={styles.option}>2:00</option>
+          <option className={styles.option}>3:00</option>
+          <option className={styles.option}>4:00</option>
+          <option className={styles.option}>5:00</option>
+          <option className={styles.option}>6:00</option>
+          <option className={styles.option}>7:00</option>
+          <option className={styles.option}>8:00</option>
+          <option className={styles.option}>9:00</option>
+          <option className={styles.option}>10:00</option>
+          <option className={styles.option}>11:00</option>
+          <option className={styles.option}>12:00</option>
+          <option className={styles.option}>13:00</option>
+          <option className={styles.option}>14:00</option>
+          <option className={styles.option}>15:00</option>
+          <option className={styles.option}>16:00</option>
+          <option className={styles.option}>17:00</option>
+          <option className={styles.option}>18:00</option>
+          <option className={styles.option}>19:00</option>
+          <option className={styles.option}>20:00</option>
+          <option className={styles.option}>21:00</option>
+          <option className={styles.option}>22:00</option>
+          <option className={styles.option}>23:00</option>
+        </select><br/>
+        <b>Hasta:</b>
+        <select className={styles.mini_input}>
+        <option className={styles.option}>Sin</option>
+          <option className={styles.option}>0:00</option>
+          <option className={styles.option}>1:00</option>
+          <option className={styles.option}>2:00</option>
+          <option className={styles.option}>3:00</option>
+          <option className={styles.option}>4:00</option>
+          <option className={styles.option}>5:00</option>
+          <option className={styles.option}>6:00</option>
+          <option className={styles.option}>7:00</option>
+          <option className={styles.option}>8:00</option>
+          <option className={styles.option}>9:00</option>
+          <option className={styles.option}>10:00</option>
+          <option className={styles.option}>11:00</option>
+          <option className={styles.option}>12:00</option>
+          <option className={styles.option}>13:00</option>
+          <option className={styles.option}>14:00</option>
+          <option className={styles.option}>15:00</option>
+          <option className={styles.option}>16:00</option>
+          <option className={styles.option}>17:00</option>
+          <option className={styles.option}>18:00</option>
+          <option className={styles.option}>19:00</option>
+          <option className={styles.option}>20:00</option>
+          <option className={styles.option}>21:00</option>
+          <option className={styles.option}>22:00</option>
+          <option className={styles.option}>23:00</option>
+        </select><br/>
+        </div>
+
         </div>
         
         </font>
-        <br/><button type="submit" className={styles.btnSign}><font size="3" face="Work Sans"><b>✚ Registrar Sucursal</b></font></button>
+        <button type="submit" className={styles.btnSign}><font size="3" face="Work Sans"><b>✚ Registrar Sucursal</b></font></button>
         
         
         </form>

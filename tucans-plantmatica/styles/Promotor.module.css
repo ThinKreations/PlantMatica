@@ -23,13 +23,25 @@
 
 .registrarSucursales{
     display: inline-flexbox;
-    width: 80%;
-    
+    width: 90%;
+    margin-top: 25px;
+    margin-bottom: 25px;
     padding: 2.5vh;
     border-radius: 10px;
     background-color: rgba(150, 150, 150, 0.3);
     text-align: center;
     transition: 0.3s;
+    
+}
+
+.checkContainer{
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.3s;
+    
 }
 
 /* Sucursales */
@@ -47,12 +59,12 @@
 
 
     .input{
-        width: 80%;
+        width: 90%;
         height: auto;
         margin-left: 5px;
         margin-right: 5px;
-        margin-top: 50px;
-        margin-bottom:25px;
+        margin-top: 40px;
+        margin-bottom:30px;
         transition: 0.3s;
         border: 0;
         font-size: 18px;
@@ -95,30 +107,15 @@
     }
 
 
-.checkContainer{
-    width: 95%;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    display: inline-flex;
-    transition: 0.3s;
-}
 
-    .select{
-        border:2px solid var(--main-color);
-        width: 65%;
-        height: 20%;
-        margin: 10px;
-        color: var(--text-color);
-
+    .dia{
+        color:black;
+        font-size:20px;
+        text-shadow: 0px 0px 3px rgb(75,75,75);
+        height: 2px;
     }
 
-    .select:focus{
-        border:2px solid var(--main-color);
-    }
-
-    .select:active{
-        border:2px solid var(--main-color);
-    }
+   
 
 
 @media screen and (max-width: 600px) {
@@ -129,6 +126,11 @@
 
     .checkContainer{
         display: inline-block;
+    }
+
+    .mini_input{
+        margin-left: 20px;
+        width: 50%;
     }
 }
 
