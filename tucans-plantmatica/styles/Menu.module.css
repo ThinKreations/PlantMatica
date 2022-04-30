@@ -156,6 +156,11 @@
     transform: translate(-50px, 0);
     }
 
+    .dropdownContent{
+        font-size: 10px;
+        transform: translate(-68px, 0);
+    }
+
     .head{
         height: 75px;
     }

@@ -135,7 +135,7 @@
     width: 47.5%;
     padding: 1%;
     box-shadow: 2px 2px 5px rgb(150, 150, 150);
-    transition: 0.3s;
+    transition: 0.3s ease-in-out;
     display: flex;
     justify-content: space-between;
 
