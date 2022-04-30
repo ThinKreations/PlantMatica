@@ -14,8 +14,10 @@ export default function RegistrarSucursales () {
         
         <font size={5} face="Work Sans" color="007200"><b>Registrar Sucursal</b></font>
         <br/>
-        <input className={styles.input} placeholder="Nombre de la Sucursal"></input>
+        <input className={styles.input} placeholder="Nombre de la encargado"></input>
         <input className={styles.input} placeholder="Dirección de la Sucursal"></input>
+        <input className={styles.input} placeholder="Número telefónico de la Sucursal"></input>
+        <input className={styles.input} placeholder="Página Web (Opcional)"></input>
         <br/>
         <font size={4} face="Work Sans" color="007200">
         <b>Horario de atención</b>
@@ -435,8 +437,12 @@ export default function RegistrarSucursales () {
         </select><br/>
         </div>
 
+        
+
         </div>
         
+        <p className={styles.dia}>Servicio a Domicilio<Checkbox/></p><br/>
+
         </font>
         <button type="submit" className={styles.btnSign}><font size="3" face="Work Sans"><b>✚ Registrar Sucursal</b></font></button>
         

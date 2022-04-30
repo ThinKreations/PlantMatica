@@ -456,4 +456,7 @@
   .p_info{
     transform: scale(0.7,0.7);
   }
+  .container_1{
+    width: 85%;
+  }
 }

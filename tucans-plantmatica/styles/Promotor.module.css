@@ -8,24 +8,26 @@
 
 }
 
+
+
 /* container principal */
 
 .container {
-    background-color: rgb(250,250,250);
+    background-color: rgb(240,240,240);
     padding-top: 1vh;
     padding-left: 4vw;
     padding-right: 4vw;
     transition: 0.3s ease-in-out;
-    margin-bottom: 75px;
+    padding-bottom: 4vh;
 }
 
 /* Registrar Sucursales */
 
 .registrarSucursales{
     display: inline-flexbox;
-    width: 90%;
+    width: 85%;
     margin-top: 25px;
-    margin-bottom: 25px;
+    
     padding: 2.5vh;
     border-radius: 10px;
     background-color: rgba(150, 150, 150, 0.3);
@@ -63,8 +65,8 @@
         height: auto;
         margin-left: 5px;
         margin-right: 5px;
-        margin-top: 40px;
-        margin-bottom:30px;
+        margin-top: 30px;
+        margin-bottom:15px;
         transition: 0.3s;
         border: 0;
         font-size: 18px;
@@ -132,7 +134,40 @@
         margin-left: 20px;
         width: 50%;
     }
+
+    .sucursales{
+        display:inline-block;
+
+    }
+
+    .fichaSucursal{
+        width: 1000px;
+    }
+
+
 }
+
+/* contenedor de la sucursal */
+
+.sucursal{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fichaSucursal{
+    width: 30%;
+    padding: 1%;
+    box-shadow: 2px 2px 5px rgb(150, 150, 150);
+    transition: 0.3s;
+}
+
+    .fichaSucursal:hover{
+        background-color: white;
+        box-shadow: 2px 2px 5px rgb(150, 150, 150);
+
+    }
+
 
 
 /* botonera */
@@ -171,17 +206,17 @@
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    border-bottom: 2px solid rgb(250,250,250);
-    background-color: rgb(250,250,250);
+    border-bottom: 2px solid rgb(240,240,240);
+    background-color: rgb(240,240,240);
     width: 25%;
     min-width: max-content;
     padding-top: 10px;
     padding-bottom: 10px;
-    transition: 0.2s ease-in-out;
+    transition: 0.1s ease-in-out;
 }
 
     .btnMenu:hover {
-        background-color: rgba(150, 150, 150, 0.3);
+        
         color: var(--text-color);
         border-bottom: 2px solid var(--main-color);
         text-shadow: 0px 0px 3px rgb(180, 180, 180);
@@ -190,7 +225,7 @@
     
 
 .btnSign {
-    border: none;
+    border: 1px solid var(--main-color);
     color: var(--main-color);
     background-color: white;
     width: 20vw;
@@ -208,6 +243,10 @@
     color: white;
 }
 
+.bar{
+    border: 1px solid var(--main-color);
+    margin: 15px;
+}
 
 .question {
     color: var(--text-color);
