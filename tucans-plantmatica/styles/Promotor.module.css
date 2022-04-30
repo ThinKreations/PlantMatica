@@ -120,32 +120,7 @@
    
 
 
-@media screen and (max-width: 600px) {
-    .input, .placeholder {
-      width: 80%;
-      margin-top: 25px;
-    }
 
-    .checkContainer{
-        display: inline-block;
-    }
-
-    .mini_input{
-        margin-left: 20px;
-        width: 50%;
-    }
-
-    .sucursales{
-        display:inline-block;
-
-    }
-
-    .fichaSucursal{
-        width: 1000px;
-    }
-
-
-}
 
 /* contenedor de la sucursal */
 
@@ -156,18 +131,27 @@
 }
 
 .fichaSucursal{
-    width: 30%;
+    background-color: white;
+    width: 47.5%;
     padding: 1%;
     box-shadow: 2px 2px 5px rgb(150, 150, 150);
     transition: 0.3s;
+    display: flex;
+    justify-content: space-between;
+
 }
 
-    .fichaSucursal:hover{
-        background-color: white;
-        box-shadow: 2px 2px 5px rgb(150, 150, 150);
+.btnEdit{
+    background-color: white;
+    border:none;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
 
-    }
-
+.btnDel{
+    background-color: white;
+    border:none;
+}
 
 
 /* botonera */
@@ -271,4 +255,32 @@
 #map {
 	height: 500px;
 	width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    .input, .placeholder {
+      width: 80%;
+      margin-top: 25px;
+    }
+
+    .checkContainer{
+        display: inline-block;
+    }
+
+    .mini_input{
+        margin-left: 20px;
+        width: 50%;
+    }
+    
+    .sucursal{
+        display: inline-block;
+    }
+
+    .fichaSucursal{
+        margin-bottom: 25px;
+        width: 100%;
+
+    }
+
+
 }
