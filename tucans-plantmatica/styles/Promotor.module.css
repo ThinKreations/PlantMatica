@@ -146,13 +146,13 @@
     border:none;
     margin-bottom: 15px;
     margin-top: 15px;
+    border-radius: 5px;
+    transition: 0.3s;
 }
 
-.btnDel{
-    background-color: white;
-    border:none;
-}
-
+    .btnEdit:hover{
+        transform: scale(1.2, 1.2);
+    }
 
 /* botonera */
 /*

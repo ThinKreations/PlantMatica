@@ -5,6 +5,7 @@ import Link from 'next/link'
 import LayoutMenu from '../../../components/LayoutMenu'
 import MenuPromo from '../../../components/promo/MenuPromo'
 import Registrar from '../../../components/promo/RegistrarSucursal'
+import EditIcon from '@mui/icons-material/Edit'
 
 export default function Sucursales () {
   return (
@@ -46,8 +47,13 @@ export default function Sucursales () {
         </font>
         </aside>  
         <div>
-        <button className={styles.btnEdit}>✏️</button><br/>
-        <button className={styles.btnDel}>🗑️</button>
+        <button className={styles.btnEdit}>
+          <EditIcon
+              className={styles.editIcon}
+              fontSize='medium'
+              color='success'
+            />
+            </button><br/>
         </div>        
         </div>
 
@@ -74,8 +80,14 @@ export default function Sucursales () {
         </font>
         </aside>  
         <div>
-        <button className={styles.btnEdit}>✏️</button><br/>
-        <button className={styles.btnDel}>🗑️</button>
+        <button className={styles.btnEdit}>
+        <EditIcon
+              className={styles.editIcon}
+              fontSize='medium'
+              color='success'
+            />
+          </button><br/>
+        
         </div>        
         </div>
 
