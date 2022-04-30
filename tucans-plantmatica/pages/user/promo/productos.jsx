@@ -98,7 +98,7 @@ export default function Sucursales () {
         
 
         <hr className={styles.bar}/>
-        <center><Registrar/></center>
+        <center></center>
         
       
         </div>
