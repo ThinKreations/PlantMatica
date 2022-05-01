@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import LayoutMenu from '../../../components/LayoutMenu'
 import MenuPromo from '../../../components/promo/MenuPromo'
-import Registrar from '../../../components/promo/RegistrarSucursal'
+import Registrar from '../../../components/promo/RegistrarProducto'
 import EditIcon from '@mui/icons-material/Edit'
 
 export default function Sucursales () {
@@ -22,10 +22,10 @@ export default function Sucursales () {
           <center><h1>Tus Productos</h1></center>
         </font>
 
-        <div className={styles.sucursal}>
+        <div className={styles.fichero}>
           
-        <div className={styles.fichaSucursal}>
-        <aside className={styles.dataSucursal}>
+        <div className={styles.ficha}>
+        <aside className={styles.dataProductos}>
         <font size={2} face="Work Sans" color="007200">
         <h1>`Nombre`</h1>
         <h3>`Promotor/distribuidor`</h3>
@@ -36,12 +36,23 @@ export default function Sucursales () {
         <h3>En línea: `Sí/No`</h3>
         </font>
         </aside>  
-        <aside className={styles.dataSucursal}>
+        <aside className={styles.dataProductos}>
         <font size={1} face="Work Sans" color="007200">
         <h2>Etiquetas:</h2>
         <h2>Advertencias:</h2>
         <h2>Precios:</h2>
         <h2>Sucursales donde se encuentra:</h2>
+        
+        
+        <font size={2} face="Work Sans">
+        <li><b>Sucursal `1`</b></li>
+        <li><b>Sucursal `1`</b></li>
+        <li><b>Sucursal `1`</b></li>
+        <li><b>Sucursal `1`</b></li>
+        <li><b>Sucursal `1`</b></li>
+        <li><b>Sucursal `1`</b></li>
+        </font>
+        
         <h2>En stock (O disponibilidad):</h2>
         <h2>:</h2>
         </font>
@@ -57,8 +68,8 @@ export default function Sucursales () {
         </div>        
         </div>
 
-        <div className={styles.fichaSucursal}>
-        <aside className={styles.dataSucursal}>
+        <div className={styles.ficha}>
+        <aside className={styles.dataProductos}>
         <font size={2} face="Work Sans" color="007200">
         <h1>`Nombre`</h1>
         <h3>`Promotor/distribuidor`</h3>
@@ -69,12 +80,24 @@ export default function Sucursales () {
         <h3>En línea: `Sí/No`</h3>
         </font>
         </aside>  
-        <aside className={styles.dataSucursal}>
+        <aside className={styles.dataProductos}>
         <font size={1} face="Work Sans" color="007200">
         <h2>Etiquetas:</h2>
         <h2>Advertencias:</h2>
         <h2>Precios:</h2>
         <h2>Sucursales donde se encuentra:</h2>
+        
+        
+        <font size={2} face="Work Sans">
+        <li><b>Sucursal `1`</b></li>
+        <li><b>Sucursal `1`</b></li>
+        <li><b>Sucursal `1`</b></li>
+        <li><b>Sucursal `1`</b></li>
+        <li><b>Sucursal `1`</b></li>
+        <li><b>Sucursal `1`</b></li>
+        </font>
+        
+        
         <h2>En stock (O disponibilidad):</h2>
         <h2>:</h2>
         </font>
@@ -98,7 +121,7 @@ export default function Sucursales () {
         
 
         <hr className={styles.bar}/>
-        <center></center>
+        <center><Registrar/></center>
         
       
         </div>

@@ -22,12 +22,13 @@ export default function Sucursales () {
           <center><h1>Tus Sucursales</h1></center>
         </font>
 
-        <div className={styles.sucursal}>
+        <div className={styles.fichero}>
           
-        <div className={styles.fichaSucursal}>
+        <div className={styles.ficha}>
         <aside className={styles.dataSucursal}>
         <font size={2} face="Work Sans" color="007200">
-        <h1>`Empresa o Promotor`</h1>
+        <h1>`Nombre de la Sucursal`</h1>
+        <h2>`Empresa o Promotor`</h2>
         <h3>`Dirección Comercial`</h3>
         <h3>`Teléfono Comercial`</h3>
         <h3>Atendido por `Encargado`</h3>
@@ -35,48 +36,15 @@ export default function Sucursales () {
         </font>
         </aside>  
         <aside className={styles.dataSucursal}>
-        <font size={1} face="Work Sans" color="007200">
-        <h2>Horario:</h2>
-        <h3>Lunes: `Entrada` a `Salida`</h3>
-        <h3>Martes: `Entrada` a `Salida`</h3>
-        <h3>Miércoles: `Entrada` a `Salida`</h3>
-        <h3>Jueves: `Entrada` a `Salida`</h3>
-        <h3>Viernes: `Entrada` a `Salida`</h3>
-        <h3>Sábado: `Entrada` a `Salida`</h3>
-        <h3>Domingo: `Entrada` a `Salida`</h3>
-        </font>
-        </aside>  
-        <div>
-        <button className={styles.btnEdit}>
-          <EditIcon
-              className={styles.editIcon}
-              fontSize='medium'
-              color='success'
-            />
-            </button><br/>
-        </div>        
-        </div>
-
-        <div className={styles.fichaSucursal}>
-        <aside className={styles.dataSucursal}>
         <font size={2} face="Work Sans" color="007200">
-        <h1>`Empresa o Promotor`</h1>
-        <h3>`Dirección Comercial`</h3>
-        <h3>`Teléfono Comercial`</h3>
-        <h3>Atendido por `Encargado`</h3>
-        <h3>Servicio a domicilio: `Sí/No`</h3>
-        </font>
-        </aside>  
-        <aside className={styles.dataSucursal}>
-        <font size={1} face="Work Sans" color="007200">
-        <h2>Horario:</h2>
-        <h3>Lunes: `Entrada` a `Salida`</h3>
-        <h3>Martes: `Entrada` a `Salida`</h3>
-        <h3>Miércoles: `Entrada` a `Salida`</h3>
-        <h3>Jueves: `Entrada` a `Salida`</h3>
-        <h3>Viernes: `Entrada` a `Salida`</h3>
-        <h3>Sábado: `Entrada` a `Salida`</h3>
-        <h3>Domingo: `Entrada` a `Salida`</h3>
+        <h2>Horario</h2>
+        <h3>Lunes: `1` a `2`</h3>
+        <h3>Martes: `1` a `2`</h3>
+        <h3>Miércoles: `1` a `2`</h3>
+        <h3>Jueves: `1` a `2`</h3>
+        <h3>Viernes: `1` a `2`</h3>
+        <h3>Sábado: `1` a `2`</h3>
+        <h3>Domingo: `1` a `2`</h3>
         </font>
         </aside>  
         <div>
@@ -91,18 +59,54 @@ export default function Sucursales () {
         </div>        
         </div>
 
+        <div className={styles.ficha}>
+        <aside className={styles.dataSucursal}>
+        <font size={2} face="Work Sans" color="007200">
+        <h1>`Nombre de la Sucursal`</h1>
+        <h2>`Empresa o Promotor`</h2>
+        <h3>`Dirección Comercial`</h3>
+        <h3>`Teléfono Comercial`</h3>
+        <h3>Atendido por `Encargado`</h3>
+        <h3>Servicio a domicilio: `Sí/No`</h3>
+        </font>
+        </aside>  
+        <aside className={styles.dataSucursal}>
+        <font size={2} face="Work Sans" color="007200">
+        <h2>Horario</h2>
+        <h3>Lunes: `1` a `2`</h3>
+        <h3>Martes: `1` a `2`</h3>
+        <h3>Miércoles: `1` a `2`</h3>
+        <h3>Jueves: `1` a `2`</h3>
+        <h3>Viernes: `1` a `2`</h3>
+        <h3>Sábado: `1` a `2`</h3>
+        <h3>Domingo: `1` a `2`</h3>
+        </font>
+        </aside>  
+        <div>
+        <button className={styles.btnEdit}>
+        <EditIcon
+              className={styles.editIcon}
+              fontSize='medium'
+              color='success'
+            />
+          </button><br/>
+        
+        </div>        
         </div>
+        
+       
+        </div>
+
         
 
         </div>
-
-        
 
         <hr className={styles.bar}/>
         <center><Registrar/></center>
         
       
         </div>
+        
     </>
   )
 }

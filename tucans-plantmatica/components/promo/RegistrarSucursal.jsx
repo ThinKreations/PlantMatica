@@ -14,8 +14,14 @@ export default function RegistrarSucursales () {
         
         <font size={5} face="Work Sans" color="007200"><b>Registrar Sucursal</b></font>
         <br/>
-        <input className={styles.input} placeholder="Nombre de la encargado"></input>
-        <input className={styles.input} placeholder="Dirección de la Sucursal"></input>
+        <input className={styles.input} placeholder="Nombre de la Sucursal"></input>
+        <br/>
+        <font size={4} face="Work Sans" color="007200"><b>Dirección:</b></font>
+        <br/>
+        <input className={styles.direccion} placeholder="País"></input>
+        <input className={styles.direccion} placeholder="Estado"></input>
+        <input className={styles.direccion} placeholder="Avenida"></input>
+        <input className={styles.direccion} placeholder="Número Ext/Int"></input>
         <input className={styles.input} placeholder="Número telefónico de la Sucursal"></input>
         <input className={styles.input} placeholder="Página Web (Opcional)"></input>
         <br/>
