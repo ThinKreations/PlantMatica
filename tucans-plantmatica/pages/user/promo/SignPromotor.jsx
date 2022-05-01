@@ -33,7 +33,7 @@ export default function SignPromotor () {
 
   return (
     <div>
-      <MainHead tituloPestana='Promotor' />
+      <MainHead tituloPestana='Registrate como Promotor' />
       <LayoutIndex>
         <SignPromotorComponent/>
       </LayoutIndex>

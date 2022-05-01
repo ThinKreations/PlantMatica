@@ -201,7 +201,6 @@ export default function Ficha ({ ficha }) {
                 >{`Solicitud de edicion`}</button>
               </a>
             </Link>
-            <button className={styles.btnReporte}>{`Reportar ficha`}</button>
             <button
               onClick={() => guardarFicha(ficha._id)}
               className={styles.btnguardar}
