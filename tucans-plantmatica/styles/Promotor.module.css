@@ -86,7 +86,7 @@
     }
 
     .direccion{
-        width:16%;
+        width:18%;
         height: auto;
         margin-left: 5px;
         margin-right: 5px;
@@ -111,9 +111,8 @@
     }
 
     
-
     .mini_input{
-        width: 75%;
+        width: 60%;
         height: auto;
 
         margin-top: 10px;
@@ -145,6 +144,10 @@
     }
 
    
+.errors{
+    color: red;
+    margin:0;
+}
 
 
 
@@ -307,6 +310,10 @@
         margin-bottom: 25px;
         width: 100%;
 
+    }
+
+    .errors{
+        font-size:12px;
     }
 
 

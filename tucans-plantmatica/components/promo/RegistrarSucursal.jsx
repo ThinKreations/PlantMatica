@@ -3,26 +3,50 @@ import styles from '../../styles/Promotor.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Checkbox, FormControl } from '@mui/material'
-
-
+import { schemaSignSucursal } from '../../schemas/signSucursal'
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup/dist/yup'
+import { signSucursal } from '../../pages/api/promotor-https'
 
 export default function RegistrarSucursales () {
+
+    const [registrado, setRegistrado] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({
+    resolver: yupResolver(schemaSignSucursal)
+  })
+
+  const onSubmit = async data => {
+    const res = await signSucursal(data);
+    if(res.status === 200){
+        setRegistrado(true);
+    }
+  }
+
   return (
     <>
-        <center>
-        <form className={styles.registrarSucursales}>
+        
+        <form className={styles.registrarSucursales}  onSubmit={handleSubmit(onSubmit)}>
         
         <font size={5} face="Work Sans" color="007200"><b>Registrar Sucursal</b></font>
         <br/>
-        <input className={styles.input} placeholder="Nombre de la Sucursal"></input>
+        <input {...register('nombre_sucursal')} className={styles.input} placeholder="Nombre de la Sucursal"></input>
+        <p className={styles.errors}>{errors.nombre_sucursal?.message}</p>
         <br/>
         <font size={4} face="Work Sans" color="007200"><b>Dirección:</b></font>
         <br/>
-        <input className={styles.direccion} placeholder="País"></input>
-        <input className={styles.direccion} placeholder="Estado"></input>
-        <input className={styles.direccion} placeholder="Avenida"></input>
-        <input className={styles.direccion} placeholder="Número Ext/Int"></input>
-        <input className={styles.input} placeholder="Número telefónico de la Sucursal"></input>
+        <input {...register('estado')} className={styles.direccion} placeholder="Estado"></input>
+        <input {...register('alcaldia')} className={styles.direccion} placeholder="Alcaldía"></input>
+        <input {...register('avenida')} className={styles.direccion} placeholder="Avenida"></input>
+        <input {...register('num')} className={styles.direccion} type="number" placeholder="Número Ext/Int"></input>
+        <p className={styles.errors}>{errors.estado?.message}  {errors.alcaldia?.message}  {errors.avenida?.message}  {errors.num?.message}</p>
+        <input {...register('telefono_sucursal')} className={styles.input} placeholder="Número telefónico de la Sucursal"></input>
+        <p className={styles.errors}>{errors.telefono_sucursal?.message}</p>
         <input className={styles.input} placeholder="Página Web (Opcional)"></input>
         <br/>
         <font size={4} face="Work Sans" color="007200">
@@ -454,7 +478,7 @@ export default function RegistrarSucursales () {
         
         
         </form>
-        </center>
+        
     </>
   )
 }

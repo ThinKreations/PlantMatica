@@ -16,11 +16,13 @@ export default function RegistrarProductos () {
         <font size={5} face="Work Sans" color="007200"><b>Registrar Producto</b></font>
         <br/>
         <input className={styles.input} placeholder="Nombre del producto"></input>
-        <input className={styles.input} placeholder="Etiquetas"/>
-
         
+        <input className={styles.input} placeholder="Etiquetas"/>
         <input className={styles.input} placeholder="Descripción"></input>
         <input className={styles.input} placeholder="Advertencias"></input>
+        <input className={styles.input} placeholder="Aquí se pondrán las sucursales como etiquetas, y si no está disponible en tienda, no se pone nada">
+        
+        </input>
         <input className={styles.input} type="number" placeholder="Precio"></input>
         <input className={styles.input} placeholder="Página Web (Opcional)"></input>
         <br/>
