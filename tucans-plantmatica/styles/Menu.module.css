@@ -153,13 +153,13 @@
     
     .dropbtn{
     font-size: 12px;
-    transform: translate(-54px, 0);
+    transform: translate(-60px, 0);
     padding: 8px;
     }
 
     .dropdownContent{
         font-size: 10px;
-        transform: translate(-72px, 0);
+        transform: translate(-78px, 0);
     }
 
     .head{
