@@ -28,7 +28,7 @@ export default function Sucursales () {
         <aside className={styles.dataSucursal}>
         <font size={2} face="Work Sans" color="007200">
         <h1>La Oficina</h1>
-        <h2>Tucan's Software</h2>
+        <h2>{`Tucan's Software`}</h2>
         <h3>Ciudad de México, Miguel Hidalgo, Mar Mediterráneo #227</h3>
         <h3>5557296000</h3>
         <h3>Atendido por Adrián Flores</h3>
@@ -63,7 +63,7 @@ export default function Sucursales () {
         <aside className={styles.dataSucursal}>
         <font size={2} face="Work Sans" color="007200">
         <h1>El Centro Médico</h1>
-        <h2>Tucan's Software</h2>
+        <h2>{`Tucan's Software`}</h2>
         <h3>Ciudad de México, Miguel Hidalgo, Mar Mediterráneo #227</h3>
         <h3>1234567890</h3>
         <h3>Atendido por Fetu Ccini</h3>
