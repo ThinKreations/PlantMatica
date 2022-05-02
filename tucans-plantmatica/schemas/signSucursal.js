@@ -11,5 +11,4 @@ export const schemaSignSucursal = yup.object().shape({
     telefono_sucursal: yup.string().required('Número obligatorio').min(10, 'Debe ser de 10 caracteres').max(10, 'Debe ser de 10 caracteres'),
     pagina_web: yup.string().email('Formato de correo no valido'),
     
-    
 });
