@@ -40,3 +40,22 @@ export const signSucursal = async sucursal => {
     return res;
 }
 
+export const signProducto = async producto => {
+
+    let id_user = localStorage.getItem('id');
+    const token = localStorage.getItem('token');
+    const data = { ...producto, usuario_referencia: id_user };
+    let raw = JSON.stringify(data);
+    const res = await fetch("https://plantmatica-api.vercel.app/producto", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "x-token": token
+        },
+        body: raw
+    });
+    const resJSON = await res.json();
+    atraparErrores(res, resJSON, 'Error al registrar el producto');
+    return res;
+}
+

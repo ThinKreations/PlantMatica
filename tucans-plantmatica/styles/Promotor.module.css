@@ -23,9 +23,9 @@
 
 /* Registrar Sucursales */
 
-.registrarSucursales{
+.registrar{
     display: inline-flexbox;
-    width: 85%;
+    width: 90%;
     margin-top: 25px;
     
     padding: 2.5vh;
@@ -112,7 +112,7 @@
 
     
     .mini_input{
-        width: 60%;
+        width: 50%;
         height: auto;
 
         margin-top: 10px;

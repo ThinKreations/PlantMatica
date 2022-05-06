@@ -34,12 +34,14 @@ export default function RegistrarSucursales () {
   return (
     <>
         
-        <form className={styles.registrarSucursales}  onSubmit={handleSubmit(onSubmit)}>
+        <form className={styles.registrar}  onSubmit={handleSubmit(onSubmit)}>
         
         <font size={5} face="Work Sans" color="007200"><b>Registrar Sucursal</b></font>
         <br/>
         <input {...register('nombre_sucursal')} className={styles.input} placeholder="Nombre de la Sucursal"></input>
         <p className={styles.errors}>{errors.nombre_sucursal?.message}</p>
+        <input {...register('encargado')} className={styles.input} placeholder="Persona a cargo"></input>
+        <p className={styles.errors}>{errors.encargado?.message}</p>
         <br/>
         <font size={4} face="Work Sans" color="007200"><b>Dirección:</b></font>
         <br/>
@@ -411,7 +413,7 @@ export default function RegistrarSucursales () {
         </select><br/>
         </div>
 
-        <div><p className={styles.dia}>Sábado</p><br/>
+        <div><p className={styles.dia}>Domingo</p><br/>
         <b>Desde:</b>
         <select {...register('abierto_domingo')} className={styles.mini_input}>
           <option value='Sin'>Sin</option>
@@ -471,8 +473,6 @@ export default function RegistrarSucursales () {
         </div>
 
         </div>
-        
-        <p className={styles.dia}>Servicio a Domicilio<Checkbox/></p><br/>
 
         </font>
         <button type="submit" className={styles.btnSign}><font size="3" face="Work Sans"><b>✚ Registrar Sucursal</b></font></button>

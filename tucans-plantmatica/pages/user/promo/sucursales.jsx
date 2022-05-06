@@ -32,11 +32,10 @@ export default function Sucursales () {
         <h3>Ciudad de México, Miguel Hidalgo, Mar Mediterráneo #227</h3>
         <h3>5557296000</h3>
         <h3>Atendido por Adrián Flores</h3>
-        <h3>Servicio a domicilio: No</h3>
         </font>
         </aside>  
         <aside className={styles.dataSucursal}>
-        <font size={2} face="Work Sans" color="007200">
+        <font size={1} face="Work Sans" color="007200">
         <h2>Horario</h2>
         <h3>Lunes: 13:00 a 21:00</h3>
         <h3>Martes: 13:00 a 21:00</h3>
@@ -67,11 +66,10 @@ export default function Sucursales () {
         <h3>Ciudad de México, Miguel Hidalgo, Mar Mediterráneo #227</h3>
         <h3>1234567890</h3>
         <h3>Atendido por Fetu Ccini</h3>
-        <h3>Servicio a domicilio: Sí</h3>
         </font>
         </aside>  
         <aside className={styles.dataSucursal}>
-        <font size={2} face="Work Sans" color="007200">
+        <font size={1} face="Work Sans" color="007200">
         <h2>Horario</h2>
         <h3>Lunes: 13:00 a 21:00</h3>
         <h3>Martes: 13:00 a 21:00</h3>

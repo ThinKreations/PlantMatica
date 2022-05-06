@@ -2,6 +2,7 @@ import * as yup from 'yup';
 
 export const schemaSignSucursal = yup.object().shape({
     nombre_sucursal: yup.string().required('El nombre es obligatorio'),
+    encargado: yup.string().required('Es necesario agregar un encargado'),
     //Dirección
     estado: yup.string().required('|El estado es obligatorio|'),
     alcaldia: yup.string().required('|La alcaldía es obligatoria|'),
