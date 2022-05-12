@@ -37,7 +37,7 @@ export default function MenuPromo () {
               </button>
             </a>
           </Link>
-          <Link href='/user/promo/promo'>
+          <Link href='/user/promo/perfil'>
             <a>
               <button className={styles.btnMenu}>
                 <font face='Work Sans' size='3'>

@@ -18,6 +18,8 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { agregarFichaReq, traerEtiquetas } from '../api/fichas-http';
 import { validarToken } from '../api/request';
+import Imagen from '../../components/fichas/AgregarImagen'
+import { set } from 'react-hook-form';
 
 function valuetext(value) {
     return `${value}°C`;
@@ -36,6 +38,8 @@ export default function Ficha({ arrayEtiquetas }) {
     const [detalles, setdetalles] = useState();
     const [complemento, setcomplemento] = useState();
     const [descripcion, setdescripcion] = useState();
+
+    const [modal, setModal] = useState(false);
 
     const agregarFicha = async () => {
         event.preventDefault();
@@ -58,7 +62,11 @@ export default function Ficha({ arrayEtiquetas }) {
             descripcion,
             usuario_creo: id
         });
-        await agregarFichaReq(object);
+        const estado = await agregarFichaReq(object);
+        if(estado = 200){
+            setModal(true)
+        }
+        
     }
 
     const sessionControl = async () => {
@@ -128,6 +136,9 @@ export default function Ficha({ arrayEtiquetas }) {
                                         />
                                     )}
                                 />
+                               
+                                
+                                {modal?<Imagen/>:''}  
 
                                 <hr className={styles.division} />
                                 <p className={styles.textD}>{`Nombre comun: `}</p>

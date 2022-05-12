@@ -239,6 +239,31 @@
 
 /* Campos de texto */
 
+.imgInput{
+    
+        width: 12.45%;
+        height: auto;
+        min-width: 157px;
+        margin-top: 10px;
+        margin-bottom:10px;
+        transition: 0.3s;
+        border: 0;
+        font-size: 16px;
+        background-color: rgba(150, 150, 150, 0.0);
+        outline: none;
+        
+    }
+
+    .imgInput:hover{
+        background-color: rgba(150, 150, 150, 0.2);
+    }
+
+    .imgInput:focus{
+        background-color: rgba(255,255,255,0.5); 
+    }
+
+
+
 .txtEtiquetas {
     margin-top: 5px;
     background-color: #e3e3e3;

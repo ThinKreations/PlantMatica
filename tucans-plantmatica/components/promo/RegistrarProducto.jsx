@@ -33,7 +33,7 @@ export default function RegistrarProductos () {
   return (
     <>
         <center>
-        <form className={styles.registrar} >
+        <form className={styles.registrar} onSubmit={handleSubmit(onSubmit)}>
         
         <font size={5} face="Work Sans" color="007200"><b>Registrar Producto</b></font>
         <br/>
