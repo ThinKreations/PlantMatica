@@ -40,7 +40,7 @@ export default function addImg(){
             aria-describedby="modal-modal-description"
             >
             <Box sx={style}>
-                <Typography id="modal-modal-title" variant="h6" component="h2">
+                <Typography id="modal-modal-title" variant="h6" >
                 <font size={5} face="Work Sans" >Si deseas agregar una imagen haz clic en el siguiente botón:</font>
                 </Typography>
                 <Input type="file" id="modal-modal-description" sx={{ mt: 2 }}>
