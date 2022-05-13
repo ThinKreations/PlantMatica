@@ -162,7 +162,8 @@
 
 .ficha{
     background-color: white;
-    width: 47.5%;
+    /* width: 47.5%; */
+    width: 50%;
     padding: 1%;
     box-shadow: 2px 2px 5px rgb(150, 150, 150);
     transition: 0.3s ease-in-out;

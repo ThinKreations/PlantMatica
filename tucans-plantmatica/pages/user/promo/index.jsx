@@ -4,8 +4,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import LayoutMenu from '../../../components/LayoutMenu'
 import MenuPromo from '../../../components/promo/MenuPromo'
+import { useEffect } from 'react'
+import { getInfoPromotor } from '../../api/promotor-https'
 
 export default function Promotor () {
+
+  useEffect(() => {
+    getInfoPromotor();
+  }, [])
+
   return (
     <>
       <MainHead tituloPestana='Promotor' />
