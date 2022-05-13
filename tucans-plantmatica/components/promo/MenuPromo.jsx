@@ -3,9 +3,25 @@ import Image from 'next/image'
 import Router from 'next/router'
 import Link from 'next/link'
 import styles from '../../styles/Promotor.module.css'
-
 import logo from '../../src/plantmatica.png'
+import { getInfoPromotor } from '../../pages/api/promotor-https'
 export default function MenuPromo () {
+  const [idPromo, setIdPromo] = useState()
+  const [token, setToken] = useState()
+
+  const definirRutas = async () => {
+    if(!idPromo) {
+      let id = localStorage.getItem('id_promotor');
+      let tokenR = localStorage.getItem('token')
+      setToken(tokenR)
+      setIdPromo(id)
+    }
+  }
+
+  useEffect(() => {
+    definirRutas()
+  })
+
   return (
     <>
       <div className={styles.header}>
@@ -28,7 +44,7 @@ export default function MenuPromo () {
               </button>
             </a>
           </Link>
-          <Link href='/user/promo/sucursales'>
+          <Link href={`/user/promo/sucursales?idpromo=${idPromo}&token=${token}`}>
             <a>
               <button className={styles.btnMenu}>
                 <font face='Work Sans' size='3'>
@@ -37,7 +53,7 @@ export default function MenuPromo () {
               </button>
             </a>
           </Link>
-          <Link href='/user/promo/promo'>
+          <Link href='/user/promo/perfil'>
             <a>
               <button className={styles.btnMenu}>
                 <font face='Work Sans' size='3'>

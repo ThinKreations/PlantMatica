@@ -29,6 +29,7 @@ export const agregarFichaReq = async (ficha) => {
             timer: '3000'
         });
     }
+    return res.status
 }
 
 export const traerEtiquetas = async () => {
@@ -50,3 +51,6 @@ export const misFichasGuardadas = async (id_user) => {
     const fichas = await res.json();
     return fichas;
 }
+
+/* Imágenes */
+

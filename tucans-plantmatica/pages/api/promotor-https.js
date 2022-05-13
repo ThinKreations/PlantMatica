@@ -21,6 +21,24 @@ export const signPromotor = async promotor => {
 
 }
 
+export const getInfoPromotor = async () => {
+
+    const token = localStorage.getItem('token');
+    const id_user = localStorage.getItem('id');
+    const res = await fetch(`https://plantmatica-api.vercel.app/promotor/${id_user}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "x-token": token
+        }
+    });
+    const resJSON = await res.json();
+    /* Si si esta registrado como promotor se guardara su ID en el localStorage */
+    if (resJSON.promotor._id) { localStorage.setItem('id_promotor', resJSON.promotor._id) }
+    return res;
+
+}
+
 export const signSucursal = async sucursal => {
 
     let id_user = localStorage.getItem('id');

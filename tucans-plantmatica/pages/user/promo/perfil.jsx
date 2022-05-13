@@ -4,24 +4,17 @@ import Image from 'next/image'
 import Link from 'next/link'
 import LayoutMenu from '../../../components/LayoutMenu'
 import MenuPromo from '../../../components/promo/MenuPromo'
-import { useEffect } from 'react'
-import { getInfoPromotor } from '../../api/promotor-https'
 
-export default function Promotor () {
-
-  useEffect(() => {
-    getInfoPromotor();
-  }, [])
-
+export default function PerfilPromotor () {
   return (
     <>
-      <MainHead tituloPestana='Promotor' />
+      <MainHead tituloPestana='Perfil' />
       <LayoutMenu />
       <MenuPromo />
       <div className={styles.container}>
         <center>
           <font size={6} face='Work Sans' color='007200'>
-            <h1>PlantMatica para promotores</h1>
+            <h1>Perfil (PlantMatica para promotores)</h1>
           </font>
         </center>
         <div className={styles.box_index_divider}>
