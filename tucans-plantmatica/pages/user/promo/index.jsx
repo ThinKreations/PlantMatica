@@ -19,6 +19,8 @@ export default function Promotor () {
       <LayoutMenu />
       <MenuPromo />
       <div className={styles.container}>
+        {/* 
+        
         <center>
           <font size={6} face='Work Sans' color='007200'>
             <h1>PlantMatica para promotores</h1>
@@ -68,6 +70,8 @@ export default function Promotor () {
             </Link>
           </div>
         </div>
+        
+        */}
       </div>
     </>
   )

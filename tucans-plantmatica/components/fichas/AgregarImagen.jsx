@@ -6,7 +6,7 @@ import { Input } from "@mui/material";
 import Typography from "@mui/material/Typography";
 
 
-export default function addImg(){
+export default function AddImg(){
 
     const style = {
         position: 'absolute',
@@ -26,8 +26,8 @@ export default function addImg(){
     };
 
     const [open, setOpen] = useState(true);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     return(
         
@@ -46,6 +46,7 @@ export default function addImg(){
                 <Input type="file" id="modal-modal-description" sx={{ mt: 2 }}>
                 Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
                 </Input>
+                <Button type="submit">Agregar</Button>
             </Box>
             </Modal>
         </>

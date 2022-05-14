@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import styles from "../../../styles/Forms.module.css"
 import TerminosYCondiciones from '../../../components/TerminosYCondiciones'
 import MainHead from '../../../components/MainHead'
-import LayoutIndex from '../../../components/LayoutIndex'
+import LayoutMenu from '../../../components/LayoutMenu'
+import MenuPromo from '../../../components/promo/MenuPromo'
 import Link from 'next/link'
 import Router from 'next/router'
 import { validarToken } from '../../api/request'
@@ -34,9 +35,10 @@ export default function SignPromotor () {
   return (
     <div>
       <MainHead tituloPestana='Registrate como Promotor' />
-      <LayoutIndex>
+      <LayoutMenu/>
+      <MenuPromo />
         <SignPromotorComponent/>
-      </LayoutIndex>
+      
     </div>
   )
 }
