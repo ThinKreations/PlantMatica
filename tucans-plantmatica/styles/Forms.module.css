@@ -103,6 +103,10 @@
     transition: 0.3s;
 }
 
+.contPromo{
+    background-color: rgb(240, 240, 240);
+}
+
 @media screen and (max-width: 600px) {
     
 }

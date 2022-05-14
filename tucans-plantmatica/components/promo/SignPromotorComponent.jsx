@@ -28,6 +28,8 @@ export default function SignPromotorComponent () {
 
   return (
     <>
+        <div className={styles.contPromo}>
+
         {
             !registrado ? <div>
             <form
@@ -113,6 +115,11 @@ export default function SignPromotorComponent () {
             </form>
           </div> : <Steps/>
         }
+
+
+        </div>
+
+
     </>
   )
 }
