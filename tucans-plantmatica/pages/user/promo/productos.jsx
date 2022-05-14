@@ -1,5 +1,6 @@
 import MainHead from '../../../components/MainHead'
 import styles from '../../../styles/Promotor.module.css'
+import { traerEtiquetas } from '../../api/fichas-http'
 import Image from 'next/image'
 import Link from 'next/link'
 import LayoutMenu from '../../../components/LayoutMenu'
@@ -7,16 +8,21 @@ import MenuPromo from '../../../components/promo/MenuPromo'
 import Registrar from '../../../components/promo/RegistrarProducto'
 import EditIcon from '@mui/icons-material/Edit'
 
-
-export default function Sucursales () {
+export default function Sucursales ({ arrayEtiquetas }) {
   return (
     <>
       <MainHead tituloPestana='Productos' />
-      <LayoutMenu/>
-        <MenuPromo />
-        <div className={styles.container}>
-        <center><font size={6} face="Work Sans" color="007200"><h1>Productos</h1></font></center>
-        <p>Aquí va la barra de búsqueda y los productos que estén registrados</p>
+      <LayoutMenu />
+      <MenuPromo />
+      <div className={styles.container}>
+        <center>
+          <font size={6} face='Work Sans' color='007200'>
+            <h1>Productos</h1>
+          </font>
+        </center>
+        <p>
+          Aquí va la barra de búsqueda y los productos que estén registrados
+        </p>
 
         {/*
         <TableHead>
@@ -49,116 +55,136 @@ export default function Sucursales () {
           </TableRow>
       </TableHead>
         */}
-       
-        <hr className={styles.bar}/>
 
-
+        <hr className={styles.bar} />
 
         <div className={styles.sucursales}>
+          <font size={5} face='Work Sans' color='007200'>
+            <center>
+              <h1>Tus Productos</h1>
+            </center>
+          </font>
 
-        <font size={5} face="Work Sans" color="007200">
-          <center><h1>Tus Productos</h1></center>
-        </font>
-        
+          <div className={styles.fichero}>
+            <div className={styles.ficha}>
+              <aside className={styles.dataProductos}>
+                <font size={2} face='Work Sans' color='007200'>
+                  <h1>`Nombre`</h1>
+                  <h3>`Promotor/distribuidor`</h3>
+                  <h3>`Tipo de producto`</h3>
+                  <h3>Descripción del producto</h3>
+                  <h3>En tienda: `Sí/No`</h3>
+                  <h3>En línea: `Sí/No`</h3>
+                </font>
+              </aside>
+              <aside className={styles.dataProductos}>
+                <font size={1} face='Work Sans' color='007200'>
+                  <h2>Etiquetas:</h2>
+                  <h2>Advertencias:</h2>
+                  <h2>Precios:</h2>
+                  <h2>Sucursales donde se encuentra:</h2>
 
+                  <font size={2} face='Work Sans'>
+                    <li>
+                      <b>Sucursal `1`</b>
+                    </li>
+                    <li>
+                      <b>Sucursal `1`</b>
+                    </li>
+                    <li>
+                      <b>Sucursal `1`</b>
+                    </li>
+                    <li>
+                      <b>Sucursal `1`</b>
+                    </li>
+                    <li>
+                      <b>Sucursal `1`</b>
+                    </li>
+                    <li>
+                      <b>Sucursal `1`</b>
+                    </li>
+                  </font>
+                </font>
+              </aside>
+              <div>
+                <button className={styles.btnEdit}>
+                  <EditIcon
+                    className={styles.editIcon}
+                    fontSize='medium'
+                    color='success'
+                  />
+                </button>
+                <br />
+              </div>
+            </div>
 
+            <div className={styles.ficha}>
+              <aside className={styles.dataProductos}>
+                <font size={2} face='Work Sans' color='007200'>
+                  <h1>`Nombre`</h1>
+                  <h3>`Promotor/distribuidor`</h3>
+                  <h3>`Tipo de producto`</h3>
+                  <h3>Descripción del producto</h3>
+                  <h3>En tienda: `Sí/No`</h3>
+                  <h3>En línea: `Sí/No`</h3>
+                </font>
+              </aside>
+              <aside className={styles.dataProductos}>
+                <font size={1} face='Work Sans' color='007200'>
+                  <h2>Etiquetas:</h2>
+                  <h2>Advertencias:</h2>
+                  <h2>Precios:</h2>
+                  <h2>Sucursales donde se encuentra:</h2>
 
-        <div className={styles.fichero}>
-          
-        <div className={styles.ficha}>
-        <aside className={styles.dataProductos}>
-        <font size={2} face="Work Sans" color="007200">
-        <h1>`Nombre`</h1>
-        <h3>`Promotor/distribuidor`</h3>
-        <h3>`Tipo de producto`</h3>
-        <h3>Descripción del producto</h3>
-        <h3>En tienda: `Sí/No`</h3>
-        <h3>En línea: `Sí/No`</h3>
-        </font>
-        </aside>  
-        <aside className={styles.dataProductos}>
-        <font size={1} face="Work Sans" color="007200">
-        <h2>Etiquetas:</h2>
-        <h2>Advertencias:</h2>
-        <h2>Precios:</h2>
-        <h2>Sucursales donde se encuentra:</h2>
-        
-        
-        <font size={2} face="Work Sans">
-        <li><b>Sucursal `1`</b></li>
-        <li><b>Sucursal `1`</b></li>
-        <li><b>Sucursal `1`</b></li>
-        <li><b>Sucursal `1`</b></li>
-        <li><b>Sucursal `1`</b></li>
-        <li><b>Sucursal `1`</b></li>
-        </font>
-       
-        </font>
-        </aside>  
-        <div>
-        <button className={styles.btnEdit}>
-          <EditIcon
-              className={styles.editIcon}
-              fontSize='medium'
-              color='success'
-            />
-            </button><br/>
-        </div>        
+                  <font size={2} face='Work Sans'>
+                    <li>
+                      <b>Sucursal `1`</b>
+                    </li>
+                    <li>
+                      <b>Sucursal `1`</b>
+                    </li>
+                    <li>
+                      <b>Sucursal `1`</b>
+                    </li>
+                    <li>
+                      <b>Sucursal `1`</b>
+                    </li>
+                    <li>
+                      <b>Sucursal `1`</b>
+                    </li>
+                    <li>
+                      <b>Sucursal `1`</b>
+                    </li>
+                  </font>
+                </font>
+              </aside>
+              <div>
+                <button className={styles.btnEdit}>
+                  <EditIcon
+                    className={styles.editIcon}
+                    fontSize='medium'
+                    color='success'
+                  />
+                </button>
+                <br />
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className={styles.ficha}>
-        <aside className={styles.dataProductos}>
-        <font size={2} face="Work Sans" color="007200">
-        <h1>`Nombre`</h1>
-        <h3>`Promotor/distribuidor`</h3>
-        <h3>`Tipo de producto`</h3>
-        <h3>Descripción del producto</h3>
-        <h3>En tienda: `Sí/No`</h3>
-        <h3>En línea: `Sí/No`</h3>
-        </font>
-        </aside>  
-        <aside className={styles.dataProductos}>
-        <font size={1} face="Work Sans" color="007200">
-        <h2>Etiquetas:</h2>
-        <h2>Advertencias:</h2>
-        <h2>Precios:</h2>
-        <h2>Sucursales donde se encuentra:</h2>
-        
-        
-        <font size={2} face="Work Sans">
-        <li><b>Sucursal `1`</b></li>
-        <li><b>Sucursal `1`</b></li>
-        <li><b>Sucursal `1`</b></li>
-        <li><b>Sucursal `1`</b></li>
-        <li><b>Sucursal `1`</b></li>
-        <li><b>Sucursal `1`</b></li>
-        </font>
-       
-        </font>
-        </aside>  
-        <div>
-        <button className={styles.btnEdit}>
-          <EditIcon
-              className={styles.editIcon}
-              fontSize='medium'
-              color='success'
-            />
-            </button><br/>
-        </div>        
-        </div>
-
-        </div>
-        
-
-        </div>
-
-        
-
-        <hr className={styles.bar}/>
-        <center><Registrar/></center>
-        
-      
-        </div>
+        <hr className={styles.bar} />
+        <center>
+          <Registrar etiquetasRender={arrayEtiquetas} />
+        </center>
+      </div>
     </>
   )
+}
+
+export async function getServerSideProps () {
+  const { arrayEtiquetas } = await traerEtiquetas()
+  console.log(arrayEtiquetas)
+  return {
+    props: { arrayEtiquetas, notFound: false }
+  }
 }

@@ -15,11 +15,6 @@ import { getSucursalesPromotor } from '../../api/sucursales-http'
 export default function Sucursales ({ sucursales }) {
   const [sucursalesRender, setSucursalesRender] = useState(sucursales);
 
-  const actualizarDataSucursales = async () => {
-    const sucurs = await getSucursalesPromotor()
-    await setSucursalesRender(sucurs)
-  }
-
   return (
     <>
       <MainHead tituloPestana='Sucursales' />

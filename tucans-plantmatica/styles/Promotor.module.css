@@ -13,7 +13,7 @@
 /* container principal */
 
 .container {
-    background-color: rgb(240,240,240);
+    background-color: rgb(240, 240, 240);
     padding-top: 1vh;
     padding-left: 4vw;
     padding-right: 4vw;
@@ -23,35 +23,36 @@
 
 /* Registrar Sucursales */
 
-.registrar{
+.registrar {
     display: inline-flexbox;
     width: 90%;
     margin-top: 25px;
-    
+
     padding: 2.5vh;
     border-radius: 10px;
     background-color: rgba(180, 180, 180, 0.3);
     text-align: center;
     transition: 0.3s;
-    
+
 }
 
-.checkContainer{
+.checkContainer {
     width: 100%;
     margin-top: 25px;
     margin-bottom: 25px;
     display: flex;
     justify-content: space-between;
     transition: 0.3s;
-    
+
 }
 
 /* Sucursales */
 
-.sucursales{
+.sucursales {
     margin-top: 50px;
     margin-bottom: 50px;
 }
+
 /*
 .cardSucursal{
 
@@ -60,93 +61,93 @@
 /*Elementos del Form de registro*/
 
 
-    .input{
-        width: 90%;
-        height: auto;
-        margin-left: 5px;
-        margin-right: 5px;
-        margin-top: 30px;
-        margin-bottom:15px;
-        transition: 0.3s;
-        border: 0;
-        font-size: 18px;
-        background-color: rgba(150, 150, 150, 0.0);
-        outline: none;
-        border-bottom: 3px solid var(--main-color);
-        border-radius: 4px 4px 0 0;
-    }
+.input {
+    width: 90%;
+    height: auto;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+    border: 0;
+    font-size: 18px;
+    background-color: rgba(150, 150, 150, 0.0);
+    outline: none;
+    border-bottom: 3px solid var(--main-color);
+    border-radius: 4px 4px 0 0;
+}
 
-    .input:hover{
-        background-color: rgba(150, 150, 150, 0.2);
-    }
+.input:hover {
+    background-color: rgba(150, 150, 150, 0.2);
+}
 
-    .input:focus{
-        background-color: rgba(255,255,255,0.5); 
-    
-    }
+.input:focus {
+    background-color: rgba(255, 255, 255, 0.5);
 
-    .direccion{
-        width:18%;
-        height: auto;
-        margin-left: 5px;
-        margin-right: 5px;
-        margin-top: 30px;
-        margin-bottom:15px;
-        transition: 0.3s;
-        border: 0;
-        font-size: 18px;
-        background-color: rgba(150, 150, 150, 0.0);
-        outline: none;
-        border-bottom: 3px solid var(--main-color);
-        border-radius: 4px 4px 0 0;
-    }
+}
 
-    .direccion:hover{
-        background-color: rgba(150, 150, 150, 0.2);
-    }
+.direccion {
+    width: 18%;
+    height: auto;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+    border: 0;
+    font-size: 18px;
+    background-color: rgba(150, 150, 150, 0.0);
+    outline: none;
+    border-bottom: 3px solid var(--main-color);
+    border-radius: 4px 4px 0 0;
+}
 
-    .direccion:focus{
-        background-color: rgba(255,255,255,0.5); 
-    
-    }
+.direccion:hover {
+    background-color: rgba(150, 150, 150, 0.2);
+}
 
-    
-    .mini_input{
-        width: 50%;
-        height: auto;
+.direccion:focus {
+    background-color: rgba(255, 255, 255, 0.5);
 
-        margin-top: 10px;
-        margin-bottom:10px;
-        transition: 0.3s;
-        border: 0;
-        font-size: 16px;
-        background-color: rgba(150, 150, 150, 0.0);
-        outline: none;
-        border-bottom: 3px solid var(--main-color);
-        border-radius: 4px 4px 0 0;
-    }
-
-    .mini_input:hover{
-        background-color: rgba(150, 150, 150, 0.2);
-    }
-
-    .mini_input:focus{
-        background-color: rgba(255,255,255,0.5); 
-    }
+}
 
 
+.mini_input {
+    width: 50%;
+    height: auto;
 
-    .dia{
-        color:black;
-        font-size:20px;
-        text-shadow: 0px 0px 3px rgb(75,75,75);
-        height: 2px;
-    }
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+    border: 0;
+    font-size: 16px;
+    background-color: rgba(150, 150, 150, 0.0);
+    outline: none;
+    border-bottom: 3px solid var(--main-color);
+    border-radius: 4px 4px 0 0;
+}
 
-   
-.errors{
+.mini_input:hover {
+    background-color: rgba(150, 150, 150, 0.2);
+}
+
+.mini_input:focus {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+
+.dia {
+    color: black;
+    font-size: 20px;
+    text-shadow: 0px 0px 3px rgb(75, 75, 75);
+    height: 2px;
+}
+
+
+.errors {
     color: red;
-    margin:0;
+    margin: 0;
 }
 
 
@@ -154,13 +155,13 @@
 
 /* contenedor de la sucursal */
 
-.fichero{
+.fichero {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-.ficha{
+.ficha {
     background-color: white;
     /* width: 47.5%; */
     width: 50%;
@@ -171,18 +172,18 @@
     justify-content: space-between;
 }
 
-.btnEdit{
+.btnEdit {
     background-color: white;
-    border:none;
+    border: none;
     margin-bottom: 15px;
     margin-top: 15px;
     border-radius: 5px;
     transition: 0.3s;
 }
 
-    .btnEdit:hover{
-        transform: scale(1.2, 1.2);
-    }
+.btnEdit:hover {
+    transform: scale(1.2, 1.2);
+}
 
 /* botonera */
 /*
@@ -221,8 +222,8 @@
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    border-bottom: 2px solid rgb(240,240,240);
-    background-color: rgb(240,240,240);
+    border-bottom: 2px solid rgb(240, 240, 240);
+    background-color: rgb(240, 240, 240);
     width: 25%;
     min-width: max-content;
     padding-top: 10px;
@@ -230,14 +231,14 @@
     transition: 0.1s ease-in-out;
 }
 
-    .btnMenu:hover {
-        
-        color: var(--text-color);
-        border-bottom: 2px solid var(--main-color);
-        text-shadow: 0px 0px 3px rgb(180, 180, 180);
-    }
+.btnMenu:hover {
 
-    
+    color: var(--text-color);
+    border-bottom: 2px solid var(--main-color);
+    text-shadow: 0px 0px 3px rgb(180, 180, 180);
+}
+
+
 
 .btnSign {
     border: 1px solid var(--main-color);
@@ -249,7 +250,7 @@
     margin-top: 30px;
     border-radius: 5px;
     transition: 0.2s;
-    
+
 }
 
 .btnSign:hover {
@@ -258,7 +259,7 @@
     color: white;
 }
 
-.bar{
+.bar {
     border: 1px solid var(--main-color);
     margin: 15px;
 }
@@ -284,37 +285,39 @@
 }
 
 #map {
-	height: 500px;
-	width: 100%;
+    height: 500px;
+    width: 100%;
 }
 
 @media screen and (max-width: 600px) {
-    .input, .placeholder {
-      width: 80%;
-      margin-top: 25px;
+
+    .input,
+    .placeholder {
+        width: 80%;
+        margin-top: 25px;
     }
 
-    .checkContainer{
+    .checkContainer {
         display: inline-block;
     }
 
-    .mini_input{
+    .mini_input {
         margin-left: 20px;
         width: 50%;
     }
-    
-    .fichero{
+
+    .fichero {
         display: inline-block;
     }
 
-    .ficha{
+    .ficha {
         margin-bottom: 25px;
         width: 100%;
 
     }
 
-    .errors{
-        font-size:12px;
+    .errors {
+        font-size: 12px;
     }
 
 
