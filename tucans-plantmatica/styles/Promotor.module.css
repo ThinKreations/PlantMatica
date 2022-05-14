@@ -1,6 +1,6 @@
 .header {
     width: 100%;
-
+    background-color: rgb(240, 240, 240);
     align-items: center;
     text-align: center;
     justify-content: space-between;
