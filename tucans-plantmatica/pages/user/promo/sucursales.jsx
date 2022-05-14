@@ -11,9 +11,11 @@ import Alert from '@mui/material/Alert'
 import AlertTitle from '@mui/material/AlertTitle'
 import { useEffect, useState } from 'react'
 import { getSucursalesPromotor } from '../../api/sucursales-http'
+import { validarToken } from '../../api/request'
 
 export default function Sucursales ({ sucursales }) {
-  const [sucursalesRender, setSucursalesRender] = useState(sucursales);
+  const [sucursalesRender, setSucursalesRender] = useState(sucursales)
+
 
   return (
     <>
@@ -52,7 +54,8 @@ export default function Sucursales ({ sucursales }) {
                       <font size={2} face='Work Sans' color='007200'>
                         <h2>{s.nombre_sucursal}</h2>
                         <h3>
-                          {s.direccion.estado}, {s.direccion.alcaldia},{' '}{s.direccion.avenida}{' '}, {s.direccion.num_ext_int}
+                          {s.direccion.estado}, {s.direccion.alcaldia},{' '}
+                          {s.direccion.avenida} , {s.direccion.num_ext_int}
                         </h3>
                         <h3>{s.telefono}</h3>
                         <h3>Encargado: {s.persona_cargo}</h3>
@@ -61,13 +64,34 @@ export default function Sucursales ({ sucursales }) {
                     <aside className={styles.dataSucursal}>
                       <font size={1} face='Work Sans' color='007200'>
                         <h2>Horario</h2>
-                        <h3>Lunes: {s.horario_atencion.lunes.abierto} a {s.horario_atencion.lunes.cierre} </h3>
-                        <h3>Martes: {s.horario_atencion.martes.abierto} a {s.horario_atencion.martes.cierre} </h3>
-                        <h3>Miércoles: {s.horario_atencion.miercoles.abierto} a {s.horario_atencion.miercoles.cierre} </h3>
-                        <h3>Jueves: {s.horario_atencion.jueves.abierto} a {s.horario_atencion.jueves.cierre} </h3>
-                        <h3>Viernes: {s.horario_atencion.viernes.abierto} a {s.horario_atencion.viernes.cierre} </h3>
-                        <h3>Sábado:  {s.horario_atencion.sabado.abierto} a {s.horario_atencion.sabado.cierre}</h3>
-                        <h3>Domingo: {s.horario_atencion.domigo.abierto} a {s.horario_atencion.domigo.cierre}</h3>
+                        <h3>
+                          Lunes: {s.horario_atencion.lunes.abierto} a{' '}
+                          {s.horario_atencion.lunes.cierre}{' '}
+                        </h3>
+                        <h3>
+                          Martes: {s.horario_atencion.martes.abierto} a{' '}
+                          {s.horario_atencion.martes.cierre}{' '}
+                        </h3>
+                        <h3>
+                          Miércoles: {s.horario_atencion.miercoles.abierto} a{' '}
+                          {s.horario_atencion.miercoles.cierre}{' '}
+                        </h3>
+                        <h3>
+                          Jueves: {s.horario_atencion.jueves.abierto} a{' '}
+                          {s.horario_atencion.jueves.cierre}{' '}
+                        </h3>
+                        <h3>
+                          Viernes: {s.horario_atencion.viernes.abierto} a{' '}
+                          {s.horario_atencion.viernes.cierre}{' '}
+                        </h3>
+                        <h3>
+                          Sábado: {s.horario_atencion.sabado.abierto} a{' '}
+                          {s.horario_atencion.sabado.cierre}
+                        </h3>
+                        <h3>
+                          Domingo: {s.horario_atencion.domigo.abierto} a{' '}
+                          {s.horario_atencion.domigo.cierre}
+                        </h3>
                       </font>
                     </aside>
                     <div>

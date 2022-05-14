@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
@@ -25,7 +25,7 @@ export default function addImg(){
         
     };
 
-    const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = useState(true);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 

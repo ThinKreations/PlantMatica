@@ -7,12 +7,16 @@ import MainHead from '../MainHead'
 import styles from '../../styles/Promotor.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
+import Chip from '@mui/material/Chip';
 import { Checkbox, FormControl } from '@mui/material'
 import TextField from '@mui/material/TextField'
 import { schemaSignProducto } from '../../schemas/signProducto'
 import { signProducto } from '../../pages/api/promotor-https'
 
-export default function RegistrarProductos ({ etiquetasRender = [] }) {
+export default function RegistrarProductos ({
+  etiquetasRender = [],
+  sucursalesRender = []
+}) {
   const [registrado, setRegistrado] = useState(false)
   const [etiquetas, setEtiquetas] = useState()
   const [advertencias, setAdvertencias] = useState()
@@ -140,13 +144,12 @@ export default function RegistrarProductos ({ etiquetasRender = [] }) {
   )
 }
 
-
 const defaultOptions = {
-  "advertencias": [
-    "No consumir mas de la dosis indicada.",
-    "No mezclar con alcohol.",
-    "Dolor de cabeza",
-    "Mareos",
-    "Somnolencia"
+  advertencias: [
+    'No consumir mas de la dosis indicada.',
+    'No mezclar con alcohol.',
+    'Dolor de cabeza',
+    'Mareos',
+    'Somnolencia'
   ]
 }

@@ -1,4 +1,5 @@
 import { atraparErrores } from "./handle-errors";
+import Router from 'next/router'
 
 export const signPromotor = async promotor => {
 
@@ -34,7 +35,7 @@ export const getInfoPromotor = async () => {
     });
     const resJSON = await res.json();
     /* Si si esta registrado como promotor se guardara su ID en el localStorage */
-    if (resJSON.promotor._id) { localStorage.setItem('id_promotor', resJSON.promotor._id) }
+    if (resJSON.promotor) { localStorage.setItem('id_promotor', resJSON.promotor._id) }
     return res;
 
 }

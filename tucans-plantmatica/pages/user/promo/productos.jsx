@@ -8,7 +8,7 @@ import MenuPromo from '../../../components/promo/MenuPromo'
 import Registrar from '../../../components/promo/RegistrarProducto'
 import EditIcon from '@mui/icons-material/Edit'
 
-export default function Sucursales ({ arrayEtiquetas }) {
+export default function Sucursales ({ arrayEtiquetas, sucursales }) {
   return (
     <>
       <MainHead tituloPestana='Productos' />
@@ -174,17 +174,25 @@ export default function Sucursales ({ arrayEtiquetas }) {
 
         <hr className={styles.bar} />
         <center>
-          <Registrar etiquetasRender={arrayEtiquetas} />
+          <Registrar etiquetasRender={arrayEtiquetas} sucursalesRender={sucursales} />
         </center>
       </div>
     </>
   )
 }
 
-export async function getServerSideProps () {
+export async function getServerSideProps ({ query }) {
   const { arrayEtiquetas } = await traerEtiquetas()
-  console.log(arrayEtiquetas)
+  const res = await fetch(
+    `https://plantmatica-api.vercel.app/sucursal/${query.idpromo}`,
+    {
+      headers: {
+        'x-token': query.token
+      }
+    }
+  )
+  const { sucursales } = await res.json()
   return {
-    props: { arrayEtiquetas, notFound: false }
+    props: { arrayEtiquetas, sucursales, notFound: false }
   }
 }
