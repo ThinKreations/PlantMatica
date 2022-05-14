@@ -13,7 +13,6 @@ export default function MenuPromo () {
 
   const definirRutas = async () => {
     if (!idPromo) {
-      getInfoPromotor()
       let id = localStorage.getItem('id_promotor')
       if (id !== null || id !== undefined) {
         setOptionMenu(false)
@@ -41,7 +40,6 @@ export default function MenuPromo () {
 
   useEffect(() => {
     definirRutas()
-    sessionControl
   })
 
   return (

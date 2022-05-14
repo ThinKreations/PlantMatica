@@ -9,6 +9,10 @@ import { getInfoPromotor } from '../../api/promotor-https'
 
 export default function Promotor () {
 
+  useEffect(() => {
+    getInfoPromotor()
+  }, [])
+
   return (
     <>
       <MainHead tituloPestana='Promotor' />

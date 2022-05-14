@@ -35,7 +35,7 @@ export const getInfoPromotor = async () => {
     });
     const resJSON = await res.json();
     /* Si si esta registrado como promotor se guardara su ID en el localStorage */
-    if (resJSON.promotor) { localStorage.setItem('id_promotor', resJSON.promotor._id) }
+    localStorage.setItem('id_promotor', resJSON.promotor._id)
     return res;
 
 }
