@@ -20,41 +20,8 @@ export default function Sucursales ({ arrayEtiquetas, sucursales }) {
             <h1>Productos</h1>
           </font>
         </center>
-        <p>
-          Aquí va la barra de búsqueda y los productos que estén registrados
-        </p>
+        
 
-        {/*
-        <TableHead>
-          <TableRow>
-              <TableCell>
-
-                  <Stack spacing={2} >
-                      <Autocomplete
-                          freeSolo
-                          id="free-solo-2-demo"
-                          disableClearable
-                          
-                          renderInput={(params) => (
-                              <TextField color="success"
-                                  {...params}
-                                  label="Buscar plantas"
-                                  InputProps={{
-                                      ...params.InputProps,
-                                      type: 'search',
-                                  }}
-                              />
-                          )}
-                      />
-                  </Stack>
-              </TableCell>
-              <TableCell><button   >Buscar</button></TableCell>
-          </TableRow>
-          <TableRow>
-              <h2 sx={{ padding: '15px' }}>Termino de busqueda: </h2>
-          </TableRow>
-      </TableHead>
-        */}
 
         <hr className={styles.bar} />
 
