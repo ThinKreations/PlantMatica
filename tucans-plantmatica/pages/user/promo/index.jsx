@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react'
 import { getInfoPromotor } from '../../api/promotor-https'
 import { getProductos } from '../../api/producto-https'
 import uid from 'tiny-uid'
+import Alert from '@mui/material/Alert'
+import AlertTitle from '@mui/material/AlertTitle'
 
 export default function Promotor ({productos}) {
 
