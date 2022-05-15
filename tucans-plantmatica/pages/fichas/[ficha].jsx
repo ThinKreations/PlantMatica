@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import Footy from '../../components/footy'
 import LayoutMenu from '../../components/LayoutMenu'
 import MainHead from '../../components/MainHead'
@@ -42,15 +43,28 @@ export default function Ficha ({ ficha }) {
             </p>
           </Alert>
         )}
+
         <Card variant='outlined' className={styles.base}>
           <CardContent>
-            <p className={styles.textU}>{`Nombre común: `}</p>
-            <p className={styles.titlefichaU}>{ficha.nombre_comun}</p>
+            <div className={styles.imagen_container}>
+              <div>
+                <Image
+                  src={ficha.imagen}
+                  alt={`${ficha.nombre_comun} - ${ficha.nombre_cientifico}`}
+                  width={128}
+                  height={128}
+                  className={styles.imagen_cuadrada}
+                ></Image>
+              </div>
+              <div className={styles.container_imagen_nombres} >
+                <p className={styles.textU}>{`Nombre común: `}</p>
+                <p className={styles.titlefichaU}>{ficha.nombre_comun}</p>
+                <hr className={styles.division} />
+                <p className={styles.textU}>{`Nombre cientifico: `}</p>
+                <p className={styles.titlefichaU}>{ficha.nombre_cientifico}</p>
+              </div>
+            </div>
             <hr className={styles.division} />
-            <p className={styles.textU}>{`Nombre cientifico: `}</p>
-            <p className={styles.titlefichaU}>{ficha.nombre_cientifico}</p>
-            <hr className={styles.division} />
-
             {ficha.origen_distribucion.length > 0 ? (
               <>
                 <p className={styles.textU2}>{`Origen y distribución: `}</p>

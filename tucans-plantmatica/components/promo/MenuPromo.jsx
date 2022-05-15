@@ -13,13 +13,15 @@ export default function MenuPromo () {
 
   const definirRutas = async () => {
     if (!idPromo) {
+      getInfoPromotor()
       let id = localStorage.getItem('id_promotor')
-      if (id !== null || id !== undefined) {
-        setOptionMenu(false)
-      }
+      setIdPromo(id)
+      if (idPromo === null || idPromo == undefined) {
+        setOptionMenu(true)
+      } /* else if (idPromo === null || idPromo == undefined) {
+      } */
       let tokenR = localStorage.getItem('token')
       setToken(tokenR)
-      setIdPromo(id)
     }
   }
 
@@ -57,7 +59,9 @@ export default function MenuPromo () {
           </Link>
           {optionMenu ? (
             <>
-              <Link href={`/user/promo/productos?idpromo=${idPromo}&token=${token}`}>
+              <Link
+                href={`/user/promo/productos?idpromo=${idPromo}&token=${token}`}
+              >
                 <a>
                   <button className={styles.btnMenu}>
                     <font face='Work Sans' size='3'>

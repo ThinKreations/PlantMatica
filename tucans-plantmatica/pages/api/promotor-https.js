@@ -35,7 +35,7 @@ export const getInfoPromotor = async () => {
     });
     const resJSON = await res.json();
     /* Si si esta registrado como promotor se guardara su ID en el localStorage */
-    localStorage.setItem('id_promotor', resJSON.promotor._id)
+    if (resJSON.promotor !== null) { localStorage.setItem('id_promotor', resJSON.promotor._id) }
     return res;
 
 }
@@ -59,22 +59,4 @@ export const signSucursal = async sucursal => {
     return res;
 }
 
-export const signProducto = async producto => {
-
-    let id_user = localStorage.getItem('id');
-    const token = localStorage.getItem('token');
-    const data = { ...producto, usuario_referencia: id_user };
-    let raw = JSON.stringify(data);
-    const res = await fetch("https://plantmatica-api.vercel.app/producto", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "x-token": token
-        },
-        body: raw
-    });
-    const resJSON = await res.json();
-    atraparErrores(res, resJSON, 'Error al registrar el producto');
-    return res;
-}
 

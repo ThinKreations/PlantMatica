@@ -174,7 +174,10 @@ export default function Sucursales ({ arrayEtiquetas, sucursales }) {
 
         <hr className={styles.bar} />
         <center>
-          <Registrar etiquetasRender={arrayEtiquetas} sucursalesRender={sucursales} />
+          <Registrar
+            etiquetasRender={arrayEtiquetas}
+            sucursalesRender={sucursales}
+          />
         </center>
       </div>
     </>
@@ -191,7 +194,19 @@ export async function getServerSideProps ({ query }) {
       }
     }
   )
+
+  const resProd = await fetch(
+    `https://plantmatica-api.vercel.app/product/${query.idpromo}`,
+    {
+      headers: {
+        'x-token': query.token
+      }
+    }
+  )
+
+  const { productos } = await resProd.json();
   const { sucursales } = await res.json()
+
   return {
     props: { arrayEtiquetas, sucursales, notFound: false }
   }

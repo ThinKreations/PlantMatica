@@ -1,5 +1,4 @@
-import { Autocomplete } from '@mui/material'
-import { traerEtiquetas } from '../../pages/api/fichas-http'
+import { Autocomplete, FormGroup } from '@mui/material'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup'
@@ -7,11 +6,15 @@ import MainHead from '../MainHead'
 import styles from '../../styles/Promotor.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
-import Chip from '@mui/material/Chip';
-import { Checkbox, FormControl } from '@mui/material'
+import Chip from '@mui/material/Chip'
 import TextField from '@mui/material/TextField'
-import { schemaSignProducto } from '../../schemas/signProducto'
-import { signProducto } from '../../pages/api/promotor-https'
+import { schemaAgregarProducto } from '../../schemas/agregarProducto'
+import Imagen from '../../components/fichas/AgregarImagen'
+import { FormControlLabel } from '@mui/material'
+import ListItemText from '@mui/material/ListItemText'
+import Select from '@mui/material/Select'
+import Checkbox from '@mui/material/Checkbox'
+import { signProducto } from '../../pages/api/producto-https'
 
 export default function RegistrarProductos ({
   etiquetasRender = [],
@@ -20,37 +23,67 @@ export default function RegistrarProductos ({
   const [registrado, setRegistrado] = useState(false)
   const [etiquetas, setEtiquetas] = useState()
   const [advertencias, setAdvertencias] = useState()
+  const [sucursales, setSucursales] = useState([])
+  const [modal, setModal] = useState(true)
 
   const {
     register,
     handleSubmit,
     formState: { errors }
   } = useForm({
-    resolver: yupResolver(schemaSignProducto)
+    resolver: yupResolver(schemaAgregarProducto)
   })
 
+  const disponibilidadSucursales = id => {
+    if (sucursales.includes(id)) {
+      setSucursales(sucursales.filter(sucursal => sucursal !== id))
+    } else {
+      setSucursales([...sucursales, id])
+    }
+  }
+
   const onSubmit = async data => {
-    /*const res = await signSucursal(data);
-    if(res.status === 200){
-        setRegistrado(true);
-    }*/
-    console.log(data.nombre_producto)
+    let producto = {
+      nombre: data.nombre,
+      descripcion: data.descripcion,
+      costo_fisico: data.costo_fisico,
+      etiquetas,
+      advertencias,
+      disponibilidad_sucursales: sucursales
+    }
+    let res = await signProducto(producto)
+    if (res.status === 200) {
+      setModal(true)
+    }
   }
   return (
     <>
       <center>
+        {modal ? <Imagen /> : ''}
         <form className={styles.registrar} onSubmit={handleSubmit(onSubmit)}>
           <font size={5} face='Work Sans' color='007200'>
             <b>Registrar Producto</b>
           </font>
           <br />
           <input
-            {...register('nombre_producto')}
+            {...register('nombre')}
             className={styles.input}
             placeholder='Nombre del producto'
           ></input>
-          <p className={styles.errors}>{errors.nombre_producto?.message}</p>
-          <input className={styles.input} placeholder='Tipo de producto' />
+          <p className={styles.errors}>{errors.nombre?.message}</p>
+          <input
+            className={styles.input}
+            placeholder='Descripción del producto'
+            {...register('descripcion')}
+          ></input>
+          <p className={styles.errors}>{errors.descripcion?.message}</p>
+          <input
+            className={styles.input}
+            type='number'
+            placeholder='Precio'
+            {...register('costo_fisico')}
+          ></input>
+          <p className={styles.errors}>{errors.costo_fisico?.message}</p>
 
           <Autocomplete
             multiple
@@ -79,10 +112,6 @@ export default function RegistrarProductos ({
               />
             )}
           />
-          <input
-            className={styles.input}
-            placeholder='Descripción del producto'
-          ></input>
           <Autocomplete
             multiple
             sx={{ marginTop: '20px' }}
@@ -110,27 +139,25 @@ export default function RegistrarProductos ({
               />
             )}
           />
-          <input
-            className={styles.input}
-            placeholder='Aquí se pondrán las sucursales como etiquetas, y si no está disponible en tienda, no se pone nada, aunque no se como poner campos así, ayuda xdd'
-          ></input>
-          <input
-            className={styles.input}
-            type='number'
-            placeholder='Precio'
-          ></input>
-          <input
-            className={styles.input}
-            placeholder='Página Web (Opcional)'
-          ></input>
-          <br />
           <p className={styles.dia}>Disponible en: </p>
-          <select className={styles.mini_input}>
-            <option value='Tienda'>En tienda</option>
-            <option value='Linea'>En línea</option>
-            <option value='Ambos'>En tienda y en línea</option>
-          </select>
-          <br />
+          <FormGroup>
+            {sucursalesRender.map(sucursal => {
+              return (
+                <FormControlLabel
+                  key={sucursal._id}
+                  control={
+                    <Checkbox
+                      color='success'
+                      onChange={() => disponibilidadSucursales(sucursal._id)}
+                      sx={{ fontSize: 28 }}
+                    />
+                  }
+                  label={`${sucursal.nombre_sucursal} - ${sucursal.direccion.estado} - ${sucursal.direccion.alcaldia} - ${sucursal.direccion.avenida}`}
+                />
+              )
+            })}
+          </FormGroup>
+
           <font size={4} face='Work Sans' color='007200'></font>
 
           <button type='submit' className={styles.btnSign}>

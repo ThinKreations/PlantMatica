@@ -2,25 +2,27 @@
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: 400;
-    src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: url(https://example.com/MaterialIcons-Regular.eot);
+    /* For IE6-8 */
     src: local('Material Icons'),
-      local('MaterialIcons-Regular'),
-      url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
-      url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
-      url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+        local('MaterialIcons-Regular'),
+        url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+        url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+        url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
 }
 
-.fondo{
-    background-color: rgb(250,250,250);
+.fondo {
+    background-color: rgb(250, 250, 250);
 }
 
-.materialIcons{
+.materialIcons {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
-    font-size: 24px;  /* Preferred icon size */
-    
-    
+    font-size: 24px;
+    /* Preferred icon size */
+
+
     text-transform: none;
     letter-spacing: normal;
     word-wrap: normal;
@@ -28,7 +30,7 @@
     direction: ltr;
 
     -webkit-font-smoothing: antialiased;
-    
+
     text-rendering: optimizeLegibility;
 
     -moz-osx-font-smoothing: grayscale;
@@ -42,11 +44,11 @@
 .card {
     margin-top: 25px;
     margin-bottom: 25px;
-    
+
 }
 
 .tableFichas {
-   
+
     overflow-y: auto;
 }
 
@@ -72,16 +74,16 @@
     border-radius: 4px;
     transition: 0.3s;
     color: white;
-    background: linear-gradient(to right,  var(--rightColor), purple);
+    background: linear-gradient(to right, var(--rightColor), purple);
     background-attachment: fixed;
-    
+
 }
 
 .etiquetas:hover {
-    
-    text-shadow: 0px 0px 4px rgb(250,250,250);
-    
-    
+
+    text-shadow: 0px 0px 4px rgb(250, 250, 250);
+
+
 }
 
 .btnLinkFicha {
@@ -106,7 +108,7 @@
 
 .containerFicha {
     margin: 32px;
-    
+
 }
 
 .base {
@@ -239,28 +241,28 @@
 
 /* Campos de texto */
 
-.imgInput{
-    
-        width: 12.45%;
-        height: auto;
-        min-width: 157px;
-        margin-top: 10px;
-        margin-bottom:10px;
-        transition: 0.3s;
-        border: 0;
-        font-size: 16px;
-        background-color: rgba(150, 150, 150, 0.0);
-        outline: none;
-        
-    }
+.imgInput {
 
-    .imgInput:hover{
-        background-color: rgba(150, 150, 150, 0.2);
-    }
+    width: 12.45%;
+    height: auto;
+    min-width: 157px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+    border: 0;
+    font-size: 16px;
+    background-color: rgba(150, 150, 150, 0.0);
+    outline: none;
 
-    .imgInput:focus{
-        background-color: rgba(255,255,255,0.5); 
-    }
+}
+
+.imgInput:hover {
+    background-color: rgba(150, 150, 150, 0.2);
+}
+
+.imgInput:focus {
+    background-color: rgba(255, 255, 255, 0.5);
+}
 
 
 
@@ -278,19 +280,19 @@
 
 .txtEtiquetas:hover {
     background-color: #dbdbdb;
-    
+
 }
 
 .txtEtiquetas:focus {
     outline: none;
-    
+
     border: 1px rgb(0, 0, 0);
     border: 1px solid black;
 }
 
 .txtEtiquetas:active {
     outline: none;
-    
+
     border: 1px rgb(0, 0, 0);
     border: 1px solid black;
 }
@@ -408,12 +410,12 @@
     border: 1px rgb(0, 0, 0)
 }
 
-.text_danger{
+.text_danger {
     color: var(--danger-color);
     font-size: 19px;
 }
 
-.buscar_btn{
+.buscar_btn {
     color: var(--naranja-color);
     transition: 0.3s;
     border: 1px solid var(--naranja-color);
@@ -423,7 +425,7 @@
     font-size: 18px;
 }
 
-.buscar_btn:hover{
+.buscar_btn:hover {
     background-color: var(--naranja-color);
     transform: scale(1.05, 1.05);
     color: white;
@@ -431,35 +433,35 @@
 
 /* Comentarios */
 
-.commentArea{
-    
+.commentArea {
+
     width: 80%;
     height: max-content;
     padding: 5px;
     padding-left: 20px;
-    
+
 }
 
-.btnEnviar{
+.btnEnviar {
     transform: translate(15px, -8px);
     width: 64px;
     height: 26px;
     background: linear-gradient(to right, var(--hover-color), var(--rightColor));
     background-attachment: fixed;
     border: none;
-    
+
     transition: 0.3s;
 }
 
-    .btnEnviar:hover{
-        border-radius: 10px;
-        text-shadow: 0px 0px 3px #f2f2f2;
-    }
+.btnEnviar:hover {
+    border-radius: 10px;
+    text-shadow: 0px 0px 3px #f2f2f2;
+}
 
 /* Area de comentarios */
 
-.comBox{
-    background: linear-gradient(135deg,  rgba(182, 224, 84, 0.4),rgba(255, 229, 146, 0.4));
+.comBox {
+    background: linear-gradient(135deg, rgba(182, 224, 84, 0.4), rgba(255, 229, 146, 0.4));
     background-attachment: fixed;
     margin-bottom: 15px;
     width: 123%;
@@ -470,17 +472,17 @@
     box-shadow: 0px 0px 4px rgb(125, 125, 125);
 }
 
-.com_Info{
-    color:rgb(50,50,50);
+.com_Info {
+    color: rgb(50, 50, 50);
     font-size: 90%;
 }
 
-.com_Body{
+.com_Body {
     font-size: 115%;
 
 }
 
-.com_Del{
+.com_Del {
     background-color: white;
     border: 1px solid var(--danger-color);
     color: var(--danger-color);
@@ -493,12 +495,12 @@
 }
 
 .com_Del:hover {
-    
+
     background-color: var(--danger-color);
     color: white;
 }
 
-.com_Report{
+.com_Report {
     background-color: white;
     border: 1px solid var(--danger-color);
     color: var(--danger-color);
@@ -512,9 +514,38 @@
 }
 
 .com_Report:hover {
-    
+
     background-color: var(--danger-color);
     color: white;
 }
 
-/* Ola esto es para editar la ficha */
+/* Ola esto es para las imagenes */
+.imagen_cuadrada {
+    border-radius: 4px;
+    transition: 0.3s;
+    margin: 10px;
+    margin-right: 5%;
+}
+
+.imagen_circular {
+    border-radius: 50%;
+    transition: 0.3s;
+    margin: 10px;
+    margin-right: 5%;
+}
+
+
+.imagen_cuadrada:hover {
+    transform: scale(1.2, 1.2);
+}
+
+/* Para que los nombres y la imagen vayan juntas */
+.imagen_container {
+    display: flex;
+    align-items: center;
+}
+
+.container_imagen_nombres{
+    padding-left: 40px;
+}
+

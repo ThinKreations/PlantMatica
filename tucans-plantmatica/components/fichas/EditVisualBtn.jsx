@@ -4,7 +4,12 @@ import { useState } from 'react'
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import styles from '../../styles/Fichas.module.css'
 
-export default function EditVisualBtn ({ editarVista, fichaParaEdicion, changeValue, visualizarNombreDato }) {
+export default function EditVisualBtn ({
+  editarVista,
+  fichaParaEdicion,
+  changeValue,
+  visualizarNombreDato
+}) {
   const [vista, setVista] = useState(editarVista)
   const [valor, setValor] = useState(fichaParaEdicion)
 
