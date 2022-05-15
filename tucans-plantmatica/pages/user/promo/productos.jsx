@@ -163,7 +163,7 @@ export async function getServerSideProps ({ query }) {
   )
 
   const resProd = await fetch(
-    `https://plantmatica-api.vercel.app/product/${query.idpromo}`,
+    `https://plantmatica-api.vercel.app/product/promo/${query.idpromo}`,
     {
       headers: {
         'x-token': query.token

@@ -4,10 +4,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import LayoutMenu from '../../../components/LayoutMenu'
 import MenuPromo from '../../../components/promo/MenuPromo'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { getInfoPromotor } from '../../api/promotor-https'
+import { getProductos } from '../../api/producto-https'
+import uid from 'tiny-uid'
 
-export default function Promotor () {
+export default function Promotor ({productos}) {
+
+  const [renderProduct,setRenderProduct] = useState (productos)
 
   useEffect(() => {
     getInfoPromotor()
@@ -28,6 +32,8 @@ export default function Promotor () {
         </center>
         <div className={styles.box_index_divider}>
           <div className={styles.info}>
+
+
             <h3 className={styles.cuestion}>
               Aquí podrás encontrar los mejores productos y promotores en el mercado de la medicina y herbolaria.
             </h3>
@@ -42,14 +48,29 @@ export default function Promotor () {
 
         </div>
         
-        <div className={styles.fichero}>
-            <div className={styles.ficha}>
+        
+
+            {setRenderProduct.length === 0 ? (
+              <>
+              <Alert variant='outlined' severity='info'>
+                <AlertTitle>No hay productos</AlertTitle>
+                No hay productos registrados en la página
+                <strong> Si esto es un error recarga la pagina</strong>
+              </Alert>
+              </>
+            ):(
+              <div className={styles.fichero}>
+              {renderProduct.map(p => {
+                return (
+              <div className={styles.ficha} key={uid()}>
               <aside className={styles.dataProductos}>
                 <font size={2} face='Work Sans' color='007200'>
-                  <h1>`Nombre`</h1>
+                  <h1>{p.nombre}</h1>
+                  <h3>{p.descripcion}</h3>
+                  <h3>{p.costo_fisico}</h3>
                   <h3>`Promotor/distribuidor`</h3>
                   <h3>`Tipo de producto`</h3>
-                  <h3>Descripción del producto</h3>
+                  
                   <h3>En tienda: `Sí/No`</h3>
                   <h3>En línea: `Sí/No`</h3>
                 </font>
@@ -61,42 +82,30 @@ export default function Promotor () {
                   <h2>Precios:</h2>
                   <h2>Sucursales donde se encuentra:</h2>
 
-                  <font size={2} face='Work Sans'>
-                    <li>
-                      <b>Sucursal `1`</b>
-                    </li>
-                    <li>
-                      <b>Sucursal `1`</b>
-                    </li>
-                    <li>
-                      <b>Sucursal `1`</b>
-                    </li>
-                    <li>
-                      <b>Sucursal `1`</b>
-                    </li>
-                    <li>
-                      <b>Sucursal `1`</b>
-                    </li>
-                    <li>
-                      <b>Sucursal `1`</b>
-                    </li>
-                  </font>
+                  
                 </font>
               </aside>
               <div>
                 <br />
               </div>
             </div>
+              )})}
             </div>
+            )
+          
+          }
+        
+            
 
       </div>
     </>
   )
 }
 
+
 export async function getServerSideProps ({ query }) {
   const res = await fetch(
-    `https://plantmatica-api.vercel.app/productos`,
+    `https://plantmatica-api.vercel.app/product/visualizar-productos`,
     {
       headers: {
         'x-token': query.token
