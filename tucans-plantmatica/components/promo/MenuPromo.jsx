@@ -10,6 +10,7 @@ export default function MenuPromo () {
   const [idPromo, setIdPromo] = useState()
   const [token, setToken] = useState()
   const [optionMenu, setOptionMenu] = useState(false)
+  const [idUser, setIdUser] = useState()
 
   const definirRutas = async () => {
     if (!idPromo) {
@@ -21,6 +22,8 @@ export default function MenuPromo () {
       } /* else if (idPromo === null || idPromo == undefined) {
       } */
       let tokenR = localStorage.getItem('token')
+      let id_user = localStorage.getItem('id')
+      setIdUser(id_user)
       setToken(tokenR)
     }
   }
@@ -81,7 +84,7 @@ export default function MenuPromo () {
                   </button>
                 </a>
               </Link>
-              <Link href={`/user/promo/perfil?idpromo=${idPromo}&token=${token}`}>
+              <Link href={`/user/promo/perfil?iduser=${idUser}&token=${token}`}>
                 <a>
                   <button className={styles.btnMenu}>
                     <font face='Work Sans' size='3'>

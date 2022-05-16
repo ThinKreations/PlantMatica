@@ -44,7 +44,7 @@
 .card {
     margin-top: 25px;
     margin-bottom: 25px;
-
+    flex-grow: 5;
 }
 
 .tableFichas {

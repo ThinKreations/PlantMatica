@@ -15,6 +15,7 @@ html, body {
   --hover-secondary-color: rgba(53, 114, 102, 0.2);
   --bg-color-lg: #e6fada;
   --save-color: rgb(106, 124, 223);
+  --save-color-lg: rgb(63, 88, 231);
   --purple-color: rgb(145, 25, 161);
   --purple-lg: rgb(169, 44, 186);
   --purple-hover: rgb(247, 217, 251);

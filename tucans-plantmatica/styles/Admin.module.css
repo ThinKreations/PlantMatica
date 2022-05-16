@@ -1,9 +1,9 @@
-.table{
+.table {
     display: grid;
     grid-template-columns: 30% 70%;
 }
 
-.minicard{
+.minicard {
     background-color: var(--save-color);
     color: white;
     border-radius: 4px;
@@ -13,7 +13,17 @@
     align-items: center;
 }
 
-.promo_icon{
+.minicard_socios {
+    background-color: var(--save-color-lg);
+    color: white;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.promo_icon {
     font-size: 64px;
     display: grid;
     justify-content: center;
@@ -25,7 +35,7 @@
     font-size: 20px;
 }
 
-.card{
+.card {
     margin: 10px;
     border-bottom: 1px solid rgb(207, 202, 202);
     border-right: 1px solid rgb(207, 202, 202);
@@ -34,27 +44,27 @@
     border-radius: 4px;
 }
 
-.card_med{
+.card_med {
     display: grid;
     justify-content: left;
 }
 
-.card_content{
+.card_content {
     margin: 10px;
 }
 
-.content{
+.content {
     padding: 10px;
     display: grid;
     grid-template-columns: 15% 85%;
 }
 
-.text{
+.text {
     color: black;
     padding: 5px;
 }
 
-.rig{
+.rig {
     display: flex;
     justify-content: center;
     justify-items: center;
@@ -62,48 +72,48 @@
 }
 
 /* Tarjeta de fichas no aceptadas */
-.card_not{
-    
+.card_not {
+
     color: var(--danger-color);
 }
 
-.card_not:hover{
-    transition: 0.3s;    
+.card_not:hover {
+    transition: 0.3s;
     background-color: var(--danger-color-hover);
     transform: scale(1.02, 1.02);
 }
 
-.not_title{
+.not_title {
     color: var(--danger-color);
 }
 
 /* Tarjeta para solicitudes de edicion */
-.card_edit{
+.card_edit {
     color: var(--text-color);
 }
 
-.card_edit:hover{
-    transition: 0.3s;    
+.card_edit:hover {
+    transition: 0.3s;
     background-color: var(--bg-color-lg);
     transform: scale(1.02, 1.02);
 }
 
-.edit_title{
+.edit_title {
     color: var(--text-color);
 }
 
 /* Tarjeta promotores */
-.card_promo{
+.card_promo {
     color: var(--purple-color);
 }
 
-.card_promo:hover{
-    transition: 0.3s;    
+.card_promo:hover {
+    transition: 0.3s;
     background-color: var(--purple-hover);
     transform: scale(1.02, 1.02);
 }
 
-.card_ficha{
+.card_ficha {
     margin: 10px;
     border-bottom: 2px solid rgb(207, 202, 202);
     border-right: 2px solid rgb(207, 202, 202);
@@ -115,8 +125,8 @@
     justify-content: left;
 }
 
-.promo_title{
-    
+.promo_title {
+
     color: var(--purple-lg);
 }
 
@@ -161,14 +171,18 @@
 }
 
 @media screen and (max-width: 600px) {
-    .card_edit, .card_promo, .card_not{
+
+    .card_edit,
+    .card_promo,
+    .card_not {
         height: 180px;
     }
-    .text{
+
+    .text {
         transform: translate(-200px, 0);
     }
-    
-    .rig{
+
+    .rig {
         transform: translate(40px, -50px);
     }
 }

@@ -26,6 +26,8 @@ export default function Menusup ({ children }) {
 
   const cerrarSesion = async () => {
     localStorage.removeItem('token')
+    localStorage.removeItem('id')
+    localStorage.removeItem('id_promotor')
     Router.push('/')
   }
 
