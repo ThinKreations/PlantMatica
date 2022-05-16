@@ -29,7 +29,7 @@ export const agregarFichaReq = async (ficha) => {
             timer: '3000'
         });
     }
-    return res.status
+    return { resJSON, res }
 }
 
 export const traerEtiquetas = async () => {

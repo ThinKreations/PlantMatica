@@ -6,7 +6,8 @@ import Link from 'next/link'
 import LayoutMenu from '../../../components/LayoutMenu'
 import MenuPromo from '../../../components/promo/MenuPromo'
 import Registrar from '../../../components/promo/RegistrarProducto'
-import EditIcon from '@mui/icons-material/Edit'
+import Alert from '@mui/material/Alert'
+import AlertTitle from '@mui/material/AlertTitle'
 import uid from 'tiny-uid'
 
 export default function Productos ({ arrayEtiquetas, sucursales, productos }) {
@@ -31,63 +32,63 @@ export default function Productos ({ arrayEtiquetas, sucursales, productos }) {
             </center>
           </font>
 
-          <div className={styles.fichero}>
-            {productos.map(producto => {
-              return (
-                <div className={styles.ficha} key={producto._id}>
-                  <div className={styles.fichaImagen}>
-                    <Image src={producto.imagen} width={128} height={128} />
-                  </div>
-                  <aside
-                    className={styles.dataProductos}
-                    style={{ paddingLeft: '20px' }}
-                  >
-                    <font size={3} face='Work Sans' color='007200'>
-                      <h2>{producto.nombre}</h2>
-                    </font>
+          {renderProduct.length === 0 ? (
+            <>
+              <Alert variant='outlined' severity='info'>
+                <AlertTitle>No hay productos</AlertTitle>
+                No hay productos registrados en la página
+                <strong> Si esto es un error recarga la pagina</strong>
+              </Alert>
+            </>
+          ) : (
+            <div className={styles.fichero}>
+              {renderProduct.map(producto => {
+                return (
+                  <div className={styles.ficha} key={producto._id}>
+                    <div className={styles.fichaImagen}>
+                      <Image
+                        src={producto.imagen}
+                        className={styles.imagen_cuadrada}
+                        width={128}
+                        height={128}
+                      />
+                    </div>
+                    <aside
+                      className={styles.dataProductos}
+                      style={{ paddingLeft: '20px' }}
+                    >
+                      <font size={3} face='Work Sans' color='007200'>
+                        <h2>{producto.nombre}</h2>
+                      </font>
 
-                    <p>{producto.descripcion}</p>
-                    <p>Costo físico: ${producto.costo_fisico} mxn</p>
-                    <font size={2} face='Work Sans' color='007200'>
-                      <h2>Sucursales donde se encuentra:</h2>
-                    </font>
-                    <font size={3} face='Work Sans'>
-                      <ul>
-                        {producto.disponibilidad_sucursales.map(sucursal => {
-                          return (
-                            <li key={sucursal._id}>
-                              {sucursal.direccion.estado} -{' '}
-                              {sucursal.direccion.alcaldia} -{' '}
-                              {sucursal.direccion.avenida} -{' '}
-                              {sucursal.direccion.num_ext_int}
-                            </li>
-                          )
-                        })}
-                      </ul>
-                      <font size={2} face='Work Sans' color='007200'>
-                        <h2>
-                          Advertencias, contradicciones, efectos secundarios:
-                        </h2>
+                      <p>{producto.descripcion}</p>
+                      <p>Costo físico: ${producto.costo_fisico} mxn</p>
+                      <font size={3} face='Work Sans'>
+                        <font size={2} face='Work Sans' color='007200'>
+                          <h2>
+                            Advertencias, contradicciones, efectos secundarios:
+                          </h2>
+                        </font>
+                        <ul>
+                          {producto.advertencias.map(a => {
+                            return <li key={uid()}>{a}</li>
+                          })}
+                        </ul>
+                        <font size={2} face='Work Sans' color='007200'>
+                          <h2>Etiquetas:</h2>
+                        </font>
+                        <ul>
+                          {producto.etiquetas.map(e => {
+                            return <li key={uid()}> {e} </li>
+                          })}
+                        </ul>
                       </font>
-                      <ul>
-                        {producto.advertencias.map(a => {
-                          return <li key={uid()}>{a}</li>
-                        })}
-                      </ul>
-                      <font size={2} face='Work Sans' color='007200'>
-                        <h2>Etiquetas:</h2>
-                      </font>
-                      <ul>
-                        {producto.etiquetas.map(e => {
-                          return <li key={uid()}> {e} </li>
-                        })}
-                      </ul>
-                    </font>
-                  </aside>
-                </div>
-              )
-            })}
-          </div>
+                    </aside>
+                  </div>
+                )
+              })}
+            </div>
+          )}
         </div>
 
         <hr className={styles.bar} />

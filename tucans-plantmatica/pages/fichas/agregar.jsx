@@ -18,8 +18,7 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { agregarFichaReq, traerEtiquetas } from '../api/fichas-http';
 import { validarToken } from '../api/request';
-import Imagen from '../../components/fichas/AgregarImagen'
-import { set } from 'react-hook-form';
+import Swal from 'sweetalert2';
 
 function valuetext(value) {
     return `${value}°C`;
@@ -39,7 +38,6 @@ export default function Ficha({ arrayEtiquetas }) {
     const [complemento, setcomplemento] = useState();
     const [descripcion, setdescripcion] = useState();
 
-    const [modal, setModal] = useState(false);
 
     const agregarFicha = async () => {
         event.preventDefault();
@@ -62,10 +60,29 @@ export default function Ficha({ arrayEtiquetas }) {
             descripcion,
             usuario_creo: id
         });
-        const estado = await agregarFichaReq(object);
-        if(estado = 200){
-            setModal(true)
-        }
+        const { resJSON, res } = await agregarFichaReq(object);
+        const { value: file } = await Swal.fire({
+            title: '¡Solicitud de ficha registrada! - ¿Desea agregarle una imagen?',
+            input: 'file',
+            showCancelButton: true,
+            confirmButtonText: 'Subir imagen.',
+            showLoaderOnConfirm: true,
+            inputAttributes: {
+              accept: 'image/*',
+              'aria-label': 'Agregar imagen'
+            }
+          })
+          if (file) {
+            const res = uploadImagen(file, 'fichas', resJSON.fichaAgregada._id)
+            if (res.status == 200) {
+              Swal.fire({
+                title: 'Imagen agregada',
+                //imageUrl: e.target.result,
+                icon: 'success'
+              })
+            }
+            location.reload();
+          }
         
     }
 
@@ -137,9 +154,7 @@ export default function Ficha({ arrayEtiquetas }) {
                                     )}
                                 />
                                
-                                
-                                {modal?<Imagen/>:''}  
-
+                            
                                 <hr className={styles.division} />
                                 <p className={styles.textD}>{`Nombre comun: `}</p>
                                 <TextField required
