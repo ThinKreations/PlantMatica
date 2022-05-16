@@ -9,9 +9,13 @@ import Registrar from '../../../components/promo/RegistrarProducto'
 import Alert from '@mui/material/Alert'
 import AlertTitle from '@mui/material/AlertTitle'
 import uid from 'tiny-uid'
+import { useEffect, useState } from 'react'
 
 export default function Productos ({ arrayEtiquetas, sucursales, productos }) {
+
+  const [renderProduct, setRenderProduct] = useState(productos)
   return (
+
     <>
       <MainHead tituloPestana='Productos' />
       <LayoutMenu />
