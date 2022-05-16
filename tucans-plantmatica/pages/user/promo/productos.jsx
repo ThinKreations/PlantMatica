@@ -21,9 +21,6 @@ export default function Productos ({ arrayEtiquetas, sucursales, productos }) {
             <h1>Productos</h1>
           </font>
         </center>
-        <p>
-          Aquí va la barra de búsqueda y los productos que estén registrados
-        </p>
 
         <hr className={styles.bar} />
 

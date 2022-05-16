@@ -4,10 +4,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 import LayoutMenu from '../../../components/LayoutMenu'
 import MenuPromo from '../../../components/promo/MenuPromo'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { getInfoPromotor } from '../../api/promotor-https'
+import { getProductos } from '../../api/producto-https'
+import uid from 'tiny-uid'
+import Alert from '@mui/material/Alert'
+import AlertTitle from '@mui/material/AlertTitle'
 
-export default function Promotor () {
+export default function Promotor ({productos}) {
+
+  const [renderProduct,setRenderProduct] = useState (productos)
 
   useEffect(() => {
     getInfoPromotor()
@@ -19,60 +25,95 @@ export default function Promotor () {
       <LayoutMenu />
       <MenuPromo />
       <div className={styles.container}>
-        {/* 
+        
         
         <center>
-          <font size={6} face='Work Sans' color='007200'>
-            <h1>PlantMatica para promotores</h1>
+          <font size={5} face='Work Sans' color='007200'>
+            <h1>¡Bienvenido!</h1>
           </font>
         </center>
         <div className={styles.box_index_divider}>
           <div className={styles.info}>
+
+
             <h3 className={styles.cuestion}>
-              ¿Por qué registrarse como promotor?
+              Aquí podrás encontrar los mejores productos y promotores en el mercado de la medicina y herbolaria.
             </h3>
-            <p style={{ fontSize: '20px' }}>
-              Con nuestro programa para promotores de PlantMatica podras
-              publicar tus productos relacionado a la herbolaria, registrar las
-              sucursales.
-            </p>
-            <h3 className={styles.cuestion}>¿Cómo beneficia a mi negocio?</h3>
-            <p style={{ fontSize: '20px' }}>
-              Podrás tener un mejor feedback de tus productos gracias a la
-              comunicación con tus clientes en la plataforma.
-            </p>
-            <h3 className={styles.cuestion}>¿Qué necesito para registrarme?</h3>
-            <ul style={{ fontSize: '18px' }}>
-              <li>
-                Razón social, o nombre de la persona física titular de la
-                cuenta.
-              </li>
-              <li>
-                Dirección comercial (que sea comprobable con un estado de cuenta
-              </li>
-              <li>con la misma dirección) </li>
-              <li>
-                Nombre público. Este será el nombre de la tienda en la
-                aplicación PlantMatica.{' '}
-              </li>
-              <li>CLABE interbancaria. </li>
-              <li>
-                Tarjeta de crédito del titular de la cuenta: En esta tarjeta se
-                hará cobro
-              </li>
-              <li>
-                de las mensualidades como promotor dentro de la aplicación.{' '}
-              </li>
-              <li>RFC de la empresa o persona física.</li>
-            </ul>
-            <Link href='/user/promo/SignPromotor'>
-            <button className={styles.btnSign}><font size="3" face="Work Sans"><b>✚ Registrarse como promotor</b></font></button>
-            </Link>
+            Si deseas registrarte como promotor, <font color='007200'><Link href='./promo/SignPromotor'><b>haz clic aquí.</b></Link></font>
           </div>
+          <hr className={styles.bar}></hr>
+          <p>Barra de busqueda aki</p>
+
+
+
+
+
         </div>
         
-        */}
+        
+
+            {setRenderProduct.length === 0 ? (
+              <>
+              <Alert variant='outlined' severity='info'>
+                <AlertTitle>No hay productos</AlertTitle>
+                No hay productos registrados en la página
+                <strong> Si esto es un error recarga la pagina</strong>
+              </Alert>
+              </>
+            ):(
+              <div className={styles.fichero}>
+              {renderProduct.map(p => {
+                return (
+              <div className={styles.ficha} key={uid()}>
+              <aside className={styles.dataProductos}>
+                <font size={2} face='Work Sans' color='007200'>
+                  <h1>{p.nombre}</h1>
+                  <h3>{p.descripcion}</h3>
+                  <h3>{p.costo_fisico}</h3>
+                  <h3>`Promotor/distribuidor`</h3>
+                  <h3>`Tipo de producto`</h3>
+                  
+                  <h3>En tienda: `Sí/No`</h3>
+                  <h3>En línea: `Sí/No`</h3>
+                </font>
+              </aside>
+              <aside className={styles.dataProductos}>
+                <font size={1} face='Work Sans' color='007200'>
+                  <h2>Etiquetas:</h2>
+                  <h2>Advertencias:</h2>
+                  <h2>Precios:</h2>
+                  <h2>Sucursales donde se encuentra:</h2>
+
+                  
+                </font>
+              </aside>
+              <div>
+                <br />
+              </div>
+            </div>
+              )})}
+            </div>
+            )
+          
+          }
+        
+            
+
       </div>
     </>
   )
+}
+
+
+export async function getServerSideProps ({ query }) {
+  const res = await fetch(
+    `https://plantmatica-api.vercel.app/product/visualizar-productos`,
+    {
+      headers: {
+        'x-token': query.token
+      }
+    }
+  )
+  const { productos } = await res.json()
+  return { props: { productos, notFound: false } }
 }

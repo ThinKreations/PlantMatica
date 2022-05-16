@@ -36,7 +36,7 @@ export default function Sucursales ({ sucursales }) {
             </center>
           </font>
 
-          {sucursalesRender.length === 0 ? (
+          {sucursalesRender.length === 1 ? (
             <>
               <Alert variant='outlined' severity='info'>
                 <AlertTitle>Sin sucursales</AlertTitle>
