@@ -2,7 +2,7 @@ import { Autocomplete, FormGroup } from '@mui/material'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup'
-import MainHead from '../MainHead'
+import Swal from 'sweetalert2'
 import styles from '../../styles/Promotor.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -11,8 +11,7 @@ import TextField from '@mui/material/TextField'
 import { schemaAgregarProducto } from '../../schemas/agregarProducto'
 import Imagen from '../../components/fichas/AgregarImagen'
 import { FormControlLabel } from '@mui/material'
-import ListItemText from '@mui/material/ListItemText'
-import Select from '@mui/material/Select'
+import { uploadImagen } from '../../pages/api/uploads-http'
 import Checkbox from '@mui/material/Checkbox'
 import { signProducto } from '../../pages/api/producto-https'
 
@@ -24,7 +23,8 @@ export default function RegistrarProductos ({
   const [etiquetas, setEtiquetas] = useState()
   const [advertencias, setAdvertencias] = useState()
   const [sucursales, setSucursales] = useState([])
-  const [modal, setModal] = useState(true)
+  const [modal, setModal] = useState(false)
+  const [id_mongo, setIdMongo] = useState(null)
 
   const {
     register,
@@ -51,15 +51,33 @@ export default function RegistrarProductos ({
       advertencias,
       disponibilidad_sucursales: sucursales
     }
-    let res = await signProducto(producto)
-    if (res.status === 200) {
-      setModal(true)
+    let { res, resJSON } = await signProducto(producto)
+    const { value: file } = await Swal.fire({
+      title: '¡Producto registrado! - ¿Desea agregarle una imagen?',
+      input: 'file',
+      showCancelButton: true,
+      confirmButtonText: 'Subir imagen.',
+      showLoaderOnConfirm: true,
+      inputAttributes: {
+        accept: 'image/*',
+        'aria-label': 'Agregar imagen'
+      }
+    })
+    if (file) {
+      const res = uploadImagen(file, 'productos', resJSON._id)
+      if (res.status == 200) {
+        Swal.fire({
+          title: 'Imagen agregada',
+          //imageUrl: e.target.result,
+          icon: 'success'
+        })
+      }
+      location.reload();
     }
   }
   return (
     <>
       <center>
-        {modal ? <Imagen /> : ''}
         <form className={styles.registrar} onSubmit={handleSubmit(onSubmit)}>
           <font size={5} face='Work Sans' color='007200'>
             <b>Registrar Producto</b>

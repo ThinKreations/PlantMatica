@@ -7,8 +7,9 @@ import LayoutMenu from '../../../components/LayoutMenu'
 import MenuPromo from '../../../components/promo/MenuPromo'
 import Registrar from '../../../components/promo/RegistrarProducto'
 import EditIcon from '@mui/icons-material/Edit'
+import uid from 'tiny-uid'
 
-export default function Sucursales ({ arrayEtiquetas, sucursales }) {
+export default function Productos ({ arrayEtiquetas, sucursales, productos }) {
   return (
     <>
       <MainHead tituloPestana='Productos' />
@@ -24,38 +25,6 @@ export default function Sucursales ({ arrayEtiquetas, sucursales }) {
           Aquí va la barra de búsqueda y los productos que estén registrados
         </p>
 
-        {/*
-        <TableHead>
-          <TableRow>
-              <TableCell>
-
-                  <Stack spacing={2} >
-                      <Autocomplete
-                          freeSolo
-                          id="free-solo-2-demo"
-                          disableClearable
-                          
-                          renderInput={(params) => (
-                              <TextField color="success"
-                                  {...params}
-                                  label="Buscar plantas"
-                                  InputProps={{
-                                      ...params.InputProps,
-                                      type: 'search',
-                                  }}
-                              />
-                          )}
-                      />
-                  </Stack>
-              </TableCell>
-              <TableCell><button   >Buscar</button></TableCell>
-          </TableRow>
-          <TableRow>
-              <h2 sx={{ padding: '15px' }}>Termino de busqueda: </h2>
-          </TableRow>
-      </TableHead>
-        */}
-
         <hr className={styles.bar} />
 
         <div className={styles.sucursales}>
@@ -66,109 +35,61 @@ export default function Sucursales ({ arrayEtiquetas, sucursales }) {
           </font>
 
           <div className={styles.fichero}>
-            <div className={styles.ficha}>
-              <aside className={styles.dataProductos}>
-                <font size={2} face='Work Sans' color='007200'>
-                  <h1>`Nombre`</h1>
-                  <h3>`Promotor/distribuidor`</h3>
-                  <h3>`Tipo de producto`</h3>
-                  <h3>Descripción del producto</h3>
-                  <h3>En tienda: `Sí/No`</h3>
-                  <h3>En línea: `Sí/No`</h3>
-                </font>
-              </aside>
-              <aside className={styles.dataProductos}>
-                <font size={1} face='Work Sans' color='007200'>
-                  <h2>Etiquetas:</h2>
-                  <h2>Advertencias:</h2>
-                  <h2>Precios:</h2>
-                  <h2>Sucursales donde se encuentra:</h2>
+            {productos.map(producto => {
+              return (
+                <div className={styles.ficha} key={producto._id}>
+                  <div className={styles.fichaImagen}>
+                    <Image src={producto.imagen} width={128} height={128} />
+                  </div>
+                  <aside
+                    className={styles.dataProductos}
+                    style={{ paddingLeft: '20px' }}
+                  >
+                    <font size={3} face='Work Sans' color='007200'>
+                      <h2>{producto.nombre}</h2>
+                    </font>
 
-                  <font size={2} face='Work Sans'>
-                    <li>
-                      <b>Sucursal `1`</b>
-                    </li>
-                    <li>
-                      <b>Sucursal `1`</b>
-                    </li>
-                    <li>
-                      <b>Sucursal `1`</b>
-                    </li>
-                    <li>
-                      <b>Sucursal `1`</b>
-                    </li>
-                    <li>
-                      <b>Sucursal `1`</b>
-                    </li>
-                    <li>
-                      <b>Sucursal `1`</b>
-                    </li>
-                  </font>
-                </font>
-              </aside>
-              <div>
-                <button className={styles.btnEdit}>
-                  <EditIcon
-                    className={styles.editIcon}
-                    fontSize='medium'
-                    color='success'
-                  />
-                </button>
-                <br />
-              </div>
-            </div>
-
-            <div className={styles.ficha}>
-              <aside className={styles.dataProductos}>
-                <font size={2} face='Work Sans' color='007200'>
-                  <h1>`Nombre`</h1>
-                  <h3>`Promotor/distribuidor`</h3>
-                  <h3>`Tipo de producto`</h3>
-                  <h3>Descripción del producto</h3>
-                  <h3>En tienda: `Sí/No`</h3>
-                  <h3>En línea: `Sí/No`</h3>
-                </font>
-              </aside>
-              <aside className={styles.dataProductos}>
-                <font size={1} face='Work Sans' color='007200'>
-                  <h2>Etiquetas:</h2>
-                  <h2>Advertencias:</h2>
-                  <h2>Precios:</h2>
-                  <h2>Sucursales donde se encuentra:</h2>
-
-                  <font size={2} face='Work Sans'>
-                    <li>
-                      <b>Sucursal `1`</b>
-                    </li>
-                    <li>
-                      <b>Sucursal `1`</b>
-                    </li>
-                    <li>
-                      <b>Sucursal `1`</b>
-                    </li>
-                    <li>
-                      <b>Sucursal `1`</b>
-                    </li>
-                    <li>
-                      <b>Sucursal `1`</b>
-                    </li>
-                    <li>
-                      <b>Sucursal `1`</b>
-                    </li>
-                  </font>
-                </font>
-              </aside>
-              <div>
-                <button className={styles.btnEdit}>
-                  <EditIcon
-                    className={styles.editIcon}
-                    fontSize='medium'
-                    color='success'
-                  />
-                </button>
-                <br />
-              </div>
-            </div>
+                    <p>{producto.descripcion}</p>
+                    <p>Costo físico: ${producto.costo_fisico} mxn</p>
+                    <font size={2} face='Work Sans' color='007200'>
+                      <h2>Sucursales donde se encuentra:</h2>
+                    </font>
+                    <font size={3} face='Work Sans'>
+                      <ul>
+                        {producto.disponibilidad_sucursales.map(sucursal => {
+                          return (
+                            <li key={sucursal._id}>
+                              {sucursal.direccion.estado} -{' '}
+                              {sucursal.direccion.alcaldia} -{' '}
+                              {sucursal.direccion.avenida} -{' '}
+                              {sucursal.direccion.num_ext_int}
+                            </li>
+                          )
+                        })}
+                      </ul>
+                      <font size={2} face='Work Sans' color='007200'>
+                        <h2>
+                          Advertencias, contradicciones, efectos secundarios:
+                        </h2>
+                      </font>
+                      <ul>
+                        {producto.advertencias.map(a => {
+                          return <li key={uid()}>{a}</li>
+                        })}
+                      </ul>
+                      <font size={2} face='Work Sans' color='007200'>
+                        <h2>Etiquetas:</h2>
+                      </font>
+                      <ul>
+                        {producto.etiquetas.map(e => {
+                          return <li key={uid()}> {e} </li>
+                        })}
+                      </ul>
+                    </font>
+                  </aside>
+                </div>
+              )
+            })}
           </div>
         </div>
 
@@ -196,7 +117,7 @@ export async function getServerSideProps ({ query }) {
   )
 
   const resProd = await fetch(
-    `https://plantmatica-api.vercel.app/product/${query.idpromo}`,
+    `https://plantmatica-api.vercel.app/product/promo/${query.idpromo}`,
     {
       headers: {
         'x-token': query.token
@@ -204,10 +125,10 @@ export async function getServerSideProps ({ query }) {
     }
   )
 
-  const { productos } = await resProd.json();
+  const { productos } = await resProd.json()
   const { sucursales } = await res.json()
 
   return {
-    props: { arrayEtiquetas, sucursales, notFound: false }
+    props: { arrayEtiquetas, sucursales, productos, notFound: false }
   }
 }

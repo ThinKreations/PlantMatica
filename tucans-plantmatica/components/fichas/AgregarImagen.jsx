@@ -11,7 +11,9 @@ import { uploadImagen } from '../../pages/api/uploads-http'
 export default function AddImg ({
   mostrarBtn = false,
   texto = 'Agregar',
-  id_coleccion = null
+  id_coleccion = null, 
+  coleccion ,
+  value= false
 }) {
   const style = {
     position: 'absolute',
@@ -38,7 +40,7 @@ export default function AddImg ({
 
   const changeImageReq = async () => {
     if (id_coleccion !== null) {
-      const res = await uploadImagen(selectedFile, 'fichas', id_coleccion);
+      const res = await uploadImagen(selectedFile, coleccion, id_coleccion);
       if(res.status === 200){
         handleClose()
       }

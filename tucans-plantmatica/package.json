@@ -19,6 +19,7 @@
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.19.5",
     "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.4.14",
     "tiny-uid": "^1.1.1",
     "yup": "^0.32.11"
   },

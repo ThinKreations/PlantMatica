@@ -1,4 +1,5 @@
 import { atraparErrores } from "./handle-errors";
+import swal from "sweetalert";
 
 export const signProducto = async producto => {
 
@@ -16,5 +17,5 @@ export const signProducto = async producto => {
     });
     const resJSON = await res.json();
     atraparErrores(res, resJSON, 'Error al registrar el producto');
-    return res;
+    return { resJSON, res };
 }

@@ -172,6 +172,12 @@
     justify-content: space-between;
 }
 
+.fichaImagen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .btnEdit {
     background-color: white;
     border: none;

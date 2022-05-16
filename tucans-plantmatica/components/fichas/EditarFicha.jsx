@@ -12,7 +12,7 @@ import OrigenDisEdit from './OrigenDisEdit'
 import { agregarSolicitud } from '../../pages/api/solicitudes-https'
 import Image from 'next/image'
 import AddImg from './AgregarImagen'
-import imagenNotFound from "../../src/image_no_icon.png"
+import imagenNotFound from '../../src/image_no_icon.png'
 
 export default function EditarFicha ({ fichaParaEdicion }) {
   const [etiquetas, setEtiquetas] = useState(fichaParaEdicion.etiquetas)
@@ -88,7 +88,12 @@ export default function EditarFicha ({ fichaParaEdicion }) {
                 />
               </div>
               <div className={styles.container_imagen_nombres}>
-                <AddImg mostrarBtn={true} id_coleccion={fichaParaEdicion._id} texto='Editar' />
+                <AddImg
+                  mostrarBtn={true}
+                  id_coleccion={fichaParaEdicion._id}
+                  coleccion='fichas'
+                  texto='Editar'
+                />
                 <hr className={styles.division} />
 
                 <EditVisualBtn
