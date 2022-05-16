@@ -27,7 +27,7 @@ export default function Productos ({ arrayEtiquetas, sucursales, productos }) {
           </font>
         </center>
 
-        <hr className={styles.bar} />
+        
 
         <div className={styles.sucursales}>
           <font size={5} face='Work Sans' color='007200'>
