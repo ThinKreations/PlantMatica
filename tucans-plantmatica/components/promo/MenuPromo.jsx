@@ -81,19 +81,19 @@ export default function MenuPromo () {
                   </button>
                 </a>
               </Link>
+              <Link href={`/user/promo/perfil?idpromo=${idPromo}&token=${token}`}>
+                <a>
+                  <button className={styles.btnMenu}>
+                    <font face='Work Sans' size='3'>
+                      <b>{`Perfil`}</b>
+                    </font>
+                  </button>
+                </a>
+              </Link>
             </>
           ) : (
             ''
           )}
-          <Link href='/user/promo/perfil'>
-            <a>
-              <button className={styles.btnMenu}>
-                <font face='Work Sans' size='3'>
-                  <b>{`Perfil`}</b>
-                </font>
-              </button>
-            </a>
-          </Link>
         </aside>
       </div>
     </>

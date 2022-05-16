@@ -44,7 +44,7 @@ export default function Productos ({ arrayEtiquetas, sucursales, productos }) {
             <div className={styles.fichero}>
               {renderProduct.map(producto => {
                 return (
-                  <div className={styles.ficha} key={producto._id}>
+                  <div className={styles.ficha} key={uid()}>
                     <div className={styles.fichaImagen}>
                       <Image
                         src={producto.imagen}
