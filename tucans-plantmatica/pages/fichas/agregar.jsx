@@ -81,8 +81,8 @@ export default function Ficha ({ arrayEtiquetas }) {
             icon: 'success'
           })
         }
-        Router.back()
       }
+      Router.back()
     }
   }
 

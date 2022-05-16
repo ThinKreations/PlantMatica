@@ -3,9 +3,11 @@ import styles from '../../styles/Admin.module.css'
 import uid from 'tiny-uid'
 import Alert from '@mui/material/Alert'
 import styles2 from '../../styles/Fichas.module.css'
+import styles3 from '../../styles/Promotor.module.css'
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
+import Image from "next/image"
 import {
   declinarAceptarFicha,
   traerFichasNoAceptadas
@@ -16,9 +18,9 @@ export default function FichasNoAceptadas ({ fichasNoAceptadas }) {
 
   const controlFicha = async (id_ficha, control) => {
     const id = localStorage.getItem('id')
-    declinarAceptarFicha(control, id, id_ficha);
+    declinarAceptarFicha(control, id, id_ficha)
     const { fichas } = await traerFichasNoAceptadas()
-    setFichasR(fichas);
+    setFichasR(fichas)
   }
 
   useEffect(() => {}, [fichasR])
@@ -46,20 +48,33 @@ export default function FichasNoAceptadas ({ fichasNoAceptadas }) {
                     ) : (
                       ''
                     )}
-                    <p className={styles.nombreC}>Fecha de creación: </p>
-                    <p className={styles.com_Info}>
-                      {Date.parse(f.datos_creacion.fecha.dia)}/
-                      {Date.parse(f.datos_creacion.fecha.mes)}/
-                      {Date.parse(f.datos_creacion.fecha.year)}{' '}
-                    </p>
-                    <p className={styles.nombreC}>
-                      Nombre común:
-                      {f.nombre_comun}
-                    </p>
-                    <p className={styles.nombreC}>
-                      {' '}
-                      Nombre cientifico: {f.nombre_cientifico}
-                    </p>
+                    <div className={styles3.imagen_container}>
+                      <div>
+                        <Image
+                          src={f.imagen}
+                          alt={`${f.nombre_comun} - ${f.nombre_cientifico}`}
+                          width={128}
+                          height={128}
+                          className={styles3.imagen_cuadrada}
+                        ></Image>
+                      </div>
+                      <div className={styles3.container_imagen_nombres}>
+                        <p className={styles.nombreC}>Fecha de creación: </p>
+                        <p className={styles.com_Info}>
+                          {Date.parse(f.datos_creacion.fecha.dia)}/
+                          {Date.parse(f.datos_creacion.fecha.mes)}/
+                          {Date.parse(f.datos_creacion.fecha.year)}{' '}
+                        </p>
+                        <p className={styles.nombreC}>
+                          Nombre común:
+                          {f.nombre_comun}
+                        </p>
+                        <p className={styles.nombreC}>
+                          {' '}
+                          Nombre cientifico: {f.nombre_cientifico}
+                        </p>
+                      </div>
+                    </div>
                     <p className={styles.nombreC}>Descripción: </p>
                     <p className={styles2.textFich}>{f.descripcion}</p>
                     <p className={styles.nombreC}>Complemento a: </p>
