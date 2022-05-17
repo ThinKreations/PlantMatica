@@ -25,7 +25,7 @@ export default function PerfilPromotor ({ promotor }) {
 
   return (
     <>
-      <MainHead tituloPestana='Perfil' />
+      <MainHead tituloPestana={promotor.usuario_referencia.username} />
       <LayoutMenu />
       <MenuPromo />
       <div className={styles3.container}>
@@ -121,7 +121,7 @@ export default function PerfilPromotor ({ promotor }) {
               <Card sx={{ padding: '15px' }} className={styles2.card}>
                 <CardActions>
                   <Link
-                    href={`/user/promo/[editarpromo]?token=${token}`}
+                    href={`/user/promo/[editarpromo]`}
                     as={`/user/promo/${promotor._id}?token=${token}`}
                   >
                     <a>
