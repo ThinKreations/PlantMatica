@@ -1,6 +1,6 @@
-import EditIcon from '@mui/icons-material/Edit'
 import stylesE from '../../styles/EditarFicha.module.css'
 import { useState } from 'react'
+import EditIcon from '@mui/icons-material/Edit'
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import styles from '../../styles/Fichas.module.css'
 
