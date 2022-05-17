@@ -5,20 +5,24 @@ import LayoutMenu from '../../../components/LayoutMenu'
 import MenuPromo from '../../../components/promo/MenuPromo'
 import styles from '../../../styles/Admin.module.css'
 import Alert from '@mui/material/Alert'
+import AlertTitle from '@mui/material/AlertTitle'
 import styles3 from '../../../styles/Promotor.module.css'
 import styles2 from '../../../styles/Fichas.module.css'
 import Card from '@mui/material/Card'
-import CardActions from '@mui/material/CardActions'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import ListItemButton from '@mui/material/ListItemButton'
-import ListItemIcon from '@mui/material/ListItemIcon'
-import ListItemText from '@mui/material/ListItemText'
-import Divider from '@mui/material/Divider'
+import { useEffect, useState } from "react"
 import CardContent from '@mui/material/CardContent'
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd'
+import CardActions from '@mui/material/CardActions'
 
 export default function PerfilPromotor ({ promotor }) {
+
+  const [token, setToken] = useState()
+
+  useEffect(() => {
+    const token_local = localStorage.getItem('token');
+    setToken(token_local)
+  }, [])
+
   return (
     <>
       <MainHead tituloPestana='Perfil' />
@@ -87,64 +91,97 @@ export default function PerfilPromotor ({ promotor }) {
             </div>
           </>
         ) : (
-          <div className={styles2.imagen_container}>
-            <div style={{ minWidth: '420px' }}>
-              <List >
-                <ListItem disablePadding>
-                  <div className={styles.minicard_socios} >ola</div>
-                </ListItem>
-                <Divider />
-                <ListItem disablePadding>
-                  <ListItemButton component='a' href='#simple-list'>
-                    <ListItemText primary='Spam' />
-                  </ListItemButton>
-                </ListItem>
-              </List>
+          <>
+            {promotor.estado_aprobado === false ? (
+              <>
+                <Alert severity='warning' variant='filled'>
+                  <AlertTitle>
+                    {' '}
+                    <strong style={{ fontSize: '19px' }}>
+                      Advertencia - Promotor no verificado
+                    </strong>{' '}
+                  </AlertTitle>
+                  <p style={{ fontSize: '15px' }}>
+                    Revisa la bandeja del correo registrado en tu solicitud al
+                    programa de promotores, si hubo algun error con los datos
+                    registrados se le notifico en dicho correo, si no tiene
+                    algun correo respecto a su solicitud dicha esta siendo
+                    procesada.
+                  </p>
+                  <strong style={{ fontSize: '16px' }}>
+                    En caso de que haya algun error, puede editar los datos
+                    registrados.
+                  </strong>
+                </Alert>
+              </>
+            ) : (
+              ''
+            )}
+            <div className={styles2.imagen_container}>
+              <Card sx={{ padding: '15px' }} className={styles2.card}>
+                <CardActions>
+                  <Link
+                    href={`/user/promo/[editarpromo]?token=${token}`}
+                    as={`/user/promo/${promotor._id}?token=${token}`}
+                  >
+                    <a>
+                      <button className={styles2.btnCalificar}>
+                        Editar datos de promotor.
+                      </button>
+                    </a>
+                  </Link>
+                </CardActions>
+                <CardContent>
+                  <div className={styles.minicard}>
+                    <AssignmentIndIcon
+                      fontSize='large'
+                      className={styles.promo_icon}
+                    />
+                    <p style={{ marginLeft: '16px' }}>
+                      Usuario de referencia <br />
+                      Nombre de usuario: {
+                        promotor.usuario_referencia.username
+                      }{' '}
+                      <br />
+                      Correo: {promotor.usuario_referencia.correo} <br />
+                      Estado de la cuenta: {
+                        promotor.usuario_referencia.status
+                      }{' '}
+                      <br />
+                    </p>
+                  </div>
+                  <div>
+                    <p className={styles2.textFich}>{`Nombre público`}: </p>
+                    <p className={styles.nombreCP}>{promotor.nombre_publico}</p>
+                    <p className={styles2.textFich}>{`Razón social`}: </p>
+                    <p className={styles.nombreCP}>{promotor.razon_social}</p>
+                    <p className={styles2.textFich}>
+                      {`Correo de la empresa`}:{' '}
+                    </p>
+                    <p className={styles.nombreCP}>{promotor.correo_empresa}</p>
+                    <p className={styles.textFich}>Dirección comercial: </p>
+                    <p className={styles.nombreCP}>
+                      {promotor.direccion_comercial}
+                    </p>
+                    <p className={styles2.textFich}>{`Teléfono comercial`}: </p>
+                    <p className={styles.nombreCP}>
+                      {promotor.telefono_comercial}
+                    </p>
+                    <p className={styles2.textFich}>
+                      {`RFC de empresa física o persona`}:{' '}
+                    </p>
+                    <p className={styles.nombreCP}>*************</p>
+                    <p className={styles2.textFich}>
+                      {`CLABE interbancaria`}:{' '}
+                    </p>
+                    <p className={styles.nombreCP}> ************* </p>
+                    <p className={styles2.textFich}>{`Tarjeta de crédito`}: </p>
+                    <p className={styles.nombreCP}>*************</p>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
-            <Card sx={{ padding: '15px' }} className={styles2.card}>
-              <CardContent>
-                <div className={styles.minicard}>
-                  <AssignmentIndIcon className={styles.promo_icon} />
-                  <p style={{ marginLeft: '16px' }}>
-                    Usuario de referencia <br />
-                    Nombre de usuario: {
-                      promotor.usuario_referencia.username
-                    }{' '}
-                    <br />
-                    Correo: {promotor.usuario_referencia.correo} <br />
-                    Estado de la cuenta: {
-                      promotor.usuario_referencia.status
-                    }{' '}
-                    <br />
-                  </p>
-                </div>
-                <div>
-                  <p className={styles2.textFich}>{`Nombre público`}: </p>
-                  <p className={styles.nombreCP}>{promotor.nombre_publico}</p>
-                  <p className={styles2.textFich}>{`Razón social`}: </p>
-                  <p className={styles.nombreCP}>{promotor.razon_social}</p>
-                  <p className={styles2.textFich}>{`Correo de la empresa`}: </p>
-                  <p className={styles.nombreCP}>{promotor.correo_empresa}</p>
-                  <p className={styles.textFich}>Dirección comercial: </p>
-                  <p className={styles.nombreCP}>
-                    {promotor.direccion_comercial}
-                  </p>
-                  <p className={styles2.textFich}>{`Teléfono comercial`}: </p>
-                  <p className={styles.nombreCP}>
-                    {promotor.telefono_comercial}
-                  </p>
-                  <p className={styles2.textFich}>
-                    {`RFC de empresa física o persona`}:{' '}
-                  </p>
-                  <p className={styles.nombreCP}>*************</p>
-                  <p className={styles2.textFich}>{`CLABE interbancaria`}: </p>
-                  <p className={styles.nombreCP}> ************* </p>
-                  <p className={styles2.textFich}>{`Tarjeta de crédito`}: </p>
-                  <p className={styles.nombreCP}>*************</p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+          </>
         )}
       </div>
     </>
@@ -162,7 +199,6 @@ export async function getServerSideProps ({ query }) {
     }
   )
   const { promotor } = await res.json()
-  console.log(promotor)
   return {
     props: {
       promotor,
