@@ -22,6 +22,26 @@ export const signPromotor = async promotor => {
 
 }
 
+export const actualizarPromotor = async (id_promotor, promotor) => {
+
+    const token = localStorage.getItem('token');
+    const data = { ...promotor };
+    let raw = JSON.stringify(data);
+    //console.log(data);
+    const res = await fetch(`https://plantmatica-api.vercel.app/promotor/edit/${id_promotor}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            "x-token": token
+        },
+        body: raw
+    });
+    const resJSON = await res.json();
+    atraparErrores(res, resJSON, 'Error al actualizar el promotor');
+    return res;
+
+}
+
 export const getInfoPromotor = async () => {
 
     const token = localStorage.getItem('token');

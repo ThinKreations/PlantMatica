@@ -1,4 +1,6 @@
 import swal from 'sweetalert';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
 export const atraparErrores = async (res, resJSON, error) => {
     if (res.status !== 200) {

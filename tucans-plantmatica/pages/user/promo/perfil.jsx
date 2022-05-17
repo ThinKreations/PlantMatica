@@ -17,6 +17,7 @@ import EditIcon from '@mui/icons-material/Edit'
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
+import { actualizarPromotor } from "../../../pages/api/promotor-https"
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup'
 
 export default function PerfilPromotor ({ promotor }) {
@@ -70,7 +71,9 @@ export default function PerfilPromotor ({ promotor }) {
   })
 
   const onSubmit = async data => {
-    console.log(data)
+    const res = await actualizarPromotor(promotor._id, data)
+    setEdit(false)
+    location.reload();
   }
 
   useEffect(() => {
