@@ -55,6 +55,7 @@ export default function Productos ({ arrayEtiquetas, sucursales, productos }) {
                         className={styles.imagen_cuadrada}
                         width={128}
                         height={128}
+                        
                       />
                     </div>
                     <aside

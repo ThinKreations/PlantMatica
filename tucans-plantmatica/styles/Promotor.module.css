@@ -175,9 +175,15 @@
 }
 
 .fichaImagen{
+
+    margin: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.nombreProducto{
+    transform: translate(-225%,0);
 }
 
 .btnEdit {
@@ -192,6 +198,20 @@
 .btnEdit:hover {
     transform: scale(1.2, 1.2);
 }
+/* Ficha Única */
+
+.fichaUnica{
+    background-color: rgb(250,250,250);
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 100%;
+    box-shadow:2px 2px 5px rgb(150, 150, 150);
+    padding: 2vw;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
 
 /* botonera */
 /*
