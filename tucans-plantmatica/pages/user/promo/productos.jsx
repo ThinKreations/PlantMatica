@@ -10,6 +10,7 @@ import Alert from '@mui/material/Alert'
 import AlertTitle from '@mui/material/AlertTitle'
 import uid from 'tiny-uid'
 import { useEffect, useState } from 'react'
+import { Button } from '@mui/material'
 
 export default function Productos ({ arrayEtiquetas, sucursales, productos }) {
 
@@ -87,6 +88,19 @@ export default function Productos ({ arrayEtiquetas, sucursales, productos }) {
                             return <li key={uid()}> {e} </li>
                           })}
                         </ul>
+                        
+                        <ul>
+                          {producto.disponibilidad_sucursales.map(s => {
+                            return <p>Ola</p>
+                          })}
+                        </ul>
+                        
+                      <Link href="./[producto]" as={`./${producto._id}`}>
+                      <Button size='large' variant='contained' color='success'>
+                        Mas información
+                      </Button>
+                      </Link>
+                    
                       </font>
                     </aside>
                   </div>
