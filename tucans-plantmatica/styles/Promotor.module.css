@@ -183,7 +183,7 @@
 }
 
 .nombreProducto{
-    transform: translate(-225%,0);
+    transform: translate(-100%,0);
 }
 
 .btnEdit {
@@ -348,5 +348,8 @@
         font-size: 12px;
     }
 
+    .nombreProducto{
+        transform: translate(-25%,0);
+    }
 
 }
