@@ -13,6 +13,16 @@ import Link from 'next/link'
 import Alert from '@mui/material/Alert'
 import { guardarFichaHttp } from '../api/request'
 import { useState, useEffect } from 'react'
+import Button from '@mui/material/Button'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
+import Divider from '@mui/material/Divider'
+import ListItemText from '@mui/material/ListItemText'
+import ListItemAvatar from '@mui/material/ListItemAvatar'
+import Avatar from '@mui/material/Avatar'
+import { postComentario } from '../api/comentario-http'
+import styles2 from '../../styles/Promotor.module.css'
+import Typography from '@mui/material/Typography'
 
 export default function Ficha ({ ficha }) {
   const [idn, setIdn] = useState('')
@@ -22,6 +32,11 @@ export default function Ficha ({ ficha }) {
     const token = localStorage.getItem('token')
     const id = localStorage.getItem('id')
     await guardarFichaHttp(id_ficha, id, token)
+  }
+
+  const publicarComentario = async id_ficha => {
+    const id = localStorage.getItem('id')
+    const { resJSON, res } = await postComentario(id, id_ficha, comentario)
   }
 
   useEffect(() => {
@@ -56,7 +71,7 @@ export default function Ficha ({ ficha }) {
                   className={styles.imagen_cuadrada}
                 ></Image>
               </div>
-              <div className={styles.container_imagen_nombres} >
+              <div className={styles.container_imagen_nombres}>
                 <p className={styles.textU}>{`Nombre común: `}</p>
                 <p className={styles.titlefichaU}>{ficha.nombre_comun}</p>
                 <hr className={styles.division} />
@@ -221,6 +236,65 @@ export default function Ficha ({ ficha }) {
             >{`Guardar ficha`}</button>
           </CardActions>
         </Card>
+
+        <div>
+          <font size={6} face='Work Sans' color='007200'>
+            <p>Comentarios:</p>
+          </font>
+          <input
+            onChange={e => setComentario(e.target.value)}
+            className={styles2.inputComentario}
+            placeholder='Escriba su comentario'
+          ></input>
+          <Button
+            onClick={() => publicarComentario(ficha._id)}
+            size='large'
+            variant='contained'
+            color='success'
+          >
+            Subir
+          </Button>
+
+          <List>
+            <ListItem>
+              <ListItemText
+                primary={
+                  <>
+                    <Typography
+                      sx={{ display: 'inline' }}
+                      component='span'
+                      variant='h5'
+                      color='text.secondary'
+                    >
+                      Nombre usuario
+                    </Typography>
+                  </>
+                }
+                secondary={
+                  <>
+                    <Typography
+                      sx={{ display: 'inline' }}
+                      component='span'
+                      variant='body3'
+                      color='text.primary'
+                    >
+                      Fecha jaja
+                    </Typography>
+                    {`"Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Eos, accusamus eius a provident aperiam consequuntur et
+                    neque maiores vitae aspernatur, illum tempore quis, eum
+                    recusandae ullam incidunt dolorem ducimus fugiat? Porro iste
+                    corrupti reprehenderit architecto omnis iure reiciendis sit
+                    at eaque eveniet, veniam quibusdam earum temporibus
+                    repudiandae modi sunt in excepturi facere. Sit facilis
+                    voluptates ex, repudiandae facere cupiditate debitis?"`}
+                  </>
+                }
+              />
+            </ListItem>
+            <Divider />
+          </List>
+        </div>
       </div>
     </div>
   )
@@ -230,8 +304,10 @@ export async function getServerSideProps ({ params }) {
   const res = await fetch(
     `https://plantmatica-api.vercel.app/ficha/${params.ficha}`
   )
-
   const ficha = await res.json()
+  const resComentarios = await  fetch(`https://plantmatica-api.vercel.app/ficha/${params.ficha}/comentarios`)
+  const { comentarios } = await resComentarios.json();
+  console.log(comentarios)
   //console.log(ficha.comentarios)
   return {
     props: { ficha: ficha.ficha, notFound: false }

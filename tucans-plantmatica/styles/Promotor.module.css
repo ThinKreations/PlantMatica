@@ -345,6 +345,7 @@ flex-wrap: wrap;
 .inputComentario{
     border:none;
     width: 70%;
+    height: 38px;
     font-size: 18px;
     border-bottom: 3px solid var(--main-color);
     margin-top: 20px;

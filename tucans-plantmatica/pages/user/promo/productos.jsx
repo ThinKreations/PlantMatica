@@ -13,10 +13,8 @@ import { useEffect, useState } from 'react'
 import { Button } from '@mui/material'
 
 export default function Productos ({ arrayEtiquetas, sucursales, productos }) {
-
   const [renderProduct, setRenderProduct] = useState(productos)
   return (
-
     <>
       <MainHead tituloPestana='Productos' />
       <LayoutMenu />
@@ -27,8 +25,6 @@ export default function Productos ({ arrayEtiquetas, sucursales, productos }) {
             <h1>Productos</h1>
           </font>
         </center>
-
-        
 
         <div className={styles.sucursales}>
           <font size={5} face='Work Sans' color='007200'>
@@ -56,7 +52,6 @@ export default function Productos ({ arrayEtiquetas, sucursales, productos }) {
                         className={styles.imagen_cuadrada}
                         width={128}
                         height={128}
-                        
                       />
                     </div>
                     <aside
@@ -88,19 +83,16 @@ export default function Productos ({ arrayEtiquetas, sucursales, productos }) {
                             return <li key={uid()}> {e} </li>
                           })}
                         </ul>
-                        
-                        <ul>
-                          {producto.disponibilidad_sucursales.map(s => {
-                            return <p>Ola</p>
-                          })}
-                        </ul>
-                        
-                      <Link href="./[producto]" as={`./${producto._id}`}>
-                      <Button size='large' variant='contained' color='success'>
-                        Mas información
-                      </Button>
-                      </Link>
-                    
+
+                        <Link href='./[producto]' as={`./${producto._id}`}>
+                          <Button
+                            size='large'
+                            variant='contained'
+                            color='success'
+                          >
+                            Mas información
+                          </Button>
+                        </Link>
                       </font>
                     </aside>
                   </div>
