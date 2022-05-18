@@ -58,19 +58,7 @@ export default function Producto ({ producto, sucursales, arrayEtiquetas }) {
                   )
                 })}
                 Sucursales
-                <ul>
-                  {producto.disponibilidad_sucursales.map(s => {
-                    return (
-                      <p>
-                        `Nombre`
-                        <br />
-                        `Dirección`
-                        <br />
-                        Más Información
-                      </p>
-                    )
-                  })}
-                </ul>
+                
                 ----------------
                 <ul>
                   {producto.etiquetas.map(e => {
