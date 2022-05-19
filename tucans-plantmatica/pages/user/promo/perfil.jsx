@@ -17,7 +17,7 @@ import EditIcon from '@mui/icons-material/Edit'
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
-import { actualizarPromotor } from "../../../pages/api/promotor-https"
+import { actualizarPromotor } from '../../../pages/api/promotor-https'
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup'
 
 export default function PerfilPromotor ({ promotor }) {
@@ -28,25 +28,25 @@ export default function PerfilPromotor ({ promotor }) {
     nombre_publico: yup
       .string()
       .required('El nombre público obligatorio')
-      .default(promotor.nombre_publico),
+      .default(promotor ? promotor.nombre_publico : ''),
     razon_social: yup
       .string()
       .required('La razón social es obligatoria')
-      .default(promotor.nombre_publico),
+      .default(promotor ? promotor.nombre_publico : ''),
     direccion_comercial: yup
       .string()
       .required('La dirección es obligatoria')
-      .default(promotor.direccion_comercial),
+      .default(promotor ? promotor.direccion_comercial : ''),
     telefono_comercial: yup
       .string()
       .required('Número obligatorio')
       .min(10, 'Debe ser minimo de 10 caracteres')
-      .default(promotor.telefono_comercial),
+      .default(promotor ? promotor.telefono_comercial : ''),
     correo_comercial: yup
       .string()
       .required('Correo obligatorio')
       .email('Formato de correo no valido')
-      .default(promotor.correo_empresa),
+      .default(promotor ? promotor.correo_empresa : ''),
     clabe_interbancaria: yup
       .string()
       .required('CLABE obligatoria')
@@ -73,7 +73,7 @@ export default function PerfilPromotor ({ promotor }) {
   const onSubmit = async data => {
     const res = await actualizarPromotor(promotor._id, data)
     setEdit(false)
-    location.reload();
+    location.reload()
   }
 
   useEffect(() => {
@@ -83,7 +83,7 @@ export default function PerfilPromotor ({ promotor }) {
 
   return (
     <>
-      <MainHead tituloPestana={` Promotor - ${promotor.nombre_publico}`} />
+      <MainHead tituloPestana={` Promotor - ${(promotor) ? promotor.nombre_publico : "Perfil" }`} />
       <LayoutMenu />
       <MenuPromo />
       <div className={styles3.container}>
@@ -394,7 +394,7 @@ export default function PerfilPromotor ({ promotor }) {
 
 export async function getServerSideProps ({ query }) {
   const res = await fetch(
-    `https://mmg7n2ixnk.us-east-2.awsapprunner.com/promotor/${query.iduser}`,
+    `https://plantmatica-api.vercel.app/promotor/${query.iduser}`,
     {
       method: 'GET',
       headers: {

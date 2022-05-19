@@ -17,7 +17,7 @@ export default function MenuPromo () {
       getInfoPromotor()
       let id = localStorage.getItem('id_promotor')
       setIdPromo(id)
-      if (idPromo === null || idPromo == undefined) {
+      if (idPromo !== null && idPromo !== undefined) {
         setOptionMenu(true)
       } /* else if (idPromo === null || idPromo == undefined) {
       } */
@@ -60,43 +60,45 @@ export default function MenuPromo () {
               </button>
             </a>
           </Link>
-          {optionMenu ? (
-            <>
-              <Link
-                href={`/user/promo/productos?idpromo=${idPromo}&token=${token}`}
-              >
-                <a>
-                  <button className={styles.btnMenu}>
-                    <font face='Work Sans' size='3'>
-                      <b>{`Productos`}</b>
-                    </font>
-                  </button>
-                </a>
-              </Link>
-              <Link
-                href={`/user/promo/sucursales?idpromo=${idPromo}&token=${token}`}
-              >
-                <a>
-                  <button className={styles.btnMenu}>
-                    <font face='Work Sans' size='3'>
-                      <b>{`Sucursales`}</b>
-                    </font>
-                  </button>
-                </a>
-              </Link>
-              <Link href={`/user/promo/perfil?iduser=${idUser}&token=${token}`}>
-                <a>
-                  <button className={styles.btnMenu}>
-                    <font face='Work Sans' size='3'>
-                      <b>{`Perfil`}</b>
-                    </font>
-                  </button>
-                </a>
-              </Link>
-            </>
-          ) : (
-            ''
-          )}
+          <>
+            {optionMenu ? (
+              <>
+                <Link
+                  href={`/user/promo/productos?idpromo=${idPromo}&token=${token}`}
+                >
+                  <a>
+                    <button className={styles.btnMenu}>
+                      <font face='Work Sans' size='3'>
+                        <b>{`Productos`}</b>
+                      </font>
+                    </button>
+                  </a>
+                </Link>
+                <Link
+                  href={`/user/promo/sucursales?idpromo=${idPromo}&token=${token}`}
+                >
+                  <a>
+                    <button className={styles.btnMenu}>
+                      <font face='Work Sans' size='3'>
+                        <b>{`Sucursales`}</b>
+                      </font>
+                    </button>
+                  </a>
+                </Link>
+              </>
+            ) : (
+              ''
+            )}
+            <Link href={`/user/promo/perfil?iduser=${idUser}&token=${token}`}>
+              <a>
+                <button className={styles.btnMenu}>
+                  <font face='Work Sans' size='3'>
+                    <b>{`Perfil`}</b>
+                  </font>
+                </button>
+              </a>
+            </Link>
+          </>
         </aside>
       </div>
     </>

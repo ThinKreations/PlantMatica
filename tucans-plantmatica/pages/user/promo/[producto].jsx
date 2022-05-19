@@ -22,6 +22,11 @@ import Typography from '@mui/material/Typography'
 export default function Producto ({ producto, sucursales, arrayEtiquetas }) {
   const [renderProduct, setRenderProduct] = useState(producto)
   const [sucursalesRender, setSucursalesRender] = useState(sucursales)
+  const [comentario, setComentario] = useState();
+
+  const publicarComentario = async (id_producto) => {
+    const id = localStorage.getItem('id');
+  }
 
   return (
     <>
@@ -57,9 +62,7 @@ export default function Producto ({ producto, sucursales, arrayEtiquetas }) {
                     </>
                   )
                 })}
-                Sucursales
-                
-                ----------------
+                Sucursales ----------------
                 <ul>
                   {producto.etiquetas.map(e => {
                     return <li key={uid()}> {e} </li>
@@ -75,12 +78,11 @@ export default function Producto ({ producto, sucursales, arrayEtiquetas }) {
           </div>
         )}
 
-        {/* 
         <div>
           <font size={6} face='Work Sans' color='007200'>
             <p>Comentarios:</p>
           </font>
-          <input className={styles.inputComentario} placeholder='ola'></input>
+          <input onChange={ (e) => setComentario(e.target.value) } className={styles.inputComentario} placeholder='ola'></input>
           <Button size='large' variant='contained' color='success'>
             Subir
           </Button>
@@ -114,7 +116,6 @@ export default function Producto ({ producto, sucursales, arrayEtiquetas }) {
             <Divider />
           </List>
         </div>
-        */}
       </div>
     </>
   )

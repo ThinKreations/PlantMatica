@@ -407,3 +407,14 @@ flex-wrap: wrap;
     }
 
 }
+
+.borrar_comentario{
+    color: var(--danger-color);
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.borrar_comentario:hover{
+    transform: scale(1.02, 1.02);
+}

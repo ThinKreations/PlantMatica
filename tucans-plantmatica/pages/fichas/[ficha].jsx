@@ -21,13 +21,14 @@ import Divider from '@mui/material/Divider'
 import ListItemText from '@mui/material/ListItemText'
 import ListItemAvatar from '@mui/material/ListItemAvatar'
 import Avatar from '@mui/material/Avatar'
-import { postComentario } from '../api/comentario-http'
+import { postComentario, getComentarios, deleteComentarioFicha } from '../api/comentario-http'
 import styles2 from '../../styles/Promotor.module.css'
 import Typography from '@mui/material/Typography'
 
 export default function Ficha ({ ficha, comentarios = [] }) {
   const [idn, setIdn] = useState('')
   const [comentario, setComentario] = useState('')
+  const [comentariosRender, setComentariosRender] = useState(comentarios)
 
   const guardarFicha = async id_ficha => {
     const token = localStorage.getItem('token')
@@ -37,14 +38,21 @@ export default function Ficha ({ ficha, comentarios = [] }) {
 
   const publicarComentario = async id_ficha => {
     const id = localStorage.getItem('id')
-    const { resJSON, res } = await postComentario(id, id_ficha, comentario)
+    const response = await postComentario(id, id_ficha, comentario)
+    const resGetComentarios = await getComentarios(id_ficha)
+    setComentariosRender(resGetComentarios.comentarios)
+  }
+
+  const borrarComentario = async id_comentario => {
+    const response = await deleteComentarioFicha(id_comentario);
+    const resGetComentarios = await getComentarios(id_ficha)
+    setComentariosRender(resGetComentarios.comentarios)
   }
 
   useEffect(() => {
     const ola = localStorage.getItem('id')
     setIdn(ola)
-    console.log(comentarios)
-  }, [])
+  }, [comentariosRender])
 
   return (
     <div>
@@ -239,7 +247,6 @@ export default function Ficha ({ ficha, comentarios = [] }) {
           </CardActions>
         </Card>
 
-        {/*
         <div>
           <font size={6} face='Work Sans' color='007200'>
             <p>Comentarios:</p>
@@ -258,51 +265,67 @@ export default function Ficha ({ ficha, comentarios = [] }) {
             Subir
           </Button>
 
-            {
-              comentarios.length > 0 ? <>
-                <List>
-              {
-                comentarios.map( c => {
-                  return <ListItem key={uid()}>
-                    <ListItemText
-                primary={
-                  <>
-                    <Typography
-                      sx={{ display: 'inline' }}
-                      component='span'
-                      variant='h5'
-                      color='text.secondary'
-                    >
-                      {c.ref_user}
-                    </Typography>
-                  </>
-                }
-                secondary={
-                  <>
-                    <Typography
-                      sx={{ display: 'inline' }}
-                      component='span'
-                      variant='body3'
-                      color='text.primary'
-                    >
-                      Fecha jaja
-                    </Typography>
-                    {`${c.comentario}`}
-                  </>
-                }
-              />
-            <Divider />
-                  </ListItem>
-                })
-              }
-              
-          </List>
-              </> : ""
-            }
+          {comentariosRender.length > 0 ? (
+            <>
+              <List>
+                {comentariosRender.map(c => {
+                  return (
+                    <div key={c._id}>
+                      <ListItem>
+                        <ListItemText
+                          primary={
+                            <>
+                              <Typography
+                                sx={{ display: 'inline' }}
+                                component='span'
+                                variant='h5'
+                                color='text.secondary'
+                              >
+                                {c.ref_user.username}
+                              </Typography>
+                            </>
+                          }
+                          secondary={
+                            <>
+                              <Typography
+                                sx={{ display: 'inline' }}
+                                component='span'
+                                variant='body1'
+                                color='text.primary'
+                              >
+                                {`${Date.parse(
+                                  c.fecha_comenta.dia
+                                )}/${Date.parse(
+                                  c.fecha_comenta.mes
+                                )}/${Date.parse(c.fecha_comenta.year)} - `}
+                              </Typography>
+                              <Typography
+                                variant='body1'
+                                color='text.primary'
+                                component='span'
+                              >
+                                {`${c.comentario}`}
+                              </Typography>
+                            </>
+                          }
+                        />
+                        {idn === c.ref_user._id ? (
+                          <p onClick={() => borrarComentario(c._id)} className={styles2.borrar_comentario}>Borrar</p>
+                        ) : (
+                          ''
+                        )}
+                      </ListItem>
 
-          
+                      <Divider />
+                    </div>
+                  )
+                })}
+              </List>
+            </>
+          ) : (
+            ''
+          )}
         </div>
-        */}
       </div>
     </div>
   )
@@ -318,7 +341,6 @@ export async function getServerSideProps ({ params }) {
   )
   const { comentarios } = await resComentarios.json()
   console.log(comentarios)
-  //console.log(ficha.comentarios)
   return {
     props: { comentarios, ficha: ficha.ficha, notFound: false }
   }
