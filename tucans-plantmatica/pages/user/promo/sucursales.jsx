@@ -122,7 +122,7 @@ export default function Sucursales ({ sucursales }) {
 
 export async function getServerSideProps ({ query }) {
   const res = await fetch(
-    `https://plantmatica-api.vercel.app/sucursal/${query.idpromo}`,
+    `https://mmg7n2ixnk.us-east-2.awsapprunner.com/sucursal/${query.idpromo}`,
     {
       headers: {
         'x-token': query.token

@@ -3,7 +3,7 @@ import { atraparErrores } from "./handle-errors";
 export const agregarSolicitud = async (solicitud, id_ficha) => {
 
     const token = localStorage.getItem('token');
-    const res = await fetch(`https://plantmatica-api.vercel.app/solicitud/${id_ficha}`, {
+    const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/solicitud/${id_ficha}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -20,7 +20,7 @@ export const agregarSolicitud = async (solicitud, id_ficha) => {
 export const controlSolicitudEdicion = async ( id_ficha, control ) => {
 
     const token = localStorage.getItem('token');
-    const res = await fetch(`https://plantmatica-api.vercel.app/admin/solicitud/${id_ficha}/`, {
+    const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/admin/solicitud/${id_ficha}/`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

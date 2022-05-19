@@ -117,7 +117,7 @@ export default function Productos ({ arrayEtiquetas, sucursales, productos }) {
 export async function getServerSideProps ({ query }) {
   const { arrayEtiquetas } = await traerEtiquetas()
   const res = await fetch(
-    `https://plantmatica-api.vercel.app/sucursal/${query.idpromo}`,
+    `https://mmg7n2ixnk.us-east-2.awsapprunner.com/sucursal/${query.idpromo}`,
     {
       headers: {
         'x-token': query.token
@@ -126,7 +126,7 @@ export async function getServerSideProps ({ query }) {
   )
 
   const resProd = await fetch(
-    `https://plantmatica-api.vercel.app/product/promo/${query.idpromo}`,
+    `https://mmg7n2ixnk.us-east-2.awsapprunner.com/product/promo/${query.idpromo}`,
     {
       headers: {
         'x-token': query.token

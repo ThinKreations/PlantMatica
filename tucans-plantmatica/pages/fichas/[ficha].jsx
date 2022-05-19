@@ -7,7 +7,7 @@ import styles from '../../styles/Fichas.module.css'
 import Box from '@mui/material/Box'
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
-import uid from "tiny-uid"
+import uid from 'tiny-uid'
 import CardContent from '@mui/material/CardContent'
 import Slider from '@mui/material/Slider'
 import Link from 'next/link'
@@ -25,7 +25,7 @@ import { postComentario } from '../api/comentario-http'
 import styles2 from '../../styles/Promotor.module.css'
 import Typography from '@mui/material/Typography'
 
-export default function Ficha ({ ficha, comentarios=[] }) {
+export default function Ficha ({ ficha, comentarios = [] }) {
   const [idn, setIdn] = useState('')
   const [comentario, setComentario] = useState('')
 
@@ -310,11 +310,13 @@ export default function Ficha ({ ficha, comentarios=[] }) {
 
 export async function getServerSideProps ({ params }) {
   const res = await fetch(
-    `https://plantmatica-api.vercel.app/ficha/${params.ficha}`
+    `https://mmg7n2ixnk.us-east-2.awsapprunner.com/ficha/${params.ficha}`
   )
   const ficha = await res.json()
-  const resComentarios = await  fetch(`https://plantmatica-api.vercel.app/ficha/${params.ficha}/comentarios`)
-  const { comentarios } = await resComentarios.json();
+  const resComentarios = await fetch(
+    `https://mmg7n2ixnk.us-east-2.awsapprunner.com/ficha/show/comentarios/${params.ficha}`
+  )
+  const { comentarios } = await resComentarios.json()
   console.log(comentarios)
   //console.log(ficha.comentarios)
   return {

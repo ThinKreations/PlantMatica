@@ -7,7 +7,7 @@ export const signProducto = async producto => {
     const token = localStorage.getItem('token');
     const data = { ...producto, referencia_promotor };
     let raw = JSON.stringify(data);
-    const res = await fetch("https://plantmatica-api.vercel.app/product", {
+    const res = await fetch("https://mmg7n2ixnk.us-east-2.awsapprunner.com/product", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -23,7 +23,7 @@ export const signProducto = async producto => {
 export const getProductos = async producto => {
 
     const token = localStorage.getItem('token');
-    const res = await fetch(`https://plantmatica-api.vercel.app/product/visualizar-productos`, {
+    const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/product/visualizar-productos`, {
         method: "GET",
         
     })

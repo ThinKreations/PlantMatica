@@ -13,7 +13,7 @@ export const getSucursalesPromotor = async (id, token_server, server = false) =>
         token = token_server;
     }
 
-    const res = await fetch(`https://plantmatica-api.vercel.app/sucursal/${referencia_promotor}`, {
+    const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/sucursal/${referencia_promotor}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -29,7 +29,7 @@ export const agregarSucursal = async (nombre_sucursal, direccion, telefono, hora
 
     const token = localStorage.getItem("token");
     const referencia_promotor = localStorage.getItem("id_promotor");
-    const res = await fetch(`https://plantmatica-api.vercel.app/sucursal`, {
+    const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/sucursal`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

@@ -5,7 +5,7 @@ export const traerUsuarios = async (tipo_usuarios) => {
 
     const token = localStorage.getItem("token");
     /* Responde solo con un mensaje */
-    const res = await fetch(`https://plantmatica-api.vercel.app/admin/`, {
+    const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/admin/`, {
         method: "GET",
         mode: 'cors',
         headers: {
@@ -30,7 +30,7 @@ export const traerUsuarios = async (tipo_usuarios) => {
 export const traerFichasNoAceptadas = async () => {
 
     const token = localStorage.getItem("token");
-    const res = await fetch(`https://plantmatica-api.vercel.app/admin/fichas/${token}`, {
+    const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/admin/fichas/${token}`, {
         method: "GET",
         mode: 'cors',
         headers: {
@@ -54,7 +54,7 @@ export const traerFichasNoAceptadas = async () => {
 export const declinarAceptarFicha = async (control, idAdmin, id_ficha) => {
 
     const token = localStorage.getItem("token");
-    const res = await fetch(`https://plantmatica-api.vercel.app/admin/fichaControl/${id_ficha}`, {
+    const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/admin/fichaControl/${id_ficha}`, {
         method: "PUT",
         mode: "cors",
         headers: {
@@ -102,7 +102,7 @@ export const declinarAceptarFicha = async (control, idAdmin, id_ficha) => {
 export const getSolPromotor = async () => {
 
     const token = localStorage.getItem('token');
-    const res = await fetch(`https://plantmatica-api.vercel.app/admin/fichas/${token}`, {
+    const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/admin/fichas/${token}`, {
         mode: 'cors',
         headers: {
             "Content-Type": "application/json",
@@ -125,7 +125,7 @@ export const getSolPromotor = async () => {
 export const controlSolPromotor = async (control, id_promo) => {
 
     const token = localStorage.getItem('token');
-    const res = await fetch(`https://plantmatica-api.vercel.app/admin/control-promo/${control}`, {
+    const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/admin/control-promo/${control}`, {
         method: "PUT",
         mode: "cors",
         headers: {

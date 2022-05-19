@@ -25,7 +25,7 @@ export default function CrearCuenta () {
 
     
 
-    const res = await fetch(`https://plantmatica-api.vercel.app/user`, {
+    const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/user`, {
       method: 'POST',
       mode: 'cors',
       headers: {

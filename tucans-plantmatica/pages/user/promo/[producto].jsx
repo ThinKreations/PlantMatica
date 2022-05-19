@@ -122,7 +122,7 @@ export default function Producto ({ producto, sucursales, arrayEtiquetas }) {
 
 export async function getServerSideProps ({ params, query }) {
   const res = await fetch(
-    `https://plantmatica-api.vercel.app/product/show/${params.producto}`
+    `https://mmg7n2ixnk.us-east-2.awsapprunner.com/product/show/${params.producto}`
   )
 
   const { producto } = await res.json()

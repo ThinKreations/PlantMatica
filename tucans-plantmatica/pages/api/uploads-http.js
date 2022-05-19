@@ -6,7 +6,7 @@ export const uploadImagen = async (file, coleccion, id) => {
     let formdata = new FormData();
     formdata.append("archivo", file);
 
-    const res = await fetch(`https://plantmatica-api.vercel.app/upload/${coleccion}/${id}`, {
+    const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/upload/${coleccion}/${id}`, {
         method: 'PUT',
         body: formdata,
     })

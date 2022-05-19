@@ -146,7 +146,7 @@ export default function Index ({ fichas, solPromo, solFichas }) {
 
 export async function getServerSideProps ({ query }) {
   const res = await fetch(
-    `https://plantmatica-api.vercel.app/admin/fichas/${query.token}`
+    `https://mmg7n2ixnk.us-east-2.awsapprunner.com/admin/fichas/${query.token}`
   )
   const { fichas, solPromo, solFichas } = await res.json()
   return { props: { fichas, solPromo, solFichas, notFound: false } }

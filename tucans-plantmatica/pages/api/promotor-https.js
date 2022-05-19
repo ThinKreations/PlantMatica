@@ -8,7 +8,7 @@ export const signPromotor = async promotor => {
     const data = { ...promotor, usuario_referencia: id_user };
     let raw = JSON.stringify(data);
     //console.log(data);
-    const res = await fetch("https://plantmatica-api.vercel.app/promotor", {
+    const res = await fetch("https://mmg7n2ixnk.us-east-2.awsapprunner.com/promotor", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -28,7 +28,7 @@ export const actualizarPromotor = async (id_promotor, promotor) => {
     const data = { ...promotor };
     let raw = JSON.stringify(data);
     //console.log(data);
-    const res = await fetch(`https://plantmatica-api.vercel.app/promotor/edit/${id_promotor}`, {
+    const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/promotor/edit/${id_promotor}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -46,7 +46,7 @@ export const getInfoPromotor = async () => {
 
     const token = localStorage.getItem('token');
     const id_user = localStorage.getItem('id');
-    const res = await fetch(`https://plantmatica-api.vercel.app/promotor/${id_user}`, {
+    const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/promotor/${id_user}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -66,7 +66,7 @@ export const signSucursal = async sucursal => {
     const token = localStorage.getItem('token');
     const data = { ...sucursal, usuario_referencia: id_user };
     let raw = JSON.stringify(data);
-    const res = await fetch("https://plantmatica-api.vercel.app/sucursal", {
+    const res = await fetch("https://mmg7n2ixnk.us-east-2.awsapprunner.com/sucursal", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

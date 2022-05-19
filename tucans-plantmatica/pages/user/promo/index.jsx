@@ -135,7 +135,7 @@ export default function Promotor ({ productos }) {
 
 export async function getServerSideProps ({ query }) {
   const res = await fetch(
-    `https://plantmatica-api.vercel.app/product/visualizar-productos`,
+    `https://mmg7n2ixnk.us-east-2.awsapprunner.com/product/visualizar-productos`,
     {
       headers: {
         'x-token': query.token

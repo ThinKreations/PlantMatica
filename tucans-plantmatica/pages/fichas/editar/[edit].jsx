@@ -34,7 +34,7 @@ export default function Editar ({ ficha }) {
 
 export async function getServerSideProps ({ params }) {
   const res = await fetch(
-    `https://plantmatica-api.vercel.app/ficha/${params.edit}`
+    `https://mmg7n2ixnk.us-east-2.awsapprunner.com/ficha/${params.edit}`
   )
 
   const ficha = await res.json()
