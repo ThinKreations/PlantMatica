@@ -355,7 +355,7 @@ export async function getServerSideProps ({ params }) {
     `https://mmg7n2ixnk.us-east-2.awsapprunner.com/ficha/show/comentarios/${params.ficha}`
   )
   const { comentarios } = await resComentarios.json()
-  console.log(comentarios)
+  //console.log(comentarios)
   return {
     props: { comentarios, ficha: ficha.ficha, notFound: false }
   }

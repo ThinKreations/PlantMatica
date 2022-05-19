@@ -18,15 +18,37 @@ import ListItemText from '@mui/material/ListItemText'
 import ListItemAvatar from '@mui/material/ListItemAvatar'
 import Avatar from '@mui/material/Avatar'
 import Typography from '@mui/material/Typography'
+import styles2 from '../../../styles/Promotor.module.css'
+import { postComentarioProducto, deleteComentarioProducto, getComentariosProducto } from '../../api/comentario-http'
 
-export default function Producto ({ producto, sucursales, arrayEtiquetas }) {
+export default function Producto ({
+  producto,
+  sucursales,
+  arrayEtiquetas,
+  comentarios
+}) {
   const [renderProduct, setRenderProduct] = useState(producto)
   const [sucursalesRender, setSucursalesRender] = useState(sucursales)
-  const [comentario, setComentario] = useState();
+  const [comentario, setComentario] = useState()
+  const [idn, setIdn] = useState('')
+  const [comentariosRender, setComentariosRender] = useState(comentarios)
 
-  const publicarComentario = async (id_producto) => {
-    const id = localStorage.getItem('id');
+  const publicarComentario = async id_producto => {
+    const resp = await postComentarioProducto(id_producto, comentario)
+    const resGetComentarios = await getComentariosProducto(id_producto);
+    setComentariosRender(resGetComentarios.comentarios)
   }
+
+  const borrarComentario = async (id_comentario, id_producto) => {
+    const resp = await deleteComentarioProducto(id_comentario);
+    const resGetComentarios = await getComentariosProducto(id_producto);
+    setComentariosRender(resGetComentarios.comentarios);
+  }
+
+  useEffect(() => {
+    const ola = localStorage.getItem('id')
+    setIdn(ola)
+  }, [comentariosRender])
 
   return (
     <>
@@ -35,7 +57,7 @@ export default function Producto ({ producto, sucursales, arrayEtiquetas }) {
       <MenuPromo />
 
       <div className={styles.container}>
-        {!Producto ? (
+        {!producto ? (
           <Alert>Ha ocurrido un error, recarga la página.</Alert>
         ) : (
           <div className={styles.fichaUnica}>
@@ -82,39 +104,91 @@ export default function Producto ({ producto, sucursales, arrayEtiquetas }) {
           <font size={6} face='Work Sans' color='007200'>
             <p>Comentarios:</p>
           </font>
-          <input onChange={ (e) => setComentario(e.target.value) } className={styles.inputComentario} placeholder='ola'></input>
-          <Button size='large' variant='contained' color='success'>
+          <input
+            onChange={e => setComentario(e.target.value)}
+            className={styles.inputComentario}
+            placeholder='Comentario'
+          ></input>
+          <Button
+            onClick={() => publicarComentario(producto._id)}
+            size='large'
+            variant='contained'
+            color='success'
+          >
             Subir
           </Button>
 
-          <List>
-            <ListItem>
-              <ListItemText
-                primary='`Nombre de Usuario'
-                secondary={
-                  <>
-                    <Typography
-                      sx={{ display: 'inline' }}
-                      component='span'
-                      variant='body2'
-                      color='text.primary'
-                    >
-                      Fecha jaja
-                    </Typography>
-                    {`"Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Eos, accusamus eius a provident aperiam consequuntur et
-                    neque maiores vitae aspernatur, illum tempore quis, eum
-                    recusandae ullam incidunt dolorem ducimus fugiat? Porro iste
-                    corrupti reprehenderit architecto omnis iure reiciendis sit
-                    at eaque eveniet, veniam quibusdam earum temporibus
-                    repudiandae modi sunt in excepturi facere. Sit facilis
-                    voluptates ex, repudiandae facere cupiditate debitis?"`}
-                  </>
-                }
-              />
-            </ListItem>
-            <Divider />
-          </List>
+          {comentariosRender.length > 0 ? (
+            <>
+              <List>
+                {comentariosRender.map(c => {
+                  return (
+                    <div key={c._id}>
+                      <ListItem>
+                        <ListItemAvatar>
+                          <Avatar
+                            alt={c.ref_user.username}
+                            src={c.ref_user.imagen}
+                          />
+                        </ListItemAvatar>
+                        <ListItemText
+                          primary={
+                            <>
+                              <Typography
+                                sx={{ display: 'inline' }}
+                                component='span'
+                                variant='h5'
+                                color='text.secondary'
+                              >
+                                {c.ref_user.username}
+                              </Typography>
+                            </>
+                          }
+                          secondary={
+                            <>
+                              <Typography
+                                sx={{ display: 'inline' }}
+                                component='span'
+                                variant='body1'
+                                color='text.primary'
+                              >
+                                {`${Date.parse(
+                                  c.fecha_comenta.dia
+                                )}/${Date.parse(
+                                  c.fecha_comenta.mes
+                                )}/${Date.parse(c.fecha_comenta.year)} - `}
+                              </Typography>
+                              <Typography
+                                variant='body1'
+                                color='text.primary'
+                                component='span'
+                              >
+                                {`${c.comentario}`}
+                              </Typography>
+                            </>
+                          }
+                        />
+                        {idn === c.ref_user._id ? (
+                          <p
+                            onClick={() => borrarComentario(c._id, producto._id)}
+                            className={styles2.borrar_comentario}
+                          >
+                            Borrar
+                          </p>
+                        ) : (
+                          ''
+                        )}
+                      </ListItem>
+
+                      <Divider />
+                    </div>
+                  )
+                })}
+              </List>
+            </>
+          ) : (
+            ''
+          )}
         </div>
       </div>
     </>
@@ -125,14 +199,18 @@ export async function getServerSideProps ({ params, query }) {
   const res = await fetch(
     `https://mmg7n2ixnk.us-east-2.awsapprunner.com/product/show/${params.producto}`
   )
-
+  const resComentarios = await fetch(
+    `https://mmg7n2ixnk.us-east-2.awsapprunner.com/product/show/comentarios/${params.producto}`
+  )
+  const { comentarios } = await resComentarios.json()
   const { producto } = await res.json()
-
-  console.log(producto)
+  console.log(comentarios)
+  //console.log(producto)
 
   //peticion servidor
   return {
     props: {
+      comentarios,
       producto,
       notFound: false
     }
