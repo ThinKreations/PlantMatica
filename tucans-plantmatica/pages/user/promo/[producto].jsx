@@ -75,6 +75,7 @@ export default function Producto ({ producto, sucursales, arrayEtiquetas }) {
           </div>
         )}
 
+        {/* 
         <div>
           <font size={6} face='Work Sans' color='007200'>
             <p>Comentarios:</p>
@@ -113,6 +114,7 @@ export default function Producto ({ producto, sucursales, arrayEtiquetas }) {
             <Divider />
           </List>
         </div>
+        */}
       </div>
     </>
   )

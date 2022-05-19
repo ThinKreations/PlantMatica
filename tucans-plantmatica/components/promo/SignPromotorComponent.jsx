@@ -6,6 +6,9 @@ import { schemaSignPromotor } from '../../schemas/signPromotor'
 import IconPlantMatica from '../IconPlantMatica'
 import { signPromotor } from '../../pages/api/promotor-https'
 import Steps from "../Steps";
+import Link from 'next/link';
+import Router from 'next/router'
+
 
 export default function SignPromotorComponent () {
 
@@ -24,6 +27,7 @@ export default function SignPromotorComponent () {
     if(res.status === 200){
         setRegistrado(true);
     }
+    Router.push('https://buy.stripe.com/test_14kdSB4wlcWSdGg6oo')
   }
 
   return (

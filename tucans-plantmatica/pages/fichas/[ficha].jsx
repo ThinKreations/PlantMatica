@@ -7,6 +7,7 @@ import styles from '../../styles/Fichas.module.css'
 import Box from '@mui/material/Box'
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
+import uid from "tiny-uid"
 import CardContent from '@mui/material/CardContent'
 import Slider from '@mui/material/Slider'
 import Link from 'next/link'
@@ -24,7 +25,7 @@ import { postComentario } from '../api/comentario-http'
 import styles2 from '../../styles/Promotor.module.css'
 import Typography from '@mui/material/Typography'
 
-export default function Ficha ({ ficha }) {
+export default function Ficha ({ ficha, comentarios=[] }) {
   const [idn, setIdn] = useState('')
   const [comentario, setComentario] = useState('')
 
@@ -42,6 +43,7 @@ export default function Ficha ({ ficha }) {
   useEffect(() => {
     const ola = localStorage.getItem('id')
     setIdn(ola)
+    console.log(comentarios)
   }, [])
 
   return (
@@ -237,6 +239,7 @@ export default function Ficha ({ ficha }) {
           </CardActions>
         </Card>
 
+        {/*
         <div>
           <font size={6} face='Work Sans' color='007200'>
             <p>Comentarios:</p>
@@ -255,9 +258,13 @@ export default function Ficha ({ ficha }) {
             Subir
           </Button>
 
-          <List>
-            <ListItem>
-              <ListItemText
+            {
+              comentarios.length > 0 ? <>
+                <List>
+              {
+                comentarios.map( c => {
+                  return <ListItem key={uid()}>
+                    <ListItemText
                 primary={
                   <>
                     <Typography
@@ -266,7 +273,7 @@ export default function Ficha ({ ficha }) {
                       variant='h5'
                       color='text.secondary'
                     >
-                      Nombre usuario
+                      {c.ref_user}
                     </Typography>
                   </>
                 }
@@ -280,21 +287,22 @@ export default function Ficha ({ ficha }) {
                     >
                       Fecha jaja
                     </Typography>
-                    {`"Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Eos, accusamus eius a provident aperiam consequuntur et
-                    neque maiores vitae aspernatur, illum tempore quis, eum
-                    recusandae ullam incidunt dolorem ducimus fugiat? Porro iste
-                    corrupti reprehenderit architecto omnis iure reiciendis sit
-                    at eaque eveniet, veniam quibusdam earum temporibus
-                    repudiandae modi sunt in excepturi facere. Sit facilis
-                    voluptates ex, repudiandae facere cupiditate debitis?"`}
+                    {`${c.comentario}`}
                   </>
                 }
               />
-            </ListItem>
             <Divider />
+                  </ListItem>
+                })
+              }
+              
           </List>
+              </> : ""
+            }
+
+          
         </div>
+        */}
       </div>
     </div>
   )
@@ -310,6 +318,6 @@ export async function getServerSideProps ({ params }) {
   console.log(comentarios)
   //console.log(ficha.comentarios)
   return {
-    props: { ficha: ficha.ficha, notFound: false }
+    props: { comentarios, ficha: ficha.ficha, notFound: false }
   }
 }
