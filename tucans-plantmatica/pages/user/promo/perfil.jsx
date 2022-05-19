@@ -394,7 +394,7 @@ export default function PerfilPromotor ({ promotor }) {
 
 export async function getServerSideProps ({ query }) {
   const res = await fetch(
-    `https://plantmatica-api.vercel.app/promotor/${query.iduser}`,
+    `https://mmg7n2ixnk.us-east-2.awsapprunner.com/promotor/${query.iduser}`,
     {
       method: 'GET',
       headers: {
