@@ -21,7 +21,11 @@ import Divider from '@mui/material/Divider'
 import ListItemText from '@mui/material/ListItemText'
 import ListItemAvatar from '@mui/material/ListItemAvatar'
 import Avatar from '@mui/material/Avatar'
-import { postComentario, getComentarios, deleteComentarioFicha } from '../api/comentario-http'
+import {
+  postComentario,
+  getComentarios,
+  deleteComentarioFicha
+} from '../api/comentario-http'
 import styles2 from '../../styles/Promotor.module.css'
 import Typography from '@mui/material/Typography'
 
@@ -43,8 +47,8 @@ export default function Ficha ({ ficha, comentarios = [] }) {
     setComentariosRender(resGetComentarios.comentarios)
   }
 
-  const borrarComentario = async id_comentario => {
-    const response = await deleteComentarioFicha(id_comentario);
+  const borrarComentario = async (id_comentario, id_ficha) => {
+    const response = await deleteComentarioFicha(id_comentario)
     const resGetComentarios = await getComentarios(id_ficha)
     setComentariosRender(resGetComentarios.comentarios)
   }
@@ -272,6 +276,12 @@ export default function Ficha ({ ficha, comentarios = [] }) {
                   return (
                     <div key={c._id}>
                       <ListItem>
+                        <ListItemAvatar>
+                          <Avatar
+                            alt={c.ref_user.username}
+                            src={c.ref_user.imagen}
+                          />
+                        </ListItemAvatar>
                         <ListItemText
                           primary={
                             <>
@@ -310,7 +320,12 @@ export default function Ficha ({ ficha, comentarios = [] }) {
                           }
                         />
                         {idn === c.ref_user._id ? (
-                          <p onClick={() => borrarComentario(c._id)} className={styles2.borrar_comentario}>Borrar</p>
+                          <p
+                            onClick={() => borrarComentario(c._id, ficha._id)}
+                            className={styles2.borrar_comentario}
+                          >
+                            Borrar
+                          </p>
                         ) : (
                           ''
                         )}

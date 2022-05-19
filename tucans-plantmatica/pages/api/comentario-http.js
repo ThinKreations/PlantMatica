@@ -25,7 +25,7 @@ export const deleteComentarioFicha = async (id_comentario) => {
 
     const token = localStorage.getItem('token')
     const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/ficha/delete/comentarios/${id_comentario}`, {
-        method: "PUT",
+        method: "DELETE",
         headers: {
             "Content-Type": "application/json",
             "x-token": token

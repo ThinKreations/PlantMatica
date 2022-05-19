@@ -11,8 +11,8 @@ import { yupResolver } from '@hookform/resolvers/yup/dist/yup'
 import { schemaCrearCuenta } from '../../schemas/crearCuenta'
 import IconPlantMatica from '../../components/IconPlantMatica'
 import swal from 'sweetalert'
-
-
+import Swal from "sweetalert2"
+import { uploadImagen } from "../api/uploads-http"
 
 export default function CrearCuenta () {
   const {register,handleSubmit,
@@ -21,9 +21,7 @@ export default function CrearCuenta () {
     resolver: yupResolver(schemaCrearCuenta)
   })
 
-  const onSubmit = async data => {
-
-    
+  const onSubmit = async data => {    
 
     const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/user`, {
       method: 'POST',
@@ -61,13 +59,29 @@ export default function CrearCuenta () {
         })
       }
     } else {
-      swal({
-        title: 'Finalizado',
-        text: resJSON.msg,
-        icon: 'success',
-        button: 'Ok',
-        timer: '3000'
-      })
+      if (res.status === 200) {
+        const { value: file } = await Swal.fire({
+          title: 'Se creo la cuenta de manera exitosa - ¿Desea agregar una imagen de perfil?',
+          input: 'file',
+          showCancelButton: true,
+          confirmButtonText: 'Subir imagen.',
+          showLoaderOnConfirm: true,
+          inputAttributes: {
+            accept: 'image/*',
+            'aria-label': 'Agregar imagen'
+          }
+        })
+        if (file) {
+          const res = uploadImagen(file, 'users', resJSON.userSave._id)
+          if (res.status == 200) {
+            Swal.fire({
+              title: 'Imagen agregada',
+              //imageUrl: e.target.result,
+              icon: 'success'
+            })
+          }
+        }
+      }
       Router.push('/session/IniciarSesion')
     }
   }

@@ -17,6 +17,7 @@ import Stack from '@mui/material/Stack'
 import Autocomplete from '@mui/material/Autocomplete'
 import { traerEtiquetas } from '../api/fichas-http'
 import { TableCell } from '@mui/material'
+import uid from "tiny-uid"
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
@@ -142,7 +143,7 @@ export default function Index ({ fichas, etiquetas }) {
                               <p className={styles2.textFich}>Etiquetas: </p>
                               {f.etiquetas.map(e => {
                                 return (
-                                  <p key={e} className={styles2.etiquetas}>
+                                  <p key={uid()} className={styles2.etiquetas}>
                                     {' '}
                                     {e}{' '}
                                   </p>
