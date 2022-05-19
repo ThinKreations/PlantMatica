@@ -1,7 +1,7 @@
 export const getUsuario = async (id_user) => {
 
     const token = localStorage.getItem("token")
-    const res = await fetch(`https://plantmatica-api.vercel.app/user/${id_user}`, {
+    const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/user/${id_user}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -44,7 +44,7 @@ export const getUsuario = async (id_user) => {
 export const actualizarUsuario = async (id, usuario) => {
 
     const token = localStorage.getItem("token");
-    const res = await fetch(`https://plantmatica-api.vercel.app/user/${id}`, {
+    const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/user/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -77,7 +77,7 @@ export const actualizarUsuario = async (id, usuario) => {
 /* create es sobre si confirma o rechaza la creacion de la cuenta */
 export const reqConfirmarCuenta = async (token, create) => {
 
-    const res = await fetch(`https://plantmatica-api.vercel.app/user/confirmar/${create}/${token}`, {
+    const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/user/confirmar/${create}/${token}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -106,7 +106,7 @@ export const reqConfirmarCuenta = async (token, create) => {
 /* mandar correo de solicitud de cambiar contrasena */
 export const reqCambiarContrasena = async (correo) => {
 
-    const res = await fetch(`https://plantmatica-api.vercel.app/user/request-password-change`, {
+    const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/user/request-password-change`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -141,7 +141,7 @@ export const reqCambiarContrasena = async (correo) => {
 /* cambiar contrasena en si */
 export const cambiarPass = async (token, password) => {
 
-    const res = await fetch(`https://plantmatica-api.vercel.app/user/change-password/${token}`, {
+    const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/user/change-password/${token}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"

@@ -22,7 +22,7 @@ export default function IniciarSesion () {
   })
 
   const onSubmit = async data => {
-    const res = await fetch(`https://plantmatica-api.vercel.app/login`, {
+    const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/login`, {
       method: 'POST',
       mode: 'cors',
       headers: {
