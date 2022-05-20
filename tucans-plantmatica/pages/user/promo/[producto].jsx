@@ -87,7 +87,7 @@ export default function Producto ({
                   return (
                     
                       <>
-                      <li>{a}</li>
+                      <li key={uid()}>{a}</li>
                       </>
                     
                   )
