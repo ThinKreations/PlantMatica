@@ -86,7 +86,9 @@ export default function Producto ({
                 {producto.advertencias.map(a => {
                   return (
                     
+                      <>
                       <li>{a}</li>
+                      </>
                     
                   )
                 })}
