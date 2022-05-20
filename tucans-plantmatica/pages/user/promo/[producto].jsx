@@ -64,7 +64,7 @@ export default function Producto ({
             <>
               <aside className={styles.asideFicha}>
                 <div
-                  style={{ marginTop: '20px', borderRadius: '4px' }}
+                  style={{ marginTop: '10px', borderRadius: '4px' }}
                   className={styles.fichaImagen}
                 >
                   <Image
@@ -74,22 +74,44 @@ export default function Producto ({
                     height={164}
                   />
                 </div>
-                <p>{producto.descripcion}</p>
-                <p>${producto.costo_fisico} MXN</p>
-                Advertencias
+                <p><b><font face='Work Sans' size={5} color='007200'>Por: </font></b>
+                <font size={5}>{producto.id_comentario}</font></p>
+                <p><b><font face='Work Sans' size={5} color='007200'>Descripción: </font></b>
+                <font size={5}>{producto.descripcion}</font></p>
+                
+                
+                <p><b><font face='Work Sans' size={5} color='red'>Advertencias: </font></b>
+                <font size={4} color='red'>
+
                 {producto.advertencias.map(a => {
                   return (
-                    <>
+                    
                       <li>{a}</li>
-                    </>
+                    
                   )
                 })}
-                Sucursales ----------------
+
+                </font></p>
+                
+                
+                Sucursales 
+                <ul>
+                  {producto.disponibilidad_sucursales.map(s=>{
+                    
+                      return <p>ola</p>
+                    
+                  })}  
+                </ul>                
+                ----------------
                 <ul>
                   {producto.etiquetas.map(e => {
                     return <li key={uid()}> {e} </li>
                   })}
                 </ul>
+
+                <p><b><font size={6} face='Work Sans' color='007200'>Precio: </font></b>
+                <font size={10} face='Work Sans'><b>${producto.costo_fisico} MXN</b></font>
+                </p>
               </aside>
               <aside className={styles.asideFicha}>
                 <font size={6} face='Work Sans' color='007200'>

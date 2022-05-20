@@ -175,8 +175,8 @@
 }
 
 .fichaImagen{
-
-    margin: 15px;
+    
+    margin: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -206,7 +206,7 @@
     margin-bottom: 25px;
     width: 100%;
     box-shadow:2px 2px 5px rgb(150, 150, 150);
-    padding: 2vw;
+    padding: 3vw;
     display: flex;
     justify-content: space-between;
     border-radius: 5px;

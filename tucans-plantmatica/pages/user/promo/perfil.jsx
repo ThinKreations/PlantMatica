@@ -89,7 +89,7 @@ export default function PerfilPromotor ({ promotor }) {
       <div className={styles3.container}>
         <center>
           <font size={6} face='Work Sans' color='007200'>
-            <h1>Perfil (PlantMatica para promotores)</h1>
+            <h1>Perfil de promotor: {(promotor) ? promotor.nombre_publico : "Perfil" }</h1>
           </font>
         </center>
         {!promotor ? (
