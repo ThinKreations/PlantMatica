@@ -95,13 +95,7 @@ export default function Producto ({
                 
                 
                 Sucursales 
-                <ul>
-                  {producto.disponibilidad_sucursales.map(s=>{
-                    
-                      return <p>ola</p>
-                    
-                  })}  
-                </ul>                
+                                
                 ----------------
                 <ul>
                   {producto.etiquetas.map(e => {
