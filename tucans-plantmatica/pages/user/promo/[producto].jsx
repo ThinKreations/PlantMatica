@@ -64,9 +64,16 @@ export default function Producto ({
           <Alert>Ha ocurrido un error, recarga la página.</Alert>
         ) : (
           <div className={styles.fichaUnica}>
+            
             <>
+            
               <aside className={styles.asideFicha}>
-                
+              <font face='Work Sans' color='gray'>{`Etiquetas >`}
+              {producto.etiquetas.map(e => {
+                    return <b key={uid()}> {e},  </b>
+                  })}
+ 
+              </font>
                 
                 <div
                   style={{ marginTop: '10px', borderRadius: '4px' }}
@@ -225,7 +232,7 @@ export default function Producto ({
   )
 }
 
-export async function getServerSideProps ({ params, query }) {
+export async function getServerSideProps ({ params }) {
   const res = await fetch(
     `https://mmg7n2ixnk.us-east-2.awsapprunner.com/product/show/${params.producto}`
   )
