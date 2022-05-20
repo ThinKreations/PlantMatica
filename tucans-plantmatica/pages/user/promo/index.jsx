@@ -48,8 +48,7 @@ export default function Promotor ({ productos }) {
             </font>
           </div>
           <hr className={styles.bar}></hr>
-          <p>Barra de busqueda aki</p>
-
+          
           <font size={3} face='Work Sans'><h3>Haz clic sobre un producto para saber más.</h3></font>
         </div>
 

@@ -68,9 +68,12 @@ export default function Producto ({
             <>
             
               <aside className={styles.asideFicha}>
-              <font face='Work Sans' color='gray'>{`Etiquetas >`}
+              <font face='Work Sans' color='gray'>{`Etiquetas >ㅤ`}
               {producto.etiquetas.map(e => {
-                    return <b key={uid()}> {e} </b>
+                    return <>
+                    <q key={uid()}>{e}</q>
+                    ㅤ
+                    </>
                   })}
  
               </font>
@@ -89,6 +92,7 @@ export default function Producto ({
                   <h1 className={styles.nombreProducto}>{producto.nombre}</h1>
                 </font>
                 </div>
+                <br/>
                 <p><b><font face='Work Sans' size={5} color='007200'>Por: </font></b>
                 <font size={5}>{producto.referencia_promotor.nombre_publico}</font></p>
                 <p><b><font face='Work Sans' size={5} color='007200'>Descripción: </font></b>
@@ -120,16 +124,9 @@ export default function Producto ({
                     
                   })}  
                 </ul></p>              
- 
-                <ul>
-                  {producto.etiquetas.map(e => {
-                    return <li key={uid()}> {e} </li>
-                  })}
-                </ul>
-                
-
+                <br/>
                 <p><b><font size={6} face='Work Sans' color='007200'>Precio: </font></b>
-                <font size={10} face='Work Sans'><b>${producto.costo_fisico} MXN</b></font>
+                <font size={6} face='Work Sans'><b>${producto.costo_fisico} MXN</b></font>
                 </p>
               </aside>
               
