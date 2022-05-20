@@ -70,7 +70,7 @@ export default function Producto ({
               <aside className={styles.asideFicha}>
               <font face='Work Sans' color='gray'>{`Etiquetas >`}
               {producto.etiquetas.map(e => {
-                    return <b key={uid()}> {e},  </b>
+                    return <b key={uid()}> {e} </b>
                   })}
  
               </font>
@@ -85,7 +85,7 @@ export default function Producto ({
                     width={222}
                     height={222}
                   />
-                  <font size={9} face='Work Sans' color='007200'>
+                  <font size={6} face='Work Sans' color='007200'>
                   <h1 className={styles.nombreProducto}>{producto.nombre}</h1>
                 </font>
                 </div>

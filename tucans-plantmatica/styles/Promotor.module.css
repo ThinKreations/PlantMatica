@@ -184,14 +184,14 @@
 
 
 .Image{
-    
+    width: 115%;
     transition: 0.3s;
     margin: 5px;
-    
+    border: 1px solid black;
     display: flex;
-    justify-content: center;
+    
     align-items: center;
-    width: fit-content;
+    
 }
 
 
@@ -210,7 +210,7 @@
 
 
 .nombreProducto{
-    margin-left: 110%;
+    margin-left: 25%;
 
 }
 
@@ -447,13 +447,19 @@ flex-wrap: wrap;
         width: 100%;
     }
 
+    .Image{
+        margin:-7.5%;
+    }
+
     .imagen_cuadrada{
         transform: scale(0.7,0.7);
+        
     }
 
     .nombreProducto{
         margin-left: 2.5%;
     }
+
 
 }
 
