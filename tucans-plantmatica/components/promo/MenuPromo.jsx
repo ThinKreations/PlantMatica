@@ -17,7 +17,7 @@ export default function MenuPromo () {
       getInfoPromotor()
       let id = localStorage.getItem('id_promotor')
       setIdPromo(id)
-      if (idPromo !== null && idPromo !== undefined) {
+      if (idPromo === null || idPromo == undefined) {
         setOptionMenu(true)
       } /* else if (idPromo === null || idPromo == undefined) {
       } */
@@ -61,7 +61,7 @@ export default function MenuPromo () {
             </a>
           </Link>
           <>
-            {optionMenu ? (
+            {idPromo ? (
               <>
                 <Link
                   href={`/user/promo/productos?idpromo=${idPromo}&token=${token}`}
