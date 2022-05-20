@@ -98,7 +98,17 @@ export default function Producto ({
                 <p><b><font face='Work Sans' size={5} color='007200'>Descripción: </font></b>
                 <font size={5}>{producto.descripcion}</font></p>
                 
-                
+                <p><b><font face='Work Sans' size={5} color='007200'>Disponible en las sucursales ubicadas en: </font></b> 
+                <ul>
+                  {producto.disponibilidad_sucursales.map(d=>{
+                    return <li key={uid()}><font face='Work Sans' size={3} ><b>{d.direccion.estado}, {d.direccion.alcaldia}, {d.direccion.avenida} #{d.direccion.num_ext_int}.</b></font> 
+                    <a target="_blank"><Link href={'https://www.google.com/maps/place/'+d.direccion.estado+'%20'+d.direccion.alcaldia+'%20'+d.direccion.avenida+'%20'+d.direccion.num_ext_int}>
+                      <font color='blue' face='Work Sans' size={3} > <b>Buscar en Maps ➜</b></font>
+                    </Link></a></li>
+                    
+                  })}  
+                </ul></p> 
+
                 <p><b><font face='Work Sans' size={5} color='red'>Advertencias: </font></b>
                 <font size={4} color='red'>
 
@@ -113,17 +123,7 @@ export default function Producto ({
                 })}
 
                 </font></p>
-                
-                <p><b><font face='Work Sans' size={5} color='007200'>Disponible en las sucursales ubicadas en: </font></b> 
-                <ul>
-                  {producto.disponibilidad_sucursales.map(d=>{
-                    return <li key={uid()}><font face='Work Sans' size={3} ><b>{d.direccion.estado}, {d.direccion.alcaldia}, {d.direccion.avenida} #{d.direccion.num_ext_int}.</b></font> 
-                    <a target="_blank"><Link href={'https://www.google.com/maps/place/'+d.direccion.estado+'%20'+d.direccion.alcaldia+'%20'+d.direccion.avenida+'%20'+d.direccion.num_ext_int}>
-                      <font color='blue' face='Work Sans' size={3} > <b>Buscar en Maps ➜</b></font>
-                    </Link></a></li>
-                    
-                  })}  
-                </ul></p>              
+
                 <br/>
                 <p><b><font size={6} face='Work Sans' color='007200'>Precio: </font></b>
                 <font size={6} face='Work Sans'><b>${producto.costo_fisico} MXN</b></font>
