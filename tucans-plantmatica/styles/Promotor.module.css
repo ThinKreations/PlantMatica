@@ -182,8 +182,36 @@
     align-items: center;
 }
 
+
+.Image{
+    
+    transition: 0.3s;
+    margin: 5px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+}
+
+
+.imagen_cuadrada {
+    border-radius: 10px;
+    transition: 0.3s;
+    margin: 10px;
+    margin-right: 10%;
+}
+
+
+.imagen_cuadrada:hover {
+    transform: scale(1.2, 1.2);
+    border-radius: 0;
+}
+
+
 .nombreProducto{
-    transform: translate(-25%,0);
+    margin-left: 110%;
+
 }
 
 .btnEdit {
@@ -360,6 +388,18 @@ flex-wrap: wrap;
 .inputComentario:hover {
     background-color: white;
     
+    
+}
+
+.borrar_comentario{
+    color: var(--danger-color);
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.borrar_comentario:hover{
+    transform: scale(1.02, 1.02);
 }
 
 @media screen and (max-width: 600px) {
@@ -395,6 +435,7 @@ flex-wrap: wrap;
 
     .nombreProducto{
         transform: translate(-5%,0);
+        font-size: 48px;
     }
 
     /*Comentario*/
@@ -406,15 +447,13 @@ flex-wrap: wrap;
         width: 100%;
     }
 
+    .imagen_cuadrada{
+        transform: scale(0.7,0.7);
+    }
+
+    .nombreProducto{
+        margin-left: 2.5%;
+    }
+
 }
 
-.borrar_comentario{
-    color: var(--danger-color);
-    cursor: pointer;
-    font-size: 20px;
-    transition: 0.3s;
-}
-
-.borrar_comentario:hover{
-    transform: scale(1.02, 1.02);
-}

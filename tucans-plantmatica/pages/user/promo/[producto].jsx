@@ -20,6 +20,7 @@ import Avatar from '@mui/material/Avatar'
 import Typography from '@mui/material/Typography'
 import styles2 from '../../../styles/Promotor.module.css'
 import { postComentarioProducto, deleteComentarioProducto, getComentariosProducto } from '../../api/comentario-http'
+import Link from 'next/link'
 
 export default function Producto ({
   producto,
@@ -50,6 +51,8 @@ export default function Producto ({
     setIdn(ola)
   }, [comentariosRender])
 
+  
+
   return (
     <>
       <MainHead tituloPestana={producto.nombre} />
@@ -63,19 +66,24 @@ export default function Producto ({
           <div className={styles.fichaUnica}>
             <>
               <aside className={styles.asideFicha}>
+                
+                
                 <div
                   style={{ marginTop: '10px', borderRadius: '4px' }}
-                  className={styles.fichaImagen}
+                  className={styles.Image}
                 >
                   <Image
                     src={producto.imagen}
                     className={styles.imagen_cuadrada}
-                    width={164}
-                    height={164}
+                    width={222}
+                    height={222}
                   />
+                  <font size={9} face='Work Sans' color='007200'>
+                  <h1 className={styles.nombreProducto}>{producto.nombre}</h1>
+                </font>
                 </div>
                 <p><b><font face='Work Sans' size={5} color='007200'>Por: </font></b>
-                <font size={5}>{producto.id_comentario}</font></p>
+                <font size={5}>{producto.referencia_promotor.nombre_publico}</font></p>
                 <p><b><font face='Work Sans' size={5} color='007200'>Descripción: </font></b>
                 <font size={5}>{producto.descripcion}</font></p>
                 
@@ -95,25 +103,29 @@ export default function Producto ({
 
                 </font></p>
                 
-                
-                Sucursales 
-                                
-                ----------------
+                <p><b><font face='Work Sans' size={5} color='007200'>Disponible en las sucursales ubicadas en: </font></b> 
+                <ul>
+                  {producto.disponibilidad_sucursales.map(d=>{
+                    return <li key={uid()}><font face='Work Sans' size={3} ><b>{d.direccion.estado}, {d.direccion.alcaldia}, {d.direccion.avenida} #{d.direccion.num_ext_int}.</b></font> 
+                    <a target="_blank"><Link href={'https://www.google.com/maps/place/'+d.direccion.estado+'%20'+d.direccion.alcaldia+'%20'+d.direccion.avenida+'%20'+d.direccion.num_ext_int}>
+                      <font color='blue' face='Work Sans' size={3} > <b>Buscar en Maps ➜</b></font>
+                    </Link></a></li>
+                    
+                  })}  
+                </ul></p>              
+ 
                 <ul>
                   {producto.etiquetas.map(e => {
                     return <li key={uid()}> {e} </li>
                   })}
                 </ul>
+                
 
                 <p><b><font size={6} face='Work Sans' color='007200'>Precio: </font></b>
                 <font size={10} face='Work Sans'><b>${producto.costo_fisico} MXN</b></font>
                 </p>
               </aside>
-              <aside className={styles.asideFicha}>
-                <font size={6} face='Work Sans' color='007200'>
-                  <h1 className={styles.nombreProducto}>{producto.nombre}</h1>
-                </font>
-              </aside>
+              
             </>
           </div>
         )}
@@ -223,6 +235,7 @@ export async function getServerSideProps ({ params, query }) {
   const { comentarios } = await resComentarios.json()
   const { producto } = await res.json()
   console.log(comentarios)
+  console.log(producto)
   //console.log(producto)
 
   //peticion servidor
