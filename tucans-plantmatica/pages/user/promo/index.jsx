@@ -48,7 +48,8 @@ export default function Promotor ({ productos }) {
             </font>
           </div>
           <hr className={styles.bar}></hr>
-          <p>Barra de busqueda aki</p>
+          
+          <font size={3} face='Work Sans'><h3>Haz clic sobre un producto para saber más.</h3></font>
         </div>
 
         {renderProduct.length === 0 ? (
@@ -64,9 +65,10 @@ export default function Promotor ({ productos }) {
             {renderProduct.map(producto => {
               return (
                 <>
+                <Link href="./promo/[producto]" as={`./promo/${producto._id}`}>
                   <Card
                     key={producto._id}
-                    sx={{ maxWidth: 350, marginTop: '20px' }}
+                    sx={{ maxWidth: 350, marginTop: '20px', minHeight: 'fit-content'}}
                   >
                     <div
                       style={{ marginTop: '20px', borderRadius: '4px' }}
@@ -116,13 +118,16 @@ export default function Promotor ({ productos }) {
                     <CardActions
                       sx={{ alignItems: 'center', justifyContent: 'center' }}
                     >
+                      {/*
                       <Link href="./promo/[producto]" as={`./promo/${producto._id}`}>
                       <Button size='large' variant='contained' color='success'>
                         Mas información
                       </Button>
                       </Link>
+                      */}
                     </CardActions>
                   </Card>
+                  </Link>
                 </>
               )
             })}

@@ -20,6 +20,7 @@ import Avatar from '@mui/material/Avatar'
 import Typography from '@mui/material/Typography'
 import styles2 from '../../../styles/Promotor.module.css'
 import { postComentarioProducto, deleteComentarioProducto, getComentariosProducto } from '../../api/comentario-http'
+import Link from 'next/link'
 
 export default function Producto ({
   producto,
@@ -50,6 +51,8 @@ export default function Producto ({
     setIdn(ola)
   }, [comentariosRender])
 
+  
+
   return (
     <>
       <MainHead tituloPestana={producto.nombre} />
@@ -61,41 +64,72 @@ export default function Producto ({
           <Alert>Ha ocurrido un error, recarga la página.</Alert>
         ) : (
           <div className={styles.fichaUnica}>
+            
             <>
+            
               <aside className={styles.asideFicha}>
+              <font face='Work Sans' color='gray'>{`Etiquetas >ㅤ`}
+              {producto.etiquetas.map(e => {
+                    return <>
+                    <q key={uid()}>{e}</q>
+                    ㅤ
+                    </>
+                  })}
+ 
+              </font>
+                
                 <div
-                  style={{ marginTop: '20px', borderRadius: '4px' }}
-                  className={styles.fichaImagen}
+                  style={{ marginTop: '10px', borderRadius: '4px' }}
+                  className={styles.Image}
                 >
                   <Image
                     src={producto.imagen}
                     className={styles.imagen_cuadrada}
-                    width={164}
-                    height={164}
+                    width={222}
+                    height={222}
                   />
-                </div>
-                <p>{producto.descripcion}</p>
-                <p>${producto.costo_fisico} MXN</p>
-                Advertencias
-                {producto.advertencias.map(a => {
-                  return (
-                    <>
-                      <li>{a}</li>
-                    </>
-                  )
-                })}
-                Sucursales ----------------
-                <ul>
-                  {producto.etiquetas.map(e => {
-                    return <li key={uid()}> {e} </li>
-                  })}
-                </ul>
-              </aside>
-              <aside className={styles.asideFicha}>
-                <font size={6} face='Work Sans' color='007200'>
+                  <font size={6} face='Work Sans' color='007200'>
                   <h1 className={styles.nombreProducto}>{producto.nombre}</h1>
                 </font>
+                </div>
+                <br/>
+                <p><b><font face='Work Sans' size={5} color='007200'>Por: </font></b>
+                <font size={5}>{producto.referencia_promotor.nombre_publico}</font></p>
+                <p><b><font face='Work Sans' size={5} color='007200'>Descripción: </font></b>
+                <font size={5}>{producto.descripcion}</font></p>
+                
+                <p><b><font face='Work Sans' size={5} color='007200'>Disponible en las sucursales ubicadas en: </font></b> 
+                <ul>
+                  {producto.disponibilidad_sucursales.map(d=>{
+                    return <li key={uid()}><font face='Work Sans' size={3} ><b>{d.direccion.estado}, {d.direccion.alcaldia}, {d.direccion.avenida} #{d.direccion.num_ext_int}.</b></font> 
+                    <a target="_blank"><Link href={'https://www.google.com/maps/place/'+d.direccion.estado+'%20'+d.direccion.alcaldia+'%20'+d.direccion.avenida+'%20'+d.direccion.num_ext_int}>
+                      <font color='blue' face='Work Sans' size={3} > <b>Buscar en Maps ➜</b></font>
+                    </Link></a></li>
+                    
+                  })}  
+                </ul></p> 
+
+                <p><b><font face='Work Sans' size={5} color='red'>Advertencias: </font></b>
+                <font size={4} color='red'>
+
+                {producto.advertencias.map(a => {
+                  return (
+                    
+                      <>
+                      <li key={uid()}>{a}</li>
+                      </>
+                    
+                  )
+                })}
+
+                </font></p>
+
+                <br/>
+                <p><b><font size={6} face='Work Sans' color='007200'>Precio: </font></b>
+                <font size={6} face='Work Sans'><b>${producto.costo_fisico} MXN</b></font>
+                </p>
               </aside>
+              
             </>
           </div>
         )}
@@ -195,7 +229,7 @@ export default function Producto ({
   )
 }
 
-export async function getServerSideProps ({ params, query }) {
+export async function getServerSideProps ({ params }) {
   const res = await fetch(
     `https://mmg7n2ixnk.us-east-2.awsapprunner.com/product/show/${params.producto}`
   )
@@ -205,6 +239,7 @@ export async function getServerSideProps ({ params, query }) {
   const { comentarios } = await resComentarios.json()
   const { producto } = await res.json()
   console.log(comentarios)
+  console.log(producto)
   //console.log(producto)
 
   //peticion servidor

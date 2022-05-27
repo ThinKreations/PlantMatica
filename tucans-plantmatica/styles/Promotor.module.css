@@ -175,15 +175,43 @@
 }
 
 .fichaImagen{
-
-    margin: 15px;
+    
+    margin: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+
+.Image{
+    width: 115%;
+    transition: 0.3s;
+    margin: 5px;
+    
+    display: flex;
+    
+    align-items: center;
+    
+}
+
+
+.imagen_cuadrada {
+    border-radius: 10px;
+    transition: 0.3s;
+    margin: 10px;
+    margin-right: 10%;
+}
+
+
+.imagen_cuadrada:hover {
+    transform: scale(1.2, 1.2);
+    border-radius: 0;
+}
+
+
 .nombreProducto{
-    transform: translate(-25%,0);
+    margin-left: 25%;
+
 }
 
 .btnEdit {
@@ -206,7 +234,7 @@
     margin-bottom: 25px;
     width: 100%;
     box-shadow:2px 2px 5px rgb(150, 150, 150);
-    padding: 2vw;
+    padding: 3vw;
     display: flex;
     justify-content: space-between;
     border-radius: 5px;
@@ -360,6 +388,18 @@ flex-wrap: wrap;
 .inputComentario:hover {
     background-color: white;
     
+    
+}
+
+.borrar_comentario{
+    color: var(--danger-color);
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.borrar_comentario:hover{
+    transform: scale(1.02, 1.02);
 }
 
 @media screen and (max-width: 600px) {
@@ -395,6 +435,7 @@ flex-wrap: wrap;
 
     .nombreProducto{
         transform: translate(-5%,0);
+        font-size: 48px;
     }
 
     /*Comentario*/
@@ -406,15 +447,19 @@ flex-wrap: wrap;
         width: 100%;
     }
 
+    .Image{
+        margin:-7.5%;
+    }
+
+    .imagen_cuadrada{
+        transform: scale(0.7,0.7);
+        
+    }
+
+    .nombreProducto{
+        margin-left: 2.5%;
+    }
+
+
 }
 
-.borrar_comentario{
-    color: var(--danger-color);
-    cursor: pointer;
-    font-size: 20px;
-    transition: 0.3s;
-}
-
-.borrar_comentario:hover{
-    transform: scale(1.02, 1.02);
-}
