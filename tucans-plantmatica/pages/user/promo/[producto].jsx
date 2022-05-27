@@ -19,8 +19,13 @@ import ListItemAvatar from '@mui/material/ListItemAvatar'
 import Avatar from '@mui/material/Avatar'
 import Typography from '@mui/material/Typography'
 import styles2 from '../../../styles/Promotor.module.css'
-import { postComentarioProducto, deleteComentarioProducto, getComentariosProducto } from '../../api/comentario-http'
+import {
+  postComentarioProducto,
+  deleteComentarioProducto,
+  getComentariosProducto
+} from '../../api/comentario-http'
 import Link from 'next/link'
+import ProductosRelacionados from '../../../components/promo/ProductosRelacionados'
 
 export default function Producto ({
   producto,
@@ -36,22 +41,21 @@ export default function Producto ({
 
   const publicarComentario = async id_producto => {
     const resp = await postComentarioProducto(id_producto, comentario)
-    const resGetComentarios = await getComentariosProducto(id_producto);
+    const resGetComentarios = await getComentariosProducto(id_producto)
     setComentariosRender(resGetComentarios.comentarios)
+    setComentario('')
   }
 
   const borrarComentario = async (id_comentario, id_producto) => {
-    const resp = await deleteComentarioProducto(id_comentario);
-    const resGetComentarios = await getComentariosProducto(id_producto);
-    setComentariosRender(resGetComentarios.comentarios);
+    const resp = await deleteComentarioProducto(id_comentario)
+    const resGetComentarios = await getComentariosProducto(id_producto)
+    setComentariosRender(resGetComentarios.comentarios)
   }
 
   useEffect(() => {
     const ola = localStorage.getItem('id')
     setIdn(ola)
   }, [comentariosRender])
-
-  
 
   return (
     <>
@@ -64,114 +68,133 @@ export default function Producto ({
           <Alert>Ha ocurrido un error, recarga la página.</Alert>
         ) : (
           <div className={styles.containerProducto}>
+            <div className={styles.fichaUnica}>
+              <>
+                <aside className={styles.asideFicha}>
+                  <font face='Work Sans' color='gray'>
+                    {`Etiquetas >ㅤ`}
+                    {producto.etiquetas.map(e => {
+                      return (
+                        <>
+                          <q key={uid()}>{e}</q>ㅤ
+                        </>
+                      )
+                    })}
+                  </font>
 
-          <div className={styles.fichaUnica}>
-            
-            <>
-            
-              <aside className={styles.asideFicha}>
-              <font face='Work Sans' color='gray'>{`Etiquetas >ㅤ`}
-              {producto.etiquetas.map(e => {
-                    return <>
-                    <q key={uid()}>{e}</q>
-                    ㅤ
-                    </>
-                  })}
- 
-              </font>
-                
-                <div
-                  style={{ marginTop: '10px', borderRadius: '4px' }}
-                  className={styles.Image}
-                >
-                  <Image
-                    src={producto.imagen}
-                    className={styles.imagen_cuadrada}
-                    width={222}
-                    height={222}
-                  />
-                  <font size={6} face='Work Sans' color='007200'>
-                  <h1 className={styles.nombreProducto}>{producto.nombre}</h1>
-                </font>
-                </div>
-                <br/>
-                <p><b><font face='Work Sans' size={5} color='007200'>Por: </font></b>
-                <font size={5}>{producto.referencia_promotor.nombre_publico}</font></p>
-                <p><b><font face='Work Sans' size={5} color='007200'>Descripción: </font></b>
-                <font size={5}>{producto.descripcion}</font></p>
-                
-                <p><b><font face='Work Sans' size={5} color='007200'>Disponible en las sucursales ubicadas en: </font></b> 
-                <ul>
-                  {producto.disponibilidad_sucursales.map(d=>{
-                    return <li key={uid()}><font face='Work Sans' size={3} ><b>{d.direccion.estado}, {d.direccion.alcaldia}, {d.direccion.avenida} #{d.direccion.num_ext_int}.</b></font> 
-                    <a target="_blank"><Link href={'https://www.google.com/maps/place/'+d.direccion.estado+'%20'+d.direccion.alcaldia+'%20'+d.direccion.avenida+'%20'+d.direccion.num_ext_int}>
-                      <font color='blue' face='Work Sans' size={3} > <b>Buscar en Maps ➜</b></font>
-                    </Link></a></li>
-                    
-                  })}  
-                </ul></p> 
+                  <div
+                    style={{ marginTop: '10px', borderRadius: '4px' }}
+                    className={styles.Image}
+                  >
+                    <Image
+                      src={producto.imagen}
+                      className={styles.imagen_cuadrada}
+                      width={222}
+                      height={222}
+                    />
+                    <font size={6} face='Work Sans' color='007200'>
+                      <h1 className={styles.nombreProducto}>
+                        {producto.nombre}
+                      </h1>
+                    </font>
+                  </div>
+                  <br />
+                  <p>
+                    <b>
+                      <font face='Work Sans' size={5} color='007200'>
+                        Por:{' '}
+                      </font>
+                    </b>
+                    <font size={5}>
+                      {producto.referencia_promotor.nombre_publico}
+                    </font>
+                  </p>
+                  <p>
+                    <b>
+                      <font face='Work Sans' size={5} color='007200'>
+                        Descripción:{' '}
+                      </font>
+                    </b>
+                    <font size={5}>{producto.descripcion}</font>
+                  </p>
 
-                <p><b><font face='Work Sans' size={5} color='red'>Advertencias: </font></b>
-                <font size={4} color='red'>
+                  <p>
+                    <b>
+                      <font face='Work Sans' size={5} color='007200'>
+                        Disponible en las sucursales ubicadas en:{' '}
+                      </font>
+                    </b>
+                    <ul>
+                      {producto.disponibilidad_sucursales.map(d => {
+                        return (
+                          <li key={uid()}>
+                            <font face='Work Sans' size={3}>
+                              <b>
+                                {d.direccion.estado}, {d.direccion.alcaldia},{' '}
+                                {d.direccion.avenida} #{d.direccion.num_ext_int}
+                                .
+                              </b>
+                            </font>
+                            <a target='_blank'>
+                              <Link
+                                href={
+                                  'https://www.google.com/maps/place/' +
+                                  d.direccion.estado +
+                                  '%20' +
+                                  d.direccion.alcaldia +
+                                  '%20' +
+                                  d.direccion.avenida +
+                                  '%20' +
+                                  d.direccion.num_ext_int
+                                }
+                              >
+                                <a>
+                                  <font color='blue' face='Work Sans' size={3}>
+                                    {' '}
+                                    <b>Buscar en Maps ➜</b>
+                                  </font>
+                                </a>
+                              </Link>
+                            </a>
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  </p>
 
-                {producto.advertencias.map(a => {
-                  return (
-                    
-                      <>
-                      <li key={uid()}>{a}</li>
-                      </>
-                    
-                  )
-                })}
+                  <p>
+                    <b>
+                      <font face='Work Sans' size={5} color='red'>
+                        Advertencias:{' '}
+                      </font>
+                    </b>
+                    <font size={4} color='red'>
+                      {producto.advertencias.map(a => {
+                        return (
+                          <>
+                            <li key={uid()}>{a}</li>
+                          </>
+                        )
+                      })}
+                    </font>
+                  </p>
 
-                </font></p>
-
-                <br/>
-                <p><b><font size={6} face='Work Sans' color='007200'>Precio: </font></b>
-                <font size={6} face='Work Sans'><b>${producto.costo_fisico} MXN</b></font>
-                </p>
-              </aside>
-              
-            </>
+                  <br />
+                  <p>
+                    <b>
+                      <font size={6} face='Work Sans' color='007200'>
+                        Precio:{' '}
+                      </font>
+                    </b>
+                    <font size={6} face='Work Sans'>
+                      <b>${producto.costo_fisico} MXN</b>
+                    </font>
+                  </p>
+                </aside>
+              </>
+            </div>
+            <ProductosRelacionados productos={producto} />
           </div>
-
-          <div className={styles.productoRelacionadoC}>
-          <center>
-          <p><b><font size={6} face='Work Sans' color='007200'>Productos relacionados: </font></b></p>
-
-                <div className={styles.productoRelacionadoFicha}>
-                <p><b><font size={5} face='Work Sans' color='007200'>`Nombre` </font></b></p>
-                
-                <p><b><font size={3} face='Work Sans' >Por: `{producto.referencia_promotor.nombre_publico}`</font></b></p>
-                <p><b><font size={3} face='Work Sans' >`{producto.descripcion}`</font></b></p>
-                </div>
-
-                <div className={styles.productoRelacionadoFicha}>
-                <p><b><font size={5} face='Work Sans' color='007200'>`Nombre` </font></b></p>
-                
-                <p><b><font size={3} face='Work Sans' >Por: `{producto.referencia_promotor.nombre_publico}`</font></b></p>
-                <p><b><font size={3} face='Work Sans' >`{producto.descripcion}`</font></b></p>
-                </div>
-
-                <div className={styles.productoRelacionadoFicha}>
-                <p><b><font size={5} face='Work Sans' color='007200'>`Nombre` </font></b></p>
-                
-                <p><b><font size={3} face='Work Sans' >Por: `{producto.referencia_promotor.nombre_publico}`</font></b></p>
-                <p><b><font size={3} face='Work Sans' >`{producto.descripcion}`</font></b></p>
-                </div>
-
-                <div className={styles.productoRelacionadoFicha}>
-                <p><b><font size={5} face='Work Sans' color='007200'>`Nombre` </font></b></p>
-                
-                <p><b><font size={3} face='Work Sans' >Por: `{producto.referencia_promotor.nombre_publico}`</font></b></p>
-                <p><b><font size={3} face='Work Sans' >`{producto.descripcion}`</font></b></p>
-                </div>
-                
-          </center>
-          </div>
-
-          </div>
-
         )}
 
         <div>
@@ -181,6 +204,7 @@ export default function Producto ({
           <input
             onChange={e => setComentario(e.target.value)}
             className={styles.inputComentario}
+            value={comentario}
             placeholder='Comentario'
           ></input>
           <Button
@@ -244,7 +268,9 @@ export default function Producto ({
                         />
                         {idn === c.ref_user._id ? (
                           <p
-                            onClick={() => borrarComentario(c._id, producto._id)}
+                            onClick={() =>
+                              borrarComentario(c._id, producto._id)
+                            }
                             className={styles2.borrar_comentario}
                           >
                             Borrar
@@ -270,6 +296,7 @@ export default function Producto ({
 }
 
 export async function getServerSideProps ({ params }) {
+
   const res = await fetch(
     `https://mmg7n2ixnk.us-east-2.awsapprunner.com/product/show/${params.producto}`
   )
@@ -278,15 +305,19 @@ export async function getServerSideProps ({ params }) {
   )
   const { comentarios } = await resComentarios.json()
   const { producto } = await res.json()
-  console.log(comentarios)
-  console.log(producto)
-  //console.log(producto)
+
+  /* const resProductosRelacionados = await fetch(
+    `https://mmg7n2ixnk.us-east-2.awsapprunner.com/product/coincidencias/${producto.etiquetas[0]}/${producto.etiquetas[1]}/${producto.etiquetas[2]}`
+  )
+  const resJSONProdRelacionados = await resProductosRelacionados.json();
+  console.log(resJSONProdRelacionados)s */
 
   //peticion servidor
   return {
     props: {
       comentarios,
       producto,
+      /* resJSONProdRelacionados, */
       notFound: false
     }
   }

@@ -118,13 +118,13 @@ export default function Promotor ({ productos }) {
                     <CardActions
                       sx={{ alignItems: 'center', justifyContent: 'center' }}
                     >
-                      {/*
+                      
                       <Link href="./promo/[producto]" as={`./promo/${producto._id}`}>
                       <Button size='large' variant='contained' color='success'>
                         Mas información
                       </Button>
                       </Link>
-                      */}
+                     
                     </CardActions>
                   </Card>
                   </Link>

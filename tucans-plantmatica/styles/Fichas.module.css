@@ -111,6 +111,10 @@
 
 }
 
+.containerFichaFlex{
+    display: flex;
+}
+
 .base {
     background: linear-gradient(135deg, rgb(250, 230, 164, 0.3), rgb(175, 215, 248, 0.3));
     background-attachment: fixed;
