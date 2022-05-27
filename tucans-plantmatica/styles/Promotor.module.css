@@ -241,9 +241,11 @@
 }
 
 .productoRelacionadoC{
-    width: 32%;
-    padding: 2.2vw;
+    width: 30%;
+    padding: 1vw;
+    max-height: 777px;
     display: inline-block;
+
     border-radius: 5px;
     overflow-y: auto;
     background-color: rgba(150, 150, 150, 0.2);
@@ -264,7 +266,7 @@
 } 
 
 .productoRelacionadoC::-webkit-scrollbar-thumb {
-    background-color: #797979;
+    background-color: #808080;
     border-radius: 20px;
     border: 2px solid rgb(223, 223, 223);
 }

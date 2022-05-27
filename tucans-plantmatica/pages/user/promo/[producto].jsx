@@ -142,8 +142,29 @@ export default function Producto ({
                 <div className={styles.productoRelacionadoFicha}>
                 <p><b><font size={5} face='Work Sans' color='007200'>`Nombre` </font></b></p>
                 
-                <p><b><font size={3} face='Work Sans' >Por: {producto.referencia_promotor.nombre_publico}</font></b></p>
-                <p><b><font size={3} face='Work Sans' >{producto.descripcion}</font></b></p>
+                <p><b><font size={3} face='Work Sans' >Por: `{producto.referencia_promotor.nombre_publico}`</font></b></p>
+                <p><b><font size={3} face='Work Sans' >`{producto.descripcion}`</font></b></p>
+                </div>
+
+                <div className={styles.productoRelacionadoFicha}>
+                <p><b><font size={5} face='Work Sans' color='007200'>`Nombre` </font></b></p>
+                
+                <p><b><font size={3} face='Work Sans' >Por: `{producto.referencia_promotor.nombre_publico}`</font></b></p>
+                <p><b><font size={3} face='Work Sans' >`{producto.descripcion}`</font></b></p>
+                </div>
+
+                <div className={styles.productoRelacionadoFicha}>
+                <p><b><font size={5} face='Work Sans' color='007200'>`Nombre` </font></b></p>
+                
+                <p><b><font size={3} face='Work Sans' >Por: `{producto.referencia_promotor.nombre_publico}`</font></b></p>
+                <p><b><font size={3} face='Work Sans' >`{producto.descripcion}`</font></b></p>
+                </div>
+
+                <div className={styles.productoRelacionadoFicha}>
+                <p><b><font size={5} face='Work Sans' color='007200'>`Nombre` </font></b></p>
+                
+                <p><b><font size={3} face='Work Sans' >Por: `{producto.referencia_promotor.nombre_publico}`</font></b></p>
+                <p><b><font size={3} face='Work Sans' >`{producto.descripcion}`</font></b></p>
                 </div>
                 
           </center>
