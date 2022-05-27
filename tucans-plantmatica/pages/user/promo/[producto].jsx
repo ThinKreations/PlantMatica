@@ -63,6 +63,8 @@ export default function Producto ({
         {!producto ? (
           <Alert>Ha ocurrido un error, recarga la página.</Alert>
         ) : (
+          <div className={styles.containerProducto}>
+
           <div className={styles.fichaUnica}>
             
             <>
@@ -132,6 +134,23 @@ export default function Producto ({
               
             </>
           </div>
+
+          <div className={styles.productoRelacionadoC}>
+          <center>
+          <p><b><font size={6} face='Work Sans' color='007200'>Productos relacionados: </font></b></p>
+
+                <div className={styles.productoRelacionadoFicha}>
+                <p><b><font size={5} face='Work Sans' color='007200'>`Nombre` </font></b></p>
+                
+                <p><b><font size={3} face='Work Sans' >Por: {producto.referencia_promotor.nombre_publico}</font></b></p>
+                <p><b><font size={3} face='Work Sans' >{producto.descripcion}</font></b></p>
+                </div>
+                
+          </center>
+          </div>
+
+          </div>
+
         )}
 
         <div>

@@ -232,14 +232,63 @@
     background-color: rgb(250,250,250);
     margin-top: 25px;
     margin-bottom: 25px;
-    width: 100%;
+    width: 65%;
     box-shadow:2px 2px 5px rgb(150, 150, 150);
-    padding: 3vw;
+    padding: 2.5vw;
     display: flex;
     justify-content: space-between;
     border-radius: 5px;
 }
 
+.productoRelacionadoC{
+    width: 32%;
+    padding: 2.2vw;
+    display: inline-block;
+    border-radius: 5px;
+    overflow-y: auto;
+    background-color: rgba(150, 150, 150, 0.2);
+    transform: translate(0,10px);
+    
+}
+
+.productoRelacionadoC::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.productoRelacionadoC::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.productoRelacionadoC::-webkit-scrollbar-button:increment,.productoRelacionadoC::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.productoRelacionadoC::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+    border: 2px solid rgb(223, 223, 223);
+}
+
+.productoRelacionadoC::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
+.productoRelacionadoFicha{
+    width: 90%;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow:2px 2px 2px rgb(150, 150, 150);
+    padding: 1%;
+    margin: 10px;
+    flex-wrap: wrap;
+}
+
+.containerProducto{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+}
 
 /* botonera */
 /*
@@ -460,6 +509,19 @@ flex-wrap: wrap;
         margin-left: 2.5%;
     }
 
+    .fichaUnica{
+        width: 100%;
+    }
+
+    .containerProducto{
+        display: inline-block;
+    }
+
+    .productoRelacionadoC{
+        width: 100%;
+        height: 300px;
+        transform: translate(0,0px);
+    }
 
 }
 
