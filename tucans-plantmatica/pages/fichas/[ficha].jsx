@@ -86,7 +86,7 @@ export default function Ficha ({ ficha, comentarios = [] }) {
         )}
 
         <div className={styles.containerFichaFlex}>
-          <Card variant='outlined'>
+          <Card variant='outlined' className={styles.fichaG}>
             <CardContent>
               <div className={styles.imagen_container}>
                 <div>
@@ -260,8 +260,6 @@ export default function Ficha ({ ficha, comentarios = [] }) {
               })}
 
               <hr className={styles.division} />
-
-              <hr className={styles.division} />
             </CardContent>
             <CardActions>
               <Link
@@ -280,7 +278,7 @@ export default function Ficha ({ ficha, comentarios = [] }) {
               >{`Guardar ficha`}</button>
             </CardActions>
           </Card>
-          <FichasRelacionadas fichas={ficha} />
+          {/*<FichasRelacionadas fichas={ficha} />*/}
         </div>
 
         <div>

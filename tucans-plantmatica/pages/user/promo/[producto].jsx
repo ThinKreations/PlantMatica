@@ -193,7 +193,7 @@ export default function Producto ({
                 </aside>
               </>
             </div>
-            <ProductosRelacionados productos={producto} />
+            {/*<ProductosRelacionados productos={producto} />*/}
           </div>
         )}
 

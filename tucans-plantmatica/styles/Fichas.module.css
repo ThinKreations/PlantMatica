@@ -39,12 +39,15 @@
 
 }
 
-
+.fichaG{
+    width: 100%;
+}
 
 .card {
     margin-top: 25px;
     margin-bottom: 25px;
     flex-grow: 5;
+    
 }
 
 .tableFichas {
@@ -108,11 +111,12 @@
 
 .containerFicha {
     margin: 32px;
-
+    
 }
 
 .containerFichaFlex{
     display: flex;
+    justify-content: space-between;
 }
 
 .base {
@@ -553,3 +557,14 @@
     padding-left: 40px;
 }
 
+@media screen and (max-width: 600px) {
+
+    .containerFichaFlex{
+        display: inline-block;
+    }
+
+    .fichaG{
+        width: 100%;
+    }
+
+}
