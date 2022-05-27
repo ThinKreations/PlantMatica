@@ -1,6 +1,6 @@
 import MainHead from '../../components/MainHead'
 import LayoutMenu from '../../components/LayoutMenu'
-import Footy from '../../components/footy'
+import Router, { useRouter } from 'next/router'
 import styles2 from '../../styles/Fichas.module.css'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
@@ -17,17 +17,20 @@ import Stack from '@mui/material/Stack'
 import Autocomplete from '@mui/material/Autocomplete'
 import { traerEtiquetas } from '../api/fichas-http'
 import { TableCell } from '@mui/material'
-import uid from "tiny-uid"
+import uid from 'tiny-uid'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
-export default function Index ({ fichas, etiquetas }) {
+export default function Index ({ fichas, etiquetas, coincidencia = '' }) {
+  const router = useRouter()
   const [fichasR, setFichasR] = useState(fichas)
-  const [terminoB, setTerminoB] = useState('')
+  const [terminoB, setTerminoB] = useState(router.query.coincidencia)
 
   const buscarCoincidencias = async () => {
     if (terminoB === undefined || terminoB === '' || terminoB === ' ') {
-      const res = await fetch(`https://mmg7n2ixnk.us-east-2.awsapprunner.com/ficha`)
+      const res = await fetch(
+        `https://mmg7n2ixnk.us-east-2.awsapprunner.com/ficha`
+      )
       const fichas = await res.json()
       setFichasR(fichas)
     } else {
@@ -48,6 +51,10 @@ export default function Index ({ fichas, etiquetas }) {
       setFichasR(resJSON)
     }
   }
+
+  useEffect(() => {
+    buscarCoincidencias()
+  }, [])
 
   return (
     <div>
@@ -143,10 +150,16 @@ export default function Index ({ fichas, etiquetas }) {
                               <p className={styles2.textFich}>Etiquetas: </p>
                               {f.etiquetas.map(e => {
                                 return (
-                                  <p key={uid()} className={styles2.etiquetas}>
-                                    {' '}
-                                    {e}{' '}
-                                  </p>
+                                  <>
+                                    <p
+                                      key={uid()}
+                                      className={styles2.etiquetas}
+                                      onClick={buscarCoincidencias}
+                                    >
+                                      {' '}
+                                      {e}{' '}
+                                    </p>
+                                  </>
                                 )
                               })}
                             </div>

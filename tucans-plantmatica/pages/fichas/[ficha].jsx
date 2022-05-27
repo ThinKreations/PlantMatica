@@ -10,6 +10,7 @@ import CardActions from '@mui/material/CardActions'
 import uid from 'tiny-uid'
 import CardContent from '@mui/material/CardContent'
 import Slider from '@mui/material/Slider'
+import Popover from '@mui/material/Popover'
 import Link from 'next/link'
 import Alert from '@mui/material/Alert'
 import { guardarFichaHttp } from '../api/request'
@@ -33,6 +34,17 @@ export default function Ficha ({ ficha, comentarios = [] }) {
   const [idn, setIdn] = useState('')
   const [comentario, setComentario] = useState('')
   const [comentariosRender, setComentariosRender] = useState(comentarios)
+  const [anchorEl, setAnchorEl] = React.useState(null)
+
+  const handlePopoverOpen = event => {
+    setAnchorEl(event.currentTarget)
+  }
+
+  const handlePopoverClose = () => {
+    setAnchorEl(null)
+  }
+
+  const open = Boolean(anchorEl)
 
   const guardarFicha = async id_ficha => {
     const token = localStorage.getItem('token')
@@ -73,7 +85,7 @@ export default function Ficha ({ ficha, comentarios = [] }) {
           </Alert>
         )}
 
-        <Card variant='outlined' className={styles.base}>
+        <Card variant='outlined'>
           <CardContent>
             <div className={styles.imagen_container}>
               <div>
@@ -219,13 +231,27 @@ export default function Ficha ({ ficha, comentarios = [] }) {
             <hr className={styles.division} />
 
             <p className={styles.titleficha}>{`Etiquetas: `}</p>
-
+            <p className={styles.titlefichaU}>
+              Al dar click en alguna etiqueta se buscaran fichas con etiquetas
+              similares.
+            </p><br/>
             {ficha.etiquetas.map(e => {
               return (
-                <p key={e} className={styles.etiquetas}>
-                  {' '}
-                  {e}{' '}
-                </p>
+                <>
+                  <Link href={`/fichas?coincidencia=${e}`}>
+                    <a>
+                      <p
+                        key={e}
+                        className={styles.etiquetas}
+                        onMouseEnter={handlePopoverOpen}
+                        onMouseLeave={handlePopoverClose}
+                      >
+                        {' '}
+                        {e}{' '}
+                      </p>
+                    </a>
+                  </Link>
+                </>
               )
             })}
 
