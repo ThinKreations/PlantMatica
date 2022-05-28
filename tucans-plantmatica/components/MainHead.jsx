@@ -8,6 +8,7 @@ export default function MainHead(props) {
                 <meta charSet="UTF-8" />
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <meta property="og:title" content="plantmatica" key="Plantmatica, herbolaria, plantmatica, PlantMatica, plantas, Tucans Software, remedios medicinales, tucans software, herbolaria mexico, medicina alternativa, cecyt 9" />
                 <title> {props.tituloPestana} </title>
                 <link rel="shortcut icon" href={props.icon} />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />

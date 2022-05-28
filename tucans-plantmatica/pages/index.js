@@ -6,11 +6,16 @@ import IconPlantMatica from '../components/IconPlantMatica';
 import LayoutIndex from '../components/LayoutIndex';
 import styles from "../styles/Home.module.css";
 import logo from "../src/plantmatica.png";
+import Head from 'next/head'
 
 export default function Index() {
   return (
     <div>
-      <MainHead tituloPestana="PlantMatica" />
+      <Head>
+        <title>PlantMatica</title>
+        <meta property="og:title" content="plantmatica" key="Plantmatica" />
+      </Head>
+     
       <LayoutIndex>
         <font size={4} face="Work Sans">
           <div className={styles.container_1}>
