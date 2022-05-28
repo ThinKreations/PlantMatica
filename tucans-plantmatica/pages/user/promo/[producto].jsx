@@ -305,6 +305,7 @@ export async function getServerSideProps ({ params }) {
   )
   const { comentarios } = await resComentarios.json()
   const { producto } = await res.json()
+  console.log(producto)
 
   /* const resProductosRelacionados = await fetch(
     `https://mmg7n2ixnk.us-east-2.awsapprunner.com/product/coincidencias/${producto.etiquetas[0]}/${producto.etiquetas[1]}/${producto.etiquetas[2]}`

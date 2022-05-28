@@ -120,9 +120,9 @@ export default function Promotor ({ productos }) {
                     >
                       
                       <Link href="./promo/[producto]" as={`./promo/${producto._id}`}>
-                      <Button size='large' variant='contained' color='success'>
+                      <a><Button size='large' variant='contained' color='success'>
                         Mas información
-                      </Button>
+                      </Button></a>
                       </Link>
                      
                     </CardActions>
