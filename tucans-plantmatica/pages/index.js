@@ -13,7 +13,7 @@ export default function Index() {
     <div>
       <Head>
         <title>PlantMatica</title>
-        <meta property="og:title" content="plantmatica" key="Plantmatica" />
+        <meta property="og:title" content="plantmatica" key="Plantmatica, herbolaria, plantmatica, PlantMatica, plantas, Tucans Software, remedios medicinales, tucans software, herbolaria mexico, medicina alternativa, cecyt 9" />
       </Head>
      
       <LayoutIndex>
