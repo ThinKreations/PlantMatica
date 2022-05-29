@@ -127,7 +127,7 @@ export default function Producto ({
                     <ul>
                       {producto.disponibilidad_sucursales.map(d => {
                         return (
-                          <li key={uid()}>
+                          <li key={`${uid()}+${uid()}`}>
                             <font face='Work Sans' size={3}>
                               <b>
                                 {d.direccion.estado}, {d.direccion.alcaldia},{' '}
@@ -193,7 +193,7 @@ export default function Producto ({
                 </aside>
               </>
             </div>
-            {/*<ProductosRelacionados productos={producto} />*/}
+            {/* <ProductosRelacionados productos={producto} /> */}
           </div>
         )}
 
@@ -296,7 +296,6 @@ export default function Producto ({
 }
 
 export async function getServerSideProps ({ params }) {
-
   const res = await fetch(
     `https://mmg7n2ixnk.us-east-2.awsapprunner.com/product/show/${params.producto}`
   )
@@ -305,21 +304,30 @@ export async function getServerSideProps ({ params }) {
   )
   const { comentarios } = await resComentarios.json()
   const { producto } = await res.json()
-  console.log(producto)
+  let coincidencia1a = producto.etiquetas[0]
+  let coincidencia2a = producto.etiquetas[1]
+  let coincidencia3a = producto.etiquetas[2]
 
   /* const resProductosRelacionados = await fetch(
-    `https://mmg7n2ixnk.us-east-2.awsapprunner.com/product/coincidencias/${producto.etiquetas[0]}/${producto.etiquetas[1]}/${producto.etiquetas[2]}`
+    `https://mmg7n2ixnk.us-east-2.awsapprunner.com/search/producto/coincidencias/`,
+    {
+      method: 'PUT',
+      body: JSON.stringify({
+        coincidencia1: coincidencia1a,
+        coincidencia2: coincidencia2a,
+        coincidencia3: coincidencia3a,
+      })
+    }
   )
-  const resJSONProdRelacionados = await resProductosRelacionados.json();
-  console.log(resJSONProdRelacionados)s */
+  const resJSONProdRelacionados = await resProductosRelacionados.json()
+  console.log(resJSONProdRelacionados) */
 
   //peticion servidor
   return {
     props: {
       comentarios,
       producto,
-      /* resJSONProdRelacionados, */
-      notFound: false
+      /* resJSONProdRelacionados */
     }
   }
 }

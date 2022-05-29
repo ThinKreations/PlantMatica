@@ -57,7 +57,7 @@ export default function ProductosRelacionados ({ productos }) {
           <p>
             <b>
               <font size={3} face='Work Sans'>
-                `{productos.descripcion}`
+                {productos.descripcion.substr(0, 75) }...
               </font>
             </b>
           </p>
