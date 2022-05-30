@@ -69,7 +69,7 @@ export default function MenuPromo () {
                   <a>
                     <button className={styles.btnMenu}>
                       <font face='Work Sans' size='3'>
-                        <b>{`Productos`}</b>
+                        <b>{`Mis productos`}</b>
                       </font>
                     </button>
                   </a>
@@ -80,7 +80,7 @@ export default function MenuPromo () {
                   <a>
                     <button className={styles.btnMenu}>
                       <font face='Work Sans' size='3'>
-                        <b>{`Sucursales`}</b>
+                        <b>{`Mis sucursales`}</b>
                       </font>
                     </button>
                   </a>

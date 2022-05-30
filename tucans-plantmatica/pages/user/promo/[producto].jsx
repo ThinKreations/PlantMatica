@@ -31,7 +31,8 @@ export default function Producto ({
   producto,
   sucursales,
   arrayEtiquetas,
-  comentarios
+  comentarios,
+  resJSONProdRelacionados
 }) {
   const [renderProduct, setRenderProduct] = useState(producto)
   const [sucursalesRender, setSucursalesRender] = useState(sucursales)
@@ -75,9 +76,9 @@ export default function Producto ({
                     {`Etiquetas >ㅤ`}
                     {producto.etiquetas.map(e => {
                       return (
-                        <>
+                        <div>
                           <q key={uid()}>{e}</q>ㅤ
-                        </>
+                        </div>
                       )
                     })}
                   </font>
@@ -170,11 +171,7 @@ export default function Producto ({
                     </b>
                     <font size={4} color='red'>
                       {producto.advertencias.map(a => {
-                        return (
-                          <>
-                            <li key={uid()}>{a}</li>
-                          </>
-                        )
+                        return <li key={uid()}>{a}</li>
                       })}
                     </font>
                   </p>
@@ -193,7 +190,10 @@ export default function Producto ({
                 </aside>
               </>
             </div>
-            {/* <ProductosRelacionados productos={producto} /> */}
+            <ProductosRelacionados
+              only_producto={producto}
+              productos={resJSONProdRelacionados}
+            />
           </div>
         )}
 
@@ -308,26 +308,28 @@ export async function getServerSideProps ({ params }) {
   let coincidencia2a = producto.etiquetas[1]
   let coincidencia3a = producto.etiquetas[2]
 
-  /* const resProductosRelacionados = await fetch(
+  const resProductosRelacionados = await fetch(
     `https://mmg7n2ixnk.us-east-2.awsapprunner.com/search/producto/coincidencias/`,
     {
       method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
         coincidencia1: coincidencia1a,
         coincidencia2: coincidencia2a,
-        coincidencia3: coincidencia3a,
+        coincidencia3: coincidencia3a
       })
     }
   )
   const resJSONProdRelacionados = await resProductosRelacionados.json()
-  console.log(resJSONProdRelacionados) */
 
   //peticion servidor
   return {
     props: {
       comentarios,
       producto,
-      /* resJSONProdRelacionados */
+      resJSONProdRelacionados
     }
   }
 }

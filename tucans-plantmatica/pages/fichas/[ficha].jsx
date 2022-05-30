@@ -29,7 +29,11 @@ import {
 import styles2 from '../../styles/Promotor.module.css'
 import Typography from '@mui/material/Typography'
 
-export default function Ficha ({ ficha, comentarios = [] }) {
+export default function Ficha ({
+  ficha,
+  comentarios = [],
+  resJSONFichasRelacionas
+}) {
   const [idn, setIdn] = useState('')
   const [comentario, setComentario] = useState('')
   const [comentariosRender, setComentariosRender] = useState(comentarios)
@@ -278,7 +282,10 @@ export default function Ficha ({ ficha, comentarios = [] }) {
               >{`Guardar ficha`}</button>
             </CardActions>
           </Card>
-          {/*<FichasRelacionadas fichas={ficha} />*/}
+          {/* <FichasRelacionadas
+            fichas={resJSONFichasRelacionas}
+            only_ficha={ficha}
+          /> */}
         </div>
 
         <div>
@@ -381,13 +388,45 @@ export async function getServerSideProps ({ params }) {
   const res = await fetch(
     `https://mmg7n2ixnk.us-east-2.awsapprunner.com/ficha/${params.ficha}`
   )
-  const ficha = await res.json()
+  const { ficha } = await res.json()
   const resComentarios = await fetch(
     `https://mmg7n2ixnk.us-east-2.awsapprunner.com/ficha/show/comentarios/${params.ficha}`
   )
   const { comentarios } = await resComentarios.json()
-  //console.log(comentarios)
+
+  /* let concidencia_termino1
+  let concidencia_termino2;
+
+  ficha.etiquetas.forEach(e => {
+    console.log(e)
+    e !== ficha.nombre_comun && e !== ficha.nombre_cientifico
+      ? (concidencia_termino1 = e)
+      : ''
+    e !== ficha.nombre_comun &&
+    e !== ficha.nombre_cientifico &&
+    e !== concidencia_termino2
+      ? (concidencia_termino2 = e)
+      : ''
+  })
+  console.log(concidencia_termino1, concidencia_termino2, ficha.etiquetas[2])
+
+  const resFichasRelacionas = await fetch(
+    `https://mmg7n2ixnk.us-east-2.awsapprunner.com/search/ficha/coincidencias/`,
+    {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        coincidencia1: concidencia_termino1,
+        coincidencia2: concidencia_termino2,
+        coincidencia3: ficha.etiquetas[2]
+      })
+    }
+  )
+  const resJSONFichasRelacionas = await resFichasRelacionas.json()
+  console.log(resJSONFichasRelacionas) */
   return {
-    props: { comentarios, ficha: ficha.ficha, notFound: false }
+    props: { comentarios, ficha, /* resJSONFichasRelacionas */ notFound: false }
   }
 }
